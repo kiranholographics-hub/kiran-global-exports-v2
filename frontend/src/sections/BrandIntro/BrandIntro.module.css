@@ -1,0 +1,268 @@
+/* ═══════════════════════════════════════════════
+   BRAND INTRO — Editorial Two-Column Layout
+   Rugs & Towels Luxury Brand
+═══════════════════════════════════════════════ */
+
+/* ── Section ─────────────────────────────────── */
+.section {
+  background: var(--bg-primary);
+  overflow: hidden;
+}
+
+/* ── Grid Layout ─────────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(3rem, 6vw, 5rem);
+  align-items: center;
+}
+
+@media (min-width: 860px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(3.5rem, 6vw, 6rem);
+  }
+}
+
+@media (min-width: 1080px) {
+  .grid {
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+}
+
+/* ── Text Column ─────────────────────────────── */
+.textCol {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+/* ── Heading ─────────────────────────────────── */
+.heading {
+  font-family: var(--font-serif);
+  font-size: var(--fs-h1);
+  font-weight: 500;
+  line-height: var(--lh-tight);
+  letter-spacing: -0.02em;
+  color: var(--color-charcoal);
+
+  /* Warm gradient on heading */
+  background: linear-gradient(
+    145deg,
+    var(--color-charcoal) 0%,
+    var(--color-deep-brown) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Body Copy ───────────────────────────────── */
+.copy {
+  font-size: var(--fs-lead);
+  line-height: var(--lh-body);
+  color: var(--text-muted);
+  max-width: 52ch;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+}
+
+/* ── Accent Divider ──────────────────────────── */
+.divider {
+  width: 3rem;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    var(--color-accent),
+    transparent
+  );
+  opacity: 0.55;
+}
+
+/* ── Stats Row ───────────────────────────────── */
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-lg);
+  margin-top: var(--space-sm);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.statNumber {
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 500;
+  line-height: 1;
+  color: var(--color-accent);
+  letter-spacing: -0.02em;
+}
+
+.statLabel {
+  font-size: var(--fs-small);
+  font-weight: 500;
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* ── Image Column ────────────────────────────── */
+.imageCol {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-sm);
+}
+
+@media (min-width: 480px) {
+  .imageCol {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+  }
+}
+
+/* ── Main Image ──────────────────────────────── */
+.imageMain {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  aspect-ratio: 3 / 4;
+  box-shadow: var(--shadow-md);
+  transition: box-shadow var(--dur-mid) var(--ease-soft);
+}
+
+@media (min-width: 480px) {
+  .imageMain {
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+  }
+}
+
+.imageMain:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.imageMain img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--dur-slow) var(--ease-premium);
+}
+
+.imageMain:hover img {
+  transform: scale(1.04);
+}
+
+/* ── Detail Image ────────────────────────────── */
+.imageDetail {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  aspect-ratio: 4 / 3;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--dur-mid) var(--ease-soft);
+
+  /* Offset down slightly on desktop */
+  margin-top: clamp(1.5rem, 4vw, 3.5rem);
+}
+
+@media (min-width: 480px) {
+  .imageDetail {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    align-self: end;
+  }
+}
+
+.imageDetail:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.imageDetail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--dur-slow) var(--ease-premium);
+}
+
+.imageDetail:hover img {
+  transform: scale(1.05);
+}
+
+/* ── Floating Label Badge ────────────────────── */
+.imageBadge {
+  position: absolute;
+  bottom: var(--space-sm);
+  left: var(--space-sm);
+  z-index: 2;
+  padding: 0.45rem 0.85rem;
+  background: rgba(250, 246, 239, 0.90);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-charcoal);
+  white-space: nowrap;
+  box-shadow: var(--shadow-sm);
+}
+
+/* ── Decorative Corner Tag ───────────────────── */
+.cornerTag {
+  position: absolute;
+  top: var(--space-sm);
+  right: var(--space-sm);
+  z-index: 2;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-top: 1.5px solid rgba(160, 82, 45, 0.55);
+  border-right: 1.5px solid rgba(160, 82, 45, 0.55);
+  pointer-events: none;
+}
+
+/* ── Mobile ──────────────────────────────────── */
+@media (max-width: 859px) {
+  /* On mobile: text first, images below */
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .textCol {
+    order: 1;
+  }
+
+  .imageCol {
+    order: 2;
+  }
+
+  .imageDetail {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 479px) {
+  .imageCol {
+    grid-template-columns: 1fr;
+  }
+
+  .imageMain {
+    aspect-ratio: 4 / 3;
+  }
+
+  .imageDetail {
+    aspect-ratio: 16 / 9;
+  }
+
+  .stats {
+    gap: var(--space-md);
+  }
+}

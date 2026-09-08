@@ -1,0 +1,250 @@
+/* ═══════════════════════════════════════════════
+   WHY KIRAN — Feature Points Grid
+   Rugs & Towels Luxury Brand
+═══════════════════════════════════════════════ */
+
+/* ── Section Override ────────────────────────── */
+.section {
+  background: var(--bg-sand);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle warm top + bottom border lines */
+.section::before,
+.section::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent                 0%,
+    rgba(160, 82, 45, 0.20)     25%,
+    rgba(160, 82, 45, 0.35)     50%,
+    rgba(160, 82, 45, 0.20)     75%,
+    transparent                 100%
+  );
+}
+
+.section::before { top: 0; }
+.section::after  { bottom: 0; }
+
+/* ── Grid ────────────────────────────────────── */
+.grid {
+  display: grid;
+  gap: 0;
+  grid-template-columns: 1fr;
+  margin-top: clamp(3rem, 5vw, 4.5rem);
+
+  /* Outer border box */
+  border: 1px solid var(--border-subtle);
+}
+
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1000px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ── Grid Item ───────────────────────────────── */
+.item {
+  position: relative;
+  padding: clamp(1.75rem, 3vw, 2.5rem);
+  border-right: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--bg-sand);
+  overflow: hidden;
+  transition:
+    background var(--dur-mid) var(--ease-soft),
+    box-shadow var(--dur-mid) var(--ease-soft);
+}
+
+/* Warm fill on hover */
+.item:hover {
+  background: var(--bg-paper);
+  box-shadow: inset 0 0 0 1px var(--border-accent);
+}
+
+/* Remove right border on last in each row */
+@media (min-width: 1000px) {
+  .item:nth-child(3n) {
+    border-right: none;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 999px) {
+  .item:nth-child(2n) {
+    border-right: none;
+  }
+}
+
+@media (max-width: 639px) {
+  .item {
+    border-right: none;
+  }
+}
+
+/* Accent corner reveal on hover */
+.item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    var(--color-accent),
+    var(--color-accent-light)
+  );
+  transition: width var(--dur-mid) var(--ease-premium);
+}
+
+.item:hover::before {
+  width: 100%;
+}
+
+/* ── Number ──────────────────────────────────── */
+.n {
+  display: inline-block;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--fs-small);
+  color: var(--accent);
+  opacity: 0.65;
+  transition:
+    opacity   var(--dur-fast) var(--ease-soft),
+    color     var(--dur-fast) var(--ease-soft);
+}
+
+.item:hover .n {
+  opacity: 1;
+  color: var(--color-accent-light);
+}
+
+/* Large ghost number — decorative */
+.ghostN {
+  position: absolute;
+  bottom: -0.5rem;
+  right: 1rem;
+  font-family: var(--font-serif);
+  font-size: clamp(4rem, 7vw, 6.5rem);
+  font-weight: 500;
+  line-height: 1;
+  color: var(--color-beige);
+  letter-spacing: -0.05em;
+  pointer-events: none;
+  user-select: none;
+  transition: color var(--dur-mid) var(--ease-soft);
+  z-index: 0;
+}
+
+.item:hover .ghostN {
+  color: var(--color-stone);
+  opacity: 0.4;
+}
+
+/* ── Item Title ──────────────────────────────── */
+.title {
+  position: relative;
+  z-index: 1;
+  margin-top: var(--space-md);
+  font-family: var(--font-serif);
+  font-size: var(--fs-h3);
+  font-weight: 500;
+  color: var(--color-charcoal);
+  letter-spacing: -0.01em;
+  line-height: var(--lh-snug);
+  transition: color var(--dur-fast) var(--ease-soft);
+}
+
+.item:hover .title {
+  color: var(--color-deep-brown);
+}
+
+/* Accent underline on title */
+.titleUnderline {
+  display: block;
+  width: 0;
+  height: 1px;
+  margin-top: 0.5rem;
+  background: linear-gradient(
+    90deg,
+    var(--color-accent),
+    transparent
+  );
+  transition: width var(--dur-mid) var(--ease-premium);
+}
+
+.item:hover .titleUnderline {
+  width: 2.5rem;
+}
+
+/* ── Item Body ───────────────────────────────── */
+.body {
+  position: relative;
+  z-index: 1;
+  margin-top: var(--space-xs);
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  line-height: var(--lh-body);
+  font-weight: 300;
+  max-width: 34ch;
+  transition: color var(--dur-fast) var(--ease-soft);
+}
+
+.item:hover .body {
+  color: var(--color-charcoal);
+}
+
+/* ── Bottom Row — extra info ─────────────────── */
+.itemFooter {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: var(--space-md);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  opacity: 0;
+  transform: translateY(6px);
+  transition:
+    opacity   var(--dur-fast) var(--ease-soft),
+    transform var(--dur-fast) var(--ease-premium);
+}
+
+.item:hover .itemFooter {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Responsive ──────────────────────────────── */
+@media (max-width: 480px) {
+  .item {
+    padding: var(--space-md);
+  }
+
+  .ghostN {
+    font-size: 3.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .item::before,
+  .titleUnderline,
+  .itemFooter {
+    transition: none;
+  }
+}

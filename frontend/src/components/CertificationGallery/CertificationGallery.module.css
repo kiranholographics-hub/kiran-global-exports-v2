@@ -1,0 +1,358 @@
+/* ═══════════════════════════════════════════════
+   CERTIFICATION GALLERY — Trust & Compliance
+   Rugs & Towels Luxury Brand
+═══════════════════════════════════════════════ */
+
+/* ── Section ─────────────────────────────────── */
+.section {
+  padding: clamp(3.5rem, 6vw, 5.5rem) 0 clamp(3.25rem, 5vw, 5rem);
+  position: relative;
+  overflow: hidden;
+
+  /* Warm stone — premium neutral tone */
+  background: #c8bfb4;
+  color: var(--color-charcoal);
+
+  /* Warm top + bottom borders */
+  border-top:    1px solid rgba(30, 26, 23, 0.16);
+  border-bottom: 1px solid rgba(30, 26, 23, 0.16);
+}
+
+/* Subtle warm left radial glow */
+.section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      ellipse at 20% 50%,
+      rgba(160, 82, 45, 0.10) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse at 85% 20%,
+      rgba(255, 253, 249, 0.15) 0%,
+      transparent 55%
+    );
+  pointer-events: none;
+}
+
+/* Top accent gradient line */
+.section::after {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent                  0%,
+    rgba(160, 82, 45, 0.35)      25%,
+    rgba(196, 122, 82, 0.55)     50%,
+    rgba(160, 82, 45, 0.35)      75%,
+    transparent                  100%
+  );
+}
+
+/* ── Inner Grid ──────────────────────────────── */
+.inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(17rem, 0.95fr) minmax(0, 1.45fr);
+  gap: clamp(2.5rem, 6vw, 6rem);
+  align-items: start;
+}
+
+/* ── Intro Block ─────────────────────────────── */
+.intro {
+  max-width: 34rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Eyebrow override — dark bg context */
+.intro .eyebrow,
+.introEyebrow {
+  color: rgba(30, 26, 23, 0.65);
+  font-size: var(--fs-eyebrow);
+  font-weight: 600;
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+}
+
+/* Heading */
+.intro h2 {
+  max-width: 14ch;
+  margin-top: 1rem;
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3.6vw, 3.9rem);
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+  color: var(--color-charcoal);
+
+  /* Warm dark gradient */
+  background: linear-gradient(
+    145deg,
+    #1e1a17 0%,
+    #2e2218 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Copy */
+.intro > p:last-child {
+  max-width: 34ch;
+  margin-top: 1.15rem;
+  color: rgba(23, 20, 15, 0.58);
+  font-weight: 300;
+  line-height: 1.65;
+  font-size: var(--fs-lead);
+}
+
+/* Warm accent divider */
+.introDivider {
+  width: 3rem;
+  height: 1px;
+  margin-top: var(--space-md);
+  background: linear-gradient(
+    90deg,
+    rgba(160, 82, 45, 0.60),
+    transparent
+  );
+}
+
+/* Trust chips */
+.trustChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2xs);
+  margin-top: var(--space-lg);
+}
+
+.trustChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.38rem 0.75rem;
+  border: 1px solid rgba(30, 26, 23, 0.18);
+  background: rgba(255, 253, 249, 0.35);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(23, 20, 15, 0.70);
+}
+
+.trustChipDot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.80;
+}
+
+/* ── Gallery Grid ────────────────────────────── */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1rem 3rem;
+  align-items: center;
+  padding-top: 0.7rem;
+}
+
+/* ── Logo Item ───────────────────────────────── */
+.logoItem {
+  display: flex;
+  min-width: 9rem;
+  min-height: 7rem;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  /* Card-like feel */
+  padding: 0.75rem;
+  background: rgba(255, 253, 249, 0.30);
+  border: 1px solid rgba(255, 253, 249, 0.40);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  opacity: 0.85;
+  transition:
+    opacity          var(--dur-fast) var(--ease-premium),
+    transform        var(--dur-fast) var(--ease-premium),
+    background       var(--dur-fast) var(--ease-soft),
+    border-color     var(--dur-fast) var(--ease-soft),
+    box-shadow       var(--dur-fast) var(--ease-soft);
+}
+
+.logoItem:hover {
+  opacity: 1;
+  transform: translateY(-3px);
+  background: rgba(255, 253, 249, 0.65);
+  border-color: rgba(255, 253, 249, 0.70);
+  box-shadow:
+    0 6px 24px rgba(30, 26, 23, 0.12),
+    0 2px 8px  rgba(30, 26, 23, 0.08);
+}
+
+/* ── Logo Images ─────────────────────────────── */
+.logoItem img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 4.9rem;
+  object-fit: contain;
+
+  /* Desaturate slightly — lets color pop on hover */
+  filter: saturate(0.85);
+  transition: filter var(--dur-fast) var(--ease-soft);
+}
+
+.logoItem:hover img {
+  filter: saturate(1.10);
+}
+
+/* Individual logo sizing */
+.logoItem:nth-child(1) img {
+  max-width: 9.6rem;
+  max-height: 4rem;
+}
+
+.logoItem:nth-child(2) img,
+.logoItem:nth-child(3) img,
+.logoItem:nth-child(4) img,
+.logoItem:nth-child(5) img {
+  max-width: 6.5rem;
+  max-height: 5.1rem;
+}
+
+.logoItem:nth-child(6) img {
+  max-width: 7rem;
+  max-height: 5.1rem;
+}
+
+.logoItem:nth-child(7) img,
+.logoItem:nth-child(8) img {
+  max-width: 8.3rem;
+  max-height: 4.7rem;
+}
+
+.logoItem:nth-child(9) img {
+  max-width: 6.2rem;
+  max-height: 5.1rem;
+}
+
+/* ── Certification Name Tooltip ──────────────── */
+.logoItem::after {
+  content: attr(data-name);
+  position: absolute;
+  bottom: -2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.56rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(23, 20, 15, 0.55);
+  white-space: nowrap;
+  opacity: 0;
+  transition:
+    opacity   var(--dur-fast) var(--ease-soft),
+    transform var(--dur-fast) var(--ease-premium);
+  pointer-events: none;
+}
+
+.logoItem:hover::after {
+  opacity: 1;
+}
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════ */
+
+@media (max-width: 980px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+  }
+
+  .intro {
+    max-width: 38rem;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .logoItem {
+    min-height: 6.5rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .section {
+    padding-block: 3.25rem;
+  }
+
+  .intro h2 {
+    max-width: 15ch;
+    font-size: clamp(2rem, 10vw, 2.75rem);
+    line-height: 1;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+    padding-top: 0.35rem;
+  }
+
+  .logoItem {
+    min-height: 5.4rem;
+    padding: 0.5rem;
+  }
+
+  .logoItem img {
+    max-width: 7.8rem;
+    max-height: 3.7rem;
+  }
+
+  .logoItem:nth-child(1) img {
+    max-width: 8.3rem;
+    max-height: 3.3rem;
+  }
+
+  .logoItem:nth-child(2) img,
+  .logoItem:nth-child(3) img,
+  .logoItem:nth-child(4) img,
+  .logoItem:nth-child(5) img,
+  .logoItem:nth-child(6) img,
+  .logoItem:nth-child(9) img {
+    max-width: 5.7rem;
+    max-height: 3.9rem;
+  }
+
+  .logoItem:nth-child(7) img,
+  .logoItem:nth-child(8) img {
+    max-width: 7.3rem;
+    max-height: 3.5rem;
+  }
+
+  .trustChips {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logoItem,
+  .logoItem img {
+    transition: none;
+  }
+
+  .logoItem:hover {
+    transform: none;
+  }
+}

@@ -1,0 +1,760 @@
+{
+  "common": {
+    "tagline": "Premium-Handtücher & Teppiche — Internationaler Exporteur",
+    "madeInIndia": "Hergestellt in Indien. Weltweit exportiert.",
+    "madeInIndiaShort": "Hergestellt in Indien · Weltweit exportiert",
+    "contactExportTeam": "Unser Export-Team kontaktieren",
+    "responseNote": "Antwort in der Regel innerhalb von 24 Stunden",
+    "exportRegions": {
+      "india": "Indien",
+      "northAmerica": "Nordamerika",
+      "europe": "Europa",
+      "middleEast": "Naher Osten",
+      "australia": "Australien",
+      "asiaPacific": "Asien-Pazifik"
+    },
+    "productInterestOptions": {
+      "towels": "Handtücher",
+      "rugs": "Teppiche",
+      "both": "Beides",
+      "custom": "Individuell / Private Label"
+    }
+  },
+  "nav": {
+    "home": "Startseite",
+    "about": "Über uns",
+    "towels": "Handtücher",
+    "rugs": "Teppiche",
+    "collections": "Kollektionen",
+    "export": "Export",
+    "contact": "Kontakt",
+    "startInquiry": "Anfrage starten",
+    "linen": "Wäsche"
+  },
+  "header": {
+    "logoAria": "Kiran Global Exports — Startseite",
+    "languageAria": "Sprache auswählen",
+    "languageLabel": "Sprache",
+    "menuOpen": "Menü öffnen",
+    "menuClose": "Menü schließen"
+  },
+  "mobileNav": {
+    "srLabel": "Seitennavigation",
+    "primaryAria": "Mobiles Hauptmenü"
+  },
+  "loader": {
+    "tagline": "Premium-Textilien · Hergestellt in Indien",
+    "loading": "Wird geladen",
+    "ariaLabel": "Kiran Global Exports wird geladen"
+  },
+  "floatingInquire": {
+    "getInTouch": "Kontakt aufnehmen",
+    "sendInquiry": "Anfrage senden",
+    "whatsapp": "WhatsApp",
+    "email": "E-Mail",
+    "call": "Anrufen",
+    "responseNote": "Antwort in der Regel innerhalb von 24 Stunden",
+    "openAria": "Kontaktoptionen öffnen",
+    "closeAria": "Kontaktmenü schließen",
+    "inquireLabel": "Anfragen",
+    "closeLabel": "Schließen"
+  },
+  "footer": {
+    "madeInIndia": "Hergestellt in Indien. Weltweit exportiert.",
+    "navigate": "Navigation",
+    "contact": "Kontakt",
+    "whatsappLink": "WhatsApp an unser Export-Team ↗",
+    "exportRegions": "Exportregionen",
+    "rightsReserved": "Alle Rechte vorbehalten.",
+    "privacyPolicy": "Datenschutzrichtlinie",
+    "termsConditions": "Allgemeine Geschäftsbedingungen",
+    "bottomTagline": "Premium-Handtücher & Teppiche — Internationaler Exporteur",
+    "iecLabel": "IEC",
+    "structureLine": "Kiran Global Exports ist die Marketing- und Exportabteilung von Kiran Holographics — offizieller Marketingpartner von V P Mundada (Mundada Towels)."
+  },
+  "notFound": {
+    "seoTitle": "Seite nicht gefunden",
+    "eyebrow": "Seite nicht gefunden",
+    "title": "Diese Seite konnten wir nicht finden.",
+    "copy": "Sie wurde möglicherweise verschoben, umbenannt oder entfernt. Durchstöbern Sie die Kollektionen oder kehren Sie zur Startseite zurück — unser Export-Team hilft Ihnen jederzeit gerne weiter.",
+    "returnHome": "Zur Startseite",
+    "browseCollections": "Kollektionen durchstöbern",
+    "quickLinks": {
+      "towels": "Handtücher",
+      "rugs": "Teppiche",
+      "collections": "Kollektionen",
+      "custom": "Individuell",
+      "about": "Über uns"
+    }
+  },
+  "home": {
+    "seo": {
+      "title": "Premium-Exporteur für Handtücher & Teppiche",
+      "description": "Kiran Global Exports ist ein internationaler Lieferant und Exporteur von Premium-Handtüchern und -Teppichen aus Indien für globale Käufer, Hotellerie, Einzelhandel und Private-Label-Anforderungen."
+    },
+    "hero": {
+      "eyebrow": "Kiran Global Exports",
+      "headline": "TEXTILIEN FÜR DIE WELT GEMACHT.",
+      "subtitle": "Handgefertigte Premium-Teppiche und -Handtücher — in Indien gewebt, weltweit vertrauenswürdig.",
+      "primaryCta": "Kollektion entdecken",
+      "secondaryCta": "Unser Export-Team kontaktieren",
+      "scroll": "Scrollen",
+      "badge": "Vertrauenswürdiger Exporteur seit 2005"
+    },
+    "brandIntro": {
+      "eyebrow": "Wer wir sind",
+      "heading": "Wir schaffen Textilien, die um die Welt reisen.",
+      "copy1": "Kiran Global Exports verbindet indische Textilhandwerkskunst mit Käufern auf der ganzen Welt und entwickelt Premium-Handtuch- und Teppichkollektionen für Unternehmen, die Qualität, Konsistenz und Präsentation schätzen.",
+      "copy2": "Von der Spezifikation bis zum Versand wird jede Kollektion um die Anforderungen des Käufers herum aufgebaut — nicht umgekehrt.",
+      "stats": {
+        "years": "Jahre Exporterfahrung",
+        "countries": "Belieferte Länder",
+        "clients": "Großhandelskunden"
+      },
+      "premiumCotton": "Premium-Baumwolle",
+      "handcrafted": "Handgefertigt",
+      "copy3": "Wir übernehmen die Exportabwicklung von Jaipur aus — Spezifikation, Musterung, Dokumentation und Versand. Ein Ansprechpartner, ein Satz Unterlagen, dahinter eine fünfzig Jahre alte Weberei."
+    },
+    "productWorld": {
+      "collectionSuffix": "Kollektion",
+      "exploreAria": "Unsere {{name}}-Kollektion entdecken",
+      "exploreCta": "{{name}} entdecken",
+      "towels": {
+        "name": "Handtücher",
+        "items": [
+          "Badetücher",
+          "Hoteltücher",
+          "Spa- & Salontücher",
+          "Hand- & Gesichtstücher",
+          "Individuelle Handtücher"
+        ]
+      },
+      "rugs": {
+        "name": "Teppiche",
+        "items": [
+          "Badteppiche",
+          "Hotelteppiche",
+          "Wohnteppiche",
+          "Dekorative Teppiche",
+          "Individuelle Teppiche"
+        ]
+      },
+      "linen": {
+        "items": [
+          "Bettwäsche",
+          "Tisch- und Tafelwäsche",
+          "Wohntextilien",
+          "Individuell & Private Label"
+        ]
+      }
+    },
+    "featuredProducts": {
+      "eyebrow": "Ausgewählte Handtücher",
+      "title": "Ausgewählte Handtücher",
+      "lead": "Eine Auswahl aus unserem Handtuchsortiment, ausgewählt für Hotellerie-, Einzelhandels-, Spa- und Private-Label-Käufer.",
+      "viewDetails": "Details ansehen",
+      "showing": "{{shown}} von {{total}} Handtüchern angezeigt",
+      "exploreAll": "Alle Handtücher entdecken"
+    },
+    "whyKiran": {
+      "eyebrow": "Warum Kiran",
+      "title": "Gemacht für Käufer, die langfristig denken.",
+      "points": [
+        {
+          "title": "Qualität",
+          "body": "Gleichbleibende Textilqualität bei jeder Produktion, Charge für Charge.",
+          "tag": "ISO-zertifiziert"
+        },
+        {
+          "title": "Anpassung",
+          "body": "Produkte nach Käuferanforderungen entwickelt — Größe, GSM, Farbe, Branding.",
+          "tag": "Private-Label-bereit"
+        },
+        {
+          "title": "Exportbereit",
+          "body": "Internationale B2B-Lieferfähigkeit, aufgebaut auf zuverlässiger Koordination.",
+          "tag": "FOB-Export bereit"
+        },
+        {
+          "title": "Konsistenz",
+          "body": "Zuverlässige Spezifikationen und wiederholbare Produktion, mit der Käufer planen können.",
+          "tag": "Chargenabgleich"
+        },
+        {
+          "title": "Verpackung",
+          "body": "Käuferorientierte Verpackung und Präsentation für Hotellerie und Einzelhandel gleichermaßen.",
+          "tag": "Einzelhandels- & Hotelverpackung"
+        },
+        {
+          "title": "Kommunikation",
+          "body": "Direkte Kommunikation mit unserem Export-Team, von der Anfrage bis zum Versand.",
+          "tag": "Direkter Team-Zugang"
+        }
+      ]
+    },
+    "manufacturing": {
+      "eyebrow": "Handwerk & Prozess",
+      "heading": "Von der Faser zum fertigen Textil.",
+      "start": "Start",
+      "stepsSuffix": "Schritte",
+      "steps": [
+        {
+          "title": "Garn",
+          "body": "Faser ausgewählt und gesponnen für gleichbleibende Festigkeit und Weichheit.",
+          "tag": "Rohmaterial"
+        },
+        {
+          "title": "Weben",
+          "body": "Frottier- und Florkonstruktionen nach exakten Schlaufen- und Dichtevorgaben gefertigt.",
+          "tag": "Webprozess"
+        },
+        {
+          "title": "Färben",
+          "body": "Farbe entwickelt und abgestimmt für Wiederholbarkeit, Bestellung für Bestellung.",
+          "tag": "Farbabgleich"
+        },
+        {
+          "title": "Veredelung",
+          "body": "Waschen, Weichmachen und Scheren für das finale Handgefühl.",
+          "tag": "Handgefühl"
+        },
+        {
+          "title": "Qualitätskontrolle",
+          "body": "Jede Charge wird nach GSM-, Größen- und Konstruktionsvorgaben geprüft.",
+          "tag": "Chargengeprüft"
+        },
+        {
+          "title": "Verpackung",
+          "body": "Käuferspezifische Verpackung — einzelhandelsfertig oder Exportkartons für Großmengen.",
+          "tag": "Exportbereit"
+        },
+        {
+          "title": "Globale Lieferung",
+          "body": "Koordinierter Versand an Partner in Hotellerie, Einzelhandel und Distribution.",
+          "tag": "FOB-Export bereit"
+        }
+      ]
+    },
+    "globalExport": {
+      "eyebrow": "Reichweite",
+      "heading": "Von Indien auf globale Märkte.",
+      "copy": "Aufgebaut auf zuverlässiger Beschaffung, Qualitätskontrolle und käuferorientierter Exportkoordination — keine übertriebenen Versprechen.",
+      "stats": {
+        "countries": "Länder",
+        "years": "Aktive Jahre"
+      },
+      "panelTag": "Exportmärkte",
+      "panelTitle": "Aktive Regionen"
+    },
+    "collectionsShowcase": {
+      "eyebrow": "Unsere Welt entdecken",
+      "title": "Die Kollektion",
+      "worlds": {
+        "hotel": {
+          "name": "Hotel",
+          "tag": "Hotelqualität"
+        },
+        "spa": {
+          "name": "Spa",
+          "tag": "Extra weich"
+        },
+        "home": {
+          "name": "Zuhause",
+          "tag": "Alltäglicher Luxus"
+        },
+        "hospitality": {
+          "name": "Hotellerie",
+          "tag": "Jacquard-Gewebe"
+        },
+        "retail": {
+          "name": "Einzelhandel",
+          "tag": "Einzelhandelsbereit"
+        },
+        "custom": {
+          "name": "Individuell",
+          "tag": "Private Label"
+        }
+      }
+    },
+    "customPrivateLabel": {
+      "eyebrow": "Individuell & Private Label",
+      "heading": "Ihre Spezifikation. Unsere Textilexpertise.",
+      "copy": "Besprechen Sie individuelle Größen, GSM, Farben, Designs, Etiketten und Verpackungen mit unserem Export-Team — entwickelt nach Ihren Anforderungen, von einer einzelnen Spezifikation bis zu einem vollständigen Private-Label-Programm.",
+      "points": [
+        "Individuelle Größen & GSM",
+        "Farbentwicklung",
+        "Gewebte Etiketten & Branding",
+        "Private-Label-Verpackung",
+        "Individuelle Konstruktion"
+      ],
+      "cta": "Ihre Anforderungen besprechen",
+      "trustNote": "Kostenlose Beratung · Keine Mindestbestellmenge für Muster",
+      "badge": "Private-Label-bereit"
+    },
+    "cta": {
+      "eyebrow": "Kontakt aufnehmen",
+      "title": "Lassen Sie uns etwas für Ihren Markt schaffen.",
+      "lead": "Teilen Sie uns mit, wonach Sie suchen, und unser Export-Team meldet sich bei Ihnen.",
+      "primary": "Anfrage senden",
+      "secondary": "Kollektionen ansehen",
+      "note": "Antwort in der Regel innerhalb von 24 Stunden"
+    }
+  },
+  "contact": {
+    "seo": {
+      "title": "Kontakt",
+      "description": "Kontaktieren Sie das Team von Kiran Global Exports, um Handtuch- und Teppichspezifikationen, Private-Label-Entwicklung oder Exportanfragen zu besprechen."
+    },
+    "intro": {
+      "eyebrow": "Kontakt aufnehmen",
+      "title": "Lassen Sie uns etwas für Ihren Markt schaffen.",
+      "lead": "Teilen Sie uns mit, wonach Sie suchen, und unser Export-Team meldet sich bei Ihnen.",
+      "breadcrumbHome": "Startseite",
+      "breadcrumbContact": "Kontakt",
+      "metaResponse": "Antwort innerhalb von 24 Std.",
+      "metaNoCommitment": "Keine Verpflichtung erforderlich"
+    },
+    "side": {
+      "eyebrow": "Direkter Kontakt",
+      "heading": "Sprechen Sie mit unserem Export-Team",
+      "email": "E-Mail",
+      "whatsapp": "WhatsApp",
+      "call": "Anrufen",
+      "address": "Adresse",
+      "responseBadge": "Antwort in der Regel innerhalb von 24 Stunden",
+      "contactPerson": "Ansprechpartner"
+    },
+    "form": {
+      "ariaLabel": "Exportanfrage-Formular",
+      "name": "Name",
+      "namePlaceholder": "Ihr vollständiger Name",
+      "company": "Unternehmen",
+      "companyPlaceholder": "Unternehmens- oder Markenname",
+      "country": "Land",
+      "countryPlaceholder": "z. B. Vereinigtes Königreich",
+      "email": "E-Mail",
+      "emailPlaceholder": "export@ihrunternehmen.com",
+      "phone": "WhatsApp / Telefon",
+      "phonePlaceholder": "+44 7000 000000",
+      "productInterest": "Produktinteresse",
+      "selectOption": "Option auswählen",
+      "quantity": "Geschätzte Menge",
+      "quantityPlaceholder": "z. B. 5.000 Stück / 1 Container",
+      "quantityHint": "Eine ungefähre Menge hilft uns, eine genaue Preisgestaltung vorzubereiten",
+      "message": "Nachricht",
+      "messagePlaceholder": "Teilen Sie uns Spezifikationen, Anforderungen oder Fragen mit…",
+      "sending": "Wird gesendet…",
+      "submit": "Anfrage senden",
+      "submitNote": "Antwort in der Regel innerhalb von 1–2 Werktagen · Keine Verpflichtung erforderlich",
+      "genericError": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.",
+      "successEyebrow": "Anfrage gesendet",
+      "successTitle": "Vielen Dank — wir melden uns in Kürze bei Ihnen.",
+      "successBody": "Unser Export-Team antwortet in der Regel innerhalb von ein bis zwei Werktagen. Bei dringenden Anliegen erreichen Sie uns direkt unter",
+      "sendAnother": "Weitere Anfrage senden",
+      "productInterestNote": "Ich interessiere mich für weitere Informationen zu „{{product}}“. Bitte teilen Sie mir die vollständigen Spezifikationen und Preiskonditionen mit."
+    }
+  },
+  "catalogue": {
+    "towels": {
+      "heroEyebrow": "Kiran Global Exports",
+      "heroTitle": "Handtücher",
+      "heroLead": "Premium-Textilkollektionen für Hotellerie-, Einzelhandels-, Spa- und Private-Label-Märkte.",
+      "exploreCta": "Handtücher entdecken",
+      "categoriesEyebrow": "Die Handtuchwelt entdecken",
+      "categoriesTitle": "Hauptkategorien",
+      "collectionsCount": "{{count}} Kategorien zur Auswahl",
+      "ctaEyebrow": "Nach Ihrem Briefing entwickelt",
+      "ctaTitle": "Brauchen Sie eine Handtuchkollektion, die zu Ihrem Markt passt?",
+      "seoTitle": "Handtücher — Echte Textilkollektionen für globale Käufer",
+      "seoDescription": "Entdecken Sie die Handtuchkollektionen von Kiran Global Exports über Bad-, Hotel-, Jacquard-, Waffel-, Zero-Twist-, Bordüren-, Pool-, Custom- und Spezialhandtuchserien."
+    },
+    "rugs": {
+      "heroEyebrow": "Die Teppichkollektion / Kiran Global Exports",
+      "heroTitle": "Teppiche",
+      "heroLead": "Bad-, Hotel-, Hotellerie- und dekorative Teppiche, entwickelt für globale Käufer und Private-Label-Programme.",
+      "exploreCta": "Teppiche entdecken",
+      "categoriesEyebrow": "Die Teppichwelt entdecken",
+      "categoriesTitle": "Hauptkollektionen",
+      "collectionsCount": "{{count}} Kollektionen / nach Ihrem Markt entwickelt",
+      "ctaEyebrow": "Nach Ihrem Briefing entwickelt",
+      "ctaTitle": "Brauchen Sie eine Teppichkollektion für Ihren Markt?",
+      "seoTitle": "Premium-Teppiche — Bad, Hotel, Dekorativ & Individuell",
+      "seoDescription": "Entdecken Sie die Teppichkollektion von Kiran Global Exports: Bad-, Hotel-, Hotellerie-, Wohn-, Dekorations- und individuelle Teppiche, entwickelt für globale B2B-Käufer."
+    },
+    "requestProductDetails": "Produktdetails anfragen",
+    "reference_one": "{{count}} Referenz",
+    "reference_other": "{{count}} Referenzen",
+    "viewCollection": "Kollektion ansehen",
+    "customDevelopment": "Individuelle Entwicklung"
+  },
+  "categoryPage": {
+    "backTo": "← Zurück zu {{name}}",
+    "subcategoriesEyebrow": "{{name}}-Unterkategorien entdecken",
+    "chooseConstruction": "Wählen Sie eine Konstruktion.",
+    "productCollection": "Produktkollektion",
+    "allReferences": "Alle Referenzen in dieser Kategorie.",
+    "realReferences": "Unser komplettes Sortiment in dieser Kategorie.",
+    "viewDetails": "Details ansehen",
+    "b2bDevelopment": "B2B-Entwicklung",
+    "requestProductDetails": "Produktdetails anfragen.",
+    "requestRugDetails": "Teppichdetails anfragen.",
+    "contactExportTeamArrow": "Unser Export-Team kontaktieren",
+    "collectionSubcategoryProducts": "{{category}} / Produktkollektion",
+    "reference_one": "{{count}} Referenz",
+    "reference_other": "{{count}} Referenzen",
+    "availableReference_one": "{{count}} verfügbare Referenz",
+    "availableReference_other": "{{count}} verfügbare Referenzen",
+    "realReference_one": "{{count}} echte Referenz",
+    "realReference_other": "{{count}} echte Referenzen",
+    "rugCollectionEyebrow": "Teppichkollektion",
+    "rugAvailableLead": "Entdecken Sie die verfügbaren Teppichreferenzen und besprechen Sie dann Größe, Konstruktion, Farbe und Branding für Ihren Markt.",
+    "rugCustomLead": "Diese Kollektion wird nach Ihrer Spezifikation entwickelt, einschließlich Konstruktion, Größe, Farbe, Material und Branding."
+  },
+  "productDetail": {
+    "notFoundTitle": "Produkt nicht gefunden",
+    "notFoundHeading": "Dieses Produkt konnten wir nicht finden.",
+    "notFoundCopy": "Es wurde möglicherweise umbenannt oder aus dem aktuellen Sortiment genommen. Durchstöbern Sie die vollständige Kollektion oder kontaktieren Sie unser Export-Team direkt.",
+    "interestedHeading": "Interesse an diesem Produkt?",
+    "interestedSubtext": "Kontaktieren Sie unser Export-Team für vollständige Spezifikationen und Preise.",
+    "youMayAlsoLike": "Das könnte Ihnen auch gefallen",
+    "moreFrom": "Mehr von {{name}}",
+    "viewAll": "Alle ansehen",
+    "specs": {
+      "material": "Material",
+      "gsm": "GSM",
+      "size": "Größe",
+      "construction": "Konstruktion",
+      "colors": "Farben",
+      "applications": "Anwendungen",
+      "customization": "Anpassung",
+      "moq": "Mindestbestellmenge",
+      "packing": "Verpackung"
+    },
+    "bestForLabel": "Am besten geeignet für"
+  },
+  "productCard": {
+    "viewDetails": "Details ansehen",
+    "requestDetails": "Details anfragen"
+  },
+  "certifications": {
+    "eyebrow": "Qualität · Compliance · Verantwortung",
+    "heading": "Standards hinter jeder Lieferung.",
+    "copy": "Fertigungs- und Produktzertifizierungen — OEKO-TEX®, GOTS, GRS, ISO 9001 und weitere — hält unser Produktionspartner V P Mundada (Solapur). Kiran Global Exports verfügt über eigene Exportregistrierungen: FIEO, MSME und IEC.",
+    "chips": {
+      "quality": "Qualität gesichert",
+      "ethical": "Ethisch beschafft",
+      "compliant": "Exportkonform"
+    }
+  },
+  "about": {
+    "seo": {
+      "title": "Über uns",
+      "description": "Kiran Global Exports entwickelt in Indien Premium-Handtuch- und Teppichkollektionen für Hotellerie-, Einzelhandels- und Private-Label-Käufer weltweit."
+    },
+    "intro": {
+      "eyebrow": "Über uns",
+      "title": "Wo Handwerk auf Komfort trifft.",
+      "lead": "Kiran Global Exports verbindet indische Textilhandwerkskunst mit Käufern auf der ganzen Welt und entwickelt Premium-Handtuch- und Teppichkollektionen, die auf Qualität, Konsistenz und Präsentation aufbauen."
+    },
+    "brandStory": {
+      "heading": "Entwickelt um den Käufer, nicht um das Regal.",
+      "copy1": "Jede Kollektion beginnt mit einer Spezifikation, nicht mit einer Katalogseite. Wir arbeiten direkt mit Hotelgruppen, Distributoren, Einzelhändlern und Private-Label-Käufern zusammen, um Handtücher und Teppiche zu entwickeln, die zu ihrem Markt passen — von der Faserauswahl bis zur finalen Verpackung.",
+      "copy2": "Unser Ansatz bevorzugt Konsistenz vor Volumen: verlässliche Spezifikationen, wiederholbare Produktion und direkte Kommunikation mit einem Export-Team, das internationale Käuferanforderungen versteht."
+    },
+    "approach": {
+      "eyebrow": "Unser Ansatz",
+      "title": "Von der Spezifikation bis zum Versand.",
+      "pillars": [
+        {
+          "title": "Den Markt verstehen",
+          "body": "Wir beginnen mit dem Markt des Käufers — Hotellerie, Spa, Einzelhandel oder Private Label — und den geforderten Standards."
+        },
+        {
+          "title": "Nach Spezifikation entwickeln",
+          "body": "Material, GSM, Größe, Farbe und Konstruktion werden passgenau entwickelt, nicht nachträglich angepasst."
+        },
+        {
+          "title": "Mit Konsistenz produzieren",
+          "body": "Qualitätskontrolle in jeder Phase sorgt dafür, dass wiederkehrende Bestellungen der ursprünglichen Freigabe entsprechen."
+        },
+        {
+          "title": "Den Versand koordinieren",
+          "body": "Verpackung, Dokumentation und Logistik werden auf den Zielmarkt des Käufers abgestimmt."
+        }
+      ]
+    },
+    "partner": {
+      "eyebrow": "Unser Handtuchpartner",
+      "title": "Mundada Towels — fünf Jahrzehnte Textilexpertise.",
+      "lead": "Kiran Global Exports arbeitet in Partnerschaft mit Mundada Towels, einem vertrauenswürdigen Hersteller und Exporteur von Premium-Frottierhandtüchern, gegründet 1972 in Solapur, Maharashtra. Gemeinsam versorgen wir internationale B2B-Käufer mit verlässlichen Handtuchlösungen nach ihren Spezifikationen, Qualitätsanforderungen und Marktbedürfnissen.",
+      "tagline": "Schlankere, bessere Handtücher!",
+      "established": "Gegründet 1972",
+      "location": "Solapur, Maharashtra",
+      "visitLink": "Mundada Towels besuchen ↗",
+      "copy1": "Mit über fünf Jahrzehnten Textilexpertise verbindet Mundada Towels traditionelles Handwerk mit moderner Fertigung, strenger Qualitätskontrolle und kontinuierlicher Produktentwicklung. Diese Fertigungsstärke unterstützt Kiran Global Exports dabei, konsistente, spezifikationsgetreue Handtuchprogramme für globale Käufer zu liefern.",
+      "copy2": "Das Sortiment umfasst Bade-, Hand-, Gesichts-, Pool-, Strand-, Küchen- und Institutionshandtücher sowie Jacquard-, Zero-Twist-, kesselgefärbte, Bambus-, Recyclinggarn- und individualisierte Handtuchprogramme.",
+      "copy3": "Zertifizierungen wie OEKO-TEX®, GRS, ISO 9001, MADE IN GREEN und BSCI unterstützen einen starken Fokus auf Qualität, Nachhaltigkeit und verantwortungsvolle Fertigung."
+    },
+    "mundadaProducts": [
+      "Badetücher",
+      "Handtücher",
+      "Gesichtstücher",
+      "Pool- & Strandtücher",
+      "Küchentücher",
+      "Institutionshandtücher",
+      "Jacquard-Handtücher",
+      "Zero-Twist-Handtücher",
+      "Kesselgefärbte Handtücher",
+      "Bambus-Handtücher",
+      "Recyclinggarn-Handtücher",
+      "Individualisierte Handtücher"
+    ],
+    "locationCard": {
+      "eyebrow": "Partnerstandort",
+      "title": "Solapur, Maharashtra",
+      "mapLink": "In Google Maps öffnen ↗"
+    },
+    "rugSection": {
+      "eyebrow": "Direkte B2B-Teppiche",
+      "title": "Teppiche, geliefert nach Ihren Geschäftsanforderungen.",
+      "lead": "Neben unserem Handtuchgeschäft arbeitet Kiran Global Exports direkt mit B2B-Käufern für Teppiche zusammen. Wir beschaffen und entwickeln Produkte nach Design, Abmessungen, Materialien, Konstruktion, Farben, Mengen, Verpackung und kommerziellen Spezifikationen des Käufers.",
+      "copy": "Von Hotellerie- und Innenausstattungsprojekten bis hin zu Einzelhandels-, Großhandels- und Private-Label-Programmen ist unser Fokus einfach: die Anforderung verstehen, das richtige Produkt entwickeln und eine verlässliche Versorgung für die vereinbarte Spezifikation koordinieren."
+    },
+    "rugServices": [
+      "Individuelle Spezifikationen",
+      "B2B-Großmengen",
+      "Private-Label-Anforderungen",
+      "Hotellerie- & Projektanforderungen",
+      "Einzelhandels- & Großhandelsprogramme",
+      "Individuelle Designs & Abmessungen",
+      "Exportfertige Verpackung",
+      "Langfristige wiederkehrende Lieferung"
+    ],
+    "cta": {
+      "eyebrow": "Arbeiten Sie mit uns",
+      "title": "Lassen Sie uns über Ihren Markt sprechen.",
+      "lead": "Unser Export-Team ist bereit, Ihre Spezifikation zu besprechen — ob Sie Handtücher beschaffen, ein Teppichprogramm entwickeln oder eine Private-Label-Kollektion aufbauen."
+    },
+    "registration": {
+      "eyebrow": "Registriert & Konform",
+      "title": "Anerkannt von indischen Exportbehörden.",
+      "iecLabel": "IEC-Code"
+    },
+    "structure": {
+      "eyebrow": "Unsere Struktur",
+      "title": "Teil von Kiran Holographics.",
+      "body1": "Kiran Global Exports ist die internationale Marketing- und Exportabteilung von Kiran Holographics.",
+      "body2": "Wir sind der offiziell ernannte Marketingpartner für V P Mundada (Mundada Towels), im Rahmen einer unterzeichneten Partnerschaftsvereinbarung, die seit Januar 2025 gilt."
+    }
+  },
+  "collections": {
+    "seo": {
+      "title": "Unsere Kollektion — Hotel, Spa, Zuhause, Hotellerie & Einzelhandel",
+      "description": "Durchstöbern Sie die Handtuch- und Teppichkollektionen von Kiran Global Exports nach Käuferwelt."
+    },
+    "hero": {
+      "eyebrow": "Unsere Welt entdecken",
+      "title": "Unsere Kollektion",
+      "lead": "Textilkollektionen, entwickelt für Hotellerie-, Einzelhandels-, Spa- und Private-Label-Käufer weltweit.",
+      "exploreLink": "Kollektionen entdecken"
+    },
+    "worldLabel": "Welt",
+    "worlds": {
+      "hotel": {
+        "copy": "Schwerere Frottier- und getuftete Teppiche, gebaut für Haltbarkeit im Housekeeping-Zyklus und Präsentation."
+      },
+      "spa": {
+        "copy": "Leichte, schnelltrocknende Handtücher und niedrigflorige Teppiche für häufig genutzte Behandlungsräume."
+      },
+      "home": {
+        "copy": "Alltägliche Komfortstücke, entwickelt für Einzelhandels- und E-Commerce-Heimsortimente."
+      },
+      "hospitality": {
+        "copy": "Konsistente, nachbestellfertige Spezifikationen für Hotel- und Hotelleriegruppen."
+      },
+      "retail": {
+        "copy": "Einzelhandelsfertige Präsentation und Verpackung für Lifestyle- und Haushaltswarenkäufer."
+      }
+    },
+    "viewMore": "Alle {{name}}-Produkte ansehen",
+    "custom": {
+      "eyebrow": "Individuell",
+      "title": "Haben Sie eine eigene Spezifikation?",
+      "copy": "Jede Kollektion kann angepasst oder als Private-Label-Programm komplett von Grund auf entwickelt werden.",
+      "link": "Individuell & Private Label entdecken →"
+    },
+    "cta": {
+      "eyebrow": "Bereit, den nächsten Schritt zu gehen?",
+      "title": "Fragen Sie zu dieser Kollektion an.",
+      "lead": "Teilen Sie uns mit, welche Welt am besten zu Ihren Käufern passt, und wir melden uns mit vollständigen Spezifikationen.",
+      "secondary": "Individuell entdecken"
+    }
+  },
+  "custom": {
+    "seo": {
+      "title": "Individuell & Private Label",
+      "description": "Entwickeln Sie mit Kiran Global Exports ein individuelles oder Private-Label-Handtuch- und Teppichprogramm — individuelle Größen, GSM, Farben, Branding und Verpackung."
+    },
+    "intro": {
+      "eyebrow": "Individuell & Private Label",
+      "title": "Ihre Spezifikation. Unsere Textilexpertise.",
+      "lead": "Von einer einzelnen individuellen Größenanfrage bis zu einem vollständigen Private-Label-Programm arbeitet unser Export-Team nach Ihrer Spezifikation, nicht nach einem festen Katalog.",
+      "meta": [
+        "Private-Label-bereit",
+        "Individuelle GSM & Größen",
+        "Gebrandete Verpackung"
+      ]
+    },
+    "capabilities": {
+      "eyebrow": "Was wir entwickeln",
+      "title": "Vollständig nach Ihrem Briefing gebaut.",
+      "points": [
+        {
+          "title": "Größen & GSM",
+          "body": "Jede Abmessung und jedes Gewicht wird nach Ihrer Spezifikation entwickelt."
+        },
+        {
+          "title": "Farben & Design",
+          "body": "Farbentwicklung und individuelle Jacquard- oder Webmuster."
+        },
+        {
+          "title": "Etiketten & Branding",
+          "body": "Gewebte Etiketten, Stickerei und gebrandete Verpackung."
+        },
+        {
+          "title": "Verpackung",
+          "body": "Einzelhandelsfertige oder Großexportverpackung, gebaut für Ihren Markt."
+        }
+      ]
+    },
+    "imageBadge": "Individuelle Entwicklung",
+    "processNoteStrong": "Keine Mindestkataloge.",
+    "processNoteRest": "Jedes Programm beginnt mit Ihrer Spezifikation — ob eine einzelne Referenz oder ein komplettes Sortiment. Muster sind vor der Produktionsverpflichtung verfügbar.",
+    "howItWorks": {
+      "eyebrow": "So funktioniert es",
+      "title": "Vom Briefing zur Produktion.",
+      "lead": "Ein unkomplizierter Prozess — gebaut um Ihren Zeitplan und Ihre Anforderungen.",
+      "steps": [
+        {
+          "title": "Teilen Sie Ihr Briefing",
+          "body": "Teilen Sie uns Ihren Zielmarkt, Produkttyp, Mengen und vorhandene Referenzen mit."
+        },
+        {
+          "title": "Wir entwickeln Optionen",
+          "body": "Unser Team schlägt Spezifikationen, Materialien und Konstruktionsoptionen vor."
+        },
+        {
+          "title": "Musterfreigabe",
+          "body": "Physische Muster werden produziert und vor Produktionsbeginn freigegeben."
+        },
+        {
+          "title": "Produktion & Lieferung",
+          "body": "Konsistente Produktion nach freigegebener Spezifikation, koordiniert zu Ihrem Zielort."
+        }
+      ]
+    },
+    "cta": {
+      "eyebrow": "Ein Programm starten",
+      "title": "Besprechen Sie Ihre Anforderungen.",
+      "lead": "Teilen Sie Ihre Spezifikation, Ihren Zielmarkt und die geschätzte Menge mit — unser Export-Team meldet sich direkt bei Ihnen.",
+      "note": "Kostenlose Muster für genehmigte Programme verfügbar"
+    }
+  },
+  "legal": {
+    "noticeBanner": "Vor der Behandlung dieser Seite als finaler Produktions-Rechtstext sind eine Bestätigung durch den Inhaber und eine rechtliche Prüfung erforderlich.",
+    "lastUpdated": "Zuletzt geprüft: Bestätigung durch Inhaber und rechtliche Prüfung ausstehend",
+    "contactNotePrefix": "Bei Fragen zu dieser",
+    "contactNoteMiddle": "kontaktieren Sie uns unter",
+    "contactNoteOr": "oder besuchen Sie unsere",
+    "contactPageLink": "Kontaktseite",
+    "privacy": {
+      "title": "Datenschutzrichtlinie",
+      "description": "Rahmenwerk für die Datenschutzrichtlinie von Kiran Global Exports.",
+      "eyebrow": "Rechtliches",
+      "intro": "Diese Seite ist ein professionelles Ausgangsrahmenwerk. Der Firmeninhaber und Rechtsberater müssen die endgültige Richtlinie vor der Veröffentlichung bestätigen.",
+      "shortName": "Datenschutzrichtlinie",
+      "sections": [
+        {
+          "heading": "Über Anfragen erhaltene Informationen",
+          "body": "Die Website kann über das Anfrageformular übermittelte Informationen erhalten, wie Name, Firma, Land, E-Mail, Telefon oder WhatsApp, Produktinteresse, Menge und Nachricht. Bestätigen Sie den endgültigen Erfassungs-, Aufbewahrungs- und Zugriffsprozess vor dem Start."
+        },
+        {
+          "heading": "Wie Informationen verwendet werden können",
+          "body": "Anfrageinformationen können verwendet werden, um auf Käuferanfragen zu antworten, Produktgespräche vorzubereiten und Folgemaßnahmen zu koordinieren. Bestätigen Sie zusätzliche Verwendungszwecke, Verarbeiter oder Benachrichtigungsdienste vor dem Start."
+        },
+        {
+          "heading": "Speicherung und Dienstanbieter",
+          "body": "Bestätigen Sie die Produktionsdatenbank, den Hosting-Anbieter, den E-Mail-Benachrichtigungsanbieter und alle grenzüberschreitenden Datenübertragungen vor der Veröffentlichung dieser Richtlinie."
+        },
+        {
+          "heading": "Kontakt und Rechte",
+          "body": "Fügen Sie nach der rechtlichen Prüfung den endgültigen Datenschutzkontakt, die Aufbewahrungsfrist, den Zugriffs-/Korrekturprozess und die anwendbare Gerichtsbarkeit hinzu."
+        }
+      ]
+    },
+    "terms": {
+      "title": "Allgemeine Geschäftsbedingungen",
+      "description": "Rahmenwerk für die AGB von Kiran Global Exports.",
+      "eyebrow": "Rechtliches",
+      "intro": "Diese Seite ist ein professionelles Ausgangsrahmenwerk für eine internationale B2B-Anfragewebsite. Sie ersetzt keine Rechtsberatung.",
+      "shortName": "Allgemeinen Geschäftsbedingungen",
+      "sections": [
+        {
+          "heading": "Website-Informationen",
+          "body": "Produktinformationen, Bilder und Beschreibungen werden für B2B-Gespräche und Spezifikationsentwicklung dargestellt. Bestätigen Sie die endgültige Position zu Verfügbarkeit, Angeboten, Mustern und verbindlichen Bestellungen."
+        },
+        {
+          "heading": "Käuferanfragen",
+          "body": "Eine Anfrage oder Kontaktformularübermittlung ist keine bestätigte Bestellung. Bestätigen Sie den Angebots-, Muster-, Freigabe-, Zahlungs-, Produktions-, Versand- und Stornierungsprozess vor dem Start."
+        },
+        {
+          "heading": "Spezifikationen und Bilder",
+          "body": "Endgültige Material-, Farb-, Größen-, GSM-, Konstruktions-, Verpackungs- und Branding-Details sollten für jede Käuferanforderung schriftlich bestätigt werden."
+        },
+        {
+          "heading": "Geltende Bedingungen",
+          "body": "Fügen Sie nach Prüfung durch Inhaber und Rechtsberater den rechtlichen Firmennamen, das anwendbare Recht, die Gerichtsbarkeit, Zahlungsbedingungen, Versandbedingungen, die Position zum geistigen Eigentum und den Streitbeilegungsprozess hinzu."
+        }
+      ]
+    }
+  },
+  "linen": {
+    "seo": {
+      "title": "Heimtextilien-Kollektion — Handtücher, Bett, Tisch, Küche & Wohntextilien",
+      "description": "Entdecken Sie das komplette Heimtextilien-Sortiment von Kiran Global Exports: Handtücher & Badwäsche, Bettwäsche, Tisch- und Tafelwäsche, Küchenwäsche, Wohntextilien und Private-Label-Programme."
+    },
+    "hero": {
+      "eyebrow": "Die Heimtextilien-Kollektion",
+      "title": "Textilien für jeden Raum, jeden Tisch.",
+      "lead": "Vom Bad über das Schlafzimmer bis zum Esstisch — Premium-Heimtextilien, entwickelt für Hotellerie-, Einzelhandels- und Private-Label-Käufer weltweit.",
+      "exploreCta": "Sortiment entdecken"
+    },
+    "categoriesEyebrow": "Unsere Linien",
+    "categoriesTitle": "Vier Textilkategorien.",
+    "categoriesLead": "Teilen Sie uns mit, welche Linie zu Ihrem Markt passt, und unser Export-Team sendet Ihnen die vollständigen Spezifikationen.",
+    "enquireCta": "Anfragen",
+    "categories": {
+      "bed": {
+        "name": "Bettwäsche",
+        "description": "Bettlaken, Bettbezüge und Kissenbezüge aus weicher, atmungsaktiver Baumwolle — entwickelt für Bettwäscheprogramme in Hotellerie und Einzelhandel."
+      },
+      "table-dining": {
+        "name": "Tisch- und Tafelwäsche",
+        "description": "Tischdecken, Läufer, Stoffservietten und Platzsets für Hotels, Restaurants und den Tafel-Einzelhandel."
+      },
+      "home-textile": {
+        "name": "Wohntextilien",
+        "description": "Kissenbezüge, Decken und andere weiche Einrichtungstextilien, entwickelt für Wohn- und Lifestyle-Einzelhandel."
+      },
+      "custom-private-label": {
+        "name": "Individuelle & Private-Label-Produkte",
+        "description": "Jede der oben genannten Linien nach Ihrer Spezifikation — individuelle Größen, Farben, Branding und Verpackung unter Ihrem eigenen Label."
+      }
+    },
+    "cta": {
+      "eyebrow": "Kontakt aufnehmen",
+      "title": "Lassen Sie uns die richtige Wäsche für Ihren Markt finden.",
+      "lead": "Teilen Sie uns mit, welche Kategorie Sie benötigen — unser Export-Team meldet sich mit Spezifikationen und Preisen."
+    }
+  }
+}

@@ -1,0 +1,23 @@
+KIRAN GLOBAL EXPORTS — PHOTO FIX PACKAGE
+
+This package contains the COMPLETE website source EXCEPT the existing video files.
+The original videos are intentionally NOT included so the package stays small.
+
+TO USE:
+1. Extract the original Kiran Global Exports project.
+2. Extract this package over the same project folder.
+3. Choose Replace/Overwrite when Windows asks.
+4. DO NOT delete the original `frontend/public/videos/` folder.
+5. The website will keep the original videos unchanged.
+
+WHAT IS FIXED:
+- 25 exact duplicate image files removed.
+- 54 unique existing images retained.
+- Broken image references fixed.
+- Collection images now point to distinct existing product/custom images.
+- Towel and rug hero poster references fixed.
+- Rug product image references fixed.
+- PHOTO-MAPPING.md contains exact page/section -> image mapping.
+
+IMPORTANT:
+No page layout, text, CSS design, functionality, certifications, or video files were intentionally changed.

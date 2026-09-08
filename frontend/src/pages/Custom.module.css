@@ -1,0 +1,366 @@
+/* ═══════════════════════════════════════════════
+   CUSTOM & PRIVATE LABEL PAGE
+   Rugs & Towels Luxury Brand
+═══════════════════════════════════════════════ */
+
+/* ── Main Grid ───────────────────────────────── */
+.grid {
+  display: grid;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+@media (min-width: 860px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(3rem, 6vw, 6rem);
+  }
+}
+
+/* ── Image ───────────────────────────────────── */
+.imageWrap {
+  position: relative;
+}
+
+.image {
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  transition:
+    border-color var(--dur-mid) var(--ease-soft),
+    box-shadow   var(--dur-mid) var(--ease-soft);
+}
+
+.imageWrap:hover .image {
+  border-color: var(--border-accent);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Floating badge */
+.imageBadge {
+  position: absolute;
+  bottom: var(--space-md);
+  left: var(--space-md);
+  z-index: 2;
+  padding: 0.45rem 0.9rem;
+  background: rgba(250, 246, 239, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--border-subtle);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-charcoal);
+  white-space: nowrap;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Decorative corner */
+.imageCorner {
+  position: absolute;
+  bottom: calc(var(--space-md) - 0.75rem);
+  right: -0.75rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-bottom: 1.5px solid rgba(160, 82, 45, 0.40);
+  border-right: 1.5px solid rgba(160, 82, 45, 0.40);
+  pointer-events: none;
+}
+
+/* ── Points Column ───────────────────────────── */
+.pointsCol {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Point Items Wrapper ─────────────────────── */
+.pointsWrap {
+  border: 1px solid var(--border-subtle);
+}
+
+/* ── Single Point ────────────────────────────── */
+.point {
+  position: relative;
+  padding: clamp(1.5rem, 3vw, 2rem);
+  border-bottom: 1px solid var(--border-subtle);
+  overflow: hidden;
+  transition:
+    background  var(--dur-mid) var(--ease-soft),
+    box-shadow  var(--dur-mid) var(--ease-soft);
+}
+
+.point:last-child {
+  border-bottom: none;
+}
+
+.point:hover {
+  background: var(--bg-paper);
+  box-shadow: inset 0 0 0 1px var(--border-accent);
+}
+
+/* Top accent bar */
+.point::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    var(--color-accent),
+    var(--color-accent-light),
+    transparent
+  );
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur-mid) var(--ease-premium);
+}
+
+.point:hover::before {
+  transform: scaleX(1);
+}
+
+/* Step number */
+.pointNumber {
+  display: inline-block;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--fs-small);
+  color: var(--accent);
+  opacity: 0.60;
+  margin-bottom: var(--space-xs);
+  transition: opacity var(--dur-fast) var(--ease-soft);
+}
+
+.point:hover .pointNumber {
+  opacity: 1;
+}
+
+/* Point title */
+.point h3 {
+  font-family: var(--font-serif);
+  font-size: var(--fs-h3);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--color-charcoal);
+  transition: color var(--dur-fast) var(--ease-soft);
+}
+
+.point:hover h3 {
+  color: var(--color-deep-brown);
+}
+
+/* Point body */
+.point p {
+  margin-top: var(--space-2xs);
+  color: var(--text-muted);
+  font-size: var(--fs-body);
+  font-weight: 300;
+  max-width: 44ch;
+  line-height: var(--lh-body);
+  transition: color var(--dur-fast) var(--ease-soft);
+}
+
+.point:hover p {
+  color: var(--color-charcoal);
+}
+
+/* ── Process Note ────────────────────────────── */
+.processNote {
+  margin-top: var(--space-lg);
+  padding: var(--space-md);
+  background: var(--bg-sand);
+  border: 1px solid var(--border-subtle);
+  position: relative;
+  overflow: hidden;
+}
+
+.processNote::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    var(--color-accent),
+    var(--color-accent-light),
+    transparent
+  );
+}
+
+.processNote p {
+  font-size: var(--fs-small);
+  font-weight: 300;
+  color: var(--text-muted);
+  line-height: var(--lh-body);
+}
+
+.processNote strong {
+  color: var(--color-charcoal);
+  font-weight: 600;
+}
+
+/* ── Steps Section ───────────────────────────── */
+.stepsSection {
+  background: var(--bg-sand);
+  position: relative;
+}
+
+.stepsSection::before,
+.stepsSection::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent                  0%,
+    rgba(160, 82, 45, 0.20)      30%,
+    rgba(160, 82, 45, 0.35)      50%,
+    rgba(160, 82, 45, 0.20)      70%,
+    transparent                  100%
+  );
+}
+
+.stepsSection::before { top: 0; }
+.stepsSection::after  { bottom: 0; }
+
+/* ── Steps Grid ──────────────────────────────── */
+.stepsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  border: 1px solid var(--border-subtle);
+  margin-top: clamp(2.5rem, 4vw, 3.5rem);
+}
+
+@media (min-width: 640px) {
+  .stepsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1000px) {
+  .stepsGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ── Step ────────────────────────────────────── */
+.step {
+  position: relative;
+  padding: clamp(1.75rem, 3vw, 2.25rem);
+  border-right: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--bg-sand);
+  overflow: hidden;
+  transition:
+    background var(--dur-mid) var(--ease-soft),
+    box-shadow var(--dur-mid) var(--ease-soft);
+}
+
+.step:hover {
+  background: var(--bg-paper);
+  box-shadow: inset 0 0 0 1px var(--border-accent);
+}
+
+@media (min-width: 1000px) {
+  .step:nth-child(4n) { border-right: none; }
+}
+
+@media (min-width: 640px) and (max-width: 999px) {
+  .step:nth-child(2n) { border-right: none; }
+}
+
+@media (max-width: 639px) {
+  .step { border-right: none; }
+}
+
+/* Step top bar */
+.step::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    var(--color-accent),
+    var(--color-accent-light),
+    transparent
+  );
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur-mid) var(--ease-premium);
+}
+
+.step:hover::before {
+  transform: scaleX(1);
+}
+
+.stepNumber {
+  display: inline-block;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--fs-small);
+  color: var(--accent);
+  opacity: 0.55;
+  margin-bottom: var(--space-sm);
+}
+
+.step h3 {
+  font-family: var(--font-serif);
+  font-size: var(--fs-h3);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--color-charcoal);
+  transition: color var(--dur-fast) var(--ease-soft);
+}
+
+.step:hover h3 {
+  color: var(--color-deep-brown);
+}
+
+.step p {
+  margin-top: var(--space-2xs);
+  color: var(--text-muted);
+  font-size: 0.90rem;
+  font-weight: 300;
+  line-height: var(--lh-body);
+  transition: color var(--dur-fast) var(--ease-soft);
+}
+
+.step:hover p {
+  color: var(--color-charcoal);
+}
+
+/* ── Responsive ──────────────────────────────── */
+@media (max-width: 860px) {
+  .imageWrap {
+    order: -1;
+  }
+
+  .image {
+    aspect-ratio: 3 / 2;
+  }
+
+  .imageCorner {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .image {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .point::before,
+  .step::before {
+    transition: none;
+  }
+}

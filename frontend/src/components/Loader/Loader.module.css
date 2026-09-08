@@ -1,0 +1,170 @@
+/* ═══════════════════════════════════════════════
+   LOADER — Brand Intro Loader
+   Rugs & Towels Luxury Brand
+═══════════════════════════════════════════════ */
+
+/* ── Loader Wrapper ──────────────────────────── */
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  background: var(--color-ivory);
+  overflow: hidden;
+
+  /* Warm layered bg */
+  background-image:
+    radial-gradient(
+      ellipse at 40% 35%,
+      rgba(160, 82, 45, 0.06) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse at 70% 70%,
+      rgba(232, 221, 208, 0.40) 0%,
+      transparent 55%
+    );
+}
+
+/* ── Corner Decorations ──────────────────────── */
+/* Top-left */
+.loader::before {
+  content: '';
+  position: absolute;
+  top: clamp(1.5rem, 4vw, 2.5rem);
+  left: clamp(1.5rem, 4vw, 2.5rem);
+  width: 1.75rem;
+  height: 1.75rem;
+  border-top: 1px solid rgba(160, 82, 45, 0.30);
+  border-left: 1px solid rgba(160, 82, 45, 0.30);
+  pointer-events: none;
+}
+
+/* Bottom-right */
+.loader::after {
+  content: '';
+  position: absolute;
+  bottom: clamp(1.5rem, 4vw, 2.5rem);
+  right: clamp(1.5rem, 4vw, 2.5rem);
+  width: 1.75rem;
+  height: 1.75rem;
+  border-bottom: 1px solid rgba(160, 82, 45, 0.30);
+  border-right: 1px solid rgba(160, 82, 45, 0.30);
+  pointer-events: none;
+}
+
+/* ── Inner Content ───────────────────────────── */
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Logo Mark Box ───────────────────────────── */
+.logoWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xs);
+}
+
+.logoBox {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1rem;
+  border: 1px solid rgba(30, 26, 23, 0.18);
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: var(--color-charcoal);
+  line-height: 1;
+}
+
+/* ── Brand Mark ──────────────────────────────── */
+.mark {
+  font-family: var(--font-sans);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--color-charcoal);
+  letter-spacing: 0.18em;
+  white-space: nowrap;
+}
+
+/* ── Tagline ─────────────────────────────────── */
+.tagline {
+  font-family: var(--font-serif);
+  font-size: var(--fs-small);
+  font-style: italic;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  opacity: 0.75;
+}
+
+/* ── Progress Bar Wrapper ────────────────────── */
+.barWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.55rem;
+  width: 140px;
+}
+
+/* ── Progress Track ──────────────────────────── */
+.barTrack {
+  width: 100%;
+  height: 1px;
+  background: rgba(30, 26, 23, 0.12);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Animated Fill Bar ───────────────────────── */
+.bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--color-accent),
+    var(--color-accent-light)
+  );
+  transform-origin: left;
+}
+
+/* ── Percent Label ───────────────────────────── */
+.barLabel {
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  opacity: 0.55;
+}
+
+/* ── Made In India tag ───────────────────────── */
+.origin {
+  position: absolute;
+  bottom: clamp(1.5rem, 4vw, 2.5rem);
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  opacity: 0.40;
+  white-space: nowrap;
+}

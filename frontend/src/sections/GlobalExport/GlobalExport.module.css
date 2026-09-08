@@ -1,0 +1,354 @@
+/* ═══════════════════════════════════════════════
+   GLOBAL EXPORT — Reach & Regions Section
+   Rugs & Towels Luxury Brand
+═══════════════════════════════════════════════ */
+
+/* ── Section Override ────────────────────────── */
+.section {
+  background: var(--bg-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle warm background glow */
+.section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at 80% 50%,
+    rgba(160, 82, 45, 0.05) 0%,
+    transparent 65%
+  );
+  pointer-events: none;
+}
+
+/* ── Two Column Grid ─────────────────────────── */
+.grid {
+  display: grid;
+  gap: var(--space-xl);
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 860px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: clamp(3rem, 6vw, 6rem);
+  }
+}
+
+/* ── Left Text Column ────────────────────────── */
+.textCol {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Heading ─────────────────────────────────── */
+.heading {
+  margin-top: var(--space-2xs);
+  font-family: var(--font-serif);
+  font-size: var(--fs-h1);
+  font-weight: 500;
+  line-height: var(--lh-tight);
+  letter-spacing: -0.025em;
+  max-width: 16ch;
+  color: var(--color-charcoal);
+
+  /* Warm gradient */
+  background: linear-gradient(
+    145deg,
+    var(--color-charcoal)   0%,
+    var(--color-deep-brown) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Accent Divider ──────────────────────────── */
+.divider {
+  width: 3rem;
+  height: 1px;
+  margin-top: var(--space-md);
+  background: linear-gradient(
+    90deg,
+    var(--color-accent),
+    transparent
+  );
+  opacity: 0.50;
+}
+
+/* ── Copy ────────────────────────────────────── */
+.copy {
+  margin-top: var(--space-md);
+  color: var(--text-muted);
+  max-width: 42ch;
+  font-size: var(--fs-lead);
+  font-weight: 300;
+  line-height: var(--lh-body);
+  letter-spacing: 0.01em;
+}
+
+/* ── Stats Row ───────────────────────────────── */
+.stats {
+  display: flex;
+  gap: var(--space-xl);
+  margin-top: var(--space-xl);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.statNumber {
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 500;
+  line-height: 1;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+}
+
+.statLabel {
+  font-size: var(--fs-small);
+  font-weight: 500;
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* ── Regions Panel ───────────────────────────── */
+.regionsWrap {
+  position: relative;
+  border: 1px solid var(--border-subtle);
+  padding: var(--space-lg);
+  background: var(--bg-paper);
+  overflow: hidden;
+  transition:
+    border-color var(--dur-mid) var(--ease-soft),
+    box-shadow   var(--dur-mid) var(--ease-soft);
+}
+
+.regionsWrap:hover {
+  border-color: var(--border-accent);
+  box-shadow: var(--shadow-md);
+}
+
+/* Top accent bar */
+.regionsWrap::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    var(--color-accent),
+    var(--color-accent-light),
+    transparent
+  );
+}
+
+/* Corner decorative tag */
+.panelTag {
+  position: absolute;
+  top: var(--space-md);
+  right: var(--space-md);
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  opacity: 0.5;
+}
+
+/* ── Panel Header ────────────────────────────── */
+.panelHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.panelTitle {
+  font-size: var(--fs-eyebrow);
+  font-weight: 600;
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.panelCount {
+  font-family: var(--font-serif);
+  font-size: var(--fs-h3);
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+}
+
+/* ── Regions List ────────────────────────────── */
+.regions {
+  display: grid;
+  gap: 0;
+}
+
+.regions li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-family: var(--font-serif);
+  font-size: var(--fs-h3);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--color-charcoal);
+  padding-block: var(--space-md);
+  border-bottom: 1px solid var(--border-subtle);
+  position: relative;
+  overflow: hidden;
+  transition:
+    color        var(--dur-fast) var(--ease-soft),
+    padding-left var(--dur-fast) var(--ease-premium);
+  cursor: default;
+}
+
+.regions li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.regions li:first-child {
+  padding-top: 0;
+}
+
+/* Warm fill sweep on hover */
+.regions li::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--bg-accent-pale);
+  transform: translateX(-101%);
+  transition: transform var(--dur-fast) var(--ease-premium);
+  z-index: 0;
+}
+
+.regions li:hover::before {
+  transform: translateX(0);
+}
+
+.regions li:hover {
+  color: var(--color-accent);
+  padding-left: var(--space-xs);
+}
+
+/* Row number */
+.regionIndex {
+  position: absolute;
+  right: var(--space-md);
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  opacity: 0;
+  transition: opacity var(--dur-fast) var(--ease-soft);
+  z-index: 1;
+}
+
+.regions li:hover .regionIndex {
+  opacity: 0.5;
+}
+
+/* ── Dot ─────────────────────────────────────── */
+.dot {
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  transition:
+    transform  var(--dur-fast) var(--ease-premium),
+    background var(--dur-fast) var(--ease-soft),
+    box-shadow var(--dur-fast) var(--ease-soft);
+}
+
+/* Dot pulse ring */
+.dot::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 1px solid var(--color-accent);
+  opacity: 0;
+  transform: scale(0.6);
+  transition:
+    opacity    var(--dur-fast) var(--ease-soft),
+    transform  var(--dur-fast) var(--ease-premium);
+}
+
+.regions li:hover .dot {
+  transform: scale(1.3);
+  background: var(--color-accent-light);
+  box-shadow: 0 0 8px rgba(160, 82, 45, 0.40);
+}
+
+.regions li:hover .dot::after {
+  opacity: 0.5;
+  transform: scale(1);
+}
+
+/* Region text */
+.regionName {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Responsive ──────────────────────────────── */
+@media (max-width: 859px) {
+  .grid {
+    gap: var(--space-xl);
+  }
+
+  .stats {
+    gap: var(--space-lg);
+  }
+
+  .regionsWrap {
+    padding: var(--space-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .stats {
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .regions li {
+    font-size: var(--fs-h3);
+  }
+
+  .panelHeader {
+    margin-bottom: var(--space-md);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .regions li::before,
+  .dot,
+  .dot::after {
+    transition: none;
+  }
+
+  .regions li:hover {
+    padding-left: 0;
+  }
+}

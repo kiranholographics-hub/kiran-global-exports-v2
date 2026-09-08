@@ -1,0 +1,375 @@
+/* ═══════════════════════════════════════════════
+   PRODUCT WORLD — Full-Bleed Category Panels
+   Rugs & Towels Luxury Brand
+═══════════════════════════════════════════════ */
+
+/* ── Section Grid ────────────────────────────── */
+.section {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 860px) {
+  .section {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ── Panel ───────────────────────────────────── */
+.panel {
+  position: relative;
+  min-height: 70vh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  color: var(--color-ivory);
+  cursor: pointer;
+  text-decoration: none;
+
+  /* Clip path reveal on hover */
+  isolation: isolate;
+}
+
+@media (min-width: 860px) {
+  .panel {
+    min-height: 92vh;
+  }
+}
+
+/* Subtle border between panels */
+@media (min-width: 860px) {
+  .panel:not(:last-child) {
+    border-right: 1px solid rgba(248, 243, 234, 0.06);
+  }
+}
+
+/* ── Media Layer ─────────────────────────────── */
+.media {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+}
+
+/* Image zoom on hover */
+.media :global(img) {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition:
+    transform    var(--dur-slow)  var(--ease-premium),
+    filter       var(--dur-mid)   var(--ease-soft);
+  filter: brightness(0.92) saturate(0.95);
+}
+
+.panel:hover .media :global(img) {
+  transform: scale(1.07);
+  filter: brightness(1) saturate(1.05);
+}
+
+/* ── Overlay — Multi Layer ───────────────────── */
+.overlay {
+  position: absolute;
+  inset: 0;
+  transition: opacity var(--dur-mid) var(--ease-soft);
+
+  background:
+    /* Top vignette */
+    linear-gradient(
+      180deg,
+      rgba(10, 8, 6, 0.25) 0%,
+      transparent           22%
+    ),
+    /* Bottom content ramp */
+    linear-gradient(
+      0deg,
+      rgba(10, 8, 6, 0.92)  0%,
+      rgba(10, 8, 6, 0.65)  35%,
+      rgba(10, 8, 6, 0.20)  65%,
+      transparent            100%
+    ),
+    /* Warm side tone */
+    linear-gradient(
+      110deg,
+      rgba(160, 82, 45, 0.10) 0%,
+      transparent              55%
+    );
+}
+
+/* Slightly deeper on hover */
+.panel:hover .overlay {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(10, 8, 6, 0.30) 0%,
+      transparent           20%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(10, 8, 6, 0.95)  0%,
+      rgba(10, 8, 6, 0.70)  35%,
+      rgba(10, 8, 6, 0.25)  65%,
+      transparent            100%
+    ),
+    linear-gradient(
+      110deg,
+      rgba(160, 82, 45, 0.15) 0%,
+      transparent              55%
+    );
+}
+
+/* ── Content Block ───────────────────────────── */
+.content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: clamp(2rem, 5vw, 4rem);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Panel Number + Eyebrow ──────────────────── */
+.panelEyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: var(--fs-eyebrow);
+  font-weight: 600;
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--color-olive-soft);
+  transition: color var(--dur-fast) var(--ease-soft);
+}
+
+.panel:hover .panelEyebrow {
+  color: var(--color-accent-light);
+}
+
+/* ── Title ───────────────────────────────────── */
+.title {
+  margin-top: var(--space-2xs);
+  font-family: var(--font-serif);
+  font-size: var(--fs-h1);
+  font-weight: 500;
+  line-height: var(--lh-tight);
+  letter-spacing: -0.02em;
+  color: var(--color-ivory);
+
+  /* Warm gradient on title */
+  background: linear-gradient(
+    145deg,
+    #fffdf9 0%,
+    #f2ebe0 60%,
+    #ddc9a8 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+  transition: transform var(--dur-mid) var(--ease-premium);
+}
+
+.panel:hover .title {
+  transform: translateY(-3px);
+}
+
+/* ── Accent Divider ──────────────────────────── */
+.titleDivider {
+  width: 0;
+  height: 1px;
+  margin-top: var(--space-sm);
+  background: linear-gradient(
+    90deg,
+    rgba(196, 122, 82, 0.80),
+    transparent
+  );
+  transition: width var(--dur-mid) var(--ease-premium);
+}
+
+.panel:hover .titleDivider {
+  width: 4rem;
+}
+
+/* ── Item List ───────────────────────────────── */
+.list {
+  margin-top: var(--space-md);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2xs) var(--space-sm);
+  max-width: 32rem;
+}
+
+.list li {
+  font-size: var(--fs-small);
+  font-weight: 500;
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--text-muted-inverse);
+  position: relative;
+  padding-left: 0.9rem;
+  transition: color var(--dur-fast) var(--ease-soft);
+}
+
+/* Bullet dot */
+.list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--color-olive-soft);
+  opacity: 0.65;
+  transition: background var(--dur-fast) var(--ease-soft),
+              opacity     var(--dur-fast) var(--ease-soft);
+}
+
+.panel:hover .list li {
+  color: rgba(248, 243, 234, 0.80);
+}
+
+.panel:hover .list li::before {
+  background: var(--color-accent-light);
+  opacity: 1;
+}
+
+/* ── CTA Link ────────────────────────────────── */
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-top: var(--space-lg);
+  font-size: var(--fs-eyebrow);
+  font-family: var(--font-sans);
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--color-ivory);
+  position: relative;
+  width: fit-content;
+  transition: gap var(--dur-fast) var(--ease-soft),
+              color var(--dur-fast) var(--ease-soft);
+}
+
+/* Underline — slides in from left */
+.cta::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--color-accent-light);
+  transition: width var(--dur-mid) var(--ease-premium);
+}
+
+.panel:hover .cta {
+  gap: 0.9rem;
+  color: var(--color-accent-light);
+}
+
+.panel:hover .cta::after {
+  width: 100%;
+}
+
+/* Arrow nudge on hover */
+.ctaArrow {
+  display: inline-block;
+  transition: transform var(--dur-fast) var(--ease-premium);
+}
+
+.panel:hover .ctaArrow {
+  transform: translateX(5px);
+}
+
+/* ── Corner Index Number ─────────────────────── */
+.cornerIndex {
+  position: absolute;
+  top: clamp(1.5rem, 3vw, 2.5rem);
+  right: clamp(1.5rem, 3vw, 2.5rem);
+  z-index: 2;
+  font-family: var(--font-serif);
+  font-size: clamp(3.5rem, 7vw, 6rem);
+  font-weight: 500;
+  line-height: 1;
+  color: rgba(248, 243, 234, 0.06);
+  letter-spacing: -0.04em;
+  pointer-events: none;
+  user-select: none;
+  transition: color var(--dur-mid) var(--ease-soft);
+}
+
+.panel:hover .cornerIndex {
+  color: rgba(248, 243, 234, 0.10);
+}
+
+/* ── Top Accent Line ─────────────────────────── */
+.panel::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 2px;
+  z-index: 3;
+  background: linear-gradient(
+    90deg,
+    transparent                  0%,
+    rgba(196, 122, 82, 0)        30%,
+    rgba(196, 122, 82, 0.55)    50%,
+    rgba(196, 122, 82, 0)        70%,
+    transparent                  100%
+  );
+  transform: scaleX(0);
+  transition: transform var(--dur-mid) var(--ease-premium);
+}
+
+.panel:hover::before {
+  transform: scaleX(1);
+}
+
+/* ── Focus State ─────────────────────────────── */
+.panel:focus-visible {
+  outline: 2px solid var(--color-accent-light);
+  outline-offset: -2px;
+}
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════ */
+
+@media (max-width: 859px) {
+  .panel {
+    min-height: 65vh;
+  }
+
+  .cornerIndex {
+    font-size: 3rem;
+    opacity: 0.5;
+  }
+
+  .titleDivider {
+    width: 2.5rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .panel {
+    min-height: 55vh;
+  }
+
+  .list {
+    gap: 0.3rem var(--space-xs);
+  }
+
+  .cta {
+    margin-top: var(--space-md);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .media :global(img),
+  .panel:hover .media :global(img) {
+    transition: none;
+    transform: none;
+  }
+}

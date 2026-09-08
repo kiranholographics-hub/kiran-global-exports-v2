@@ -1,0 +1,40 @@
+KIRAN GLOBAL EXPORTS — AI CHAT SETUP
+
+The website now includes a premium AI chat button in the bottom-right corner.
+
+1. Backend environment
+Open backend/.env and add:
+
+OPENAI_API_KEY=YOUR_OPENAI_API_KEY
+OPENAI_MODEL=gpt-5.6-luna
+
+Keep the API key ONLY on the backend. Do not put it in frontend/.env or VITE_ variables.
+
+2. Frontend environment
+frontend/.env should contain your backend URL, for example:
+
+VITE_API_URL=https://api.your-domain.com
+
+3. Start backend
+cd backend
+npm install
+npm start
+
+4. Start/build frontend
+cd frontend
+npm install
+npm run build
+
+5. What the AI assistant does
+- Answers product/category questions
+- Helps buyers choose towels/rugs
+- Handles custom/private-label questions
+- Collects the information needed for a quotation
+- Supports English/Hindi/Hinglish
+- Avoids inventing prices, MOQ, stock, lead times or specifications
+
+6. Security
+The OpenAI API key is never sent to the browser. The browser calls /api/ai-chat on your backend, and the backend calls OpenAI.
+
+7. Design
+The chat is fixed at bottom-right, responsive on mobile, and styled to match the existing Kiran Global Exports premium ivory/charcoal/olive design.

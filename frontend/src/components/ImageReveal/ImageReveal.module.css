@@ -1,0 +1,162 @@
+/* ═══════════════════════════════════════════════
+   IMAGE REVEAL — Universal Image Component
+   Rugs & Towels Luxury Brand
+═══════════════════════════════════════════════ */
+
+/* ── Frame Wrapper ───────────────────────────── */
+.frame {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--color-sand);
+
+  /* Subtle grain texture on bg */
+  background-image:
+    linear-gradient(
+      135deg,
+      var(--color-sand) 0%,
+      var(--color-beige) 100%
+    );
+}
+
+/* ── Image ───────────────────────────────────── */
+.image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  /* Fade in when loaded */
+  opacity: 0;
+  transition:
+    opacity   var(--dur-mid)  var(--ease-soft),
+    transform var(--dur-slow) var(--ease-premium),
+    filter    var(--dur-mid)  var(--ease-soft);
+
+  /* Slight warmth correction */
+  filter: saturate(0.96);
+}
+
+/* Loaded state — added via JS */
+.image.loaded {
+  opacity: 1;
+  filter: saturate(1);
+}
+
+/* ── Shimmer Loading Skeleton ────────────────── */
+.frame::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    90deg,
+    transparent                    0%,
+    rgba(255, 253, 249, 0.55)      45%,
+    rgba(255, 253, 249, 0.75)      50%,
+    rgba(255, 253, 249, 0.55)      55%,
+    transparent                    100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.6s ease-in-out infinite;
+  pointer-events: none;
+  transition: opacity var(--dur-mid) var(--ease-soft);
+}
+
+/* Hide shimmer when image loaded */
+.frame.imageLoaded::before {
+  opacity: 0;
+  animation: none;
+}
+
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ── Placeholder — image failed ──────────────── */
+.placeholder {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  min-height: 12rem;
+  place-items: center;
+  background: linear-gradient(
+    135deg,
+    var(--color-beige) 0%,
+    var(--color-stone) 100%
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+/* Warm texture lines on placeholder */
+.placeholder::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent             10px,
+    rgba(255, 253, 249, 0.06) 10px,
+    rgba(255, 253, 249, 0.06) 20px
+  );
+}
+
+/* ── Placeholder Label ───────────────────────── */
+.placeholderLabel {
+  position: relative;
+  z-index: 1;
+  padding: 1.25rem var(--space-md);
+  text-align: center;
+  font-size: var(--fs-small);
+  font-weight: 600;
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--color-charcoal);
+  opacity: 0.55;
+}
+
+/* Placeholder icon */
+.placeholderIcon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.placeholderIcon svg {
+  width: 2rem;
+  height: 2rem;
+  opacity: 0.30;
+  color: var(--color-charcoal);
+}
+
+/* ── Reveal Overlay — used for animated entries ─ */
+.revealOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: var(--color-sand);
+  transform-origin: bottom;
+  pointer-events: none;
+}
+
+/* ── Responsive ──────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .frame::before {
+    animation: none;
+  }
+
+  .image {
+    opacity: 1;
+    transition: none;
+  }
+
+  .frame.imageLoaded::before {
+    display: none;
+  }
+}

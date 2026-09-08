@@ -1,0 +1,351 @@
+/* ═══════════════════════════════════════════════
+   HEADER — Premium Warm Light Theme
+   Rugs & Towels Luxury Brand
+═══════════════════════════════════════════════ */
+
+/* ── Base Header ─────────────────────────────── */
+.header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 100;
+  padding-block: var(--space-sm);
+  border-bottom: 1px solid transparent;
+  background: transparent;
+  color: var(--color-ivory);
+  transition:
+    background-color var(--dur-mid) var(--ease-soft),
+    padding-block    var(--dur-mid) var(--ease-soft),
+    border-color     var(--dur-mid) var(--ease-soft),
+    box-shadow       var(--dur-mid) var(--ease-soft);
+}
+
+/* ── Scrolled / Light State ──────────────────── */
+.header.scrolled,
+.header.light {
+  padding-block: var(--space-2xs);
+  border-bottom-color: var(--border-subtle);
+  background: rgba(250, 246, 239, 0.92);
+  color: var(--color-charcoal);
+  backdrop-filter: blur(18px) saturate(1.4);
+  -webkit-backdrop-filter: blur(18px) saturate(1.4);
+  box-shadow: 0 2px 24px rgba(30, 26, 23, 0.07);
+}
+
+/* ── Inner Layout ────────────────────────────── */
+.inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+
+/* ── Logo ────────────────────────────────────── */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  min-width: max-content;
+  font-family: var(--font-sans);
+  white-space: nowrap;
+  text-decoration: none;
+  color: inherit;
+  transition: opacity var(--dur-fast) var(--ease-soft);
+}
+
+.logo:hover {
+  opacity: 0.75;
+}
+
+/* Logo Box Mark */
+.logoMark {
+  padding: 0.28rem 0.6rem;
+  border: 1px solid currentColor;
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  line-height: 1;
+  transition:
+    background-color var(--dur-fast) var(--ease-soft),
+    color            var(--dur-fast) var(--ease-soft);
+}
+
+.logo:hover .logoMark {
+  background: currentColor;
+  color: var(--bg-primary);
+}
+
+/* Logo Text */
+.logoWord {
+  display: none;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.logoWord em {
+  font-style: normal;
+  opacity: 0.5;
+}
+
+/* ── Navigation ──────────────────────────────── */
+.nav {
+  display: none;
+}
+
+.nav ul {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+/* Nav Link */
+.navLink {
+  position: relative;
+  display: inline-block;
+  padding-block: 0.4rem;
+  font-size: var(--fs-small);
+  font-weight: 500;
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--dur-fast) var(--ease-soft);
+}
+
+.navLink:hover {
+  color: var(--accent);
+}
+
+/* Hover Underline */
+.navUnderline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur-fast) var(--ease-premium);
+}
+
+.navLink:hover .navUnderline,
+.navUnderline[data-active='true'] {
+  transform: scaleX(1);
+}
+
+/* Active Link Color */
+.navLink:has(.navUnderline[data-active='true']) {
+  color: var(--accent);
+}
+
+/* ── Actions Area ────────────────────────────── */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-left: auto;
+}
+
+/* ── CTA Button ──────────────────────────────── */
+.cta {
+  display: none;
+  position: relative;
+  padding: 0.72rem 1.5rem;
+  border: 1px solid currentColor;
+  background: transparent;
+  color: inherit;
+  font-size: var(--fs-eyebrow);
+  font-weight: 600;
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  overflow: hidden;
+  cursor: pointer;
+  transition:
+    color            var(--dur-fast) var(--ease-soft),
+    border-color     var(--dur-fast) var(--ease-soft),
+    box-shadow       var(--dur-fast) var(--ease-soft);
+}
+
+/* Fill from bottom on hover */
+.cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: currentColor;
+  transform: translateY(101%);
+  transition: transform var(--dur-fast) var(--ease-premium);
+}
+
+.cta:hover::before {
+  transform: translateY(0);
+}
+
+.cta:hover {
+  color: var(--bg-primary);
+  border-color: currentColor;
+  box-shadow: var(--shadow-accent-sm);
+}
+
+/* CTA text stays above overlay */
+.cta span {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Scrolled CTA — accent border ────────────── */
+.header.scrolled .cta,
+.header.light .cta {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.header.scrolled .cta:hover,
+.header.light .cta:hover {
+  color: var(--bg-primary);
+  border-color: var(--accent);
+}
+
+/* ── Hamburger Menu ──────────────────────────── */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 28px;
+  padding: 0.5rem 0;
+  flex: 0 0 auto;
+  cursor: pointer;
+  transition: opacity var(--dur-fast) var(--ease-soft);
+}
+
+.hamburger:hover {
+  opacity: 0.6;
+}
+
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 1.5px;
+  background: currentColor;
+  transform-origin: center;
+  transition:
+    transform   var(--dur-fast) var(--ease-premium),
+    opacity     var(--dur-fast) var(--ease-soft),
+    width       var(--dur-fast) var(--ease-soft);
+}
+
+/* Hamburger open state (add .open class via JS) */
+.hamburger.open span:nth-child(1) {
+  transform: translateY(6.5px) rotate(45deg);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+  width: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: translateY(-6.5px) rotate(-45deg);
+}
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE BREAKPOINTS
+═══════════════════════════════════════════════ */
+
+/* ── 720px+ : Show logo word ─────────────────── */
+@media (min-width: 720px) {
+  .logoWord {
+    display: inline;
+  }
+}
+
+/* ── 860px+ : Show CTA ───────────────────────── */
+@media (min-width: 860px) {
+  .cta {
+    display: inline-block;
+  }
+}
+
+/* ── 1080px+ : Full desktop nav ──────────────── */
+@media (min-width: 1080px) {
+  .nav {
+    display: flex;
+    flex: 1 1 auto;
+    min-width: 0;
+    justify-content: center;
+  }
+
+  .nav ul {
+    flex-wrap: wrap;
+    row-gap: 0.35rem;
+    column-gap: 1.15rem;
+    justify-content: center;
+  }
+
+  .hamburger {
+    display: none;
+  }
+}
+
+/* ── Below 1080px : Mobile centered logo ─────── */
+@media (max-width: 1079px) {
+  .inner {
+    min-height: 3rem;
+  }
+
+  .logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .logoMark {
+    font-size: 1rem;
+    padding: 0.24rem 0.45rem;
+  }
+
+  .logoWord {
+    display: inline;
+    font-size: 0.72rem;
+    letter-spacing: 0.105em;
+  }
+
+  .actions {
+    margin-left: auto;
+  }
+
+  .cta {
+    display: none;
+  }
+}
+
+/* ── 560px and below ─────────────────────────── */
+@media (max-width: 560px) {
+  .logoWord {
+    font-size: 0.64rem;
+    letter-spacing: 0.08em;
+  }
+
+  .logo {
+    gap: 0.35rem;
+  }
+
+  .actions {
+    gap: 0.65rem;
+  }
+
+  .hamburger {
+    width: 25px;
+    gap: 4px;
+  }
+}
+
+/* ── 380px and below ─────────────────────────── */
+@media (max-width: 380px) {
+  .logoWord {
+    display: none;
+  }
+}

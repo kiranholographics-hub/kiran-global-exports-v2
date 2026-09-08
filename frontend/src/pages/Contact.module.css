@@ -1,0 +1,295 @@
+/* ═══════════════════════════════════════════════
+   CONTACT PAGE — Inquiry Form + Direct Contact
+   Rugs & Towels Luxury Brand
+═══════════════════════════════════════════════ */
+
+/* ── Main Grid ───────────────────────────────── */
+.grid {
+  display: grid;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .grid {
+    grid-template-columns: 1.4fr 1fr;
+    gap: var(--space-2xl);
+    align-items: start;
+  }
+}
+
+/* ── Form Column ─────────────────────────────── */
+.formCol {
+  min-width: 0;
+}
+
+/* ── Side Column ─────────────────────────────── */
+.sideCol {
+  min-width: 0;
+}
+
+/* ── Direct Contact Block ────────────────────── */
+.directBlock {
+  position: sticky;
+  top: 7rem;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-paper);
+  padding: var(--space-lg);
+  overflow: hidden;
+  transition:
+    border-color var(--dur-mid) var(--ease-soft),
+    box-shadow   var(--dur-mid) var(--ease-soft);
+}
+
+.directBlock:hover {
+  border-color: var(--border-accent);
+  box-shadow: var(--shadow-md);
+}
+
+/* Top accent line */
+.directBlock::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    var(--color-accent),
+    var(--color-accent-light),
+    transparent
+  );
+}
+
+/* ── Block Heading ───────────────────────────── */
+.blockHeading {
+  font-family: var(--font-serif);
+  font-size: var(--fs-h3);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--color-charcoal);
+  margin-top: var(--space-2xs);
+
+  background: linear-gradient(
+    145deg,
+    var(--color-charcoal)   0%,
+    var(--color-deep-brown) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Contact Person ──────────────────────────── */
+.contactPerson {
+  margin-top: var(--space-2xs);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+.contactPerson strong {
+  color: var(--color-charcoal);
+  font-weight: 600;
+}
+
+/* ── Accent Divider ──────────────────────────── */
+.blockDivider {
+  width: 2.5rem;
+  height: 1px;
+  margin-top: var(--space-sm);
+  background: linear-gradient(
+    90deg,
+    var(--color-accent),
+    transparent
+  );
+  opacity: 0.50;
+}
+
+/* ── Direct List ─────────────────────────────── */
+.directList {
+  margin-top: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.directList li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding-block: var(--space-md);
+  border-bottom: 1px solid var(--border-subtle);
+  position: relative;
+  overflow: hidden;
+  transition: padding-left var(--dur-fast) var(--ease-premium);
+}
+
+/* Warm fill sweep on hover */
+.directList li::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--bg-accent-pale);
+  transform: translateX(-101%);
+  transition: transform var(--dur-fast) var(--ease-premium);
+  z-index: 0;
+}
+
+.directList li:hover::before {
+  transform: translateX(0);
+}
+
+.directList li:hover {
+  padding-left: var(--space-xs);
+}
+
+.directList li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* Label */
+.directList span:first-child {
+  position: relative;
+  z-index: 1;
+  font-size: var(--fs-small);
+  font-weight: 600;
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--text-muted);
+  transition: color var(--dur-fast) var(--ease-soft);
+}
+
+.directList li:hover span:first-child {
+  color: var(--accent);
+}
+
+/* Address span */
+.directList span:not(:first-child) {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-serif);
+  font-size: var(--fs-h3);
+  color: var(--color-charcoal);
+  line-height: var(--lh-snug);
+  font-weight: 400;
+}
+
+/* ── Links ───────────────────────────────────── */
+.directList a {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-serif);
+  font-size: var(--fs-h3);
+  color: var(--color-charcoal);
+  text-decoration: none;
+  transition: color var(--dur-fast) var(--ease-soft);
+  display: inline-block;
+  line-height: var(--lh-snug);
+}
+
+/* Underline slide */
+.directList a::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--color-accent);
+  transition: width var(--dur-fast) var(--ease-premium);
+}
+
+.directList a:hover {
+  color: var(--accent);
+}
+
+.directList a:hover::after {
+  width: 100%;
+}
+
+/* ── WhatsApp link ───────────────────────────── */
+.whatsappLink {
+  color: #3d7a4f !important;
+}
+
+.whatsappLink::after {
+  background: #3d7a4f !important;
+}
+
+.whatsappLink:hover {
+  color: #2e5e3c !important;
+}
+
+/* ── Response Time Badge ─────────────────────── */
+.responseBadge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: var(--space-lg);
+  padding: 0.65rem 0.9rem;
+  background: var(--bg-sand);
+  border: 1px solid var(--border-subtle);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.responseDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #3d7a4f;
+  flex-shrink: 0;
+  animation: pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1;   transform: scale(1); }
+  50%       { opacity: 0.4; transform: scale(0.7); }
+}
+
+/* ── Responsive ──────────────────────────────── */
+@media (max-width: 899px) {
+  .sideCol {
+    order: -1;
+  }
+
+  .directBlock {
+    position: static;
+  }
+
+  .directList li:hover {
+    padding-left: 0;
+  }
+
+  .directList li::before {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .directBlock {
+    padding: var(--space-md);
+  }
+
+  .directList a,
+  .directList span:not(:first-child) {
+    font-size: var(--fs-h3);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .directList li::before,
+  .directList a::after {
+    transition: none;
+  }
+
+  .directList li:hover {
+    padding-left: 0;
+  }
+
+  .responseDot {
+    animation: none;
+  }
+}

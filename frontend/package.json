@@ -1,0 +1,45 @@
+{
+  "name": "frontend",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "node scripts/generate-seo-files.js && vite build",
+    "postbuild": "node scripts/prerender.mjs",
+    "preview": "vite preview",
+    "serve": "node server.js",
+    "lint": "eslint .",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@fontsource/fraunces": "^5.3.0",
+    "@fontsource/inter": "^5.3.0",
+    "compression": "^1.7.5",
+    "express": "^5.2.1",
+    "framer-motion": "^13.1.0",
+    "gsap": "^3.15.0",
+    "i18next": "^26.4.1",
+    "lenis": "^1.3.26",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "react-i18next": "^17.0.13",
+    "react-router-dom": "^7.1.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "eslint": "^9",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-react": "^7.37.3",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "globals": "^15.14.0",
+    "puppeteer": "^25.10.0",
+    "vite": "^6.0.7"
+  },
+  "description": "React (JavaScript) single-page app, built with Vite, served in production by a plain Express/Node server (`server.js`). No Next.js anywhere in this folder.",
+  "main": "eslint.config.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

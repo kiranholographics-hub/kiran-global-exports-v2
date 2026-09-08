@@ -1,0 +1,294 @@
+/* ═══════════════════════════════════════════════
+   CATEGORY LISTING — Product Category Page
+   Rugs & Towels Luxury Brand
+═══════════════════════════════════════════════ */
+
+/* ── Chip Row — Subcategory Nav ──────────────── */
+.chipRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2xs);
+  padding-block: var(--space-md) var(--space-lg);
+  border-bottom: 1px solid var(--border-subtle);
+  position: relative;
+}
+
+/* Warm accent bottom line */
+.chipRow::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 4rem;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    var(--color-accent),
+    transparent
+  );
+}
+
+/* ── Chip ────────────────────────────────────── */
+.chip {
+  position: relative;
+  display: inline-block;
+  font-size: var(--fs-small);
+  font-weight: 500;
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  padding: 0.55rem 1.1rem;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-paper);
+  color: var(--text-muted);
+  overflow: hidden;
+  transition:
+    color        var(--dur-fast) var(--ease-soft),
+    border-color var(--dur-fast) var(--ease-soft),
+    box-shadow   var(--dur-fast) var(--ease-soft),
+    transform    var(--dur-fast) var(--ease-premium);
+}
+
+/* Fill on hover */
+.chip::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--bg-accent-pale);
+  transform: translateY(101%);
+  transition: transform var(--dur-fast) var(--ease-premium);
+  z-index: 0;
+}
+
+.chip:hover::before {
+  transform: translateY(0);
+}
+
+.chip:hover {
+  border-color: var(--border-accent);
+  color: var(--color-accent);
+  box-shadow: var(--shadow-accent-sm);
+  transform: translateY(-1px);
+}
+
+.chip:focus-visible {
+  outline: 1.5px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Active chip — scrolled to section */
+.chip[data-active='true'] {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-ivory);
+}
+
+/* Chip text above fill */
+.chip span {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Subcategory Section ─────────────────────── */
+.subSection {
+  background: var(--bg-primary);
+  position: relative;
+}
+
+/* Alternating sandy sections */
+.subSection:nth-child(even) {
+  background: var(--bg-sand);
+}
+
+/* ── Subcategory Header ───────────────────────── */
+.subHeader {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-md);
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--border-subtle);
+  flex-wrap: wrap;
+}
+
+.productCount {
+  font-size: var(--fs-small);
+  font-weight: 500;
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--text-muted);
+  white-space: nowrap;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-paper);
+}
+
+/* ── Product Grid ────────────────────────────── */
+.grid {
+  display: grid;
+  gap: clamp(1.25rem, 2.5vw, 2rem) clamp(1rem, 2vw, 1.5rem);
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (min-width: 720px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1100px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ── Empty State ─────────────────────────────── */
+.emptyState {
+  padding: var(--space-xl) var(--space-lg);
+  border: 1px dashed var(--border-subtle);
+  background: var(--bg-paper);
+  text-align: center;
+  color: var(--text-muted);
+  font-size: var(--fs-small);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+
+/* ── Bottom Note Section ─────────────────────── */
+.noteSection {
+  padding-block: var(--space-xl);
+  border-top: 1px solid var(--border-subtle);
+  position: relative;
+}
+
+/* Warm accent bar */
+.noteSection::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 3rem;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    var(--color-accent),
+    transparent
+  );
+}
+
+.note {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  color: var(--text-muted);
+  font-size: var(--fs-lead);
+  font-weight: 300;
+  line-height: var(--lh-body);
+  max-width: 65ch;
+}
+
+/* Dot accent */
+.note::before {
+  content: '';
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  margin-top: 0.65rem;
+  opacity: 0.65;
+}
+
+.note a {
+  color: var(--color-charcoal);
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: rgba(160, 82, 45, 0.35);
+  text-underline-offset: 3px;
+  transition:
+    color             var(--dur-fast) var(--ease-soft),
+    text-decoration-color var(--dur-fast) var(--ease-soft);
+}
+
+.note a:hover {
+  color: var(--accent);
+  text-decoration-color: var(--accent);
+}
+
+/* ── Scroll Spy Progress ─────────────────────── */
+.progressDots {
+  display: none;
+  position: fixed;
+  right: var(--space-md);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 50;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+@media (min-width: 1280px) {
+  .progressDots {
+    display: flex;
+  }
+}
+
+.progressDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-stone);
+  transition:
+    background   var(--dur-fast) var(--ease-soft),
+    transform    var(--dur-fast) var(--ease-premium);
+}
+
+.progressDot[data-active='true'] {
+  background: var(--accent);
+  transform: scale(1.5);
+}
+
+/* ── Responsive ──────────────────────────────── */
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem 0.75rem;
+  }
+
+  .chipRow {
+    padding-block: var(--space-sm) var(--space-md);
+    gap: 0.4rem;
+  }
+
+  .chip {
+    padding: 0.45rem 0.85rem;
+    font-size: 0.68rem;
+  }
+
+  .subHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-xs);
+  }
+
+  .note {
+    font-size: var(--fs-body);
+  }
+}
+
+@media (max-width: 380px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chip::before {
+    transition: none;
+  }
+
+  .chip:hover {
+    transform: none;
+  }
+}

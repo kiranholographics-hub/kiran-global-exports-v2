@@ -1,0 +1,92 @@
+/* ═══════════════════════════════════════════════
+   SECTION HEADING — Universal Section Header
+   Rugs & Towels Luxury Brand
+═══════════════════════════════════════════════ */
+
+/* ── Wrapper ─────────────────────────────────── */
+.wrap {
+  max-width: 46rem;
+  margin-bottom: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Center Align ────────────────────────────── */
+.wrap.center {
+  margin-inline: auto;
+  text-align: center;
+  align-items: center;
+}
+
+/* ── Title ───────────────────────────────────── */
+.title {
+  margin-top: var(--space-2xs);
+  font-family: var(--font-serif);
+  font-size: var(--fs-h2);
+  font-weight: 500;
+  line-height: var(--lh-tight);
+  letter-spacing: -0.025em;
+  color: var(--color-charcoal);
+
+  /* Warm gradient */
+  background: linear-gradient(
+    145deg,
+    var(--color-charcoal)   0%,
+    var(--color-deep-brown) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Accent Divider ──────────────────────────── */
+.divider {
+  width: 3rem;
+  height: 1px;
+  margin-top: var(--space-sm);
+  background: linear-gradient(
+    90deg,
+    var(--color-accent),
+    transparent
+  );
+  opacity: 0.50;
+  flex-shrink: 0;
+}
+
+/* Center — divider centered */
+.center .divider {
+  margin-inline: auto;
+}
+
+/* ── Lead ────────────────────────────────────── */
+.lead {
+  margin-top: var(--space-sm);
+  font-size: var(--fs-lead);
+  font-weight: 300;
+  line-height: var(--lh-body);
+  color: var(--text-muted);
+  max-width: 44ch;
+  letter-spacing: 0.01em;
+}
+
+/* Center — lead centered */
+.center .lead {
+  margin-inline: auto;
+}
+
+/* ── Responsive ──────────────────────────────── */
+@media (max-width: 640px) {
+  .wrap {
+    margin-bottom: var(--space-md);
+  }
+
+  .title {
+    font-size: clamp(1.5rem, 5vw, var(--fs-h2));
+    letter-spacing: -0.02em;
+  }
+
+  .lead {
+    font-size: var(--fs-body);
+    max-width: 100%;
+  }
+}

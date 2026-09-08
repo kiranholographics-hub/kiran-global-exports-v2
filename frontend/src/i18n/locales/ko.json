@@ -1,0 +1,760 @@
+{
+  "common": {
+    "tagline": "프리미엄 타월 & 러그 — 국제 수출업체",
+    "madeInIndia": "인도산. 전 세계로 수출.",
+    "madeInIndiaShort": "인도산 · 전 세계로 수출",
+    "contactExportTeam": "수출팀에 문의하기",
+    "responseNote": "보통 24시간 이내 답변",
+    "exportRegions": {
+      "india": "인도",
+      "northAmerica": "북미",
+      "europe": "유럽",
+      "middleEast": "중동",
+      "australia": "호주",
+      "asiaPacific": "아시아태평양"
+    },
+    "productInterestOptions": {
+      "towels": "타월",
+      "rugs": "러그",
+      "both": "둘 다",
+      "custom": "맞춤 / 자체 브랜드"
+    }
+  },
+  "nav": {
+    "home": "홈",
+    "about": "회사 소개",
+    "towels": "타월",
+    "rugs": "러그",
+    "collections": "컬렉션",
+    "export": "수출",
+    "contact": "문의하기",
+    "startInquiry": "문의 시작하기",
+    "linen": "리넨"
+  },
+  "header": {
+    "logoAria": "Kiran Global Exports — 홈",
+    "languageAria": "언어 선택",
+    "languageLabel": "언어",
+    "menuOpen": "메뉴 열기",
+    "menuClose": "메뉴 닫기"
+  },
+  "mobileNav": {
+    "srLabel": "사이트 내비게이션",
+    "primaryAria": "모바일 기본 메뉴"
+  },
+  "loader": {
+    "tagline": "프리미엄 텍스타일 · 인도산",
+    "loading": "로딩 중",
+    "ariaLabel": "Kiran Global Exports 로딩 중"
+  },
+  "floatingInquire": {
+    "getInTouch": "문의하기",
+    "sendInquiry": "문의 보내기",
+    "whatsapp": "왓츠앱",
+    "email": "이메일",
+    "call": "전화하기",
+    "responseNote": "보통 24시간 이내 답변",
+    "openAria": "연락 옵션 열기",
+    "closeAria": "연락 메뉴 닫기",
+    "inquireLabel": "문의",
+    "closeLabel": "닫기"
+  },
+  "footer": {
+    "madeInIndia": "인도산. 전 세계로 수출.",
+    "navigate": "메뉴",
+    "contact": "연락처",
+    "whatsappLink": "수출팀에 왓츠앱 보내기 ↗",
+    "exportRegions": "수출 지역",
+    "rightsReserved": "모든 권리 보유.",
+    "privacyPolicy": "개인정보 처리방침",
+    "termsConditions": "이용약관",
+    "bottomTagline": "프리미엄 타월 & 러그 — 국제 수출업체",
+    "iecLabel": "IEC",
+    "structureLine": "Kiran Global Exports는 Kiran Holographics의 마케팅 및 수출 부문입니다 — V P Mundada(Mundada Towels)의 공식 마케팅 파트너."
+  },
+  "notFound": {
+    "seoTitle": "페이지를 찾을 수 없습니다",
+    "eyebrow": "페이지를 찾을 수 없습니다",
+    "title": "해당 페이지를 찾을 수 없습니다.",
+    "copy": "페이지가 이동되었거나, 이름이 변경되었거나, 삭제되었을 수 있습니다. 컬렉션을 둘러보시거나 홈으로 돌아가세요 — 도움이 필요하시면 저희 수출팀이 언제든지 도와드립니다.",
+    "returnHome": "홈으로 돌아가기",
+    "browseCollections": "컬렉션 둘러보기",
+    "quickLinks": {
+      "towels": "타월",
+      "rugs": "러그",
+      "collections": "컬렉션",
+      "custom": "맞춤",
+      "about": "회사 소개"
+    }
+  },
+  "home": {
+    "seo": {
+      "title": "프리미엄 타월 & 러그 수출업체",
+      "description": "Kiran Global Exports는 글로벌 바이어, 호스피탈리티, 리테일 및 자체 브랜드 요구사항을 위해 인도산 프리미엄 타월과 러그를 공급하는 국제 공급업체이자 수출업체입니다."
+    },
+    "hero": {
+      "eyebrow": "Kiran Global Exports",
+      "headline": "세계를 위해 만든 텍스타일.",
+      "subtitle": "프리미엄 수제 러그와 타월 — 인도에서 짜여져 전 세계에서 신뢰받고 있습니다.",
+      "primaryCta": "컬렉션 둘러보기",
+      "secondaryCta": "수출팀에 문의하기",
+      "scroll": "스크롤",
+      "badge": "2005년부터 신뢰받는 수출업체"
+    },
+    "brandIntro": {
+      "eyebrow": "회사 소개",
+      "heading": "세계를 여행하는 텍스타일을 만듭니다.",
+      "copy1": "Kiran Global Exports는 인도의 섬유 장인정신을 전 세계 바이어와 연결하며, 품질과 일관성, 프레젠테이션을 중시하는 기업을 위한 프리미엄 타월 및 러그 컬렉션을 개발합니다.",
+      "copy2": "사양 결정부터 선적까지, 모든 컬렉션은 바이어의 요구사항을 중심으로 만들어집니다 — 그 반대가 아닙니다.",
+      "stats": {
+        "years": "년의 수출 경력",
+        "countries": "개국에 공급",
+        "clients": "도매 고객"
+      },
+      "premiumCotton": "프리미엄 코튼",
+      "handcrafted": "수제 제작",
+      "copy3": "저희는 자이푸르에서 수출 업무를 처리합니다 — 사양, 샘플링, 서류 작업 및 배송까지. 하나의 연락처, 하나의 서류 세트, 그리고 그 뒤에는 50년 된 공장이 있습니다."
+    },
+    "productWorld": {
+      "collectionSuffix": "컬렉션",
+      "exploreAria": "{{name}} 컬렉션 둘러보기",
+      "exploreCta": "{{name}} 둘러보기",
+      "towels": {
+        "name": "타월",
+        "items": [
+          "배스 타월",
+          "호텔 타월",
+          "스파 & 살롱 타월",
+          "핸드 & 페이스 타월",
+          "맞춤 타월"
+        ]
+      },
+      "rugs": {
+        "name": "러그",
+        "items": [
+          "배스 러그",
+          "호텔 러그",
+          "홈 러그",
+          "장식용 러그",
+          "맞춤 러그"
+        ]
+      },
+      "linen": {
+        "items": [
+          "침구 리넨",
+          "테이블 및 다이닝 리넨",
+          "홈 텍스타일",
+          "맞춤 및 자체 브랜드"
+        ]
+      }
+    },
+    "featuredProducts": {
+      "eyebrow": "추천 타월",
+      "title": "추천 타월",
+      "lead": "호스피탈리티, 리테일, 스파 및 자체 브랜드 바이어를 위해 선별된 타월 라인업입니다.",
+      "viewDetails": "상세 보기",
+      "showing": "전체 {{total}}개 중 {{shown}}개 표시 중",
+      "exploreAll": "전체 타월 보기"
+    },
+    "whyKiran": {
+      "eyebrow": "Kiran을 선택하는 이유",
+      "title": "장기적으로 생각하는 바이어를 위해 만들어졌습니다.",
+      "points": [
+        {
+          "title": "품질",
+          "body": "모든 생산 라인, 배치별로 일관된 섬유 품질.",
+          "tag": "ISO 인증"
+        },
+        {
+          "title": "맞춤 제작",
+          "body": "바이어 요구사항에 맞춰 개발된 제품 — 사이즈, GSM, 색상, 브랜딩.",
+          "tag": "자체 브랜드 준비 완료"
+        },
+        {
+          "title": "수출 준비 완료",
+          "body": "신뢰할 수 있는 조율을 바탕으로 한 국제 B2B 공급 역량.",
+          "tag": "FOB 수출 준비 완료"
+        },
+        {
+          "title": "일관성",
+          "body": "바이어가 계획할 수 있는 신뢰할 수 있는 사양과 반복 생산.",
+          "tag": "배치 매칭"
+        },
+        {
+          "title": "포장",
+          "body": "호스피탈리티와 리테일 모두를 위한 바이어 중심 포장 및 프레젠테이션.",
+          "tag": "리테일 & 호텔 포장"
+        },
+        {
+          "title": "소통",
+          "body": "문의부터 선적까지 저희 수출팀과의 직접 소통.",
+          "tag": "팀 직접 연락"
+        }
+      ]
+    },
+    "manufacturing": {
+      "eyebrow": "공정 & 제조",
+      "heading": "원사에서 완성된 텍스타일까지.",
+      "start": "시작",
+      "stepsSuffix": "단계",
+      "steps": [
+        {
+          "title": "원사",
+          "body": "일관된 강도와 부드러움을 위해 선별하고 방적한 섬유.",
+          "tag": "원자재"
+        },
+        {
+          "title": "직조",
+          "body": "정확한 루프 및 밀도 사양에 맞춰 제작된 테리 및 파일 구조.",
+          "tag": "직조 공정"
+        },
+        {
+          "title": "염색",
+          "body": "주문마다 반복 가능하도록 개발되고 매칭된 색상.",
+          "tag": "색상 매칭"
+        },
+        {
+          "title": "마무리",
+          "body": "최종 촉감을 위한 세탁, 유연 가공 및 전모 처리.",
+          "tag": "촉감"
+        },
+        {
+          "title": "품질 관리",
+          "body": "모든 배치는 GSM, 사이즈 및 구조 사양에 따라 검사됩니다.",
+          "tag": "배치 검증 완료"
+        },
+        {
+          "title": "포장",
+          "body": "바이어 지정 포장 — 리테일용 또는 대량 수출용 카톤.",
+          "tag": "수출 준비 완료"
+        },
+        {
+          "title": "글로벌 배송",
+          "body": "호스피탈리티, 리테일 및 유통 파트너에게 조율된 배송.",
+          "tag": "FOB 수출 준비 완료"
+        }
+      ]
+    },
+    "globalExport": {
+      "eyebrow": "수출 범위",
+      "heading": "인도에서 글로벌 시장으로.",
+      "copy": "신뢰할 수 있는 소싱, 품질 관리 및 바이어 중심 수출 조율을 기반으로 합니다 — 과장된 주장이 아닙니다.",
+      "stats": {
+        "countries": "개국",
+        "years": "활동 연수"
+      },
+      "panelTag": "수출 시장",
+      "panelTitle": "활동 지역"
+    },
+    "collectionsShowcase": {
+      "eyebrow": "우리의 세계 둘러보기",
+      "title": "컬렉션",
+      "worlds": {
+        "hotel": {
+          "name": "호텔",
+          "tag": "호스피탈리티 등급"
+        },
+        "spa": {
+          "name": "스파",
+          "tag": "울트라 소프트"
+        },
+        "home": {
+          "name": "홈",
+          "tag": "일상의 럭셔리"
+        },
+        "hospitality": {
+          "name": "호스피탈리티",
+          "tag": "자카드 직조"
+        },
+        "retail": {
+          "name": "리테일",
+          "tag": "리테일 준비 완료"
+        },
+        "custom": {
+          "name": "맞춤",
+          "tag": "자체 브랜드"
+        }
+      }
+    },
+    "customPrivateLabel": {
+      "eyebrow": "맞춤 & 자체 브랜드",
+      "heading": "당신의 사양. 우리의 텍스타일 전문성.",
+      "copy": "맞춤 사이즈, GSM, 색상, 디자인, 라벨 및 포장에 대해 저희 수출팀과 상담하세요 — 단일 사양부터 완전한 자체 브랜드 프로그램까지, 귀하의 요구사항에 맞춰 개발됩니다.",
+      "points": [
+        "맞춤 사이즈 & GSM",
+        "색상 개발",
+        "직조 라벨 & 브랜딩",
+        "자체 브랜드 포장",
+        "맞춤 구조"
+      ],
+      "cta": "요구사항 상담하기",
+      "trustNote": "무료 상담 · 샘플 최소 주문 수량 없음",
+      "badge": "자체 브랜드 준비 완료"
+    },
+    "cta": {
+      "eyebrow": "문의하기",
+      "title": "당신의 시장을 위한 무언가를 함께 만들어봐요.",
+      "lead": "찾고 계신 것을 알려주시면 저희 수출팀이 연락드리겠습니다.",
+      "primary": "문의 보내기",
+      "secondary": "컬렉션 보기",
+      "note": "보통 24시간 이내 답변"
+    }
+  },
+  "contact": {
+    "seo": {
+      "title": "문의하기",
+      "description": "타월 및 러그 사양, 자체 브랜드 개발 또는 수출 문의에 대해 상담하려면 Kiran Global Exports 팀에 문의하세요."
+    },
+    "intro": {
+      "eyebrow": "문의하기",
+      "title": "당신의 시장을 위한 무언가를 함께 만들어봐요.",
+      "lead": "찾고 계신 것을 알려주시면 저희 수출팀이 연락드리겠습니다.",
+      "breadcrumbHome": "홈",
+      "breadcrumbContact": "문의하기",
+      "metaResponse": "24시간 이내 답변",
+      "metaNoCommitment": "약정 불필요"
+    },
+    "side": {
+      "eyebrow": "직접 연락",
+      "heading": "수출팀과 직접 상담하기",
+      "email": "이메일",
+      "whatsapp": "왓츠앱",
+      "call": "전화하기",
+      "address": "주소",
+      "responseBadge": "보통 24시간 이내 답변",
+      "contactPerson": "담당자"
+    },
+    "form": {
+      "ariaLabel": "수출 문의 양식",
+      "name": "이름",
+      "namePlaceholder": "성함을 입력하세요",
+      "company": "회사명",
+      "companyPlaceholder": "회사명 또는 브랜드명",
+      "country": "국가",
+      "countryPlaceholder": "예: 영국",
+      "email": "이메일",
+      "emailPlaceholder": "export@yourcompany.com",
+      "phone": "왓츠앱 / 전화번호",
+      "phonePlaceholder": "+44 7000 000000",
+      "productInterest": "관심 제품",
+      "selectOption": "옵션을 선택하세요",
+      "quantity": "예상 수량",
+      "quantityPlaceholder": "예: 5,000개 / 컨테이너 1대",
+      "quantityHint": "대략적인 수량을 알려주시면 정확한 견적을 준비하는 데 도움이 됩니다",
+      "message": "메시지",
+      "messagePlaceholder": "사양, 요구사항 또는 질문을 자유롭게 남겨주세요…",
+      "sending": "전송 중…",
+      "submit": "문의 보내기",
+      "submitNote": "보통 1~2 영업일 이내 답변 · 약정 불필요",
+      "genericError": "문제가 발생했습니다. 다시 시도해 주세요.",
+      "successEyebrow": "문의가 전송되었습니다",
+      "successTitle": "감사합니다 — 곧 연락드리겠습니다.",
+      "successBody": "저희 수출팀은 보통 1~2 영업일 이내에 답변드립니다. 긴급한 사항은 아래 연락처로 직접 문의해 주세요",
+      "sendAnother": "다른 문의 보내기",
+      "productInterestNote": "\"{{product}}\"에 대해 더 알고 싶습니다. 전체 사양과 가격 조건을 공유해 주세요."
+    }
+  },
+  "catalogue": {
+    "towels": {
+      "heroEyebrow": "Kiran Global Exports",
+      "heroTitle": "타월",
+      "heroLead": "호스피탈리티, 리테일, 스파 및 자체 브랜드 시장을 위한 프리미엄 텍스타일 컬렉션.",
+      "exploreCta": "타월 둘러보기",
+      "categoriesEyebrow": "타월의 세계 둘러보기",
+      "categoriesTitle": "주요 카테고리",
+      "collectionsCount": "선택 가능한 {{count}}개 카테고리",
+      "ctaEyebrow": "당신의 요청에 맞춰 개발",
+      "ctaTitle": "당신의 시장에 맞는 타월 컬렉션이 필요하신가요?",
+      "seoTitle": "타월 — 글로벌 바이어를 위한 실제 텍스타일 컬렉션",
+      "seoDescription": "배스, 호텔, 자카드, 와플, 제로트위스트, 보더, 풀, 맞춤 및 전문 타월 범위에 걸쳐 Kiran Global Exports 타월 컬렉션을 둘러보세요."
+    },
+    "rugs": {
+      "heroEyebrow": "러그 컬렉션 / Kiran Global Exports",
+      "heroTitle": "러그",
+      "heroLead": "글로벌 바이어와 자체 브랜드 프로그램을 위해 개발된 배스, 호텔, 호스피탈리티 및 장식용 러그.",
+      "exploreCta": "러그 둘러보기",
+      "categoriesEyebrow": "러그의 세계 둘러보기",
+      "categoriesTitle": "주요 컬렉션",
+      "collectionsCount": "당신의 시장에 맞춰 개발된 {{count}}개 컬렉션",
+      "ctaEyebrow": "당신의 요청에 맞춰 개발",
+      "ctaTitle": "당신의 시장을 위한 러그 컬렉션이 필요하신가요?",
+      "seoTitle": "프리미엄 러그 — 배스, 호텔, 장식용 & 맞춤",
+      "seoDescription": "글로벌 B2B 바이어를 위해 개발된 배스, 호텔, 호스피탈리티, 홈, 장식용 및 맞춤 러그: Kiran Global Exports의 러그 컬렉션을 둘러보세요."
+    },
+    "requestProductDetails": "제품 상세 정보 요청",
+    "reference_one": "{{count}}개 레퍼런스",
+    "reference_other": "{{count}}개 레퍼런스",
+    "viewCollection": "컬렉션 보기",
+    "customDevelopment": "맞춤 개발"
+  },
+  "categoryPage": {
+    "backTo": "← {{name}}(으)로 돌아가기",
+    "subcategoriesEyebrow": "{{name}} 하위 카테고리 둘러보기",
+    "chooseConstruction": "제작 방식을 선택하세요.",
+    "productCollection": "제품 컬렉션",
+    "allReferences": "이 카테고리의 모든 레퍼런스.",
+    "realReferences": "이 카테고리의 전체 라인업.",
+    "viewDetails": "상세 보기",
+    "b2bDevelopment": "B2B 개발",
+    "requestProductDetails": "제품 상세 정보를 요청하세요.",
+    "requestRugDetails": "러그 상세 정보를 요청하세요.",
+    "contactExportTeamArrow": "수출팀에 문의하기",
+    "collectionSubcategoryProducts": "{{category}} / 제품 컬렉션",
+    "reference_one": "{{count}}개 레퍼런스",
+    "reference_other": "{{count}}개 레퍼런스",
+    "availableReference_one": "{{count}}개 이용 가능한 레퍼런스",
+    "availableReference_other": "{{count}}개 이용 가능한 레퍼런스",
+    "realReference_one": "{{count}}개 실제 레퍼런스",
+    "realReference_other": "{{count}}개 실제 레퍼런스",
+    "rugCollectionEyebrow": "러그 컬렉션",
+    "rugAvailableLead": "이용 가능한 러그 레퍼런스를 살펴본 후, 당신의 시장에 맞는 사이즈, 제작 방식, 색상 및 브랜딩에 대해 상담하세요.",
+    "rugCustomLead": "이 컬렉션은 제작 방식, 사이즈, 색상, 소재, 브랜딩을 포함하여 귀하의 사양에 맞춰 개발됩니다."
+  },
+  "productDetail": {
+    "notFoundTitle": "제품을 찾을 수 없습니다",
+    "notFoundHeading": "해당 제품을 찾을 수 없습니다.",
+    "notFoundCopy": "이름이 변경되었거나 현재 라인업에서 제외되었을 수 있습니다. 전체 컬렉션을 둘러보시거나 저희 수출팀에 직접 문의해 주세요.",
+    "interestedHeading": "이 제품에 관심이 있으신가요?",
+    "interestedSubtext": "전체 사양과 가격 정보를 원하시면 저희 수출팀에 문의하세요.",
+    "youMayAlsoLike": "이런 제품은 어떠세요",
+    "moreFrom": "{{name}}의 다른 제품",
+    "viewAll": "전체 보기",
+    "specs": {
+      "material": "소재",
+      "gsm": "GSM",
+      "size": "사이즈",
+      "construction": "제작 방식",
+      "colors": "색상",
+      "applications": "용도",
+      "customization": "맞춤 제작",
+      "moq": "최소 주문 수량",
+      "packing": "포장"
+    },
+    "bestForLabel": "추천 대상"
+  },
+  "productCard": {
+    "viewDetails": "상세 보기",
+    "requestDetails": "상세 정보 요청"
+  },
+  "certifications": {
+    "eyebrow": "품질 · 규정 준수 · 책임",
+    "heading": "모든 배송 뒤에 있는 기준.",
+    "copy": "제조 및 제품 인증 — OEKO-TEX®, GOTS, GRS, ISO 9001 등 — 은 저희 생산 파트너인 V P Mundada(솔라푸르)가 보유하고 있습니다. Kiran Global Exports는 자체 수출 등록(FIEO, MSME, IEC)을 보유하고 있습니다.",
+    "chips": {
+      "quality": "품질 보증",
+      "ethical": "윤리적 소싱",
+      "compliant": "수출 규정 준수"
+    }
+  },
+  "about": {
+    "seo": {
+      "title": "회사 소개",
+      "description": "Kiran Global Exports는 전 세계 호스피탈리티, 리테일 및 자체 브랜드 바이어를 위해 인도에서 프리미엄 타월과 러그 컬렉션을 개발합니다."
+    },
+    "intro": {
+      "eyebrow": "회사 소개",
+      "title": "장인정신이 편안함을 만나는 곳.",
+      "lead": "Kiran Global Exports는 인도의 섬유 장인정신을 전 세계 바이어와 연결하며, 품질과 일관성, 프레젠테이션을 기반으로 한 프리미엄 타월 및 러그 컬렉션을 개발합니다."
+    },
+    "brandStory": {
+      "heading": "매대가 아닌 바이어를 위해 개발됩니다.",
+      "copy1": "모든 컬렉션은 카탈로그 페이지가 아닌 사양에서 시작됩니다. 저희는 호스피탈리티 그룹, 유통업체, 소매업체 및 자체 브랜드 바이어와 직접 협력하여 섬유 선정부터 최종 포장까지, 그들의 시장에 맞는 타월과 러그를 개발합니다.",
+      "copy2": "저희의 접근 방식은 물량보다 일관성을 중시합니다: 신뢰할 수 있는 사양, 반복 가능한 생산, 그리고 국제 바이어의 요구사항을 이해하는 수출팀과의 직접적인 소통입니다."
+    },
+    "approach": {
+      "eyebrow": "저희의 접근 방식",
+      "title": "사양부터 선적까지.",
+      "pillars": [
+        {
+          "title": "시장 이해",
+          "body": "저희는 바이어의 시장 — 호스피탈리티, 스파, 리테일 또는 자체 브랜드 — 과 그에 요구되는 기준부터 시작합니다."
+        },
+        {
+          "title": "사양에 맞춰 개발",
+          "body": "소재, GSM, 사이즈, 색상 및 제작 방식은 사후에 조정하는 것이 아니라 처음부터 맞춰 개발됩니다."
+        },
+        {
+          "title": "일관성 있는 생산",
+          "body": "모든 단계의 품질 관리로 반복 주문도 최초 승인과 일치하도록 유지합니다."
+        },
+        {
+          "title": "선적 조율",
+          "body": "포장, 서류 및 물류는 바이어의 목적지 시장에 맞춰 조율됩니다."
+        }
+      ]
+    },
+    "partner": {
+      "eyebrow": "저희의 타월 파트너",
+      "title": "Mundada Towels — 50년의 섬유 전문성.",
+      "lead": "Kiran Global Exports는 1972년 마하라슈트라주 솔라푸르에서 설립된, 프리미엄 테리 타월의 신뢰받는 제조업체이자 수출업체인 Mundada Towels와 파트너십을 맺고 있습니다. 함께, 저희는 국제 B2B 바이어에게 그들의 사양, 품질 요구사항 및 시장 요구에 맞춘 신뢰할 수 있는 타월 솔루션을 제공합니다.",
+      "tagline": "더 얇고, 더 좋은 타월!",
+      "established": "1972년 설립",
+      "location": "마하라슈트라주 솔라푸르",
+      "visitLink": "Mundada Towels 방문하기 ↗",
+      "copy1": "50년 이상의 섬유 전문성을 바탕으로, Mundada Towels는 전통적인 장인정신과 현대적인 제조, 엄격한 품질 관리, 지속적인 제품 개발을 결합합니다. 이러한 제조 역량은 Kiran Global Exports가 글로벌 바이어에게 일관되고 사양 중심의 타월 프로그램을 제공하는 데 도움이 됩니다.",
+      "copy2": "제품 라인업에는 배스, 핸드, 페이스, 풀, 비치, 키친 및 기관용 타월과 함께 자카드, 제로트위스트, 배트다이드, 대나무, 재생 원사, 맞춤 타월 프로그램이 포함됩니다.",
+      "copy3": "OEKO-TEX®, GRS, ISO 9001, MADE IN GREEN, BSCI를 포함한 인증은 품질, 지속 가능성 및 책임 있는 제조에 대한 강한 집중을 뒷받침합니다."
+    },
+    "mundadaProducts": [
+      "배스 타월",
+      "핸드 타월",
+      "페이스 타월",
+      "풀 & 비치 타월",
+      "키친 타월",
+      "기관용 타월",
+      "자카드 타월",
+      "제로트위스트 타월",
+      "배트다이드 타월",
+      "대나무 타월",
+      "재생 원사 타월",
+      "맞춤 타월"
+    ],
+    "locationCard": {
+      "eyebrow": "파트너 위치",
+      "title": "마하라슈트라주 솔라푸르",
+      "mapLink": "구글 지도에서 열기 ↗"
+    },
+    "rugSection": {
+      "eyebrow": "직접 B2B 러그",
+      "title": "귀사의 비즈니스 요구사항에 맞춰 공급되는 러그.",
+      "lead": "타월 사업과 함께, Kiran Global Exports는 러그 부문에서 B2B 바이어와 직접 협력합니다. 저희는 바이어의 디자인, 치수, 소재, 제작 방식, 색상, 수량, 포장 및 상업적 사양에 맞춰 제품을 소싱하고 개발합니다.",
+      "copy": "호스피탈리티 및 인테리어 프로젝트부터 리테일, 도매 및 자체 브랜드 프로그램까지, 저희의 초점은 간단합니다: 요구사항을 이해하고, 적합한 제품을 개발하며, 합의된 사양에 대한 신뢰할 수 있는 공급을 조율하는 것입니다."
+    },
+    "rugServices": [
+      "맞춤 사양",
+      "대량 B2B 수량",
+      "자체 브랜드 요구사항",
+      "호스피탈리티 및 프로젝트 요구사항",
+      "리테일 및 도매 프로그램",
+      "맞춤 디자인 및 치수",
+      "수출 대응 포장",
+      "장기 반복 공급"
+    ],
+    "cta": {
+      "eyebrow": "함께 일하기",
+      "title": "당신의 시장에 대해 이야기해봐요.",
+      "lead": "타월을 소싱하든, 러그 프로그램을 개발하든, 자체 브랜드 컬렉션을 구축하든, 저희 수출팀은 당신의 사양에 대해 상담할 준비가 되어 있습니다."
+    },
+    "registration": {
+      "eyebrow": "등록 및 규정 준수",
+      "title": "인도 수출 당국의 공식 인증.",
+      "iecLabel": "IEC 코드"
+    },
+    "structure": {
+      "eyebrow": "회사 구조",
+      "title": "Kiran Holographics의 일부입니다.",
+      "body1": "Kiran Global Exports는 Kiran Holographics의 국제 마케팅 및 수출 부문입니다.",
+      "body2": "저희는 2025년 1월부터 발효된 서명된 파트너십 계약에 따라 V P Mundada(Mundada Towels)의 공식 마케팅 파트너로 지정되었습니다."
+    }
+  },
+  "collections": {
+    "seo": {
+      "title": "저희 컬렉션 — 호텔, 스파, 홈, 호스피탈리티 & 리테일",
+      "description": "바이어 세계별로 Kiran Global Exports 타월 및 러그 컬렉션을 둘러보세요."
+    },
+    "hero": {
+      "eyebrow": "우리의 세계 둘러보기",
+      "title": "저희 컬렉션",
+      "lead": "전 세계 호스피탈리티, 리테일, 스파 및 자체 브랜드 바이어를 위해 개발된 텍스타일 컬렉션.",
+      "exploreLink": "컬렉션 둘러보기"
+    },
+    "worldLabel": "세계",
+    "worlds": {
+      "hotel": {
+        "copy": "하우스키핑 주기의 내구성과 프레젠테이션을 위해 제작된 더 두꺼운 테리 및 터프티드 러그."
+      },
+      "spa": {
+        "copy": "고빈도 트리트먼트룸 사용을 위한 가볍고 빠르게 마르는 타월과 저파일 러그."
+      },
+      "home": {
+        "copy": "리테일 및 이커머스 홈 라인을 위해 개발된 일상적인 편안함의 제품들."
+      },
+      "hospitality": {
+        "copy": "호텔 및 호스피탈리티 그룹을 위한 일관되고 재주문 준비가 된 사양."
+      },
+      "retail": {
+        "copy": "라이프스타일 및 홈굿즈 바이어를 위한 리테일 준비 완료 프레젠테이션 및 포장."
+      }
+    },
+    "viewMore": "{{name}} 전체 제품 보기",
+    "custom": {
+      "eyebrow": "맞춤",
+      "title": "자체 사양이 있으신가요?",
+      "copy": "모든 컬렉션은 조정하거나 자체 브랜드 프로그램으로 완전히 처음부터 개발할 수 있습니다.",
+      "link": "맞춤 및 자체 브랜드 둘러보기 →"
+    },
+    "cta": {
+      "eyebrow": "진행할 준비가 되셨나요?",
+      "title": "이 컬렉션에 대해 문의하세요.",
+      "lead": "어떤 세계가 귀사의 바이어에게 가장 적합한지 알려주시면, 전체 사양과 함께 후속 연락을 드리겠습니다.",
+      "secondary": "맞춤 둘러보기"
+    }
+  },
+  "custom": {
+    "seo": {
+      "title": "맞춤 & 자체 브랜드",
+      "description": "Kiran Global Exports와 함께 맞춤 또는 자체 브랜드 타월 및 러그 프로그램을 개발하세요 — 맞춤 사이즈, GSM, 색상, 브랜딩 및 포장."
+    },
+    "intro": {
+      "eyebrow": "맞춤 & 자체 브랜드",
+      "title": "당신의 사양. 우리의 텍스타일 전문성.",
+      "lead": "단일 맞춤 사이즈 요청부터 완전한 자체 브랜드 프로그램까지, 저희 수출팀은 고정된 카탈로그가 아닌 귀하의 사양에 따라 작업합니다.",
+      "meta": [
+        "자체 브랜드 준비 완료",
+        "맞춤 GSM 및 사이즈",
+        "브랜드 포장"
+      ]
+    },
+    "capabilities": {
+      "eyebrow": "저희가 개발하는 것",
+      "title": "온전히 귀하의 요청에 맞춰 제작됩니다.",
+      "points": [
+        {
+          "title": "사이즈 & GSM",
+          "body": "모든 치수와 중량이 귀하의 사양에 맞춰 개발됩니다."
+        },
+        {
+          "title": "색상 & 디자인",
+          "body": "색상 개발 및 맞춤 자카드 또는 직조 패턴."
+        },
+        {
+          "title": "라벨 & 브랜딩",
+          "body": "직조 라벨, 자수 및 브랜드 포장."
+        },
+        {
+          "title": "포장",
+          "body": "귀하의 시장에 맞게 제작된 리테일용 또는 대량 수출용 포장."
+        }
+      ]
+    },
+    "imageBadge": "맞춤 개발",
+    "processNoteStrong": "최소 카탈로그 없음.",
+    "processNoteRest": "모든 프로그램은 단일 레퍼런스든 전체 라인업이든 귀하의 사양에서 시작됩니다. 생산 확정 전 샘플을 제공해 드립니다.",
+    "howItWorks": {
+      "eyebrow": "작동 방식",
+      "title": "요청부터 생산까지.",
+      "lead": "귀하의 일정과 요구사항에 맞춰진 간단한 프로세스입니다.",
+      "steps": [
+        {
+          "title": "요청 사항 공유",
+          "body": "목표 시장, 제품 유형, 수량 및 기존 레퍼런스가 있다면 알려주세요."
+        },
+        {
+          "title": "옵션 개발",
+          "body": "저희 팀이 사양, 소재 및 제작 방식 옵션을 제안합니다."
+        },
+        {
+          "title": "샘플 승인",
+          "body": "생산 시작 전 실물 샘플이 제작되고 승인됩니다."
+        },
+        {
+          "title": "생산 및 배송",
+          "body": "승인된 사양에 따른 일관된 생산이 귀하의 목적지에 맞춰 조율됩니다."
+        }
+      ]
+    },
+    "cta": {
+      "eyebrow": "프로그램 시작하기",
+      "title": "요구사항을 상담하세요.",
+      "lead": "귀하의 사양, 목표 시장 및 예상 수량을 알려주시면 저희 수출팀이 직접 후속 연락을 드리겠습니다.",
+      "note": "승인된 프로그램에 대해 무료 샘플 제공"
+    }
+  },
+  "legal": {
+    "noticeBanner": "이 페이지가 최종 제작용 법적 문서로 취급되기 전에 소유자 확인 및 법률 검토가 필요합니다.",
+    "lastUpdated": "최종 검토: 소유자 및 법률 확인 대기 중",
+    "contactNotePrefix": "이",
+    "contactNoteMiddle": "에 대한 문의는 아래로 연락해 주세요",
+    "contactNoteOr": "또는 저희",
+    "contactPageLink": "문의 페이지",
+    "privacy": {
+      "title": "개인정보 처리방침",
+      "description": "Kiran Global Exports의 개인정보 처리방침 프레임워크.",
+      "eyebrow": "법률",
+      "intro": "이 페이지는 전문적인 초안 프레임워크입니다. 게시 전에 회사 소유자와 법률 자문이 최종 방침을 확인해야 합니다.",
+      "shortName": "개인정보 처리방침",
+      "sections": [
+        {
+          "heading": "문의를 통해 수집되는 정보",
+          "body": "웹사이트는 문의 양식을 통해 제출된 이름, 회사, 국가, 이메일, 전화 또는 왓츠앱, 제품 관심사, 수량 및 메시지 등의 정보를 수집할 수 있습니다. 출시 전에 최종 수집, 보관 및 접근 프로세스를 확인하세요."
+        },
+        {
+          "heading": "정보 사용 방법",
+          "body": "문의 정보는 바이어 요청에 응답하고, 제품 논의를 준비하며, 후속 조치를 조율하는 데 사용될 수 있습니다. 출시 전에 추가 사용, 처리자 또는 알림 서비스를 확인하세요."
+        },
+        {
+          "heading": "저장 및 서비스 제공업체",
+          "body": "이 방침을 게시하기 전에 프로덕션 데이터베이스, 호스팅 제공업체, 이메일 알림 제공업체 및 국경 간 데이터 전송을 확인하세요."
+        },
+        {
+          "heading": "연락처 및 권리",
+          "body": "법률 검토 후 최종 개인정보 연락처, 보관 기간, 접근/수정 절차 및 적용 관할권을 추가하세요."
+        }
+      ]
+    },
+    "terms": {
+      "title": "이용약관",
+      "description": "Kiran Global Exports의 이용약관 프레임워크.",
+      "eyebrow": "법률",
+      "intro": "이 페이지는 국제 B2B 문의 웹사이트를 위한 전문적인 초안 프레임워크입니다. 법률 자문을 대체하지 않습니다.",
+      "shortName": "이용약관",
+      "sections": [
+        {
+          "heading": "웹사이트 정보",
+          "body": "제품 정보, 이미지 및 설명은 B2B 논의 및 사양 개발을 위해 제공됩니다. 가용성, 견적, 샘플 및 확정 주문에 대한 최종 입장을 확인하세요."
+        },
+        {
+          "heading": "바이어 문의",
+          "body": "문의 또는 연락처 양식 제출은 확정된 주문이 아닙니다. 출시 전에 견적, 샘플링, 승인, 결제, 생산, 배송 및 취소 프로세스를 확인하세요."
+        },
+        {
+          "heading": "사양 및 이미지",
+          "body": "최종 소재, 색상, 사이즈, GSM, 제작 방식, 포장 및 브랜딩 세부사항은 각 바이어 요구사항에 대해 서면으로 확인되어야 합니다."
+        },
+        {
+          "heading": "준거 조건",
+          "body": "소유자 및 법률 검토 후 법적 사업자명, 준거법, 관할권, 결제 조건, 배송 조건, 지적 재산권 입장 및 분쟁 절차를 추가하세요."
+        }
+      ]
+    }
+  },
+  "linen": {
+    "seo": {
+      "title": "리넨 컬렉션 — 타월, 침구, 테이블, 주방 및 홈 텍스타일",
+      "description": "Kiran Global Exports의 전체 리넨 라인업을 살펴보세요: 타월 및 배스 리넨, 침구 리넨, 테이블 및 다이닝 리넨, 주방 리넨, 홈 텍스타일 및 맞춤 자체 브랜드 프로그램."
+    },
+    "hero": {
+      "eyebrow": "리넨 컬렉션",
+      "title": "모든 공간, 모든 테이블을 위한 리넨.",
+      "lead": "욕실부터 침실, 식탁까지 — 전 세계 호스피탈리티, 리테일 및 자체 브랜드 바이어를 위해 개발된 프리미엄 리넨.",
+      "exploreCta": "컬렉션 둘러보기"
+    },
+    "categoriesEyebrow": "제품 라인",
+    "categoriesTitle": "4가지 리넨 카테고리.",
+    "categoriesLead": "어떤 라인이 귀사의 시장에 적합한지 알려주시면 저희 수출팀이 전체 사양을 공유해 드립니다.",
+    "enquireCta": "문의하기",
+    "categories": {
+      "bed": {
+        "name": "침구 리넨",
+        "description": "부드럽고 통기성 좋은 코튼 소재의 침대 시트, 이불 커버, 베개 커버 — 호스피탈리티 및 리테일 침구 프로그램을 위해 개발되었습니다."
+      },
+      "table-dining": {
+        "name": "테이블 및 다이닝 리넨",
+        "description": "호텔, 레스토랑 및 다이닝 리테일 라인업을 위한 테이블보, 러너, 천 냅킨 및 플레이스매트."
+      },
+      "home-textile": {
+        "name": "홈 텍스타일 제품",
+        "description": "홈 및 라이프스타일 리테일을 위해 개발된 쿠션 커버, 스로우 및 기타 소프트 퍼니싱 텍스타일."
+      },
+      "custom-private-label": {
+        "name": "맞춤 및 자체 브랜드 제품",
+        "description": "위의 모든 라인을 귀하의 사양에 맞춰 개발 — 맞춤 사이즈, 색상, 브랜딩 및 귀사 자체 브랜드로 포장."
+      }
+    },
+    "cta": {
+      "eyebrow": "문의하기",
+      "title": "귀사의 시장에 맞는 리넨을 찾아드립니다.",
+      "lead": "필요하신 카테고리를 알려주시면 저희 수출팀이 사양과 가격을 안내해 드립니다."
+    }
+  }
+}

@@ -1,0 +1,331 @@
+/* ═══════════════════════════════════════════════
+   FOOTER — Premium Dark Warm Footer
+   Rugs & Towels Luxury Brand
+═══════════════════════════════════════════════ */
+
+/* ── Footer Wrapper ──────────────────────────── */
+.footer {
+  background: var(--color-ink);
+  color: var(--text-muted-inverse);
+  position: relative;
+  overflow: hidden;
+
+  /* NO padding-block here — CertificationGallery
+     is first child, it handles its own spacing.
+     Padding is controlled per-section below. */
+
+  background-image:
+    radial-gradient(ellipse at 20% 0%, rgba(160, 82, 45, 0.10) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 0%, rgba(160, 82, 45, 0.07) 0%, transparent 50%);
+}
+
+/* Top accent border glow */
+.footer::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent                  0%,
+    rgba(160, 82, 45, 0.40)      25%,
+    rgba(196, 122, 82, 0.60)     50%,
+    rgba(160, 82, 45, 0.40)      75%,
+    transparent                  100%
+  );
+  z-index: 1;
+}
+
+/* ── Main Grid ───────────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1.75rem, 3vw, 2.5rem);
+
+  /* Top padding — space after CertificationGallery */
+  padding-top: clamp(2.5rem, 4vw, 4rem);
+
+  /* Bottom padding — before bottom bar */
+  padding-bottom: clamp(2rem, 3vw, 3rem);
+
+  border-bottom: 1px solid var(--border-subtle-inverse);
+}
+
+@media (min-width: 720px) {
+  .grid {
+    grid-template-columns: 1.6fr 1fr 1fr 1fr;
+    align-items: start;
+  }
+}
+
+/* ── Brand Column ────────────────────────────── */
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.brandName {
+  color: var(--color-ivory);
+  font-family: var(--font-serif);
+  font-size: var(--fs-h3);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: var(--lh-snug);
+  transition: color var(--dur-fast) var(--ease-soft);
+}
+
+.brandTagline {
+  max-width: 32ch;
+  margin-top: var(--space-2xs);
+  color: var(--text-muted-inverse);
+  font-size: var(--fs-small);
+  line-height: var(--lh-body);
+}
+
+/* Warm accent divider under tagline */
+.brandDivider {
+  width: 2.5rem;
+  height: 1px;
+  margin-top: clamp(1rem, 1.5vw, 1.4rem);
+  background: linear-gradient(
+    90deg,
+    rgba(196, 122, 82, 0.70),
+    transparent
+  );
+}
+
+.brandLine {
+  margin-top: 0.85rem;
+  color: var(--color-olive-soft);
+  font-size: var(--fs-small);
+  font-weight: 500;
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+
+/* Social Icons Row */
+.socialRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-top: clamp(1.25rem, 2vw, 1.75rem);
+}
+
+.socialLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  border: 1px solid var(--border-subtle-inverse);
+  color: var(--text-muted-inverse);
+  font-size: 0.8rem;
+  transition:
+    border-color  var(--dur-fast) var(--ease-soft),
+    color         var(--dur-fast) var(--ease-soft),
+    background    var(--dur-fast) var(--ease-soft);
+}
+
+.socialLink:hover {
+  border-color: var(--color-accent-light);
+  color: var(--color-ivory);
+  background: rgba(160, 82, 45, 0.15);
+}
+
+/* ── Nav / Info Columns ──────────────────────── */
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Column Heading */
+.colHeading {
+  display: inline-block;
+  color: var(--color-ivory);
+  font-family: var(--font-sans);
+  font-size: var(--fs-eyebrow);
+  font-weight: 600;
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  opacity: 0.90;
+  margin-bottom: 0;
+}
+
+.col ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  margin-top: 0.9rem;
+}
+
+.col li {
+  line-height: var(--lh-snug);
+}
+
+/* All links in columns */
+.col a {
+  color: var(--text-muted-inverse);
+  font-size: var(--fs-small);
+  transition: color var(--dur-fast) var(--ease-soft);
+  position: relative;
+  display: inline-block;
+}
+
+.col a::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--color-accent-light);
+  transition: width var(--dur-fast) var(--ease-premium);
+}
+
+.col a:hover {
+  color: var(--color-ivory);
+}
+
+.col a:hover::after {
+  width: 100%;
+}
+
+/* Address — no hover underline */
+.address {
+  max-width: 24ch;
+  font-size: var(--fs-small);
+  font-style: normal;
+  line-height: var(--lh-body);
+  color: var(--text-muted-inverse);
+  opacity: 0.75;
+}
+
+/* Export region tags */
+.regionTag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--text-muted-inverse);
+  transition: color var(--dur-fast) var(--ease-soft);
+}
+
+.regionTag:hover {
+  color: var(--color-ivory);
+}
+
+/* WhatsApp link highlight */
+.whatsappLink {
+  color: #7fc48a !important;
+  transition: opacity var(--dur-fast) var(--ease-soft) !important;
+}
+
+.whatsappLink:hover {
+  opacity: 0.8;
+  color: #7fc48a !important;
+}
+
+.whatsappLink::after {
+  background: #7fc48a !important;
+}
+
+/* ── Bottom Bar ──────────────────────────────── */
+.bottom {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: space-between;
+  align-items: center;
+
+  /* Proper top + bottom padding */
+  padding-top: clamp(1.25rem, 2vw, 1.75rem);
+  padding-bottom: clamp(1.25rem, 2vw, 2rem);
+
+  font-size: var(--fs-small);
+  color: var(--text-muted-inverse);
+  opacity: 0.65;
+}
+
+.bottom p {
+  line-height: 1.4;
+}
+
+/* Legal Links */
+.legalLinks {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  align-items: center;
+}
+
+.legalLinks a {
+  color: inherit;
+  font-size: var(--fs-small);
+  letter-spacing: 0.03em;
+  transition:
+    color   var(--dur-fast) var(--ease-soft),
+    opacity var(--dur-fast) var(--ease-soft);
+}
+
+.legalLinks a:hover {
+  color: var(--color-ivory);
+  opacity: 1;
+}
+
+/* Dot separator between legal links */
+.legalLinks a:not(:last-child)::after {
+  content: '·';
+  margin-left: 1.25rem;
+  opacity: 0.4;
+}
+
+/* ── Responsive ──────────────────────────────── */
+@media (max-width: 719px) {
+  .grid {
+    gap: 2rem;
+    padding-top: 2.25rem;
+    padding-bottom: 2rem;
+  }
+
+  .bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding-top: 1.25rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .legalLinks {
+    gap: 1rem;
+  }
+
+  .brandName {
+    font-size: var(--fs-h3);
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    padding-top: 2rem;
+  }
+
+  .socialRow {
+    gap: 0.5rem;
+  }
+
+  .bottom {
+    text-align: left;
+    padding-bottom: 1.25rem;
+  }
+}
+/* ── Company structure disclosure line ──────────── */
+.structureLine {
+  max-width: 26rem;
+  margin-top: 0.85rem;
+  color: var(--text-muted, var(--color-stone));
+  font-size: 0.78rem;
+  line-height: 1.55;
+  text-transform: none;
+  letter-spacing: normal;
+}

@@ -1,0 +1,267 @@
+/* ═══════════════════════════════════════════════
+   LINEN PAGE — Category Showcase
+   Kiran Global Exports
+═══════════════════════════════════════════════ */
+
+.page {
+  background: var(--color-ivory);
+  color: var(--color-charcoal);
+}
+
+/* ══════════════════════════════════════════════
+   HERO — Static image (no video for this line yet)
+═══════════════════════════════════════════════ */
+
+.hero {
+  position: relative;
+  height: 72vh;
+  min-height: 480px;
+  max-height: 720px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  color: var(--color-ivory);
+}
+
+.heroImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(10, 8, 6, 0.25) 0%, transparent 30%),
+    linear-gradient(0deg, rgba(10, 8, 6, 0.90) 0%, rgba(10, 8, 6, 0.55) 40%, rgba(10, 8, 6, 0.15) 70%, transparent 100%);
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 0 var(--page-gutter) clamp(2.5rem, 7vw, 4.5rem);
+}
+
+.heroEyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: var(--space-sm);
+  color: var(--color-olive-soft);
+  font-size: var(--fs-eyebrow);
+  font-weight: 600;
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+}
+.heroEyebrow::before {
+  content: '';
+  display: block;
+  width: 1.75rem;
+  height: 1px;
+  background: var(--color-olive-soft);
+  opacity: 0.65;
+  flex-shrink: 0;
+}
+
+.heroContent h1 {
+  max-width: 14ch;
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: var(--fs-display);
+  font-weight: 500;
+  line-height: 0.96;
+  letter-spacing: -0.05em;
+  background: linear-gradient(145deg, #fffdf9 0%, #f2ebe0 55%, #ddc9a8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.heroLead {
+  max-width: 44ch;
+  margin-top: var(--space-md);
+  color: var(--text-muted-inverse);
+  font-size: var(--fs-lead);
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-top: var(--space-lg);
+}
+
+.heroPrimary,
+.heroSecondary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  font-family: var(--font-sans);
+  font-size: var(--fs-eyebrow);
+  font-weight: 600;
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  overflow: hidden;
+  cursor: pointer;
+  transition: color var(--dur-fast) var(--ease-soft), border-color var(--dur-fast) var(--ease-soft), transform var(--dur-fast) var(--ease-premium);
+}
+.heroPrimary:hover,
+.heroSecondary:hover { transform: translateY(-2px); }
+.heroPrimary span, .heroSecondary span { position: relative; z-index: 1; }
+
+.heroPrimary {
+  background: var(--color-ivory);
+  color: var(--color-ink);
+  border: 1px solid var(--color-ivory);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.28);
+}
+.heroPrimary:hover { color: var(--color-accent); }
+
+.heroSecondary {
+  background: transparent;
+  color: var(--color-ivory);
+  border: 1px solid rgba(248, 243, 234, 0.45);
+  backdrop-filter: blur(6px);
+}
+.heroSecondary:hover { border-color: rgba(248, 243, 234, 0.85); }
+
+/* ══════════════════════════════════════════════
+   CATEGORY GRID
+═══════════════════════════════════════════════ */
+
+.categoryHeader {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding: clamp(3rem, 6vw, 4.5rem) 0 var(--space-lg);
+}
+.categoryHeader h2 {
+  margin: 0.35rem 0 0;
+  font-family: var(--font-serif);
+  font-size: var(--fs-h2);
+  font-weight: 500;
+  color: var(--color-charcoal);
+}
+.categoryHeader p {
+  max-width: 34ch;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.categoryGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-md);
+  padding-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+.categoryCard {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: box-shadow var(--dur-fast) var(--ease-soft), transform var(--dur-fast) var(--ease-soft);
+}
+.categoryCard:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+
+.categoryMedia {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+.categoryMedia img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease-soft);
+}
+.categoryCard:hover .categoryMedia img {
+  transform: scale(1.05);
+}
+.categoryMedia span {
+  position: absolute;
+  top: 0.85rem;
+  left: 0.85rem;
+  padding: 0.2rem 0.55rem;
+  background: rgba(10, 8, 6, 0.55);
+  backdrop-filter: blur(4px);
+  color: var(--color-ivory);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.categoryBody {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 1.25rem 1.35rem 1.5rem;
+}
+.categoryBody h3 {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--color-charcoal);
+}
+.categoryBody p {
+  margin: 0 0 1rem;
+  flex: 1;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.categoryLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  align-self: flex-start;
+  color: var(--color-accent);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: gap var(--dur-fast) var(--ease-soft);
+}
+.categoryLink:hover {
+  gap: 0.65rem;
+}
+
+/* ── Small screens ───────────────────────────── */
+@media (max-width: 640px) {
+  .hero {
+    height: 60vh;
+    min-height: 420px;
+  }
+  .heroActions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .heroPrimary, .heroSecondary {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .categoryCard, .categoryMedia img {
+    transition: none;
+  }
+}

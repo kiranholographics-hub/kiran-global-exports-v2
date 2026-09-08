@@ -1,0 +1,441 @@
+/* ═══════════════════════════════════════════════
+   HERO — Cinematic Sticky Scroll Hero
+   Rugs & Towels Luxury Brand
+═══════════════════════════════════════════════ */
+
+/* ── Hero Scroll Container ───────────────────── */
+.hero {
+  position: relative;
+  height: 180vh;
+}
+
+/* ── Sticky Stage ────────────────────────────── */
+.stage {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  color: var(--color-ivory);
+  isolation: isolate;
+}
+
+/* ── Media Wrapper ───────────────────────────── */
+.mediaWrap {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  transform-origin: center top;
+  will-change: transform;
+}
+
+/* ── Media — video element ───────────────────── */
+.media {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  /* ✅ Always fills — no black gaps */
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+
+  object-fit: cover;
+  object-position: center center;
+}
+
+/* ── Fallback Background ─────────────────────── */
+.mediaFallback {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(
+      circle at 18% 18%,
+      rgba(160, 82, 45, 0.30) 0%,
+      transparent 52%
+    ),
+    radial-gradient(
+      circle at 82% 28%,
+      rgba(232, 221, 208, 0.35) 0%,
+      transparent 48%
+    ),
+    radial-gradient(
+      circle at 50% 85%,
+      rgba(46, 34, 24, 0.50) 0%,
+      transparent 55%
+    ),
+    linear-gradient(
+      155deg,
+      #3a2a1e 0%,
+      #262220 45%,
+      #17140f 100%
+    );
+}
+
+/* ── Cinematic Overlay ───────────────────────── */
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    /* Top vignette */
+    linear-gradient(
+      180deg,
+      rgba(15, 12, 9, 0.35) 0%,
+      transparent            25%
+    ),
+    /* Bottom content ramp */
+    linear-gradient(
+      0deg,
+      rgba(10, 8, 6, 0.88)  0%,
+      rgba(10, 8, 6, 0.60)  30%,
+      rgba(10, 8, 6, 0.15)  60%,
+      transparent            100%
+    ),
+    /* Warm side tint */
+    linear-gradient(
+      105deg,
+      rgba(160, 82, 45, 0.12) 0%,
+      transparent              50%
+    );
+}
+
+/* Noise/grain texture */
+.overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 180px;
+  pointer-events: none;
+}
+
+/* ── Content Block ───────────────────────────── */
+.content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 0 var(--page-gutter) clamp(3rem, 8vw, 6rem);
+  will-change: transform, opacity;
+}
+
+/* ── Eyebrow ─────────────────────────────────── */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: var(--fs-eyebrow);
+  font-weight: 600;
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--color-olive-soft);
+  margin-bottom: var(--space-sm);
+}
+
+/* Left decorative line */
+.eyebrow::before {
+  content: '';
+  display: block;
+  width: 1.75rem;
+  height: 1px;
+  background: var(--color-olive-soft);
+  opacity: 0.65;
+  flex-shrink: 0;
+}
+
+/* ── Headline ────────────────────────────────── */
+.headline {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: var(--fs-display);
+  line-height: var(--lh-tight);
+  max-width: 18ch;
+  letter-spacing: -0.025em;
+
+  /* Warm gradient */
+  background: linear-gradient(
+    145deg,
+    #fffdf9 0%,
+    #f2ebe0 55%,
+    #ddc9a8 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Word mask — stagger reveal */
+.wordMask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  margin-right: 0.28em;
+}
+
+.word {
+  display: inline-block;
+  will-change: transform;
+}
+
+/* ── Subtitle ────────────────────────────────── */
+.subtitle {
+  margin-top: var(--space-md);
+  font-size: var(--fs-lead);
+  font-weight: 300;
+  color: var(--text-muted-inverse);
+  max-width: 42ch;
+  line-height: var(--lh-body);
+  letter-spacing: 0.01em;
+}
+
+/* ── Actions Row ─────────────────────────────── */
+.actions {
+  margin-top: var(--space-lg);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+/* ── Shared Button Base ──────────────────────── */
+.primary,
+.secondary {
+  position: relative;
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: var(--fs-eyebrow);
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 1rem 2rem;
+  overflow: hidden;
+  cursor: pointer;
+  transition:
+    color        var(--dur-fast) var(--ease-soft),
+    border-color var(--dur-fast) var(--ease-soft),
+    box-shadow   var(--dur-fast) var(--ease-soft),
+    transform    var(--dur-fast) var(--ease-premium);
+}
+
+.primary:hover,
+.secondary:hover {
+  transform: translateY(-2px);
+}
+
+.primary:active,
+.secondary:active {
+  transform: translateY(0);
+}
+
+/* Text sits above fill layer */
+.primary span,
+.secondary span {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Primary — Ivory Fill ────────────────────── */
+.primary {
+  background: var(--color-ivory);
+  color: var(--color-ink);
+  border: 1px solid var(--color-ivory);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.30);
+}
+
+.primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--color-accent-pale);
+  transform: translateY(101%);
+  transition: transform var(--dur-fast) var(--ease-premium);
+}
+
+.primary:hover::before {
+  transform: translateY(0);
+}
+
+.primary:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent-pale);
+  box-shadow: 0 6px 32px rgba(0, 0, 0, 0.35);
+}
+
+/* ── Secondary — Ghost Outlined ──────────────── */
+.secondary {
+  background: transparent;
+  color: var(--color-ivory);
+  border: 1px solid rgba(248, 243, 234, 0.45);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.secondary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(248, 243, 234, 0.10);
+  transform: translateY(101%);
+  transition: transform var(--dur-fast) var(--ease-premium);
+}
+
+.secondary:hover::before {
+  transform: translateY(0);
+}
+
+.secondary:hover {
+  border-color: rgba(248, 243, 234, 0.85);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.20);
+}
+
+/* ── Scroll Cue ──────────────────────────────── */
+.scrollCue {
+  position: absolute;
+  right: var(--page-gutter);
+  bottom: var(--space-md);
+  z-index: 2;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2xs);
+  color: var(--text-muted-inverse);
+  opacity: 0.70;
+  transition: opacity var(--dur-fast) var(--ease-soft);
+}
+
+.scrollCue:hover {
+  opacity: 1;
+}
+
+/* Animated scroll line */
+.scrollLine {
+  width: 1px;
+  height: 48px;
+  position: relative;
+  overflow: hidden;
+  background: rgba(248, 243, 234, 0.15);
+}
+
+.scrollLine::after {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-ivory);
+  animation: scrollDrop 1.8s var(--ease-premium) infinite;
+}
+
+@keyframes scrollDrop {
+  0%   { top: -100%; opacity: 1;   }
+  80%  { top:  100%; opacity: 0.6; }
+  100% { top:  100%; opacity: 0;   }
+}
+
+.scrollCue p {
+  font-size: var(--fs-eyebrow);
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* ── Bottom Left Badge ───────────────────────── */
+.badge {
+  position: absolute;
+  left: var(--page-gutter);
+  bottom: var(--space-md);
+  z-index: 2;
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-muted-inverse);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.55;
+}
+
+.badgeDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-olive-soft);
+  animation: pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1;   transform: scale(1);   }
+  50%       { opacity: 0.4; transform: scale(0.7); }
+}
+
+/* ══════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════ */
+
+@media (min-width: 720px) {
+  .scrollCue {
+    display: flex;
+  }
+
+  .badge {
+    display: flex;
+  }
+}
+
+@media (max-width: 640px) {
+  .headline {
+    max-width: 100%;
+    letter-spacing: -0.015em;
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .primary,
+  .secondary {
+    width: 100%;
+    text-align: center;
+    padding: 1rem 1.5rem;
+  }
+
+  .eyebrow::before {
+    width: 1.25rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .subtitle {
+    font-size: 1rem;
+  }
+}
+
+/* ── Reduced Motion ──────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .scrollLine::after {
+    animation: none;
+  }
+
+  .badgeDot {
+    animation: none;
+  }
+}

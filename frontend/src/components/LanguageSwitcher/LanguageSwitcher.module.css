@@ -1,0 +1,119 @@
+/* ═══════════════════════════════════════════════
+   LANGUAGE SWITCHER — Custom dropdown
+   Matches Header's warm, minimal, uppercase style
+═══════════════════════════════════════════════ */
+
+.wrap {
+  position: relative;
+  color: inherit;
+}
+
+/* ── Trigger Button ─────────────────────────────── */
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-width: 3.35rem;
+  padding: 0.52rem 0.65rem;
+  border: 1px solid currentColor;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  line-height: 1;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    background-color var(--dur-fast) var(--ease-soft),
+    color var(--dur-fast) var(--ease-soft);
+}
+
+.trigger:hover {
+  background: currentColor;
+  color: var(--bg-primary);
+}
+
+.trigger:focus-visible {
+  outline: 1.5px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.chevron {
+  flex: 0 0 auto;
+  transition: transform var(--dur-fast) var(--ease-soft);
+}
+
+.chevron[data-open='true'] {
+  transform: rotate(180deg);
+}
+
+/* ── Dropdown Panel ─────────────────────────────── */
+.panel {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  inset-inline-end: 0;
+  z-index: 200;
+  min-width: 9.5rem;
+  padding: 0.4rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  background: var(--color-paper);
+  color: var(--text-primary, var(--color-ink));
+  box-shadow: var(--shadow-md);
+  list-style: none;
+}
+
+/* ── Option ──────────────────────────────────────── */
+.option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.55rem 0.65rem;
+  border-radius: 3px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 0.8rem;
+  text-align: start;
+  cursor: pointer;
+  transition: background-color var(--dur-fast) var(--ease-soft);
+}
+
+.option:hover {
+  background: var(--color-accent-pale);
+}
+
+.option[data-active='true'] {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.optionNative {
+  font-weight: inherit;
+}
+
+.optionCode {
+  flex: 0 0 auto;
+  color: var(--color-stone);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.option[data-active='true'] .optionCode {
+  color: var(--color-accent-light);
+}
+
+/* ── Small screens ───────────────────────────────── */
+@media (max-width: 560px) {
+  .trigger {
+    min-width: 3rem;
+    padding: 0.48rem 0.5rem;
+    font-size: 0.62rem;
+  }
+}

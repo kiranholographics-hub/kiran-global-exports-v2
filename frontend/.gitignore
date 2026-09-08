@@ -1,0 +1,19 @@
+# dependencies
+/node_modules
+
+# build output
+/dist
+public/sitemap.xml
+
+# testing
+/coverage
+
+# misc
+.DS_Store
+*.pem
+*.log
+
+# env files (can opt-in for committing if needed)
+.env
+.env.local
+.env.*.local

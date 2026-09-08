@@ -1,0 +1,23 @@
+Kiran Global Exports — technical/content correction pass
+Files modified:
+- App.jsx — legacy /towels/album-zero-twist-towel alias redirects to the existing Zero Twist product.
+- components/SEO/SEO.jsx — preserves exact approved homepage title while retaining branded titles elsewhere.
+- data/config.js — approved export email and WhatsApp contact.
+- sections/BrandIntro/BrandIntro.jsx — removes unverified numeric claims and preserves placeholders.
+- data/categories.js — removes internal/reference-process wording from customer-facing category copy.
+- data/towelHierarchy.js — removes internal “real references” wording from customer-facing fallback copy.
+- i18n/locales/en.json — approved homepage/category/product-facing wording and Branding label.
+- pages/TowelCategoryPage.jsx — customer-facing image alt wording only.
+- pages/TowelSubcategoryPage.jsx — customer-facing SEO/reference wording only.
+- data/towelCatalog.js — approved Zero Twist content; bracketed mill values remain unverified placeholders.
+- components/ProductDetail/ProductDetail.jsx — exposes optional Branding spec without redesigning the product page.
+- data/certifications.js — removes unverified ISO 9001 certification claim.
+- pages/Linen.jsx — keeps the existing Linen page indexable.
+- pages/LinenCategoryPage.jsx — keeps existing Linen category pages indexable.
+- seo-deploy-files.zip — updated sitemap and prerender route list; existing .htaccess SPA fallback retained.
+
+Not modified:
+- CSS/styling files
+- image/video files or placements
+- navigation styling
+- existing sections/components beyond the specific functional/content fixes above

@@ -1,0 +1,384 @@
+/* ═══════════════════════════════════════════════
+   AI CHAT — Floating Assistant
+   Kiran Global Exports
+═══════════════════════════════════════════════ */
+
+/* ── Root / positioning ─────────────────────────
+   Stacked above FloatingInquire (which occupies the
+   same bottom-right corner) so neither button overlaps. */
+.root {
+  position: fixed;
+  right: clamp(1rem, 4vw, 2rem);
+  bottom: calc(clamp(1rem, 4vw, 2rem) + 4.5rem);
+  z-index: 1200;
+  font-family: var(--font-sans);
+}
+
+/* ── Launcher (circular) ────────────────────────── */
+.launcher {
+  width: 56px;
+  height: 56px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--color-ink);
+  color: var(--color-ivory);
+  box-shadow:
+    0 8px 30px rgba(23, 20, 15, 0.28),
+    0 2px 8px rgba(23, 20, 15, 0.16),
+    inset 0 1px 0 rgba(255, 253, 249, 0.08);
+  transition: background var(--dur-fast) var(--ease-soft);
+}
+.launcher:hover { background: var(--color-deep-brown); }
+.launcher:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; }
+
+/* ── Panel ───────────────────────────────────────── */
+.panel {
+  position: absolute;
+  right: 0;
+  bottom: 68px;
+  width: min(400px, calc(100vw - 32px));
+  height: max(320px, min(620px, calc(100dvh - 200px)));
+  transform-origin: bottom right;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  background: var(--color-paper);
+  box-shadow: var(--shadow-lg), 0 28px 80px rgba(23, 20, 15, 0.22);
+}
+
+
+/* ── Header ──────────────────────────────────────── */
+.header {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 0.9rem 0.85rem 1rem;
+  background: var(--color-ink);
+  color: var(--color-ivory);
+}
+.brandMark {
+  flex: 0 0 auto;
+  padding: 0.3rem 0.5rem;
+  border: 1px solid rgba(221, 201, 168, 0.55);
+  color: var(--color-beige);
+  font-family: var(--font-serif);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  line-height: 1;
+}
+.headerText { min-width: 0; flex: 1; }
+.headerText strong {
+  display: block;
+  font-size: 0.86rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+.headerText span {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.22rem;
+  color: var(--text-muted-inverse);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.headerText i { width: 6px; height: 6px; border-radius: 50%; background: #8da36f; flex: 0 0 auto; box-shadow: 0 0 0 3px rgba(141, 163, 111, 0.18); }
+
+.headerActions { position: relative; display: flex; align-items: center; gap: 0.15rem; }
+.iconBtn {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  color: var(--color-ivory);
+  transition: background var(--dur-fast) var(--ease-soft);
+}
+.iconBtn:hover { background: rgba(250, 246, 239, 0.12); }
+.iconBtn:focus-visible { outline: 2px solid var(--color-beige); outline-offset: 2px; }
+
+.menu {
+  position: absolute;
+  top: 36px;
+  right: 34px;
+  min-width: 140px;
+  padding: 0.35rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  background: var(--color-paper);
+  box-shadow: var(--shadow-md);
+  z-index: 1;
+}
+.menuItem {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0.6rem;
+  border-radius: 6px;
+  color: var(--text-primary);
+  font-size: 0.8rem;
+  text-align: left;
+}
+.menuItem:hover { background: var(--bg-sand); }
+
+/* ── Messages ────────────────────────────────────── */
+.messages {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  background: linear-gradient(180deg, #fbf7f0, #f5eee3);
+}
+.messageRow { display: flex; flex-direction: column; max-width: 86%; }
+.rowUser { align-self: flex-end; align-items: flex-end; }
+.rowAssistant { align-self: flex-start; align-items: flex-start; }
+
+.message {
+  padding: 0.75rem 0.85rem;
+  border-radius: 12px;
+  font-size: 0.84rem;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.assistant {
+  background: #fff;
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+  border-bottom-left-radius: 3px;
+}
+.user {
+  background: var(--color-ink);
+  color: var(--color-paper);
+  border-bottom-right-radius: 3px;
+}
+.timestamp {
+  margin-top: 0.2rem;
+  padding: 0 0.2rem;
+  color: var(--text-muted);
+  font-size: 0.62rem;
+}
+
+.errorBubble {
+  background: #fdf1ee;
+  color: #8a3a2a;
+  border: 1px solid rgba(160, 82, 45, 0.25);
+}
+.retryBtn {
+  display: block;
+  margin-top: 0.5rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid rgba(160, 82, 45, 0.35);
+  color: #8a3a2a;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+.retryBtn:hover { background: rgba(160, 82, 45, 0.08); }
+
+.typing { display: flex; gap: 4px; align-items: center; min-height: 20px; }
+.typing span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-stone);
+  animation: pulse 1s infinite ease-in-out;
+}
+.typing span:nth-child(2) { animation-delay: 0.12s; }
+.typing span:nth-child(3) { animation-delay: 0.24s; }
+@keyframes pulse {
+  0%, 80%, 100% { opacity: 0.3; transform: translateY(0); }
+  40% { opacity: 1; transform: translateY(-3px); }
+}
+
+/* ── Suggested questions ─────────────────────────── */
+.quickQuestions {
+  flex: 0 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding: 0.6rem 0.75rem;
+  background: #fff;
+  border-top: 1px solid var(--border-subtle);
+}
+.quickQuestions button {
+  flex: 0 0 auto;
+  padding: 0.5rem 0.65rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: 999px;
+  color: var(--text-primary);
+  background: var(--color-paper);
+  font-size: 0.7rem;
+  text-align: left;
+  transition: border-color var(--dur-fast) var(--ease-soft);
+}
+.quickQuestions button:hover { border-color: var(--color-stone); }
+.quickQuestions button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* ── Input ───────────────────────────────────────── */
+.form {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-end;
+  gap: 0.45rem;
+  padding: 0.7rem;
+  border-top: 1px solid var(--border-subtle);
+  background: #fff;
+}
+.form textarea {
+  min-width: 0;
+  flex: 1;
+  max-height: 96px;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  background: var(--color-ivory);
+  color: var(--text-primary);
+  outline: none;
+  font: inherit;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  resize: none;
+  overflow-y: auto;
+}
+.form textarea:focus { border-color: var(--color-accent); }
+.form textarea:disabled { opacity: 0.6; }
+
+.sendBtn {
+  flex: 0 0 auto;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: var(--color-ink);
+  color: var(--color-paper);
+  transition: background var(--dur-fast) var(--ease-soft);
+}
+.sendBtn:hover:not(:disabled) { background: var(--color-deep-brown); }
+.sendBtn:disabled { opacity: 0.4; cursor: not-allowed; }
+.sendBtn:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+
+.note {
+  flex: 0 0 auto;
+  padding: 0 0.8rem 0.7rem;
+  color: var(--text-muted);
+  background: #fff;
+  font-size: 0.62rem;
+  line-height: 1.35;
+}
+
+/* ── Pre-chat gate (Name / Email / Question) ────── */
+.gateForm {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1.1rem 1rem;
+  background: #fff;
+}
+.gateIntro {
+  margin: 0 0 0.4rem;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+.gateLabel {
+  margin-top: 0.5rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.gateLabel span { color: var(--color-accent); }
+.gateInput,
+.gateTextarea {
+  padding: 0.65rem 0.75rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  background: var(--color-ivory);
+  color: var(--text-primary);
+  outline: none;
+  font: inherit;
+  font-size: 0.85rem;
+}
+.gateTextarea { resize: vertical; min-height: 64px; }
+.gateInput:focus,
+.gateTextarea:focus { border-color: var(--color-accent); }
+.gateInput:disabled,
+.gateTextarea:disabled { opacity: 0.6; }
+.gateError { color: #a0392a; font-size: 0.72rem; }
+.gateSubmitBtn {
+  margin-top: 0.9rem;
+  padding: 0.8rem 1rem;
+  border-radius: 999px;
+  background: var(--color-ink);
+  color: var(--color-paper);
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: background var(--dur-fast) var(--ease-soft);
+}
+.gateSubmitBtn:hover:not(:disabled) { background: var(--color-deep-brown); }
+.gateSubmitBtn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* ── Pending / declined status screens ──────────── */
+.gateStatus {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.5rem;
+  padding: 1.5rem;
+  background: #fff;
+}
+.gateStatus h3 { margin: 0.4rem 0 0; font-size: 1rem; color: var(--text-primary); }
+.gateStatus p { margin: 0; color: var(--text-muted); font-size: 0.82rem; line-height: 1.5; max-width: 30ch; }
+.gateNote { font-size: 0.72rem !important; }
+.gateSpinner { display: flex; gap: 6px; }
+.gateSpinner span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  animation: pulse 1s infinite ease-in-out;
+}
+.gateSpinner span:nth-child(2) { animation-delay: 0.15s; }
+.gateSpinner span:nth-child(3) { animation-delay: 0.3s; }
+.gateRetryBtn {
+  margin-top: 0.6rem;
+  padding: 0.6rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-accent);
+  color: var(--color-accent);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+.gateRetryBtn:hover { background: var(--color-accent-pale); }
+
+/* ── Mobile ──────────────────────────────────────── */
+@media (max-width: 640px) {
+  .root { right: 12px; bottom: calc(12px + 4rem); }
+  .panel {
+    width: calc(100vw - 24px);
+    height: max(300px, min(640px, calc(100dvh - 170px)));
+    right: -4px;
+  }
+  .launcher { width: 52px; height: 52px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .typing span { animation: none; }
+}

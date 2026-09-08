@@ -1,0 +1,92 @@
+/* ═══════════════════════════════════════════════
+   CINEMATIC HERO VIDEO — Full Cover Component
+   Rugs & Towels Luxury Brand
+═══════════════════════════════════════════════ */
+
+/* ── Root Container ──────────────────────────── */
+.root {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #201b16;
+  pointer-events: none;
+  isolation: isolate;
+}
+
+/* ── Video ───────────────────────────────────── */
+.video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  /* ✅ Min sizing — always fills container */
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+
+  object-fit: cover;
+  object-position: var(--hero-video-position, center center);
+
+  z-index: 1;
+  opacity: 0;
+  will-change: opacity;
+  transition: opacity 0.9s var(--ease-premium);
+}
+
+.video.ready {
+  opacity: 1;
+}
+
+/* ── Poster ──────────────────────────────────── */
+.poster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+
+  object-fit: cover;
+  object-position: var(--hero-video-position, center center);
+
+  background-image:    var(--hero-video-poster);
+  background-position: var(--hero-video-position, center center);
+  background-size:     cover;
+  background-repeat:   no-repeat;
+}
+
+/* ── Poster only mode ────────────────────────── */
+.posterOnly .video {
+  display: none;
+}
+
+/* ── Mobile ──────────────────────────────────── */
+@media (max-width: 767px) {
+  .video {
+    object-position: var(
+      --hero-video-mobile-position,
+      center center
+    );
+  }
+
+  .poster {
+    object-position: var(
+      --hero-video-mobile-position,
+      center center
+    );
+    background-position: var(
+      --hero-video-mobile-position,
+      center center
+    );
+  }
+}
+
+/* ── Reduced motion ──────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .video {
+    transition: none;
+  }
+}
