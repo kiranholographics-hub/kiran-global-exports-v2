@@ -8,7 +8,7 @@ export default function GlobalExport() {
   const { t } = useTranslation();
 
   const STATS = [
-    { number: '[Confirm]', label: t('home.globalExport.stats.countries') },
+    { number: '10+', label: t('home.globalExport.stats.countries') },
     { number: '10+', label: t('home.globalExport.stats.years') },
   ];
 

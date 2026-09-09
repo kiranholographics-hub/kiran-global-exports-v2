@@ -24,7 +24,7 @@ export const products = [
     applications: ['Hospitality', 'Spa'],
     customization: 'Custom sizing, pile height, backing type, logo tufting.',
     moq: 'Bulk / container inquiries — MOQ discussed per specification',
-    images: ['/images/rugs/hotel-rugs.jpg', '/images/rugs/hotel-bath-rug-thumb.jpg'],
+    images: ['/images/rugs/hotel-rugs.webp', '/images/rugs/hotel-bath-rug-thumb.webp'],
     featured: true,
   },
   {
@@ -44,7 +44,7 @@ export const products = [
     applications: ['Home', 'Retail', 'Design'],
     customization: 'Custom sizing, weave pattern, colourway development.',
     moq: 'Bulk / container inquiries — MOQ discussed per specification',
-    images: ['/images/rugs/decorative-rugs.jpg',],
+    images: ['/images/rugs/decorative-rugs.webp',],
     featured: true,
   },
   {
@@ -64,7 +64,7 @@ export const products = [
     applications: ['Spa', 'Wellness', 'Hospitality'],
     customization: 'Custom sizing, colour-coding, embroidered branding.',
     moq: 'Bulk / container inquiries — MOQ discussed per specification',
-    images: ['/images/rugs/hospital-rugs.jpg'],
+    images: ['/images/rugs/hospital-rugs.webp'],
     featured: false,
   },
   {
@@ -84,7 +84,7 @@ export const products = [
     applications: ['Retail', 'E-commerce', 'Home'],
     customization: 'Custom colourways, private-label packaging.',
     moq: 'Bulk / container inquiries — MOQ discussed per specification',
-    images: ['/images/rugs/home-rugs.jpg'],
+    images: ['/images/rugs/home-rugs.webp'],
     featured: false,
   },
   {
@@ -104,7 +104,7 @@ export const products = [
     applications: ['Private label', 'Hospitality', 'Retail'],
     customization: 'Full custom development — size, pile, colour, branding, packaging.',
     moq: 'Discussed per project scope',
-    images: ['/images/custom/private-label.jpg'],
+    images: ['/images/custom/private-label.webp'],
     featured: false,
   },
 ];

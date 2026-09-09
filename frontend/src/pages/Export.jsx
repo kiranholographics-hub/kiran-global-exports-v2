@@ -34,7 +34,7 @@ const STEPS = [
 /* ── Stats ─────────────────────────────────────── */
 const STATS = [
   { number: '10+', label: 'Years Exporting'   },
-  { number: '[Confirm]', label: 'Countries Shipped To'  },
+  { number: '10+', label: 'Countries Shipped To'  },
   { number: '1972', label: 'Mill Established'      },
 ];
 
@@ -58,7 +58,7 @@ export default function ExportPage() {
           { label: 'Export' },
         ]}
         meta={[
-          { label: '[Confirm]+ Countries' },
+          { label: '10+ Countries' },
           { label: '10+ Years Active' },
           { label: 'B2B Focused' },
         ]}

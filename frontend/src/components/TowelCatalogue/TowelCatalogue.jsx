@@ -62,7 +62,7 @@ export default function TowelCatalogue() {
               style={{ scale: mediaScale }}
               desktopSource="/videos/Towel-page.mp4"
               mobileSource="/videos/Towel-page.mp4"
-              poster="/images/towels/hero.jpg"
+              poster="/images/towels/hero.webp"
             />
             <div
               className={styles.heroOverlay}

@@ -8,7 +8,7 @@ export default function BrandIntro() {
   const { t } = useTranslation();
 
   const STATS = [
-    { number: '20+', label: t('home.brandIntro.stats.years') },
+    { number: '10+', label: t('home.brandIntro.stats.years') },
     { number: '10+', label: t('home.brandIntro.stats.countries') },
     { number: '1972', label: t('home.brandIntro.stats.clients') },
   ];
@@ -79,7 +79,7 @@ export default function BrandIntro() {
           <ScrollReveal delay={0.15}>
             <div className={styles.imageMain}>
               <ImageReveal
-                src="/images/towels/hero.jpg"
+                src="/images/towels/hero.webp"
                 alt="Folded premium cotton towels in a natural colour palette"
                 label="Brand Story — Primary Image"
               />
@@ -96,7 +96,7 @@ export default function BrandIntro() {
           <ScrollReveal delay={0.30}>
             <div className={styles.imageDetail}>
               <ImageReveal
-                src="/images/custom/development.jpg"
+                src="/images/custom/development.webp"
                 alt="Close-up of woven textile texture"
                 label="Brand Story — Detail"
               />

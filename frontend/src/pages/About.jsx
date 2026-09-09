@@ -41,7 +41,7 @@ export default function AboutPage() {
           {/* Image */}
           <ScrollReveal direction="left">
             <ImageReveal
-              src="/images/about/about.png"
+              src="/images/about/about.webp"
               alt="Textile production floor"
               label="About — Production"
               className={styles.image}
@@ -141,7 +141,7 @@ export default function AboutPage() {
               <div className={styles.partnerBrandCard}>
                 <div className={styles.logoWrap}>
                   <img
-                    src="/images/partners/mundada-towels-logo.jpg"
+                    src="/images/partners/mundada-towels-logo.webp"
                     alt="Mundada Towels logo"
                     className={styles.partnerLogo}
                     loading="lazy"

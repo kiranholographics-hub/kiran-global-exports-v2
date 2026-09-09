@@ -4,7 +4,7 @@ import styles from './CinematicHeroVideo.module.css';
 
 const DEFAULT_DESKTOP_SOURCE = '/videos/kiran-hero-desktop.mp4';
 const DEFAULT_MOBILE_SOURCE = '/videos/kiran-hero-mobile.mp4';
-const DEFAULT_POSTER = '/images/hero/kiran-hero-poster.jpg';
+const DEFAULT_POSTER = '/images/hero/kiran-hero-poster.webp';
 
 function getSource(isMobile, desktopSource, mobileSource) {
   return isMobile ? mobileSource : desktopSource;

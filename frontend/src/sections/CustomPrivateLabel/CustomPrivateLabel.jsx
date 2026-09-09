@@ -19,7 +19,7 @@ export default function CustomPrivateLabel() {
 
             {/* Main Image */}
             <ImageReveal
-              src="/images/custom/private-label.jpg"
+              src="/images/custom/private-label.webp"
               alt="Custom private-label textile development"
               label="Custom / Private Label"
               className={styles.media}

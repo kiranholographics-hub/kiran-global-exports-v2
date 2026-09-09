@@ -1,6 +1,6 @@
-const image = (category, slug) => `/images/towels/${category}/${slug}.jpg`;
+const image = (category, slug) => `/images/towels/${category}/${slug}.webp`;
 const thumb = (category, slug) =>
-  `/images/towels/${category}/${slug}-thumb.jpg`;
+  `/images/towels/${category}/${slug}-thumb.webp`;
 
 // ---------------------------------------------------------------------------
 // Product copy note (Sept 2026 SEO/content audit):
@@ -411,8 +411,8 @@ const albumTowelProducts = [
     applications: ["Spa", "Hospitality", "Retail"],
     customization: "Custom sizing, colourway, embroidered branding.",
     moq: "[Confirm with Mundada]",
-    images: ["/images/linen/hair-spa-towel.jpg"],
-    imageThumbs: ["/images/linen/hair-spa-towel.jpg"],
+    images: ["/images/linen/hair-spa-towel.webp"],
+    imageThumbs: ["/images/linen/hair-spa-towel.webp"],
     featured: true,
     tags: ["spa", "hair-spa"],
     alt: "Soft hair spa towel from Kiran Global Exports",

@@ -6,7 +6,7 @@ export const categories = [
   {
     slug: 'towels',
     name: 'Towels',
-    heroImage: '/images/towels/bath/bath-towel.jpg',
+    heroImage: '/images/towels/bath/bath-towel.webp',
     intro:
       'Premium textile collections for hospitality, retail, spa and private-label markets — shown through Kiran Global Exports towel photography and developed to buyer specification.',
     subcategories: [
@@ -29,7 +29,7 @@ export const categories = [
   {
     slug: 'rugs',
     name: 'Rugs',
-    heroImage: '/images/rugs/hero.jpg',
+    heroImage: '/images/rugs/hero.webp',
     intro:
       'Bath and hospitality rugs built for repeat washing and long-term durability, alongside decorative and home collections for retail and design-led buyers.',
     subcategories: [
@@ -44,7 +44,7 @@ export const categories = [
   {
     slug: 'linen',
     name: 'Linen',
-    heroImage: '/images/linen/Hero-line.jpeg',
+    heroImage: '/images/linen/Hero-line.webp',
     intro:
       'Bed linen, table & dining linen, home textiles and custom private-label programmes for hospitality, retail and wholesale buyers — everything outside our terry towel range, which lives on the Towels page.',
     subcategories: [

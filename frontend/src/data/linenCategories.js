@@ -10,12 +10,12 @@
 // ---------------------------------------------------------------------------
 
 const linenCategories = [
-  { slug: 'towels-bath', image: '/images/towels/bath/bath-towel.jpg' },
-  { slug: 'bed', image: '/images/collections/home.jpg' },
-  { slug: 'table-dining', image: '/images/collections/hospitality.jpg' },
-  { slug: 'kitchen', image: '/images/towels/kitchen-utility-1.jpg' },
-  { slug: 'home-textile', image: '/images/collections/retail.jpg' },
-  { slug: 'custom-private-label', image: '/images/custom/private-label.jpg' },
+  { slug: 'towels-bath', image: '/images/towels/bath/bath-towel.webp' },
+  { slug: 'bed', image: '/images/collections/home.webp' },
+  { slug: 'table-dining', image: '/images/collections/hospitality.webp' },
+  { slug: 'kitchen', image: '/images/towels/kitchen-utility-1.webp' },
+  { slug: 'home-textile', image: '/images/collections/retail.webp' },
+  { slug: 'custom-private-label', image: '/images/custom/private-label.webp' },
 ];
 
 export default linenCategories;

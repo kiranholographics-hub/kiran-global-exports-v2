@@ -41,7 +41,7 @@ export default function CustomPage() {
           <ScrollReveal direction="left">
             <div className={styles.imageWrap}>
               <ImageReveal
-                src="/images/custom/development.jpg"
+                src="/images/custom/development.webp"
                 alt="Custom textile development samples"
                 label="Custom Development"
                 className={styles.image}

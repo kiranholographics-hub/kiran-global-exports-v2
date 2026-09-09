@@ -35,7 +35,7 @@ export const linenProducts = [
     applications: ['Hospitality', 'Retail', 'Home'],
     customization: 'Custom sizing, thread count, colourway, embroidery.',
     moq: 'Bulk / container inquiries — MOQ discussed per specification',
-    images: ['/images/linen/bed-linen.png'],
+    images: ['/images/linen/bed-linen.webp'],
     featured: true,
   },
   {
@@ -55,7 +55,7 @@ export const linenProducts = [
     applications: ['Hospitality', 'Retail', 'Home'],
     customization: 'Custom sizing, closure type, colourway, private-label packaging.',
     moq: 'Bulk / container inquiries — MOQ discussed per specification',
-    images: ['/images/linen/pillow-covers.jpg'],
+    images: ['/images/linen/pillow-covers.webp'],
     featured: false,
   },
 
@@ -97,7 +97,7 @@ export const linenProducts = [
     applications: ['Hospitality', 'Retail'],
     customization: 'Custom sizing, colourway, hem style, branding.',
     moq: 'Bulk / container inquiries — MOQ discussed per specification',
-    images: ['/images/linen/table-dining-linen.jpg'],
+    images: ['/images/linen/table-dining-linen.webp'],
     featured: false,
   },
 
@@ -119,7 +119,7 @@ export const linenProducts = [
     applications: ['Retail', 'Home'],
     customization: 'Custom sizing, colourway, print/embroidery, packaging.',
     moq: 'Bulk / container inquiries — MOQ discussed per specification',
-    images: ['/images/linen/cushion-cover-set.jpg'],
+    images: ['/images/linen/cushion-cover-set.webp'],
     featured: true,
   },
   {
@@ -139,7 +139,7 @@ export const linenProducts = [
     applications: ['Retail', 'Home'],
     customization: 'Custom sizing, weave pattern, colourway.',
     moq: 'Bulk / container inquiries — MOQ discussed per specification',
-    images: ['/images/linen/Cotton-Throw-Blanket.jpg'],
+    images: ['/images/linen/Cotton-Throw-Blanket.webp'],
     featured: false,
   },
 
@@ -161,7 +161,7 @@ export const linenProducts = [
     applications: ['Private label', 'Hospitality', 'Retail'],
     customization: 'Full custom development — size, material, colour, branding, packaging.',
     moq: 'Discussed per project scope',
-    images: ['/images/linen/Private-Label-Linen.png'],
+    images: ['/images/linen/Private-Label-Linen.webp'],
     featured: true,
   },
   {
@@ -181,7 +181,7 @@ export const linenProducts = [
     applications: ['Private label'],
     customization: 'Logo development, sampling, full custom production.',
     moq: 'Discussed per project scope',
-    images: ['/images/linen/logo-linen.png'],
+    images: ['/images/linen/logo-linen.webp'],
     featured: false,
   },
 ];

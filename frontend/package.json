@@ -35,6 +35,7 @@
     "eslint-plugin-react-hooks": "^5.1.0",
     "globals": "^15.14.0",
     "puppeteer": "^25.10.0",
+    "sharp": "^0.35.4",
     "vite": "^6.0.7"
   },
   "description": "React (JavaScript) single-page app, built with Vite, served in production by a plain Express/Node server (`server.js`). No Next.js anywhere in this folder.",

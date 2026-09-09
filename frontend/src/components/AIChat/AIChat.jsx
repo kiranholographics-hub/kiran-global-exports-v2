@@ -13,6 +13,7 @@ const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:4000';
 const HISTORY_KEY = 'kge-ai-chat-history';
 const LEAD_KEY = 'kge-ai-chat-lead';
 const POLL_INTERVAL_MS = 3000;
+const PANEL_TRANSITION_MS = 320; // matches the panel's motion transition duration (0.28s) + margin
 
 const QUICK_QUESTIONS = [
   'How does this work?',
@@ -99,6 +100,18 @@ export default function AIChat() {
   const inputRef = useRef(null);
   const launcherRef = useRef(null);
   const titleId = useId();
+  const lastToggleAtRef = useRef(0);
+
+  // Guards against the open/close panel toggling faster than its own
+  // enter/exit transition (PANEL_TRANSITION_MS) — retriggering it mid-animation
+  // left the panel stuck fully visible (opacity: 1) while the launcher button
+  // still reported "closed", silently blocking clicks on whatever was behind it.
+  const setOpenSafely = useCallback((next) => {
+    const now = Date.now();
+    if (now - lastToggleAtRef.current < PANEL_TRANSITION_MS) return;
+    lastToggleAtRef.current = now;
+    setOpen(next);
+  }, []);
 
   useEffect(() => {
     saveLead(lead ? { stage, lead, autoSent: autoSentRef.current } : { stage, autoSent: autoSentRef.current });
@@ -123,13 +136,13 @@ export default function AIChat() {
     if (!open) return;
     function handleKey(event) {
       if (event.key === 'Escape' && !menuOpen) {
-        setOpen(false);
+        setOpenSafely(false);
         launcherRef.current?.focus();
       }
     }
     document.addEventListener('keydown', handleKey);
     return () => document.removeEventListener('keydown', handleKey);
-  }, [open, menuOpen]);
+  }, [open, menuOpen, setOpenSafely]);
 
   // Poll for approval while a lead is pending.
   useEffect(() => {
@@ -256,7 +269,7 @@ export default function AIChat() {
   }
 
   function handleToggle() {
-    setOpen((value) => !value);
+    setOpenSafely(!open);
   }
 
   const showSuggestions = stage === 'chat' && messages.length === 1 && messages[0].id === 'welcome';
@@ -280,7 +293,7 @@ export default function AIChat() {
               menuOpen={menuOpen}
               onToggleMenu={setMenuOpen}
               onClearChat={handleClearChat}
-              onClose={() => setOpen(false)}
+              onClose={() => setOpenSafely(false)}
             />
 
             {stage !== 'chat' ? (

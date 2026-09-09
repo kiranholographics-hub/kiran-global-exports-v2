@@ -67,7 +67,7 @@ function removeJsonLd(id) {
 /** Resolve absolute image URL */
 function resolveImage(image) {
   if (!image) {
-    return `${siteConfig.siteUrl}/images/hero/kiran-hero-poster.jpg`;
+    return `${siteConfig.siteUrl}/images/hero/kiran-hero-poster.webp`;
   }
   try {
     return new URL(image, siteConfig.siteUrl).toString();

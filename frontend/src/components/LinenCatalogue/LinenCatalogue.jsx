@@ -67,7 +67,7 @@ export default function LinenCatalogue() {
               style={{ scale: mediaScale }}
               desktopSource="/videos/Towel-page.mp4"
               mobileSource="/videos/Towel-page.mp4"
-              poster="/images/collections/home.jpg"
+              poster="/images/collections/home.webp"
             />
             <div
               className={styles.heroOverlay}

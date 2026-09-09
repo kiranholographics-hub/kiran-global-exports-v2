@@ -11,7 +11,7 @@ This file contains only information that must be confirmed by the Kiran Global E
 | Social profiles | Provide verified LinkedIn, Instagram, or other official profiles, or leave them omitted. |
 | Company legal name | Confirm whether it differs from “Kiran Global Exports”. |
 | Verified certifications | Confirm which supplied certification marks are current and applicable to the business/products before launch. |
-| Verified export regions/countries | Confirm the regions/countries that may be publicly named. |
+| Verified export regions/countries | ✅ Confirmed by owner: "10+" countries (used on homepage Reach section and /export page). |
 | Verified company history | Confirm any founding date, experience, founder information, or milestones before publication. |
 | Verified product specifications | Confirm materials, GSM, sizes, constructions, colours, and customization details wherever the site currently says “available on request”. |
 | Verified MOQ | Confirm product- or category-specific MOQ values, if they should be published. |

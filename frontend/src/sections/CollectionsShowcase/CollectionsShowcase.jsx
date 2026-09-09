@@ -7,12 +7,12 @@ import styles from './CollectionsShowcase.module.css';
 
 /* ── Collections Data (image/href are structural, not translated) ── */
 const WORLD_SLUGS = [
-  { slug: 'hotel', href: '/collections#hotel', image: '/images/towels/hotel/hotel-border-towel.jpg' },
-  { slug: 'spa', href: '/collections#spa', image: '/images/towels/bath-mats/cotton-bath-mat.jpg' },
-  { slug: 'home', href: '/collections#home', image: '/images/towels/bath/bath-towel.jpg' },
-  { slug: 'hospitality', href: '/collections#hospitality', image: '/images/towels/jacquard/jacquard-towel.jpg' },
-  { slug: 'retail', href: '/collections#retail', image: '/images/towels/waffle/waffle-weave-towel.jpg' },
-  { slug: 'custom', href: '/custom', image: '/images/custom/private-label.jpg' },
+  { slug: 'hotel', href: '/collections#hotel', image: '/images/towels/hotel/hotel-border-towel.webp' },
+  { slug: 'spa', href: '/collections#spa', image: '/images/towels/bath-mats/cotton-bath-mat.webp' },
+  { slug: 'home', href: '/collections#home', image: '/images/towels/bath/bath-towel.webp' },
+  { slug: 'hospitality', href: '/collections#hospitality', image: '/images/towels/jacquard/jacquard-towel.webp' },
+  { slug: 'retail', href: '/collections#retail', image: '/images/towels/waffle/waffle-weave-towel.webp' },
+  { slug: 'custom', href: '/custom', image: '/images/custom/private-label.webp' },
 ];
 
 /* ═══════════════════════════════════════════════ */

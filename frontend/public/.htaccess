@@ -1,0 +1,16 @@
+# SPA fallback for static Apache hosting (e.g. Hostinger). Only needed if
+# dist/ is served directly by Apache instead of server.js — Express already
+# handles this itself (see server.js). Harmless either way.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Let real files and directories (assets, images, prerendered route folders) through as-is.
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Everything else falls back to the SPA shell so React Router can handle
+  # deep links like /towels/bath-towels/bath-towel on a hard refresh.
+  RewriteRule ^ /index.html [L]
+</IfModule>
