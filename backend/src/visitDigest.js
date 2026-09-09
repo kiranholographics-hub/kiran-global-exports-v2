@@ -1,5 +1,5 @@
 import Visit from './models/Visit.js';
-import { sendVisitDigest } from './mailer.js';
+import { sendSMS, buildVisitDigestMessage } from './sms.js';
 
 let running = false;
 let timer = null;
@@ -11,13 +11,25 @@ async function tick(windowMinutes) {
     const visits = await Visit.find({ notified: false }).sort({ createdAt: 1 }).limit(500);
     if (!visits.length) return;
 
-    const result = await sendVisitDigest(visits, { windowMinutes });
+    const byPath = new Map();
+    for (const v of visits) byPath.set(v.path, (byPath.get(v.path) || 0) + 1);
+    const [topPage] = [...byPath.entries()].sort((a, b) => b[1] - a[1])[0] || [];
+
+    const byCountry = new Map();
+    for (const v of visits) {
+      const label = v.country || 'Unknown';
+      byCountry.set(label, (byCountry.get(label) || 0) + 1);
+    }
+    const [topCountry] = [...byCountry.entries()].sort((a, b) => b[1] - a[1])[0] || [];
+
+    const message = buildVisitDigestMessage({ count: visits.length, topCountry, topPage });
+    const result = await sendSMS(message);
     if (result.sent) {
       const ids = visits.map((v) => v._id);
       await Visit.updateMany({ _id: { $in: ids } }, { $set: { notified: true } });
     }
-    // If the email failed to send (e.g. SMTP hiccup), the visits stay
-    // notified:false and get swept up — and re-tried — on the next tick.
+    // If the SMS failed to send, the visits stay notified:false and get
+    // swept up — and re-tried — on the next tick.
   } catch (err) {
     console.error('[visitDigest] tick failed:', err.message);
   } finally {
@@ -27,8 +39,8 @@ async function tick(windowMinutes) {
 
 /**
  * Starts the recurring visit-digest job. Call once, after connectDB(), from
- * server.js. Safe to call in environments without SMTP configured — the
- * mailer just no-ops and visits stay queued.
+ * server.js. Safe to call in environments without MSG91 configured — the
+ * SMS sender just no-ops and visits stay queued.
  */
 export function startVisitDigest() {
   const windowMinutes = Number(process.env.VISIT_DIGEST_INTERVAL_MINUTES) || 20;
