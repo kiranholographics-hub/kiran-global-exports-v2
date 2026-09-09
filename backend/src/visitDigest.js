@@ -1,5 +1,5 @@
 import Visit from './models/Visit.js';
-import { sendWhatsApp } from './whatsapp.js';
+import { sendTelegramMessage } from './telegram.js';
 
 let running = false;
 let timer = null;
@@ -13,16 +13,26 @@ async function tick(windowMinutes) {
 
     const byPath = new Map();
     for (const v of visits) byPath.set(v.path, (byPath.get(v.path) || 0) + 1);
-    const [topPage] = [...byPath.entries()].sort((a, b) => b[1] - a[1])[0] || [];
+    const topPaths = [...byPath.entries()].sort((a, b) => b[1] - a[1]);
 
     const byCountry = new Map();
     for (const v of visits) {
       const label = v.country || 'Unknown';
       byCountry.set(label, (byCountry.get(label) || 0) + 1);
     }
-    const [topCountry] = [...byCountry.entries()].sort((a, b) => b[1] - a[1])[0] || [];
+    const topCountries = [...byCountry.entries()].sort((a, b) => b[1] - a[1]);
 
-    const result = await sendWhatsApp([String(visits.length), topCountry || 'Unknown', topPage || '/']);
+    const lines = [
+      `${visits.length} new visit${visits.length === 1 ? '' : 's'} on the website`,
+      '',
+      'Pages:',
+      ...topPaths.map(([path, count]) => `  ${path} — ${count}`),
+      '',
+      'Countries:',
+      ...topCountries.map(([country, count]) => `  ${country} — ${count}`),
+    ];
+
+    const result = await sendTelegramMessage(lines.join('\n'));
     if (result.sent) {
       const ids = visits.map((v) => v._id);
       await Visit.updateMany({ _id: { $in: ids } }, { $set: { notified: true } });
@@ -38,7 +48,7 @@ async function tick(windowMinutes) {
 
 /**
  * Starts the recurring visit-digest job. Call once, after connectDB(), from
- * server.js. Safe to call in environments without WhatsApp configured — the
+ * server.js. Safe to call in environments without Telegram configured — the
  * sender just no-ops and visits stay queued.
  */
 export function startVisitDigest() {
