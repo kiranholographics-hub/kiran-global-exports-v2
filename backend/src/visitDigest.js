@@ -1,5 +1,5 @@
 import Visit from './models/Visit.js';
-import { sendTelegramMessage } from './telegram.js';
+import { sendWhatsApp } from './whatsapp.js';
 
 let running = false;
 let timer = null;
@@ -13,26 +13,20 @@ async function tick(windowMinutes) {
 
     const byPath = new Map();
     for (const v of visits) byPath.set(v.path, (byPath.get(v.path) || 0) + 1);
-    const topPaths = [...byPath.entries()].sort((a, b) => b[1] - a[1]);
+    const [topPage] = [...byPath.entries()].sort((a, b) => b[1] - a[1])[0] || [];
 
     const byCountry = new Map();
     for (const v of visits) {
       const label = v.country || 'Unknown';
       byCountry.set(label, (byCountry.get(label) || 0) + 1);
     }
-    const topCountries = [...byCountry.entries()].sort((a, b) => b[1] - a[1]);
+    const [topCountry] = [...byCountry.entries()].sort((a, b) => b[1] - a[1])[0] || [];
 
-    const lines = [
-      `${visits.length} new visit${visits.length === 1 ? '' : 's'} on the website`,
-      '',
-      'Pages:',
-      ...topPaths.map(([path, count]) => `  ${path} — ${count}`),
-      '',
-      'Countries:',
-      ...topCountries.map(([country, count]) => `  ${country} — ${count}`),
-    ];
-
-    const result = await sendTelegramMessage(lines.join('\n'));
+    const result = await sendWhatsApp({
+      count: visits.length,
+      country: topCountry || 'Unknown',
+      page: topPage || '/',
+    });
     if (result.sent) {
       const ids = visits.map((v) => v._id);
       await Visit.updateMany({ _id: { $in: ids } }, { $set: { notified: true } });
@@ -48,8 +42,8 @@ async function tick(windowMinutes) {
 
 /**
  * Starts the recurring visit-digest job. Call once, after connectDB(), from
- * server.js. Safe to call in environments without Telegram configured — the
- * sender just no-ops and visits stay queued.
+ * server.js. Safe to call in environments without MSG91 WhatsApp configured
+ * — the sender just no-ops and visits stay queued.
  */
 export function startVisitDigest() {
   const windowMinutes = Number(process.env.VISIT_DIGEST_INTERVAL_MINUTES) || 20;
