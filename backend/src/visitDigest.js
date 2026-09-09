@@ -1,5 +1,5 @@
 import Visit from './models/Visit.js';
-import { sendSMS, buildVisitDigestMessage } from './sms.js';
+import { sendWhatsApp } from './whatsapp.js';
 
 let running = false;
 let timer = null;
@@ -22,13 +22,12 @@ async function tick(windowMinutes) {
     }
     const [topCountry] = [...byCountry.entries()].sort((a, b) => b[1] - a[1])[0] || [];
 
-    const message = buildVisitDigestMessage({ count: visits.length, topCountry, topPage });
-    const result = await sendSMS(message);
+    const result = await sendWhatsApp([String(visits.length), topCountry || 'Unknown', topPage || '/']);
     if (result.sent) {
       const ids = visits.map((v) => v._id);
       await Visit.updateMany({ _id: { $in: ids } }, { $set: { notified: true } });
     }
-    // If the SMS failed to send, the visits stay notified:false and get
+    // If the message failed to send, the visits stay notified:false and get
     // swept up — and re-tried — on the next tick.
   } catch (err) {
     console.error('[visitDigest] tick failed:', err.message);
@@ -39,8 +38,8 @@ async function tick(windowMinutes) {
 
 /**
  * Starts the recurring visit-digest job. Call once, after connectDB(), from
- * server.js. Safe to call in environments without MSG91 configured — the
- * SMS sender just no-ops and visits stay queued.
+ * server.js. Safe to call in environments without WhatsApp configured — the
+ * sender just no-ops and visits stay queued.
  */
 export function startVisitDigest() {
   const windowMinutes = Number(process.env.VISIT_DIGEST_INTERVAL_MINUTES) || 20;
