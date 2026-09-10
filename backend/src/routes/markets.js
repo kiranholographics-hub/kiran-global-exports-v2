@@ -1,6 +1,19 @@
 import { Router } from 'express';
+import cors from 'cors';
 import Market from '../models/Market.js';
 import { requireAuth, requireRole } from '../auth.js';
+
+// The app's own global CORS policy (app.js) only allows the real site's
+// origins — correct for everything else, but it blocks the prerender
+// build script, which runs the app inside headless Chrome on its own
+// local static server (a throwaway origin, e.g. http://localhost:4855)
+// to bake static HTML for crawlers. These two GET routes return only
+// public, unauthenticated, non-sensitive data (no cookies/credentials
+// ever attached), so allowing any origin here is safe — same trust level
+// as a public REST API — and avoids coupling this backend's CORS config
+// to the prerender script's local port number, which has already
+// changed once before.
+const allowAnyOrigin = cors();
 
 const router = Router();
 
@@ -9,6 +22,35 @@ function clean(value, max = 200) {
 }
 
 const STATUSES = ['draft', 'active', 'paused', 'archived'];
+
+// ── Public read routes — no auth, active markets only ──────────────
+// Registered before the admin auth gate below (Express only applies
+// router.use middleware to routes registered after it), so these stay
+// reachable by the live market pages and the build scripts that
+// prerender them, while everything else in this router stays
+// admin-only. Never exposes the internal `notes` field.
+const PUBLIC_FIELDS = 'slug countryName countryCode seoTitle seoDescription';
+
+router.get('/public', allowAnyOrigin, async (_req, res) => {
+  try {
+    const markets = await Market.find({ status: 'active' }, PUBLIC_FIELDS).sort({ createdAt: -1 });
+    res.json(markets.map((m) => m.toJSON()));
+  } catch (err) {
+    console.error('[markets] public list error:', err.message);
+    res.status(500).json({ error: 'Could not load markets.' });
+  }
+});
+
+router.get('/public/:slug', allowAnyOrigin, async (req, res) => {
+  try {
+    const market = await Market.findOne({ slug: req.params.slug, status: 'active' }, PUBLIC_FIELDS);
+    if (!market) return res.status(404).json({ error: 'Market not found.' });
+    res.json(market.toJSON());
+  } catch (err) {
+    console.error('[markets] public get error:', err.message);
+    res.status(500).json({ error: 'Could not load market.' });
+  }
+});
 
 router.use(requireAuth, requireRole('admin'));
 
