@@ -3,6 +3,7 @@ import cors from 'cors';
 import morgan from 'morgan';
 
 import authRouter from './routes/auth.js';
+import marketsRouter from './routes/markets.js';
 import enquiriesRouter from './routes/enquiries.js';
 import productsRouter from './routes/products.js';
 import categoriesRouter from './routes/categories.js';
@@ -40,6 +41,7 @@ app.get('/api/health', (_req, res) => {
 });
 
 app.use('/api/auth', authRouter);
+app.use('/api/markets', marketsRouter);
 app.use('/api/enquiries', enquiriesRouter);
 app.use('/api/products', productsRouter);
 app.use('/api/categories', categoriesRouter);
