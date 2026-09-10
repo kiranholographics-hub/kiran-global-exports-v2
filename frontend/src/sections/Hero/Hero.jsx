@@ -54,8 +54,15 @@ export default function Hero() {
           style={{ y, opacity }}
         >
 
-          {/* Eyebrow — sole heading text now; the previous H1 + subtitle
-              were removed so the hero video shows unobstructed. */}
+          {/* Visually-hidden H1 — every page needs exactly one H1 with real
+              keyword + value-prop text for SEO/accessibility, but the
+              visible design only shows the small eyebrow below. Present in
+              the DOM and readable by crawlers/screen readers, invisible on
+              screen. */}
+          <h1 className="sr-only">{t('home.hero.headline')}</h1>
+
+          {/* Eyebrow — sole visible heading text; the previous large H1 +
+              subtitle were removed so the hero video shows unobstructed. */}
           <motion.p
             className={styles.eyebrow}
             initial={{ opacity: 0, y: 14 }}
