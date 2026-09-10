@@ -1,0 +1,65 @@
+.wrap {
+  padding: var(--section-pad-y) var(--page-gutter);
+  max-width: var(--max-content);
+  margin: 0 auto;
+}
+
+.intro {
+  height: 2rem;
+  width: min(420px, 60%);
+  margin-bottom: var(--space-xl);
+  border-radius: var(--radius-sm);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--space-md);
+}
+
+.card {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--bg-paper);
+  border: 1px solid var(--border-subtle);
+}
+
+.cardImage {
+  aspect-ratio: 4 / 5;
+}
+
+.cardLine {
+  height: 0.9rem;
+  margin: var(--space-sm) var(--space-sm) 0;
+  border-radius: var(--radius-sm);
+}
+
+.cardLineShort {
+  height: 0.75rem;
+  width: 55%;
+  margin: var(--space-2xs) var(--space-sm) var(--space-sm);
+  border-radius: var(--radius-sm);
+}
+
+.shimmer {
+  background: linear-gradient(
+    100deg,
+    var(--color-sand) 30%,
+    var(--color-beige) 50%,
+    var(--color-sand) 70%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.6s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 150% 0; }
+  100% { background-position: -50% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shimmer {
+    animation: none;
+    background: var(--color-sand);
+  }
+}

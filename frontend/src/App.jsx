@@ -1,12 +1,15 @@
 import { Suspense, lazy, useEffect, useRef } from 'react';
-import { Navigate, Routes, Route, useLocation } from 'react-router-dom';
+import { Navigate, Outlet, Routes, Route, useLocation } from 'react-router-dom';
 
 import Header from '@/components/Header/Header';
 import Footer from '@/components/Footer/Footer';
 import Loader from '@/components/Loader/Loader';
 import AIChat from '@/components/AIChat/AIChat';
 import SmoothScrollProvider from '@/components/SmoothScroll/SmoothScrollProvider';
+import CatalogueSkeleton from '@/components/CatalogueSkeleton/CatalogueSkeleton';
+import CatalogueErrorBoundary from '@/components/CatalogueErrorBoundary/CatalogueErrorBoundary';
 import { reportVisit } from '@/lib/visits';
+import { trackPageview } from '@/lib/analytics';
 
 // Route-level code splitting: each page ships as its own chunk instead of
 // one large bundle, matching the brief's performance guidance. Home stays
@@ -28,6 +31,25 @@ const Custom = lazy(() => import('@/pages/Custom'));
 const Contact = lazy(() => import('@/pages/Contact'));
 const LegalPage = lazy(() => import('@/pages/LegalPage'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
+
+// Shared data-loading boundary for the catalogue-browsing routes (Towels,
+// Rugs, Linen, Collections and their nested category/detail pages) — these
+// read products via data/products.js's use()-based functions, which
+// suspend until /api/products resolves. A pathless "layout route" (no
+// `path`, so it doesn't affect any child's URL) is React Router's way to
+// wrap an otherwise-unrelated set of sibling routes in one shared element,
+// here nested inside the app's existing outer <Suspense> (which only
+// handles route-chunk code-splitting) so navigating to non-catalogue pages
+// like /about never shows this catalogue-specific skeleton.
+function CatalogueLayout() {
+  return (
+    <CatalogueErrorBoundary>
+      <Suspense fallback={<CatalogueSkeleton />}>
+        <Outlet />
+      </Suspense>
+    </CatalogueErrorBoundary>
+  );
+}
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -75,6 +97,7 @@ function VisitTracker() {
     if (lastReported.current === key) return;
     lastReported.current = key;
     reportVisit(key);
+    trackPageview(key);
   }, [location.pathname, location.search]);
 
   return null;
@@ -96,19 +119,23 @@ export default function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
-              <Route path="/towels" element={<Towels />} />
-              <Route path="/towels/album-zero-twist-towel" element={<Navigate to="/towels/zero-twist-towel" replace />} />
-              <Route path="/towels/:categorySlug/:subtypeSlug/:productSlug" element={<TowelDetail />} />
-              <Route path="/towels/:categorySlug/:subtypeSlug" element={<TowelSubcategoryPage />} />
-              <Route path="/towels/:categorySlug/:productSlug" element={<TowelDetail />} />
-              <Route path="/towels/:categorySlug" element={<TowelCategoryPage />} />
-              <Route path="/towels/:slug" element={<TowelDetail />} />
-              <Route path="/rugs" element={<Rugs />} />
-              <Route path="/rugs/:slug" element={<RugDetail />} />
-              <Route path="/collections" element={<Collections />} />
-              <Route path="/linen" element={<Linen />} />
-              <Route path="/linen/:slug/:productSlug" element={<LinenDetail />} />
-              <Route path="/linen/:slug" element={<LinenCategoryPage />} />
+
+              <Route element={<CatalogueLayout />}>
+                <Route path="/towels" element={<Towels />} />
+                <Route path="/towels/album-zero-twist-towel" element={<Navigate to="/towels/zero-twist-towel" replace />} />
+                <Route path="/towels/:categorySlug/:subtypeSlug/:productSlug" element={<TowelDetail />} />
+                <Route path="/towels/:categorySlug/:subtypeSlug" element={<TowelSubcategoryPage />} />
+                <Route path="/towels/:categorySlug/:productSlug" element={<TowelDetail />} />
+                <Route path="/towels/:categorySlug" element={<TowelCategoryPage />} />
+                <Route path="/towels/:slug" element={<TowelDetail />} />
+                <Route path="/rugs" element={<Rugs />} />
+                <Route path="/rugs/:slug" element={<RugDetail />} />
+                <Route path="/collections" element={<Collections />} />
+                <Route path="/linen" element={<Linen />} />
+                <Route path="/linen/:slug/:productSlug" element={<LinenDetail />} />
+                <Route path="/linen/:slug" element={<LinenCategoryPage />} />
+              </Route>
+
               <Route path="/export" element={<Export />} />
               <Route path="/custom" element={<Custom />} />
               <Route path="/contact" element={<Contact />} />
