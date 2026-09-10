@@ -6,7 +6,6 @@ import ImageReveal from '@/components/ImageReveal/ImageReveal';
 import SectionHeading from '@/components/SectionHeading/SectionHeading';
 import CTASection from '@/components/CTASection/CTASection';
 import CertificationGallery from '@/components/CertificationGallery/CertificationGallery';
-import { siteConfig } from '@/data/config';
 import styles from './About.module.css';
 
 /* ═══════════════════════════════════════════════ */
@@ -285,7 +284,7 @@ export default function AboutPage() {
               align="center"
             />
             <p className={styles.registrationMeta}>
-              {t('about.registration.iecLabel')}: <strong>{siteConfig.contact.iecCode}</strong>
+              {t('about.registration.body')}
             </p>
           </ScrollReveal>
         </div>
