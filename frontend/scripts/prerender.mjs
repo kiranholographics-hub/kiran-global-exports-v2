@@ -196,7 +196,16 @@ async function main() {
   const server = await startStaticServer();
 
   console.log('Launching headless browser ...');
-  const browser = await puppeteer.launch({ headless: 'new' });
+  // --no-sandbox / --disable-setuid-sandbox: required on shared hosting
+  // build containers (e.g. Hostinger) where Chrome's own sandbox needs
+  // kernel privileges (unprivileged user namespaces) that aren't
+  // available — without these flags Chrome refuses to start at all
+  // ("No usable sandbox!"). Fine here since we're only rendering our
+  // own already-built site, not arbitrary/untrusted pages.
+  const browser = await puppeteer.launch({
+    headless: 'new',
+    args: ['--no-sandbox', '--disable-setuid-sandbox'],
+  });
 
   let failed = 0;
   for (const route of ROUTES_TO_PRERENDER) {
