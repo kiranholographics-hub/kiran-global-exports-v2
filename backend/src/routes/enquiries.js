@@ -70,4 +70,21 @@ router.get('/', requireAuth, requireRole('admin'), async (req, res) => {
   }
 });
 
+const STATUSES = ['new', 'contacted', 'closed'];
+
+router.patch('/:id', requireAuth, requireRole('admin'), async (req, res) => {
+  try {
+    const { status } = req.body || {};
+    if (!STATUSES.includes(status)) {
+      return res.status(400).json({ error: `status must be one of: ${STATUSES.join(', ')}` });
+    }
+    const enquiry = await Enquiry.findByIdAndUpdate(req.params.id, { status }, { new: true, runValidators: true });
+    if (!enquiry) return res.status(404).json({ error: 'Enquiry not found.' });
+    res.json(enquiry.toJSON());
+  } catch (err) {
+    console.error('[enquiries] update error:', err.message);
+    res.status(500).json({ error: 'Could not update enquiry.' });
+  }
+});
+
 export default router;
