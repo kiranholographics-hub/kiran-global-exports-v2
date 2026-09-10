@@ -7,11 +7,19 @@
 // migration, not a runtime dependency. The catalogue-browsing pages
 // (Towels/Rugs/Linen listing, category and detail routes, Collections)
 // now read products live from GET /api/products, which is backed by this
-// seeded data — so re-run this after editing frontend/src/data/*.js to
+// seeded data — so re-run this after editing the catalog files below to
 // push those edits into the database the site actually reads from.
 // Category data and the homepage's own teaser sections still render from
 // the frontend's static files directly (see frontend/src/data/products.js
 // for why), so editing categories.js still needs no re-seed to show up.
+//
+// Imports the three plain per-category catalog files directly (towel,
+// linen, rug) rather than frontend/src/data/products.js — that file now
+// fetches from the API itself (via a Vite "@/" alias plain Node can't
+// resolve, and React's use() hook), so it can no longer be imported from
+// a standalone script. These three files remain plain, framework-free
+// data exports specifically so both the frontend and this script can
+// import them directly.
 
 import 'dotenv/config';
 import mongoose from 'mongoose';
@@ -20,10 +28,18 @@ import Product from '../models/Product.js';
 import Category from '../models/Category.js';
 
 async function loadFrontendData() {
-  const productsModule = await import('../../../frontend/src/data/products.js');
-  const categoriesModule = await import('../../../frontend/src/data/categories.js');
+  const [towelsModule, linenModule, rugsModule, categoriesModule] = await Promise.all([
+    import('../../../frontend/src/data/towelCatalog.js'),
+    import('../../../frontend/src/data/linenCatalog.js'),
+    import('../../../frontend/src/data/rugCatalog.js'),
+    import('../../../frontend/src/data/categories.js'),
+  ]);
   return {
-    products: productsModule.products,
+    products: [
+      ...towelsModule.towelProducts,
+      ...linenModule.linenProducts,
+      ...rugsModule.rugProducts,
+    ],
     categories: categoriesModule.categories,
   };
 }
