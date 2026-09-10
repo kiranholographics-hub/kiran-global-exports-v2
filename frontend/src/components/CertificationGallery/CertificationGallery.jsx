@@ -81,15 +81,20 @@ export default function CertificationGallery() {
               <div
                 className={styles.logoItem}
                 role="listitem"
-                data-name={cert.name}
-                title={cert.name}
               >
-                <img
-                  src={cert.image}
-                  alt={cert.alt}
-                  loading="lazy"
-                  decoding="async"
-                />
+                {cert.image ? (
+                  <img
+                    src={cert.image}
+                    alt={cert.alt}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                ) : (
+                  <p className={styles.textOnly}>{cert.text}</p>
+                )}
+                {cert.caption && (
+                  <p className={styles.caption}>{cert.caption}</p>
+                )}
               </div>
             </ScrollReveal>
           ))}

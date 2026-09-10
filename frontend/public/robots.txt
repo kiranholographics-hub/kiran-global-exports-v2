@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /api/
 Disallow: /admin/
-Sitemap: https://kiranglobal-exports.com/sitemap.xml
+Sitemap: https://www.kiranglobal-exports.com/sitemap.xml

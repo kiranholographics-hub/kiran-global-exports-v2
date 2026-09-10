@@ -89,10 +89,31 @@ export default function Hero() {
           </motion.p>
 
           {/* Headline — staggered word reveal */}
-        
+          <motion.h1
+            className={styles.headline}
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+          >
+            {words.map((word, i) => (
+              <span key={i} className={styles.wordMask}>
+                <motion.span className={styles.word} variants={wordVariants}>
+                  {word}
+                </motion.span>
+              </span>
+            ))}
+          </motion.h1>
 
           {/* Subtitle */}
-         
+          <motion.p
+            className={styles.subtitle}
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.85, delay: 1.1, ease: [0.16, 1, 0.3, 1] }}
+          >
+            {t('home.hero.subtitle')}
+          </motion.p>
+
           {/* CTA Buttons */}
           <motion.div
             className={styles.actions}

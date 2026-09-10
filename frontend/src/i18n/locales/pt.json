@@ -6,7 +6,7 @@
     "contactExportTeam": "Fale com nossa equipe de exportação",
     "responseNote": "Resposta normalmente em até 24 horas",
     "exportRegions": {
-      "india": "Índia",
+      "southAmerica": "América do Sul",
       "northAmerica": "América do Norte",
       "europe": "Europa",
       "middleEast": "Oriente Médio",
@@ -439,7 +439,7 @@
   "certifications": {
     "eyebrow": "Qualidade · Conformidade · Responsabilidade",
     "heading": "Padrões por trás de cada envio.",
-    "copy": "As certificações de fabricação e de produto — OEKO-TEX®, GOTS, GRS, ISO 9001 e outras — pertencem ao nosso parceiro de produção, V P Mundada (Solapur). A Kiran Global Exports possui seus próprios registros de exportação: FIEO, MSME e IEC.",
+    "copy": "As certificações de produto e processo pertencem ao nosso parceiro de produção, V P Mundada (Solapur). A Kiran Global Exports possui seus próprios registros de exportação — FIEO, MSME e IEC. Certificados disponíveis mediante solicitação.",
     "chips": {
       "quality": "Qualidade Garantida",
       "ethical": "Origem Ética",

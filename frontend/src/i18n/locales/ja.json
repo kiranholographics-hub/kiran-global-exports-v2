@@ -6,7 +6,7 @@
     "contactExportTeam": "輸出チームに問い合わせる",
     "responseNote": "通常24時間以内に返信いたします",
     "exportRegions": {
-      "india": "インド",
+      "southAmerica": "南米",
       "northAmerica": "北米",
       "europe": "ヨーロッパ",
       "middleEast": "中東",
@@ -439,7 +439,7 @@
   "certifications": {
     "eyebrow": "品質 · コンプライアンス · 責任",
     "heading": "すべての出荷を支える基準。",
-    "copy": "製造・製品認証 — OEKO-TEX®、GOTS、GRS、ISO 9001など — は、製造パートナーであるV P Mundada（ソラプール）が保有しています。Kiran Global Exportsは独自の輸出登録（FIEO、MSME、IEC）を保有しています。",
+    "copy": "製品・工程認証は、製造パートナーであるV P Mundada（ソラプール）が保有しています。Kiran Global Exportsは独自の輸出登録(FIEO、MSME、IEC)を保有しています。証明書はご要望に応じて提供いたします。",
     "chips": {
       "quality": "品質保証",
       "ethical": "倫理的な調達",

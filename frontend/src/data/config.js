@@ -8,14 +8,14 @@
 export const siteConfig = {
   brandName: 'Kiran Global Exports',
   tagline: 'Premium Towels & Rugs — International Exporter',
-  domain: 'kiranglobal-exports.com',
-  siteUrl: 'https://kiranglobal-exports.com',
+  domain: 'www.kiranglobal-exports.com',
+  siteUrl: 'https://www.kiranglobal-exports.com',
 
   // Shown on /contact, in the footer, and from the floating inquire button.
   contact: {
     email: 'exportskiranglobal@gmail.com',
     whatsapp: '+919983911181', // E.164 format, no spaces — used to build wa.me links
-    phone: '+919928911181',
+    phone: '+919983911181',
     address: 'Plot No. 15, Ram Krishna Marg, New Sanganer Road, Sodala, Jaipur, Rajasthan – 302019',
     person: 'Rajneesh Sharma',
     personTitle: 'Business Consultant, Exports',
@@ -34,7 +34,7 @@ export const siteConfig = {
     { labelKey: 'nav.rugs', href: '/rugs' },
     { labelKey: 'nav.linen', href: '/linen' },
     { labelKey: 'nav.collections', href: '/collections' },
-    { labelKey: 'nav.export', href: '/export', hideFromHeader: true },
+    { labelKey: 'nav.export', href: '/export' },
     { labelKey: 'nav.contact', href: '/contact' },
   ],
 
@@ -48,8 +48,8 @@ export const siteConfig = {
   ],
 
   exportRegions: [
-    { value: 'India', labelKey: 'common.exportRegions.india' },
     { value: 'North America', labelKey: 'common.exportRegions.northAmerica' },
+    { value: 'South America', labelKey: 'common.exportRegions.southAmerica' },
     { value: 'Europe', labelKey: 'common.exportRegions.europe' },
     { value: 'Middle East', labelKey: 'common.exportRegions.middleEast' },
     { value: 'Australia', labelKey: 'common.exportRegions.australia' },
@@ -68,4 +68,13 @@ export function mailtoLink(subject = 'Product Inquiry — Kiran Global Exports')
 
 export function telLink() {
   return `tel:${siteConfig.contact.phone.replace(/[^\d+]/g, '')}`;
+}
+
+// Formats an E.164 Indian number ("+919983911181") for display as
+// "+91 99839 11181" instead of a raw digit string.
+export function formatPhoneDisplay(e164 = siteConfig.contact.phone) {
+  const digits = e164.replace(/[^\d]/g, '');
+  const country = digits.slice(0, digits.length - 10);
+  const local = digits.slice(-10);
+  return `+${country} ${local.slice(0, 5)} ${local.slice(5)}`;
 }

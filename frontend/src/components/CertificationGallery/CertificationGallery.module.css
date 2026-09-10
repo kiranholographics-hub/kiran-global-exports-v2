@@ -156,29 +156,29 @@
 /* ── Gallery Grid ────────────────────────────── */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 1rem 3rem;
-  align-items: center;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem 2rem;
   padding-top: 0.7rem;
 }
 
 /* ── Logo Item ───────────────────────────────── */
 .logoItem {
   display: flex;
-  min-width: 9rem;
-  min-height: 7rem;
+  flex-direction: column;
+  min-height: 9rem;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  text-align: center;
   position: relative;
 
   /* Card-like feel */
-  padding: 0.75rem;
+  padding: 1rem 0.75rem 0.85rem;
   background: rgba(255, 253, 249, 0.30);
   border: 1px solid rgba(255, 253, 249, 0.40);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
 
-  opacity: 0.85;
+  opacity: 0.9;
   transition:
     opacity          var(--dur-fast) var(--ease-premium),
     transform        var(--dur-fast) var(--ease-premium),
@@ -203,8 +203,9 @@
   width: auto;
   height: auto;
   max-width: 100%;
-  max-height: 4.9rem;
+  max-height: 4.4rem;
   object-fit: contain;
+  margin-bottom: 0.6rem;
 
   /* Desaturate slightly — lets color pop on hover */
   filter: saturate(0.85);
@@ -215,58 +216,23 @@
   filter: saturate(1.10);
 }
 
-/* Individual logo sizing */
-.logoItem:nth-child(1) img {
-  max-width: 9.6rem;
-  max-height: 4rem;
-}
-
-.logoItem:nth-child(2) img,
-.logoItem:nth-child(3) img,
-.logoItem:nth-child(4) img,
-.logoItem:nth-child(5) img {
-  max-width: 6.5rem;
-  max-height: 5.1rem;
-}
-
-.logoItem:nth-child(6) img {
-  max-width: 7rem;
-  max-height: 5.1rem;
-}
-
-.logoItem:nth-child(7) img,
-.logoItem:nth-child(8) img {
-  max-width: 8.3rem;
-  max-height: 4.7rem;
-}
-
-.logoItem:nth-child(9) img {
-  max-width: 6.2rem;
-  max-height: 5.1rem;
-}
-
-/* ── Certification Name Tooltip ──────────────── */
-.logoItem::after {
-  content: attr(data-name);
-  position: absolute;
-  bottom: -2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 0.56rem;
+/* Text-only entry (regulations with no certificate, e.g. REACH & GPSR) */
+.textOnly {
+  margin: auto 0;
+  font-size: 0.78rem;
   font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(23, 20, 15, 0.55);
-  white-space: nowrap;
-  opacity: 0;
-  transition:
-    opacity   var(--dur-fast) var(--ease-soft),
-    transform var(--dur-fast) var(--ease-premium);
-  pointer-events: none;
+  letter-spacing: 0.04em;
+  color: rgba(23, 20, 15, 0.75);
 }
 
-.logoItem:hover::after {
-  opacity: 1;
+/* ── Attribution caption — always visible, clarifies who holds it ── */
+.caption {
+  margin-top: auto;
+  padding-top: 0.5rem;
+  font-size: 0.6rem;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+  color: rgba(23, 20, 15, 0.55);
 }
 
 /* ═══════════════════════════════════════════════
@@ -289,7 +255,7 @@
   }
 
   .logoItem {
-    min-height: 6.5rem;
+    min-height: 8rem;
   }
 }
 
@@ -311,34 +277,13 @@
   }
 
   .logoItem {
-    min-height: 5.4rem;
-    padding: 0.5rem;
+    min-height: 7rem;
+    padding: 0.65rem 0.5rem 0.5rem;
   }
 
   .logoItem img {
-    max-width: 7.8rem;
-    max-height: 3.7rem;
-  }
-
-  .logoItem:nth-child(1) img {
-    max-width: 8.3rem;
-    max-height: 3.3rem;
-  }
-
-  .logoItem:nth-child(2) img,
-  .logoItem:nth-child(3) img,
-  .logoItem:nth-child(4) img,
-  .logoItem:nth-child(5) img,
-  .logoItem:nth-child(6) img,
-  .logoItem:nth-child(9) img {
-    max-width: 5.7rem;
-    max-height: 3.9rem;
-  }
-
-  .logoItem:nth-child(7) img,
-  .logoItem:nth-child(8) img {
-    max-width: 7.3rem;
-    max-height: 3.5rem;
+    max-width: 6.5rem;
+    max-height: 3.4rem;
   }
 
   .trustChips {

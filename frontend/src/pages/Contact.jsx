@@ -3,7 +3,7 @@ import SEO from '@/components/SEO/SEO';
 import PageIntro from '@/components/PageIntro/PageIntro';
 import ContactForm from '@/components/ContactForm/ContactForm';
 import ScrollReveal from '@/components/ScrollReveal/ScrollReveal';
-import { siteConfig, waLink, mailtoLink, telLink } from '@/data/config';
+import { siteConfig, waLink, mailtoLink, telLink, formatPhoneDisplay } from '@/data/config';
 import styles from './Contact.module.css';
 
 /* ═══════════════════════════════════════════════ */
@@ -21,7 +21,7 @@ export default function ContactPage() {
     {
       id:      'whatsapp',
       label:   t('contact.side.whatsapp'),
-      display: siteConfig.contact.whatsapp,
+      display: formatPhoneDisplay(siteConfig.contact.whatsapp),
       href:    () => waLink(),
       type:    'link',
       external: true,
@@ -30,7 +30,7 @@ export default function ContactPage() {
     {
       id:      'call',
       label:   t('contact.side.call'),
-      display: siteConfig.contact.phone,
+      display: formatPhoneDisplay(siteConfig.contact.phone),
       href:    () => telLink(),
       type:    'link',
     },

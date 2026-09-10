@@ -22,6 +22,10 @@ export default function Loader() {
   const { t } = useTranslation();
   const prefersReduced = useReducedMotion();
   const [visible, setVisible] = useState(true);
+  // Separate from `visible` — guarantees the loader (including its
+  // "Loading" text) leaves the DOM even if the exit animation never runs
+  // (e.g. requestAnimationFrame is paused because the tab is backgrounded).
+  const [mounted, setMounted] = useState(true);
 
   useEffect(() => {
     if (typeof window === 'undefined') return undefined;
@@ -29,13 +33,22 @@ export default function Loader() {
     const alreadyLoaded = sessionStorage.getItem(SESSION_KEY);
     const delay = alreadyLoaded || prefersReduced ? 0 : LOADER_DELAY;
 
-    const t = setTimeout(() => {
+    const showTimer = setTimeout(() => {
       setVisible(false);
       sessionStorage.setItem(SESSION_KEY, '1');
     }, delay);
 
-    return () => clearTimeout(t);
+    const unmountTimer = setTimeout(() => {
+      setMounted(false);
+    }, delay + exitTransition.duration * 1000 + 250);
+
+    return () => {
+      clearTimeout(showTimer);
+      clearTimeout(unmountTimer);
+    };
   }, [prefersReduced]);
+
+  if (!mounted) return null;
 
   return (
     <AnimatePresence>

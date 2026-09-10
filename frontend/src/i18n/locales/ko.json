@@ -6,7 +6,7 @@
     "contactExportTeam": "수출팀에 문의하기",
     "responseNote": "보통 24시간 이내 답변",
     "exportRegions": {
-      "india": "인도",
+      "southAmerica": "남아메리카",
       "northAmerica": "북미",
       "europe": "유럽",
       "middleEast": "중동",
@@ -439,7 +439,7 @@
   "certifications": {
     "eyebrow": "품질 · 규정 준수 · 책임",
     "heading": "모든 배송 뒤에 있는 기준.",
-    "copy": "제조 및 제품 인증 — OEKO-TEX®, GOTS, GRS, ISO 9001 등 — 은 저희 생산 파트너인 V P Mundada(솔라푸르)가 보유하고 있습니다. Kiran Global Exports는 자체 수출 등록(FIEO, MSME, IEC)을 보유하고 있습니다.",
+    "copy": "제품 및 공정 인증은 저희 생산 파트너인 V P Mundada(솔라푸르)가 보유하고 있습니다. Kiran Global Exports는 자체 수출 등록(FIEO, MSME, IEC)을 보유하고 있습니다. 인증서는 요청 시 제공됩니다.",
     "chips": {
       "quality": "품질 보증",
       "ethical": "윤리적 소싱",

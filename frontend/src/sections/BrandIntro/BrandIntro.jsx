@@ -8,8 +8,8 @@ export default function BrandIntro() {
   const { t } = useTranslation();
 
   const STATS = [
-    { number: '10+', label: t('home.brandIntro.stats.years') },
-    { number: '10+', label: t('home.brandIntro.stats.countries') },
+    { number: '22+', label: t('home.brandIntro.stats.years') },
+    { number: '7+', label: t('home.brandIntro.stats.countries') },
     { number: '1972', label: t('home.brandIntro.stats.clients') },
   ];
 

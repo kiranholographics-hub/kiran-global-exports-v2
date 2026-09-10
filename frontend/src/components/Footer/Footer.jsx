@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { siteConfig, waLink, mailtoLink, telLink } from '@/data/config';
+import { siteConfig, waLink, mailtoLink, telLink, formatPhoneDisplay } from '@/data/config';
 import CertificationGallery from '@/components/CertificationGallery/CertificationGallery';
 import styles from './Footer.module.css';
 
@@ -77,7 +77,7 @@ export default function Footer() {
             </li>
             <li>
               <a href={telLink()}>
-                {siteConfig.contact.phone}
+                {formatPhoneDisplay()}
               </a>
             </li>
             <li>
@@ -114,14 +114,12 @@ export default function Footer() {
 
       {/* ── Bottom Bar ─────────────────────────── */}
       <div className={`container ${styles.bottom}`}>
-        <p>© {year} {siteConfig.brandName}. {t('footer.rightsReserved')} {t('footer.iecLabel')}: {siteConfig.contact.iecCode}</p>
+        <p>© {year} {siteConfig.brandName}. {t('footer.rightsReserved')}</p>
 
         <p className={styles.legalLinks}>
           <Link to="/privacy-policy">{t('footer.privacyPolicy')}</Link>
           <Link to="/terms-and-conditions">{t('footer.termsConditions')}</Link>
         </p>
-
-        <p>{t('footer.bottomTagline')}</p>
       </div>
 
     </footer>

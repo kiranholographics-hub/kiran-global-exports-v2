@@ -6,8 +6,8 @@
     "contactExportTeam": "Contact Our Export Team",
     "responseNote": "Typical response within 24 hours",
     "exportRegions": {
-      "india": "India",
       "northAmerica": "North America",
+      "southAmerica": "South America",
       "europe": "Europe",
       "middleEast": "Middle East",
       "australia": "Australia",
@@ -70,7 +70,7 @@
     "termsConditions": "Terms & Conditions",
     "bottomTagline": "Premium Towels & Rugs — International Exporter",
     "iecLabel": "IEC",
-    "structureLine": "Kiran Global Exports is the marketing & export division of Kiran Holographics — official Marketing Partner of V P Mundada (Mundada Towels)."
+    "structureLine": "Official Marketing Partner of V P Mundada (Mundada Towels) — weaving terry in Solapur, Maharashtra since 1972."
   },
   "notFound": {
     "seoTitle": "Page Not Found",
@@ -89,12 +89,12 @@
   },
   "home": {
     "seo": {
-      "title": "Kiran Global Exports — Towel Supplier for Importers",
-      "description": "Cotton towels, bathrobes and hotel linen supplied to importers and distributors worldwide. Made at our partner mill in Solapur since 1972. Samples before bulk."
+      "title": "Cotton Towel & Bathrobe Supplier for US, Canada & Australia Importers",
+      "description": "Cotton towels, bathrobes and hotel linen for importers in the US, Canada and Australia. Woven at our partner mill in Solapur since 1972. Samples first."
     },
     "hero": {
       "eyebrow": "Kiran Global Exports",
-      "headline": "Cotton towels, made in India for buyers who resell.",
+      "headline": "Cotton Towels, Bathrobes & Hotel Linen for Importers Worldwide",
       "subtitle": "We supply importers, distributors and private-label brands — not end users. Your specification, approved on a physical sample before bulk, shipped FOB with full documentation.",
       "primaryCta": "Explore Collection",
       "secondaryCta": "Contact Our Export Team",
@@ -103,17 +103,17 @@
     },
     "brandIntro": {
       "eyebrow": "Who We Are",
-      "heading": "Fifty years of weaving behind every order",
-      "copy1": "Kiran Global Exports supplies cotton towels, bathrobes, bath mats and hotel linen to buyers around the world. Our production partner, V P Mundada, has been weaving terry in Solapur, Maharashtra since 1972.",
+      "heading": "Fifty-four years of weaving behind every order",
+      "copy1": "Kiran Global Exports is the appointed marketing and export partner of V P Mundada, a terry mill that has been weaving in Solapur, Maharashtra since 1972. We connect importers and distributors worldwide with the mill's cotton towels, bathrobes, bath mats and hotel linen.",
       "copy2": "That matters for a practical reason. Weaving, dyeing and finishing terry consistently is not something a factory learns quickly, and the difference shows up in your second order, not your first. When you reorder from us, you are reordering from the same looms.",
       "stats": {
-        "years": "Years Exporting",
-        "countries": "Countries Shipped To",
+        "years": "Years as Export Partner",
+        "countries": "Countries Supplied",
         "clients": "Mill Established"
       },
       "premiumCotton": "Premium Cotton",
       "handcrafted": "Handcrafted",
-      "copy3": "We handle the export side from Jaipur — specification, sampling, documentation and shipping. One point of contact, one set of paperwork, a fifty-year-old mill behind it."
+      "copy3": "We work from Jaipur and handle your specification, sampling and order coordination. Your contract and shipment are direct with the mill — you are dealing with the people who actually weave your towels, and with a fifty-four-year-old weaver on the other side of the table."
     },
     "productWorld": {
       "collectionSuffix": "Collection",
@@ -176,8 +176,8 @@
           "tag": "Batch Matched"
         },
         {
-          "title": "FOB terms",
-          "body": "We quote and ship FOB, so you keep control of freight and your own landed cost.",
+          "title": "Direct mill terms",
+          "body": "Quotations and shipment come directly from the mill on FOB terms. You keep control of freight and your own landed cost, and your commercial relationship is with the manufacturer itself.",
           "tag": "FOB"
         },
         {
@@ -283,13 +283,13 @@
         "Custom construction"
       ],
       "cta": "Discuss Your Requirements",
-      "trustNote": "Free consultation · No minimum order for samples",
+      "trustNote": "Specification review · No minimum order for samples",
       "badge": "Private Label Ready"
     },
     "cta": {
       "eyebrow": "Send Us Your Specification",
       "title": "Send us your specification",
-      "lead": "Tell us the product, size, GSM, colour, quantity and any branding you need — or just send a photo of what you are buying now and we will work back from it. Our export team replies within 24 hours with an FOB quotation and lead time.",
+      "lead": "Tell us the product, size, GSM, colour, quantity and any branding you need — or just send a photo of what you are buying now and we will work back from it. We reply within 24 hours with an FOB quotation and lead time, confirmed with the mill.",
       "primary": "Send an Inquiry",
       "secondary": "View Collections",
       "note": "Typical response within 24 hours"
@@ -434,7 +434,7 @@
   "certifications": {
     "eyebrow": "Quality · Compliance · Responsibility",
     "heading": "Standards behind every shipment.",
-    "copy": "Manufacturing and product certifications — OEKO-TEX®, GOTS, GRS, ISO 9001 and more — are held by our production partner, V P Mundada (Solapur). Kiran Global Exports holds its own export registrations: FIEO, MSME and IEC.",
+    "copy": "Product and process certifications are held by our production partner, V P Mundada (Solapur). Kiran Global Exports holds its own export registrations — FIEO, MSME and IEC. Certificates available on request.",
     "chips": {
       "quality": "Quality Assured",
       "ethical": "Ethically Sourced",
@@ -480,13 +480,13 @@
     },
     "partner": {
       "eyebrow": "Our Towel Partner",
-      "title": "Mundada Towels — five decades of textile expertise.",
+      "title": "Mundada Towels — fifty-four years of textile expertise.",
       "lead": "Kiran Global Exports works in partnership with Mundada Towels, a trusted manufacturer and exporter of premium terry towels established in 1972 in Solapur, Maharashtra. Together, we serve international B2B buyers with dependable towel solutions built around their specifications, quality requirements and market needs.",
       "tagline": "Leaner, Meaner Towels!",
       "established": "Established 1972",
       "location": "Solapur, Maharashtra",
       "visitLink": "Visit Mundada Towels ↗",
-      "copy1": "With over five decades of textile expertise, Mundada Towels combines traditional craftsmanship with modern manufacturing, strict quality control and ongoing product development. This manufacturing strength supports Kiran Global Exports in delivering consistent, specification-led towel programs for global buyers.",
+      "copy1": "With fifty-four years of textile expertise, Mundada Towels combines traditional craftsmanship with modern manufacturing, strict quality control and ongoing product development. This manufacturing strength supports Kiran Global Exports in delivering consistent, specification-led towel programs for global buyers.",
       "copy2": "The range includes bath, hand, face, pool, beach, kitchen and institutional towels, alongside jacquard, zero-twist, vat-dyed, bamboo, recycled-yarn and customized towel programs.",
       "copy3": "Certifications including OEKO-TEX®, GRS, ISO 9001, MADE IN GREEN and BSCI support a strong focus on quality, sustainability and responsible manufacturing."
     },

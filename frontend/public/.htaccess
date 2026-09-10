@@ -5,6 +5,11 @@
   RewriteEngine On
   RewriteBase /
 
+  # Canonical host is www — redirect the bare domain so only one version is
+  # ever indexed (avoids the non-www/www duplicate-content split).
+  RewriteCond %{HTTP_HOST} ^kiranglobal-exports\.com$ [NC]
+  RewriteRule ^ https://www.kiranglobal-exports.com%{REQUEST_URI} [L,R=301]
+
   # Let real files and directories (assets, images, prerendered route folders) through as-is.
   RewriteCond %{REQUEST_FILENAME} -f [OR]
   RewriteCond %{REQUEST_FILENAME} -d
