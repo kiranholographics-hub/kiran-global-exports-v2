@@ -2,10 +2,11 @@ import { NavLink } from 'react-router-dom';
 import { useAuth } from '@/components/Auth/AuthProvider';
 import styles from './HqShell.module.css';
 
-// More sections (Products, Leads, SEO...) land here in later phases, once
+// More sections (Products, SEO...) land here in later phases, once
 // they're real working pages — not stubbed out ahead of time.
 const NAV = [
   { to: '/hq', label: 'Global Markets', icon: '◎' },
+  { to: '/hq/enquiries', label: 'Enquiries', icon: '✉' },
 ];
 
 /**
