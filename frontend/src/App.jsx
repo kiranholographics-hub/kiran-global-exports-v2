@@ -1,5 +1,5 @@
 import { Suspense, lazy, useEffect, useRef } from 'react';
-import { Navigate, Outlet, Routes, Route, useLocation } from 'react-router-dom';
+import { Navigate, Outlet, Routes, Route, useLocation, useParams } from 'react-router-dom';
 
 import Header from '@/components/Header/Header';
 import Footer from '@/components/Footer/Footer';
@@ -12,6 +12,7 @@ import AuthProvider from '@/components/Auth/AuthProvider';
 import RequireAuth from '@/components/Auth/RequireAuth';
 import { reportVisit } from '@/lib/visits';
 import { trackPageview } from '@/lib/analytics';
+import { resetMarketCache } from '@/lib/publicMarkets';
 
 // Route-level code splitting: each page ships as its own chunk instead of
 // one large bundle, matching the brief's performance guidance. Home stays
@@ -29,7 +30,7 @@ const Linen = lazy(() => import('@/pages/Linen'));
 const LinenCategoryPage = lazy(() => import('@/pages/LinenCategoryPage'));
 const LinenDetail = lazy(() => import('@/pages/LinenDetail'));
 const Export = lazy(() => import('@/pages/Export'));
-const Australia = lazy(() => import('@/pages/Australia'));
+const MarketPage = lazy(() => import('@/pages/MarketPage'));
 const Custom = lazy(() => import('@/pages/Custom'));
 const Contact = lazy(() => import('@/pages/Contact'));
 const LegalPage = lazy(() => import('@/pages/LegalPage'));
@@ -49,6 +50,25 @@ const NotFound = lazy(() => import('@/pages/NotFound'));
 function CatalogueLayout() {
   return (
     <CatalogueErrorBoundary>
+      <Suspense fallback={<CatalogueSkeleton />}>
+        <Outlet />
+      </Suspense>
+    </CatalogueErrorBoundary>
+  );
+}
+
+// Same pathless-layout pattern as CatalogueLayout, for the single dynamic
+// /:marketSlug route (MarketPage.jsx) — its content also suspends on a
+// live API call (fetchMarketBySlug), so it needs its own Suspense/error
+// boundary, with market-appropriate copy and its own cache-reset on retry.
+function MarketLayout() {
+  const { marketSlug } = useParams();
+  return (
+    <CatalogueErrorBoundary
+      title="Couldn't load this market"
+      body="Something went wrong reaching our market data. Please try again, or contact our export team directly if this keeps happening."
+      onRetry={() => resetMarketCache(marketSlug)}
+    >
       <Suspense fallback={<CatalogueSkeleton />}>
         <Outlet />
       </Suspense>
@@ -162,7 +182,6 @@ export default function App() {
               </Route>
 
               <Route path="/export" element={<Export />} />
-              <Route path="/australia" element={<Australia />} />
               <Route path="/custom" element={<Custom />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/privacy-policy" element={<LegalPage kind="privacy" />} />
@@ -171,6 +190,16 @@ export default function App() {
               <Route path="/hq/login" element={<HqLogin />} />
               <Route element={<RequireAuth />}>
                 <Route path="/hq" element={<HqDashboard />} />
+              </Route>
+
+              {/* Dynamic market pages (e.g. /australia, /usa) — driven by
+                  the Market database record. Kept last, right before the
+                  catch-all, matching this file's existing convention of
+                  ordering specific routes before generic ones (React
+                  Router itself would also rank every static path above
+                  this single dynamic segment regardless of order). */}
+              <Route element={<MarketLayout />}>
+                <Route path="/:marketSlug" element={<MarketPage />} />
               </Route>
 
               <Route path="*" element={<NotFound />} />

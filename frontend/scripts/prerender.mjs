@@ -61,16 +61,34 @@ const MIME_TYPES = {
 // public/sitemap.xml and each page's <SEO noindex> setting — prerendering
 // a noindexed page is harmless but pointless, so keep this list in sync
 // rather than trying to crawl every route automatically).
-const ROUTES_TO_PRERENDER = [
+const STATIC_ROUTES = [
   '/',
   '/about',
   '/custom',
   '/export',
-  '/australia',
   '/contact',
   '/privacy-policy',
   '/terms-and-conditions',
 ];
+
+// process.env, not import.meta.env — see the matching note in
+// generate-seo-files.js.
+const API_BASE = process.env.VITE_API_URL || 'https://api.kiranglobal-exports.com';
+
+// Market pages (/australia, /usa, ...) are discovered dynamically — same
+// live-fetch, same failure-tolerant handling as generate-seo-files.js.
+// Activating a market in /hq is what gets it prerendered, no code change.
+async function fetchActiveMarketRoutes() {
+  try {
+    const res = await fetch(`${API_BASE}/api/markets/public`);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const markets = await res.json();
+    return markets.map((m) => `/${m.slug}`);
+  } catch (err) {
+    console.warn(`  ! could not fetch active markets (${err.message}) — skipping market pages this build.`);
+    return [];
+  }
+}
 
 function startStaticServer() {
   return new Promise((resolve) => {
@@ -106,15 +124,18 @@ async function prerenderRoute(browser, route) {
   // Block requests that don't matter for SEO content and can otherwise
   // stall navigation entirely:
   //   - hero video files (large, slow, purely decorative)
-  //   - the /api/visits call (VisitTracker fires on every route; there's
-  //     no backend running during a prerender build step, so this would
-  //     always fail — and with strict networkidle0 below, a lingering
-  //     failed/retried request can prevent navigation from ever
-  //     completing, which is exactly what happened without this)
+  //   - VisitTracker's /api/visits call, and the AI chat endpoints — none
+  //     of these affect what a crawler should see, and we don't want a
+  //     prerender pass polluting the visit digest or making live OpenAI
+  //     calls. /api/markets/* is deliberately NOT in this list — the
+  //     market pages need that real data to prerender real content, and
+  //     the build container can reach the live production API directly
+  //     (this frontend's own VITE_API_URL already points there).
+  const BLOCKED_API_PATHS = ['/api/visits', '/api/ai-chat', '/api/chat/lead'];
   await page.setRequestInterception(true);
   page.on('request', (req) => {
     const reqUrl = req.url();
-    if (reqUrl.endsWith('.mp4') || reqUrl.includes('/api/')) {
+    if (reqUrl.endsWith('.mp4') || BLOCKED_API_PATHS.some((p) => reqUrl.includes(p))) {
       return req.abort();
     }
     req.continue();
@@ -132,8 +153,12 @@ async function prerenderRoute(browser, route) {
   });
   page.on('requestfailed', (req) => {
     const reason = req.failure()?.errorText;
-    if (req.url().endsWith('.mp4') || req.url().includes('/api/')) return; // expected — we aborted these
-    console.log(`  [request failed] ${req.url()} — ${reason}`);
+    const reqUrl = req.url();
+    // The .mp4/blocked-API aborts above are expected noise; anything else
+    // failing (including /api/markets/*, now that it's allowed through)
+    // is a real signal worth seeing.
+    if (reqUrl.endsWith('.mp4') || BLOCKED_API_PATHS.some((p) => reqUrl.includes(p))) return;
+    console.log(`  [request failed] ${reqUrl} — ${reason}`);
   });
 
   const response = await page.goto(url, { waitUntil: 'networkidle0', timeout: 30000 });
@@ -193,6 +218,10 @@ async function main() {
     process.exit(1);
   }
 
+  console.log('Fetching active markets ...');
+  const marketRoutes = await fetchActiveMarketRoutes();
+  const routesToPrerender = [...STATIC_ROUTES, ...marketRoutes];
+
   console.log('Starting local static server for dist/ ...');
   const server = await startStaticServer();
 
@@ -209,7 +238,7 @@ async function main() {
   });
 
   let failed = 0;
-  for (const route of ROUTES_TO_PRERENDER) {
+  for (const route of routesToPrerender) {
     try {
       console.log(`Prerendering ${route} ...`);
       const html = await prerenderRoute(browser, route);
