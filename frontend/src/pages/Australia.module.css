@@ -1,0 +1,104 @@
+/* ═══════════════════════════════════════════════
+   AUSTRALIA MARKET PAGE
+═══════════════════════════════════════════════ */
+
+.whySection {
+  background: var(--bg-primary);
+}
+
+.reasonGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-lg);
+  margin-top: clamp(2.5rem, 4vw, 3.5rem);
+}
+
+@media (max-width: 640px) {
+  .reasonGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.reason {
+  padding: clamp(1.5rem, 2.5vw, 2rem);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-paper);
+  position: relative;
+  overflow: hidden;
+}
+
+.reason::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-light), transparent);
+}
+
+.reasonNumber {
+  display: block;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--fs-h3);
+  color: var(--accent);
+  opacity: 0.6;
+  margin-bottom: var(--space-sm);
+}
+
+.reason h3 {
+  font-family: var(--font-serif);
+  font-size: var(--fs-h3);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--color-charcoal);
+  margin-bottom: var(--space-2xs);
+}
+
+.reason p {
+  color: var(--text-muted);
+  font-size: var(--fs-body);
+  font-weight: 300;
+  line-height: var(--lh-body);
+}
+
+/* ── FAQ ─────────────────────────────────────── */
+.faqSection {
+  background: var(--bg-sand);
+}
+
+.faqList {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid var(--border-subtle);
+  margin-top: clamp(2.5rem, 4vw, 3.5rem);
+}
+
+.faqItem {
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--bg-sand);
+}
+
+.faqItem:last-child {
+  border-bottom: none;
+}
+
+.faqItem h3 {
+  font-family: var(--font-serif);
+  font-size: var(--fs-h3);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--color-charcoal);
+  margin-bottom: var(--space-2xs);
+}
+
+.faqItem p {
+  color: var(--text-muted);
+  font-size: var(--fs-body);
+  font-weight: 300;
+  line-height: var(--lh-body);
+  max-width: 62ch;
+}

@@ -35,9 +35,11 @@ export default function ContactForm() {
   const [searchParams]    = useSearchParams();
   const productSlug       = searchParams.get('product')  || '';
   const prefilledInterest = searchParams.get('interest') || '';
+  const prefilledCountry  = searchParams.get('country')  || '';
 
   const [values, setValues] = useState(() => ({
     ...EMPTY,
+    country: prefilledCountry,
     productInterest: prefilledInterest,
     message: productSlug
       ? t('contact.form.productInterestNote', { product: productSlug.replace(/-/g, ' ') })

@@ -25,6 +25,7 @@ const routes = [
   { path: '/about', priority: '0.8' },
   { path: '/custom', priority: '0.7' },
   { path: '/export', priority: '0.7' },
+  { path: '/australia', priority: '0.7' },
   { path: '/contact', priority: '0.9' },
   { path: '/privacy-policy', priority: '0.3' },
   { path: '/terms-and-conditions', priority: '0.3' },

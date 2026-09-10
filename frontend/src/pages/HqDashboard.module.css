@@ -1,0 +1,202 @@
+.wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: var(--space-xl) var(--page-gutter) var(--space-2xl);
+}
+
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+  flex-wrap: wrap;
+}
+
+.eyebrow {
+  font-size: var(--fs-eyebrow);
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: var(--fs-h2);
+  color: var(--color-charcoal);
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.userEmail {
+  font-size: var(--fs-small);
+  color: var(--text-muted);
+}
+
+.logout {
+  font-size: var(--fs-small);
+  font-weight: 600;
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 0.15rem;
+  cursor: pointer;
+}
+
+.logout:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.error {
+  padding: 0.85rem 1.1rem;
+  margin-bottom: var(--space-md);
+  background: rgba(163, 64, 44, 0.07);
+  border: 1px solid rgba(163, 64, 44, 0.2);
+  border-left: 3px solid #a3402c;
+  color: #8b3220;
+  font-size: var(--fs-small);
+  border-radius: var(--radius-sm);
+}
+
+.panel {
+  background: var(--bg-paper);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  margin-bottom: var(--space-lg);
+}
+
+.panelTitle {
+  font-family: var(--font-serif);
+  font-size: var(--fs-h3);
+  color: var(--color-charcoal);
+  margin-bottom: var(--space-md);
+}
+
+.muted {
+  color: var(--text-muted);
+  font-size: var(--fs-small);
+}
+
+.addForm {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  gap: var(--space-md);
+  align-items: end;
+}
+
+@media (max-width: 720px) {
+  .addForm {
+    grid-template-columns: 1fr;
+  }
+}
+
+.addForm label {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.addForm input {
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 0.7rem 0.9rem;
+}
+
+.addButton {
+  font-size: var(--fs-eyebrow);
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 0.75rem 1.3rem;
+  background: var(--color-charcoal);
+  color: var(--color-ivory);
+  border: 1px solid var(--color-charcoal);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.addButton:hover:not(:disabled) {
+  background: var(--color-deep-brown);
+}
+
+.addButton:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.tableWrap {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--fs-small);
+}
+
+.table th {
+  text-align: left;
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  font-weight: 600;
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  font-size: 0.7rem;
+}
+
+.table td {
+  padding: 0.7rem 0.75rem;
+  border-bottom: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+}
+
+.table code {
+  color: var(--text-muted);
+}
+
+.statusSelect {
+  font-family: var(--font-sans);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  text-transform: capitalize;
+  padding: 0.35rem 0.6rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+  cursor: pointer;
+}
+
+.status_draft { color: var(--text-muted); }
+.status_active { color: #2f6b3a; border-color: rgba(47, 107, 58, 0.35); }
+.status_paused { color: #a0522d; border-color: rgba(160, 82, 45, 0.35); }
+.status_archived { color: #8b3220; border-color: rgba(139, 50, 32, 0.35); }
+
+.deleteButton {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.deleteButton:hover {
+  color: #8b3220;
+}

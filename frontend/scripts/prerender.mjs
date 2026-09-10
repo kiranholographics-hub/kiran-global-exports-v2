@@ -66,6 +66,7 @@ const ROUTES_TO_PRERENDER = [
   '/about',
   '/custom',
   '/export',
+  '/australia',
   '/contact',
   '/privacy-policy',
   '/terms-and-conditions',

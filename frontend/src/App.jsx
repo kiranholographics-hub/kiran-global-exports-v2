@@ -8,6 +8,8 @@ import AIChat from '@/components/AIChat/AIChat';
 import SmoothScrollProvider from '@/components/SmoothScroll/SmoothScrollProvider';
 import CatalogueSkeleton from '@/components/CatalogueSkeleton/CatalogueSkeleton';
 import CatalogueErrorBoundary from '@/components/CatalogueErrorBoundary/CatalogueErrorBoundary';
+import AuthProvider from '@/components/Auth/AuthProvider';
+import RequireAuth from '@/components/Auth/RequireAuth';
 import { reportVisit } from '@/lib/visits';
 import { trackPageview } from '@/lib/analytics';
 
@@ -27,9 +29,12 @@ const Linen = lazy(() => import('@/pages/Linen'));
 const LinenCategoryPage = lazy(() => import('@/pages/LinenCategoryPage'));
 const LinenDetail = lazy(() => import('@/pages/LinenDetail'));
 const Export = lazy(() => import('@/pages/Export'));
+const Australia = lazy(() => import('@/pages/Australia'));
 const Custom = lazy(() => import('@/pages/Custom'));
 const Contact = lazy(() => import('@/pages/Contact'));
 const LegalPage = lazy(() => import('@/pages/LegalPage'));
+const HqLogin = lazy(() => import('@/pages/HqLogin'));
+const HqDashboard = lazy(() => import('@/pages/HqDashboard'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 // Shared data-loading boundary for the catalogue-browsing routes (Towels,
@@ -105,7 +110,7 @@ function VisitTracker() {
 
 export default function App() {
   return (
-    <>
+    <AuthProvider>
       <a href="#main-content" className="skip-link">
         Skip to content
       </a>
@@ -137,10 +142,17 @@ export default function App() {
               </Route>
 
               <Route path="/export" element={<Export />} />
+              <Route path="/australia" element={<Australia />} />
               <Route path="/custom" element={<Custom />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/privacy-policy" element={<LegalPage kind="privacy" />} />
               <Route path="/terms-and-conditions" element={<LegalPage kind="terms" />} />
+
+              <Route path="/hq/login" element={<HqLogin />} />
+              <Route element={<RequireAuth />}>
+                <Route path="/hq" element={<HqDashboard />} />
+              </Route>
+
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
@@ -148,6 +160,6 @@ export default function App() {
         <Footer />
         <AIChat />
       </SmoothScrollProvider>
-    </>
+    </AuthProvider>
   );
 }
