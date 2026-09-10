@@ -1,5 +1,6 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import { useAuth } from '@/components/Auth/AuthProvider';
+import HqShell from '@/components/Hq/HqShell';
 import { fetchMarkets, createMarket, updateMarket, deleteMarket } from '@/lib/markets';
 import { ApiError } from '@/lib/api';
 import styles from './HqDashboard.module.css';
@@ -16,7 +17,7 @@ function slugify(name) {
 }
 
 export default function HqDashboard() {
-  const { user, token, logout } = useAuth();
+  const { token } = useAuth();
   const [markets, setMarkets] = useState(null);
   const [error, setError] = useState('');
   const [newMarket, setNewMarket] = useState(EMPTY_NEW);
@@ -35,12 +36,20 @@ export default function HqDashboard() {
     load();
   }, [load]);
 
+  const stats = useMemo(() => {
+    const list = markets || [];
+    return {
+      total: list.length,
+      active: list.filter((m) => m.status === 'active').length,
+      draft: list.filter((m) => m.status === 'draft').length,
+      paused: list.filter((m) => m.status === 'paused').length,
+    };
+  }, [markets]);
+
   const handleNewChange = (e) => {
     const { name, value } = e.target;
     setNewMarket((v) => {
       const next = { ...v, [name]: value };
-      // Auto-fill slug from country name unless the user has already
-      // started typing their own slug.
       if (name === 'countryName' && !v.slug) next.slug = slugify(value);
       return next;
     });
@@ -83,19 +92,25 @@ export default function HqDashboard() {
   };
 
   return (
-    <div className={styles.wrap}>
-      <header className={styles.header}>
-        <div>
-          <p className={styles.eyebrow}>Kiran Global Exports HQ</p>
-          <h1 className={styles.title}>Global Markets</h1>
+    <HqShell title="Global Markets">
+      <div className={styles.statsRow}>
+        <div className={styles.statCard}>
+          <span className={styles.statNumber}>{stats.total}</span>
+          <span className={styles.statLabel}>Total Markets</span>
         </div>
-        <div className={styles.headerRight}>
-          <span className={styles.userEmail}>{user?.email}</span>
-          <button type="button" className={styles.logout} onClick={logout}>
-            Sign out
-          </button>
+        <div className={`${styles.statCard} ${styles.statCardActive}`}>
+          <span className={styles.statNumber}>{stats.active}</span>
+          <span className={styles.statLabel}>Active</span>
         </div>
-      </header>
+        <div className={styles.statCard}>
+          <span className={styles.statNumber}>{stats.draft}</span>
+          <span className={styles.statLabel}>Draft</span>
+        </div>
+        <div className={styles.statCard}>
+          <span className={styles.statNumber}>{stats.paused}</span>
+          <span className={styles.statLabel}>Paused</span>
+        </div>
+      </div>
 
       {error && (
         <p className={styles.error} role="alert" aria-live="assertive">
@@ -169,6 +184,6 @@ export default function HqDashboard() {
           </div>
         )}
       </section>
-    </div>
+    </HqShell>
   );
 }

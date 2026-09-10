@@ -108,17 +108,37 @@ function VisitTracker() {
   return null;
 }
 
+// The /hq admin section is an internal tool, not part of the public
+// marketing site — it shouldn't wear the public Header/Footer/AIChat
+// widget or the brand splash Loader. Each /hq page (HqLogin, HqDashboard)
+// renders its own minimal chrome instead.
+function SiteChrome({ children }) {
+  const { pathname } = useLocation();
+  const isHq = pathname.startsWith('/hq');
+
+  if (isHq) return children;
+
+  return (
+    <>
+      <Loader />
+      <Header />
+      {children}
+      <Footer />
+      <AIChat />
+    </>
+  );
+}
+
 export default function App() {
   return (
     <AuthProvider>
       <a href="#main-content" className="skip-link">
         Skip to content
       </a>
-      <Loader />
       <SmoothScrollProvider>
         <ScrollToTop />
         <VisitTracker />
-        <Header />
+        <SiteChrome>
         <main id="main-content">
           <Suspense fallback={<div style={{ minHeight: '60vh' }} />}>
             <Routes>
@@ -157,8 +177,7 @@ export default function App() {
             </Routes>
           </Suspense>
         </main>
-        <Footer />
-        <AIChat />
+        </SiteChrome>
       </SmoothScrollProvider>
     </AuthProvider>
   );

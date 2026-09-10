@@ -1,56 +1,45 @@
-.wrap {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: var(--space-xl) var(--page-gutter) var(--space-2xl);
-}
-
-.header {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
+.statsRow {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: var(--space-md);
-  margin-bottom: var(--space-xl);
-  flex-wrap: wrap;
+  margin-bottom: var(--space-lg);
 }
 
-.eyebrow {
-  font-size: var(--fs-eyebrow);
-  letter-spacing: var(--ls-eyebrow);
-  text-transform: uppercase;
-  color: var(--text-muted);
+@media (max-width: 720px) {
+  .statsRow {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-.title {
+.statCard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: var(--space-md) var(--space-lg);
+  background: var(--bg-paper);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  border-top: 3px solid var(--border-subtle);
+}
+
+.statCardActive {
+  border-top-color: #2f6b3a;
+}
+
+.statNumber {
   font-family: var(--font-serif);
-  font-size: var(--fs-h2);
+  font-size: 2rem;
+  font-weight: 500;
   color: var(--color-charcoal);
+  line-height: 1;
 }
 
-.headerRight {
-  display: flex;
-  align-items: center;
-  gap: var(--space-md);
-}
-
-.userEmail {
-  font-size: var(--fs-small);
-  color: var(--text-muted);
-}
-
-.logout {
-  font-size: var(--fs-small);
+.statLabel {
+  font-size: 0.72rem;
   font-weight: 600;
-  letter-spacing: var(--ls-wide);
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--text-muted);
-  border-bottom: 1px solid var(--border-subtle);
-  padding-bottom: 0.15rem;
-  cursor: pointer;
-}
-
-.logout:hover {
-  color: var(--accent);
-  border-color: var(--accent);
 }
 
 .error {
@@ -86,7 +75,10 @@
 
 .addForm {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr auto;
+  /* minmax(0, 1fr) — plain 1fr won't shrink an input below its default
+     content-based min-width, so the tracks add up wider than the
+     container and push the button off the right edge. */
+  grid-template-columns: repeat(3, minmax(0, 1fr)) auto;
   gap: var(--space-md);
   align-items: end;
 }
