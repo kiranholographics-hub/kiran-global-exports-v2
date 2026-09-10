@@ -5,11 +5,6 @@
 /dist
 public/sitemap.xml
 
-# Video assets — too large for GitHub's free Git LFS bandwidth quota.
-# Upload real files directly on the server via Hostinger File Manager;
-# keeping this path untracked means redeploys never touch/overwrite them.
-public/videos/*.mp4
-
 # testing
 /coverage
 
