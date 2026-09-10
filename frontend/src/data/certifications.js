@@ -38,6 +38,12 @@ const certifications = [
     caption: `${MUNDADA} · Certificate 24002312 · Hohenstein`,
   },
   {
+    name: 'OEKO-TEX MADE IN GREEN',
+    image: '/images/certifications/oeko-tex-made-in-green.webp',
+    alt: 'OEKO-TEX® MADE IN GREEN certification — held by our manufacturing partner, V P Mundada (Solapur)',
+    caption: `${MUNDADA} · Certificate [Confirm with Mundada]`,
+  },
+  {
     name: 'FIEO',
     image: '/images/certifications/fieo.webp',
     alt: 'Federation of Indian Export Organisations member — Kiran Global Exports registration',
