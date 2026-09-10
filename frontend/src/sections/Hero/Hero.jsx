@@ -54,7 +54,8 @@ export default function Hero() {
           style={{ y, opacity }}
         >
 
-          {/* Eyebrow */}
+          {/* Eyebrow — sole heading text now; the previous H1 + subtitle
+              were removed so the hero video shows unobstructed. */}
           <motion.p
             className={styles.eyebrow}
             initial={{ opacity: 0, y: 14 }}
@@ -64,30 +65,6 @@ export default function Hero() {
             {t('home.hero.eyebrow')}
           </motion.p>
 
-          {/* Headline — a per-word mask/slide reveal kept getting stuck at
-              its hidden position in production (both via variants and via
-              direct initial/animate on each word), so this uses the same
-              simple opacity/y fade already proven to work for the eyebrow
-              and subtitle right below it. */}
-          <motion.h1
-            className={styles.headline}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.85, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          >
-            {t('home.hero.headline')}
-          </motion.h1>
-
-          {/* Subtitle */}
-          <motion.p
-            className={styles.subtitle}
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.85, delay: 1.1, ease: [0.16, 1, 0.3, 1] }}
-          >
-            {t('home.hero.subtitle')}
-          </motion.p>
-
           {/* CTA Buttons */}
           <motion.div
             className={styles.actions}
@@ -95,7 +72,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{
               duration: 0.9,
-              delay: 1.35,
+              delay: 0.6,
               ease: [0.16, 1, 0.3, 1],
             }}
           >
