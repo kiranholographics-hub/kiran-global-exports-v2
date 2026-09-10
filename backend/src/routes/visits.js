@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import geoip from 'geoip-lite';
 import Visit from '../models/Visit.js';
+import { requireAuth, requireRole } from '../auth.js';
 
 const router = Router();
 
@@ -84,10 +85,8 @@ router.post('/', async (req, res) => {
   res.status(204).end();
 });
 
-// GET /api/visits — stopgap listing, admin-key protected (same pattern as /api/enquiries)
-router.get('/', async (req, res) => {
-  const adminKey = process.env.ADMIN_API_KEY;
-  if (!adminKey || req.get('x-admin-key') !== adminKey) return res.status(404).json({ error: 'Not found' });
+// GET /api/visits — admin-only listing
+router.get('/', requireAuth, requireRole('admin'), async (req, res) => {
   try {
     const visits = await Visit.find().sort({ createdAt: -1 }).limit(500);
     res.json(visits);

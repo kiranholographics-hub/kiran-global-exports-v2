@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import Enquiry from '../models/Enquiry.js';
 import { sendEnquiryNotification } from '../mailer.js';
+import { requireAuth, requireRole } from '../auth.js';
 
 const router = Router();
 const REQUIRED_FIELDS = ['name', 'country', 'email', 'productInterest'];
@@ -59,9 +60,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-router.get('/', async (req, res) => {
-  const adminKey = process.env.ADMIN_API_KEY;
-  if (!adminKey || req.get('x-admin-key') !== adminKey) return res.status(404).json({ error: 'Not found' });
+router.get('/', requireAuth, requireRole('admin'), async (req, res) => {
   try {
     const enquiries = await Enquiry.find().sort({ createdAt: -1 }).limit(200);
     res.json(enquiries.map((e) => e.toJSON()));

@@ -1,3 +1,6 @@
 node_modules/
 .env
+.env.*.local
+.env.production.local
+.env.staging.local
 *.log

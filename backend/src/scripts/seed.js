@@ -4,9 +4,14 @@
 // from backend/. Requires backend/.env to have a working MONGODB_URI.
 //
 // This is the only place the backend reads from ../frontend — a content
-// migration, not a runtime dependency. The public site itself renders
-// products/categories from the frontend's local data directly; this
-// keeps a MongoDB-backed mirror ready for a future admin panel.
+// migration, not a runtime dependency. The catalogue-browsing pages
+// (Towels/Rugs/Linen listing, category and detail routes, Collections)
+// now read products live from GET /api/products, which is backed by this
+// seeded data — so re-run this after editing frontend/src/data/*.js to
+// push those edits into the database the site actually reads from.
+// Category data and the homepage's own teaser sections still render from
+// the frontend's static files directly (see frontend/src/data/products.js
+// for why), so editing categories.js still needs no re-seed to show up.
 
 import 'dotenv/config';
 import mongoose from 'mongoose';
@@ -15,8 +20,8 @@ import Product from '../models/Product.js';
 import Category from '../models/Category.js';
 
 async function loadFrontendData() {
-  const productsModule = await import('../../../frontend/data/products.js');
-  const categoriesModule = await import('../../../frontend/data/categories.js');
+  const productsModule = await import('../../../frontend/src/data/products.js');
+  const categoriesModule = await import('../../../frontend/src/data/categories.js');
   return {
     products: productsModule.products,
     categories: categoriesModule.categories,
@@ -47,7 +52,12 @@ async function run() {
     categoryCount += 1;
   }
 
+  const byCategory = products.reduce((acc, p) => {
+    acc[p.category] = (acc[p.category] || 0) + 1;
+    return acc;
+  }, {});
   console.log(`[seed] upserted ${productCount} products, ${categoryCount} categories.`);
+  console.log('[seed] products by category:', byCategory);
   await mongoose.disconnect();
   process.exit(0);
 }

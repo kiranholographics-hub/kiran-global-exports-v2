@@ -37,10 +37,33 @@ npm run build && npm run serve   # Express serves the built dist/
 ```
 
 Open http://localhost:3000. The contact form (`/contact`) posts to the
-backend's `/api/enquiries` — everything else on the site renders from
-structured local data (`frontend/src/data/products.js`,
-`frontend/src/data/categories.js`, `frontend/src/data/config.js`) and
+backend's `/api/enquiries`, and the catalogue-browsing pages (Towels,
+Rugs, Linen, Collections, and their category/detail routes) fetch
+products live from `/api/products` — both need the backend running with
+a working `MONGODB_URI`, seeded via `npm run seed` (see backend's own
+README). Everything else — Home, About, category structure
+(`frontend/src/data/categories.js`), site-wide contact info
+(`frontend/src/data/config.js`) — renders from local static data and
 needs no backend connection to browse.
+
+### Local staging (testing against a separate database)
+
+The live site has real buyer traffic, so anything touching auth or the
+product catalogue should be tested against a **separate MongoDB
+database** first, never the production one:
+
+1. In MongoDB Atlas, create a second database in the same free cluster,
+   e.g. `kiran-global-exports-staging`.
+2. `cp backend/.env.staging.example backend/.env`, fill in the same
+   secrets as your real `.env` (only `MONGODB_URI` differs).
+3. Run `npm run dev` as usual — you're now pointed at staging data.
+4. Before deploying, or before running `npm run seed` /
+   `npm run create-admin` against production, switch `backend/.env` back
+   to the real production `MONGODB_URI`.
+
+There's no separate staging *domain* — both modes run on the same
+`localhost:3000` / `localhost:4000`. The database is the only thing that
+changes.
 
 ## Locked conventions
 

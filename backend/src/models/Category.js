@@ -16,4 +16,14 @@ const CategorySchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+CategorySchema.set('toJSON', {
+  virtuals: true,
+  transform: (_doc, ret) => {
+    ret.id = ret._id.toString();
+    delete ret._id;
+    delete ret.__v;
+    return ret;
+  },
+});
+
 export default mongoose.models.Category || mongoose.model('Category', CategorySchema);

@@ -2,6 +2,7 @@ import { Router } from 'express';
 import ChatLead from '../models/ChatLead.js';
 import { sendLeadNotification } from '../mailer.js';
 import { verifyAction } from '../security.js';
+import { requireAuth, requireRole } from '../auth.js';
 
 const router = Router();
 
@@ -124,10 +125,8 @@ router.get('/:leadId/decline', async (req, res) => {
   }
 });
 
-// GET /api/chat/lead — stopgap listing, admin-key protected (same pattern as /api/enquiries)
-router.get('/', async (req, res) => {
-  const adminKey = process.env.ADMIN_API_KEY;
-  if (!adminKey || req.get('x-admin-key') !== adminKey) return res.status(404).json({ error: 'Not found' });
+// GET /api/chat/lead — admin-only listing
+router.get('/', requireAuth, requireRole('admin'), async (req, res) => {
   try {
     const leads = await ChatLead.find().sort({ createdAt: -1 }).limit(200);
     res.json(leads.map((l) => l.toJSON()));
