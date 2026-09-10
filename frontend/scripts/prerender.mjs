@@ -151,8 +151,15 @@ async function prerenderRoute(browser, route) {
     console.warn(`  ! canonical link never appeared for ${route} — captured anyway, please check manually`);
   });
 
-  // Small settle delay for any last animation/layout-affecting JS.
-  await new Promise((r) => setTimeout(r, 300));
+  // Settle delay long enough for entrance animations (Framer Motion
+  // fade/slide-ins on the hero, staggered content, etc.) to finish, not
+  // just for the canonical tag to appear. Capturing mid-animation bakes
+  // an `opacity: 0` / mid-transform inline style into the static HTML —
+  // real visitors then depend entirely on hydration correctly restarting
+  // that animation to ever see the content, which isn't guaranteed. 4s
+  // comfortably clears every entrance transition currently on the site
+  // (the latest of which finishes around 3.4s in).
+  await new Promise((r) => setTimeout(r, 4000));
 
   const html = await page.content();
 

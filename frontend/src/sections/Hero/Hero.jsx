@@ -10,28 +10,6 @@ import { useTranslation } from 'react-i18next';
 import CinematicHeroVideo from '@/components/CinematicHeroVideo/CinematicHeroVideo';
 import styles from './Hero.module.css';
 
-/* ── Word reveal variants ──────────────────────── */
-const containerVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.11,
-      delayChildren: 0.6,
-    },
-  },
-};
-
-const wordVariants = {
-  hidden:  { y: '105%' },
-  visible: {
-    y: 0,
-    transition: {
-      duration: 0.85,
-      ease: [0.16, 1, 0.3, 1],
-    },
-  },
-};
-
 /* ═══════════════════════════════════════════════ */
 export default function Hero() {
   const { t } = useTranslation();
@@ -48,8 +26,6 @@ export default function Hero() {
   const y          = useTransform(scrollYProgress, [0, 1],    ['0%', '14%']);
   const opacity    = useTransform(scrollYProgress, [0, 0.80], [1, 0]);
   const mediaScale = useTransform(scrollYProgress, [0, 1],    [1.08, prefersReduced ? 1.08 : 1.30]);
-
-  const words = t('home.hero.headline').split(' ');
 
   return (
     <section
@@ -88,20 +64,18 @@ export default function Hero() {
             {t('home.hero.eyebrow')}
           </motion.p>
 
-          {/* Headline — staggered word reveal */}
+          {/* Headline — a per-word mask/slide reveal kept getting stuck at
+              its hidden position in production (both via variants and via
+              direct initial/animate on each word), so this uses the same
+              simple opacity/y fade already proven to work for the eyebrow
+              and subtitle right below it. */}
           <motion.h1
             className={styles.headline}
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.85, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
           >
-            {words.map((word, i) => (
-              <span key={i} className={styles.wordMask}>
-                <motion.span className={styles.word} variants={wordVariants}>
-                  {word}
-                </motion.span>
-              </span>
-            ))}
+            {t('home.hero.headline')}
           </motion.h1>
 
           {/* Subtitle */}
