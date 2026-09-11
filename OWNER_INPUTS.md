@@ -7,10 +7,10 @@ This file contains only information that must be confirmed by the Kiran Global E
 | Official business email | Confirm the final monitored email address. |
 | Official phone number | ✅ Confirmed by owner: +91 99839 11181. |
 | Official WhatsApp number | ✅ Confirmed by owner: same as phone, +91 99839 11181. |
-| Registered/business address | Confirm the complete export-office or registered address. |
-| Social profiles | Provide verified LinkedIn, Instagram, or other official profiles, or leave them omitted. |
-| Company legal name | Confirm whether it differs from “Kiran Global Exports”. |
-| Verified certifications | Confirm which supplied certification marks are current and applicable to the business/products before launch. |
+| Registered/business address | ✅ Confirmed by owner: existing address in `config.js` (Plot No. 15, Ram Krishna Marg, New Sanganer Road, Sodala, Jaipur, Rajasthan – 302019) is correct. |
+| Social profiles | ✅ Confirmed by owner: none currently — left omitted as-is. |
+| Company legal name | ✅ Confirmed by owner: "Kiran Global Exports", no different legal name. |
+| Verified certifications | Partially confirmed — amfori, ISO 9001, OEKO-TEX STeP, FIEO, MSME, IEC, REACH & GPSR are correct as shown. Still open: GRS, OEKO-TEX STANDARD 100, and OEKO-TEX MADE IN GREEN captions in `frontend/src/data/certifications.js` have `[Confirm with Mundada]` placeholders — need the real certificate numbers from manufacturing partner V P Mundada before these three can be finalized. |
 | Verified export regions/countries | ✅ Confirmed by owner: "10+" countries (used on homepage Reach section and /export page). |
 | Verified company history | Confirm any founding date, experience, founder information, or milestones before publication. |
 | Verified product specifications | Confirm materials, GSM, sizes, constructions, colours, and customization details wherever the site currently says “available on request”. |
