@@ -6,7 +6,7 @@ This file contains only information that must be confirmed by the Kiran Global E
 |---|---|
 | Official business email | Confirm the final monitored email address. |
 | Official phone number | ✅ Confirmed by owner: +91 99839 11181. |
-| Official WhatsApp number | Replace the current placeholder WhatsApp number. |
+| Official WhatsApp number | ✅ Confirmed by owner: same as phone, +91 99839 11181. |
 | Registered/business address | Confirm the complete export-office or registered address. |
 | Social profiles | Provide verified LinkedIn, Instagram, or other official profiles, or leave them omitted. |
 | Company legal name | Confirm whether it differs from “Kiran Global Exports”. |
