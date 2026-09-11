@@ -4,7 +4,7 @@ This file contains only information that must be confirmed by the Kiran Global E
 
 | Input | Current status |
 |---|---|
-| Official business email | Confirm the final monitored email address. |
+| Official business email | ✅ Confirmed by owner: existing address in `config.js` (exportskiranglobal@gmail.com) is correct. |
 | Official phone number | ✅ Confirmed by owner: +91 99839 11181. |
 | Official WhatsApp number | ✅ Confirmed by owner: same as phone, +91 99839 11181. |
 | Registered/business address | ✅ Confirmed by owner: existing address in `config.js` (Plot No. 15, Ram Krishna Marg, New Sanganer Road, Sodala, Jaipur, Rajasthan – 302019) is correct. |
