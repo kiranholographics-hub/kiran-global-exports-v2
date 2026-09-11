@@ -15,7 +15,7 @@ This file contains only information that must be confirmed by the Kiran Global E
 | Verified company history | Confirm any founding date, experience, founder information, or milestones before publication. |
 | Verified product specifications | Confirm materials, GSM, sizes, constructions, colours, and customization details wherever the site currently says “available on request”. |
 | Verified MOQ | Confirm product- or category-specific MOQ values, if they should be published. |
-| Payment and shipping information | Confirm accepted payment terms, incoterms, shipping responsibilities, documentation, and return/refund position. |
+| Payment and shipping information | Not applicable — per owner, this is a B2B lead-generation site with no checkout flow; payment and shipping terms are negotiated per order directly with the buyer, not published site-wide. |
 | Enquiry notification configuration | Confirm production API URL, database, CORS origin, and optional SMTP notification settings. |
 | Legal review | Review `/privacy-policy` and `/terms-and-conditions` with the company’s legal adviser before launch. |
 
