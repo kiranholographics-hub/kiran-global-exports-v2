@@ -40,14 +40,6 @@ app.get('/api/health', (_req, res) => {
   res.json({ ok: true, service: 'kiran-global-exports-api' });
 });
 
-// Temporary — used once to learn Hostinger's outbound IP for tightening the
-// MongoDB Atlas network access list, then removed.
-app.get('/api/_debug/outbound-ip', async (_req, res) => {
-  const r = await fetch('https://api.ipify.org?format=json');
-  const data = await r.json();
-  res.json(data);
-});
-
 app.use('/api/auth', authRouter);
 app.use('/api/markets', marketsRouter);
 app.use('/api/enquiries', enquiriesRouter);
