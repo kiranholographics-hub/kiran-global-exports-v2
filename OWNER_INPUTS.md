@@ -10,7 +10,7 @@ This file contains only information that must be confirmed by the Kiran Global E
 | Registered/business address | ✅ Confirmed by owner: existing address in `config.js` (Plot No. 15, Ram Krishna Marg, New Sanganer Road, Sodala, Jaipur, Rajasthan – 302019) is correct. |
 | Social profiles | ✅ Confirmed by owner: none currently — left omitted as-is. |
 | Company legal name | ✅ Confirmed by owner: "Kiran Global Exports", no different legal name. |
-| Verified certifications | Partially confirmed — amfori, ISO 9001, OEKO-TEX STeP, FIEO, MSME, IEC, REACH & GPSR are correct as shown. Still open: GRS, OEKO-TEX STANDARD 100, and OEKO-TEX MADE IN GREEN captions in `frontend/src/data/certifications.js` have `[Confirm with Mundada]` placeholders — need the real certificate numbers from manufacturing partner V P Mundada before these three can be finalized. |
+| Verified certifications | Partially confirmed — amfori, ISO 9001, OEKO-TEX STeP, FIEO, MSME, IEC, REACH & GPSR are correct as shown. Still open: GRS, OEKO-TEX STANDARD 100, and OEKO-TEX MADE IN GREEN captions in `frontend/src/data/certifications.js` have `[Confirm with Mundada]` placeholders. Per owner (2026-09-11): deliberately deferred — will request the certificate numbers from Mundada next time an order is placed with them, not urgent before then. |
 | Verified export regions/countries | ✅ Confirmed by owner: "10+" countries (used on homepage Reach section and /export page). |
 | Verified company history | Confirm any founding date, experience, founder information, or milestones before publication. |
 | Verified product specifications | ✅ Confirmed by owner: intentionally left as "available on request" — buyers are told specifics when they enquire, not published site-wide. |
