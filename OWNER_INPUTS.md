@@ -13,8 +13,8 @@ This file contains only information that must be confirmed by the Kiran Global E
 | Verified certifications | Partially confirmed — amfori, ISO 9001, OEKO-TEX STeP, FIEO, MSME, IEC, REACH & GPSR are correct as shown. Still open: GRS, OEKO-TEX STANDARD 100, and OEKO-TEX MADE IN GREEN captions in `frontend/src/data/certifications.js` have `[Confirm with Mundada]` placeholders — need the real certificate numbers from manufacturing partner V P Mundada before these three can be finalized. |
 | Verified export regions/countries | ✅ Confirmed by owner: "10+" countries (used on homepage Reach section and /export page). |
 | Verified company history | Confirm any founding date, experience, founder information, or milestones before publication. |
-| Verified product specifications | Confirm materials, GSM, sizes, constructions, colours, and customization details wherever the site currently says “available on request”. |
-| Verified MOQ | Confirm product- or category-specific MOQ values, if they should be published. |
+| Verified product specifications | ✅ Confirmed by owner: intentionally left as "available on request" — buyers are told specifics when they enquire, not published site-wide. |
+| Verified MOQ | ✅ Confirmed by owner: same as above — MOQ is quoted per enquiry, not published site-wide. |
 | Payment and shipping information | Not applicable — per owner, this is a B2B lead-generation site with no checkout flow; payment and shipping terms are negotiated per order directly with the buyer, not published site-wide. |
 | Enquiry notification configuration | Confirm production API URL, database, CORS origin, and optional SMTP notification settings. |
 | Legal review | Review `/privacy-policy` and `/terms-and-conditions` with the company’s legal adviser before launch. |
