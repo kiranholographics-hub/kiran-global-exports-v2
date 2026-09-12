@@ -686,7 +686,7 @@
       "exploreCta": "Sortiment entdecken"
     },
     "categoriesEyebrow": "Unsere Linien",
-    "categoriesTitle": "Vier Textilkategorien.",
+    "categoriesTitle": "Fünf Textilkategorien.",
     "categoriesLead": "Teilen Sie uns mit, welche Linie zu Ihrem Markt passt, und unser Export-Team sendet Ihnen die vollständigen Spezifikationen.",
     "enquireCta": "Anfragen",
     "categories": {
@@ -697,6 +697,10 @@
       "table-dining": {
         "name": "Tisch- und Tafelwäsche",
         "description": "Tischdecken, Läufer, Stoffservietten und Platzsets für Hotels, Restaurants und den Tafel-Einzelhandel."
+      },
+      "kitchen-linen": {
+        "name": "Küchenwäsche",
+        "description": "Schürzen, Topflappen und Ofenhandschuhe, entwickelt für Hotelküchen und den Einzelhandel mit Küchenausstattung."
       },
       "home-textile": {
         "name": "Wohntextilien",

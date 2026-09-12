@@ -681,7 +681,7 @@
       "exploreCta": "Explore the Range"
     },
     "categoriesEyebrow": "Our Lines",
-    "categoriesTitle": "Four linen categories.",
+    "categoriesTitle": "Five linen categories.",
     "categoriesLead": "Tell us which line fits your market and our export team will share full specifications.",
     "enquireCta": "Enquire",
     "categories": {
@@ -692,6 +692,10 @@
       "table-dining": {
         "name": "Table & Dining Linen",
         "description": "Tablecloths, runners, cloth napkins and placemats for hotels, restaurants and dining retail ranges."
+      },
+      "kitchen-linen": {
+        "name": "Kitchen Linen",
+        "description": "Aprons, potholders and oven gloves developed for hospitality kitchens and retail kitchenware ranges."
       },
       "home-textile": {
         "name": "Home Textile Products",

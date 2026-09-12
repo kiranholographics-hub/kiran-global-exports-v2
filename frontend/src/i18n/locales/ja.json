@@ -686,7 +686,7 @@
       "exploreCta": "ラインナップを見る"
     },
     "categoriesEyebrow": "製品ライン",
-    "categoriesTitle": "4つのリネンカテゴリー。",
+    "categoriesTitle": "5つのリネンカテゴリー。",
     "categoriesLead": "どのラインが貴社の市場に合うかお知らせください。輸出チームが詳細な仕様をご案内します。",
     "enquireCta": "問い合わせる",
     "categories": {
@@ -697,6 +697,10 @@
       "table-dining": {
         "name": "テーブル＆ダイニングリネン",
         "description": "ホテル、レストラン、ダイニング小売向けのテーブルクロス、テーブルランナー、布ナプキン、プレースマット。"
+      },
+      "kitchen-linen": {
+        "name": "キッチンリネン",
+        "description": "ホスピタリティキッチンおよび小売キッチン用品向けに開発されたエプロン、鍋つかみ、オーブンミトン。"
       },
       "home-textile": {
         "name": "ホームテキスタイル製品",

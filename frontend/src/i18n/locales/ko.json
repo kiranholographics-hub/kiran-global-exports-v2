@@ -686,7 +686,7 @@
       "exploreCta": "컬렉션 둘러보기"
     },
     "categoriesEyebrow": "제품 라인",
-    "categoriesTitle": "4가지 리넨 카테고리.",
+    "categoriesTitle": "5가지 리넨 카테고리.",
     "categoriesLead": "어떤 라인이 귀사의 시장에 적합한지 알려주시면 저희 수출팀이 전체 사양을 공유해 드립니다.",
     "enquireCta": "문의하기",
     "categories": {
@@ -697,6 +697,10 @@
       "table-dining": {
         "name": "테이블 및 다이닝 리넨",
         "description": "호텔, 레스토랑 및 다이닝 리테일 라인업을 위한 테이블보, 러너, 천 냅킨 및 플레이스매트."
+      },
+      "kitchen-linen": {
+        "name": "주방 리넨",
+        "description": "호스피탈리티 주방과 리테일 주방용품 라인업을 위해 개발된 앞치마, 냄비받침, 오븐 장갑."
       },
       "home-textile": {
         "name": "홈 텍스타일 제품",

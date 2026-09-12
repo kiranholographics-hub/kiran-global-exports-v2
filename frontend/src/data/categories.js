@@ -35,6 +35,7 @@ export const categories = [
     subcategories: [
       { slug: 'bed', name: 'Bed Linen' },
       { slug: 'table-dining', name: 'Table & Dining Linen' },
+      { slug: 'kitchen-linen', name: 'Kitchen Linen' },
       { slug: 'home-textile', name: 'Home Textile Products' },
       { slug: 'custom-private-label', name: 'Customized & Private-Label Products' },
     ],

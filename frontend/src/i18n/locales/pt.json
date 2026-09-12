@@ -686,7 +686,7 @@
       "exploreCta": "Explorar a Linha"
     },
     "categoriesEyebrow": "Nossas Linhas",
-    "categoriesTitle": "Quatro categorias de enxoval.",
+    "categoriesTitle": "Cinco categorias de enxoval.",
     "categoriesLead": "Diga-nos qual linha se encaixa no seu mercado e nossa equipe de exportação enviará as especificações completas.",
     "enquireCta": "Consultar",
     "categories": {
@@ -697,6 +697,10 @@
       "table-dining": {
         "name": "Enxoval de Mesa e Jantar",
         "description": "Toalhas de mesa, caminhos, guardanapos de tecido e jogos americanos para hotéis, restaurantes e linhas de varejo para jantar."
+      },
+      "kitchen-linen": {
+        "name": "Enxoval de Cozinha",
+        "description": "Aventais, luvas de forno e pegadores desenvolvidos para cozinhas de hotelaria e linhas de varejo de utensílios de cozinha."
       },
       "home-textile": {
         "name": "Produtos Têxteis para o Lar",
