@@ -9,7 +9,7 @@ const EnquirySchema = new mongoose.Schema(
     phone: { type: String, trim: true }, // WhatsApp / phone
     productInterest: {
       type: String,
-      enum: ['Towels', 'Rugs', 'Both', 'Custom / Private Label'],
+      enum: ['Towels', 'Linen', 'Both', 'Custom / Private Label'],
       required: true,
     },
     estimatedQuantity: { type: String, trim: true },

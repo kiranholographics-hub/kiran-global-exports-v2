@@ -10,6 +10,8 @@ import categoriesRouter from './routes/categories.js';
 import aiChatRouter from './routes/aiChat.js';
 import chatLeadRouter from './routes/chatLead.js';
 import visitsRouter from './routes/visits.js';
+import Product from './models/Product.js';
+import Category from './models/Category.js';
 
 const app = express();
 
@@ -38,6 +40,16 @@ app.use(morgan(process.env.NODE_ENV === 'production' ? 'combined' : 'dev'));
 
 app.get('/api/health', (_req, res) => {
   res.json({ ok: true, service: 'kiran-global-exports-api' });
+});
+
+// Temporary — one-time cleanup after discontinuing rugs as a product line.
+// Removes the now-unused 'rugs' products and category from the database
+// (the frontend/backend code no longer references category 'rugs' at
+// all). Removed right after use.
+app.get('/api/_debug/cleanup-rugs', async (_req, res) => {
+  const products = await Product.deleteMany({ category: 'rugs' });
+  const categories = await Category.deleteMany({ slug: 'rugs' });
+  res.json({ deletedProducts: products.deletedCount, deletedCategories: categories.deletedCount });
 });
 
 app.use('/api/auth', authRouter);

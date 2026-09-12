@@ -11,7 +11,7 @@ const ProductSchema = new mongoose.Schema(
   {
     slug: { type: String, required: true, unique: true, trim: true },
     name: { type: String, required: true, trim: true },
-    category: { type: String, enum: ['towels', 'rugs', 'linen'], required: true },
+    category: { type: String, enum: ['towels', 'linen'], required: true },
     subcategory: { type: String, required: true, trim: true },
     shortDescription: { type: String, trim: true },
     description: { type: String, trim: true },
@@ -25,7 +25,7 @@ const ProductSchema = new mongoose.Schema(
     moq: { type: String, trim: true },
     images: [{ type: String, trim: true }],
     // Towel-only fields in the static catalogue today — kept optional so
-    // rugs/linen records simply omit them.
+    // linen records simply omit them.
     imageThumbs: [{ type: String, trim: true }],
     tags: [{ type: String, trim: true }],
     alt: { type: String, trim: true },
