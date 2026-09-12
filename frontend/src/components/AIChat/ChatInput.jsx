@@ -32,7 +32,7 @@ export default function ChatInput({ value, onChange, onSend, disabled, inputRef 
         value={value}
         onChange={(event) => onChange(event.target.value)}
         onKeyDown={handleKeyDown}
-        placeholder="Ask about towels, rugs, MOQ..."
+        placeholder="Ask about towels, linen, MOQ..."
         aria-label="Message Kiran AI assistant"
         rows={1}
         maxLength={1500}

@@ -16,22 +16,17 @@ const RULES = [
   {
     test: /custom|private label|logo|branding/i,
     reply:
-      'Yes — we offer custom and private-label programs: your branding, logo embroidery/jacquard, custom packaging, and colourways on our towel and rug ranges. Share your target quantity and market and we can outline MOQs.',
+      'Yes — we offer custom and private-label programs: your branding, logo embroidery/jacquard, custom packaging, and colourways on our towel and linen ranges. Share your target quantity and market and we can outline MOQs.',
   },
   {
     test: /bulk|quotation|quote|price|pricing|cost/i,
     reply:
-      'Happy to help with a bulk quotation. Could you share the product type (towels or rugs), approximate quantity, and destination country? You can also use our Contact page for a formal FOB quote from our team.',
+      'Happy to help with a bulk quotation. Could you share the product type (towels or linen), approximate quantity, and destination country? You can also use our Contact page for a formal FOB quote from our team.',
   },
   {
     test: /moq|minimum order/i,
     reply:
       'MOQs vary by product and customisation level. For standard ranges it is typically container-load based; for private label it depends on the finish. Tell us the product and market and we will confirm the exact MOQ.',
-  },
-  {
-    test: /rug/i,
-    reply:
-      'Our rug collection spans handcrafted and machine-made designs suitable for retail and hospitality. Want me to point you to the Rugs collection, or connect you with our export team for specs and pricing?',
   },
   {
     test: /towel/i,
@@ -51,12 +46,12 @@ const RULES = [
   {
     test: /^(hi|hello|hey|namaste)\b/i,
     reply:
-      'Hello! Good to have you here. Are you exploring towels, rugs, or a custom/private-label programme today?',
+      'Hello! Good to have you here. Are you exploring towels, linen, or a custom/private-label programme today?',
   },
 ];
 
 const FALLBACK =
-  "Thanks for reaching out. I can help with towels, rugs, custom/private-label options, MOQs, and export details — could you tell me a bit more about what you're looking for?";
+  "Thanks for reaching out. I can help with towels, linen, custom/private-label options, MOQs, and export details — could you tell me a bit more about what you're looking for?";
 
 /**
  * Simulates an AI reply for local/demo use when no backend is connected.

@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════════════
    PRODUCT WORLD — Full-Bleed Category Panels
-   Rugs & Towels Luxury Brand
+   Towels & Linen Luxury Brand
 ═══════════════════════════════════════════════ */
 
 /* ── Section Grid ────────────────────────────── */
@@ -11,7 +11,7 @@
 
 @media (min-width: 860px) {
   .section {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 

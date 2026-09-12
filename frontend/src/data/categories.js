@@ -1,5 +1,5 @@
 // Structured category data — the editorial source of truth for navigation,
-// the Product World section, and the /towels & /rugs listing pages.
+// the Product World section, and the /towels listing page.
 // Add a subcategory here and it will appear across the site automatically.
 
 export const categories = [
@@ -24,21 +24,6 @@ export const categories = [
       { slug: 'bamboo-specialty', name: 'Bamboo / Specialty' },
       { slug: 'accessories', name: 'Terry Accessories' },
       { slug: 'bathrobe-spa', name: 'Bathrobes & Spa' },
-    ],
-  },
-  {
-    slug: 'rugs',
-    name: 'Rugs',
-    heroImage: '/images/rugs/hero.webp',
-    intro:
-      'Bath and hospitality rugs built for repeat washing and long-term durability, alongside decorative and home collections for retail and design-led buyers.',
-    subcategories: [
-      { slug: 'bath-rugs', name: 'Bath Rugs' },
-      { slug: 'hotel-rugs', name: 'Hotel Rugs' },
-      { slug: 'hospitality-rugs', name: 'Hospitality Rugs' },
-      { slug: 'home-rugs', name: 'Home Rugs' },
-      { slug: 'decorative-rugs', name: 'Decorative Rugs' },
-      { slug: 'custom-rugs', name: 'Custom Rugs' },
     ],
   },
   {

@@ -13,7 +13,6 @@ export default function AboutPage() {
   const { t } = useTranslation();
   const PILLARS = t('about.approach.pillars', { returnObjects: true });
   const MUNDADA_PRODUCTS = t('about.mundadaProducts', { returnObjects: true });
-  const RUG_SERVICES = t('about.rugServices', { returnObjects: true });
 
   return (
     <>
@@ -220,54 +219,6 @@ export default function AboutPage() {
                 referrerPolicy="no-referrer-when-downgrade"
                 aria-label="Map showing Mundada Towels location in Solapur"
               />
-            </ScrollReveal>
-
-          </div>
-        </div>
-      </section>
-
-      {/* ══ Rug Section ═══════════════════════════ */}
-      <section className={`section section--spacious ${styles.rugSection}`}>
-        <div className="container">
-          <div className={styles.rugGrid}>
-
-            {/* Left — text */}
-            <ScrollReveal>
-              <SectionHeading
-                eyebrow={t('about.rugSection.eyebrow')}
-                title={t('about.rugSection.title')}
-              />
-              <p className={styles.partnerLead}>
-                {t('about.rugSection.lead')}
-              </p>
-              <p className={styles.copy}>
-                {t('about.rugSection.copy')}
-              </p>
-            </ScrollReveal>
-
-            {/* Right — service list */}
-            <ScrollReveal
-              delay={0.12}
-              className={styles.rugListWrap}
-            >
-              <div
-                className={styles.rugList}
-                role="list"
-                aria-label="Rug services"
-              >
-                {RUG_SERVICES.map((service, i) => (
-                  <div
-                    className={styles.rugItem}
-                    key={service}
-                    role="listitem"
-                  >
-                    <span aria-hidden="true">
-                      0{i + 1}
-                    </span>
-                    <strong>{service}</strong>
-                  </div>
-                ))}
-              </div>
             </ScrollReveal>
 
           </div>

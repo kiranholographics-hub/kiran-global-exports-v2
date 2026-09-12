@@ -23,8 +23,6 @@ const Towels = lazy(() => import('@/pages/Towels'));
 const TowelCategoryPage = lazy(() => import('@/pages/TowelCategoryPage'));
 const TowelSubcategoryPage = lazy(() => import('@/pages/TowelSubcategoryPage'));
 const TowelDetail = lazy(() => import('@/pages/TowelDetail'));
-const Rugs = lazy(() => import('@/pages/Rugs'));
-const RugDetail = lazy(() => import('@/pages/RugDetail'));
 const Collections = lazy(() => import('@/pages/Collections'));
 const Linen = lazy(() => import('@/pages/Linen'));
 const LinenCategoryPage = lazy(() => import('@/pages/LinenCategoryPage'));
@@ -40,7 +38,7 @@ const HqEnquiries = lazy(() => import('@/pages/HqEnquiries'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 // Shared data-loading boundary for the catalogue-browsing routes (Towels,
-// Rugs, Linen, Collections and their nested category/detail pages) — these
+// Linen, Collections and their nested category/detail pages) — these
 // read products via data/products.js's use()-based functions, which
 // suspend until /api/products resolves. A pathless "layout route" (no
 // `path`, so it doesn't affect any child's URL) is React Router's way to
@@ -165,6 +163,10 @@ export default function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
+              {/* Rugs was discontinued as a product line — redirect any
+                  existing links/bookmarks/search results to the Towels
+                  catalogue instead of a plain 404. */}
+              <Route path="/rugs/*" element={<Navigate to="/towels" replace />} />
 
               <Route element={<CatalogueLayout />}>
                 <Route path="/towels" element={<Towels />} />
@@ -174,8 +176,6 @@ export default function App() {
                 <Route path="/towels/:categorySlug/:productSlug" element={<TowelDetail />} />
                 <Route path="/towels/:categorySlug" element={<TowelCategoryPage />} />
                 <Route path="/towels/:slug" element={<TowelDetail />} />
-                <Route path="/rugs" element={<Rugs />} />
-                <Route path="/rugs/:slug" element={<RugDetail />} />
                 <Route path="/collections" element={<Collections />} />
                 <Route path="/linen" element={<Linen />} />
                 <Route path="/linen/:slug/:productSlug" element={<LinenDetail />} />

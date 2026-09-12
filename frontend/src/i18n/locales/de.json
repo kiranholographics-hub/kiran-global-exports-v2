@@ -1,6 +1,6 @@
 {
   "common": {
-    "tagline": "Premium-Handtücher & Teppiche — Internationaler Exporteur",
+    "tagline": "Premium-Handtücher & Wäsche — Internationaler Exporteur",
     "madeInIndia": "Hergestellt in Indien. Weltweit exportiert.",
     "madeInIndiaShort": "Hergestellt in Indien · Weltweit exportiert",
     "contactExportTeam": "Unser Export-Team kontaktieren",
@@ -15,7 +15,7 @@
     },
     "productInterestOptions": {
       "towels": "Handtücher",
-      "rugs": "Teppiche",
+      "linen": "Wäsche",
       "both": "Beides",
       "custom": "Individuell / Private Label"
     }
@@ -24,7 +24,6 @@
     "home": "Startseite",
     "about": "Über uns",
     "towels": "Handtücher",
-    "rugs": "Teppiche",
     "collections": "Kollektionen",
     "export": "Export",
     "contact": "Kontakt",
@@ -68,7 +67,7 @@
     "rightsReserved": "Alle Rechte vorbehalten.",
     "privacyPolicy": "Datenschutzrichtlinie",
     "termsConditions": "Allgemeine Geschäftsbedingungen",
-    "bottomTagline": "Premium-Handtücher & Teppiche — Internationaler Exporteur",
+    "bottomTagline": "Premium-Handtücher & Wäsche — Internationaler Exporteur",
     "iecLabel": "IEC",
     "structureLine": "Kiran Global Exports ist die Marketing- und Exportabteilung von Kiran Holographics — offizieller Marketingpartner von V P Mundada (Mundada Towels)."
   },
@@ -81,7 +80,7 @@
     "browseCollections": "Kollektionen durchstöbern",
     "quickLinks": {
       "towels": "Handtücher",
-      "rugs": "Teppiche",
+      "linen": "Wäsche",
       "collections": "Kollektionen",
       "custom": "Individuell",
       "about": "Über uns"
@@ -89,13 +88,13 @@
   },
   "home": {
     "seo": {
-      "title": "Premium-Exporteur für Handtücher & Teppiche",
-      "description": "Kiran Global Exports ist ein internationaler Lieferant und Exporteur von Premium-Handtüchern und -Teppichen aus Indien für globale Käufer, Hotellerie, Einzelhandel und Private-Label-Anforderungen."
+      "title": "Premium-Exporteur für Handtücher & Wäsche",
+      "description": "Kiran Global Exports ist ein internationaler Lieferant und Exporteur von Premium-Handtüchern und -Wäsche aus Indien für globale Käufer, Hotellerie, Einzelhandel und Private-Label-Anforderungen."
     },
     "hero": {
       "eyebrow": "Kiran Global Exports",
       "headline": "TEXTILIEN FÜR DIE WELT GEMACHT.",
-      "subtitle": "Handgefertigte Premium-Teppiche und -Handtücher — in Indien gewebt, weltweit vertrauenswürdig.",
+      "subtitle": "Handgefertigte Premium-Handtücher — in Indien gewebt, weltweit vertrauenswürdig.",
       "primaryCta": "Kollektion entdecken",
       "secondaryCta": "Unser Export-Team kontaktieren",
       "scroll": "Scrollen",
@@ -104,7 +103,7 @@
     "brandIntro": {
       "eyebrow": "Wer wir sind",
       "heading": "Wir schaffen Textilien, die um die Welt reisen.",
-      "copy1": "Kiran Global Exports verbindet indische Textilhandwerkskunst mit Käufern auf der ganzen Welt und entwickelt Premium-Handtuch- und Teppichkollektionen für Unternehmen, die Qualität, Konsistenz und Präsentation schätzen.",
+      "copy1": "Kiran Global Exports verbindet indische Textilhandwerkskunst mit Käufern auf der ganzen Welt und entwickelt Premium-Handtuchkollektionen für Unternehmen, die Qualität, Konsistenz und Präsentation schätzen.",
       "copy2": "Von der Spezifikation bis zum Versand wird jede Kollektion um die Anforderungen des Käufers herum aufgebaut — nicht umgekehrt.",
       "stats": {
         "years": "Jahre Exporterfahrung",
@@ -127,16 +126,6 @@
           "Spa- & Salontücher",
           "Hand- & Gesichtstücher",
           "Individuelle Handtücher"
-        ]
-      },
-      "rugs": {
-        "name": "Teppiche",
-        "items": [
-          "Badteppiche",
-          "Hotelteppiche",
-          "Wohnteppiche",
-          "Dekorative Teppiche",
-          "Individuelle Teppiche"
         ]
       },
       "linen": {
@@ -303,7 +292,7 @@
   "contact": {
     "seo": {
       "title": "Kontakt",
-      "description": "Kontaktieren Sie das Team von Kiran Global Exports, um Handtuch- und Teppichspezifikationen, Private-Label-Entwicklung oder Exportanfragen zu besprechen."
+      "description": "Kontaktieren Sie das Team von Kiran Global Exports, um Handtuch- und Wäschespezifikationen, Private-Label-Entwicklung oder Exportanfragen zu besprechen."
     },
     "intro": {
       "eyebrow": "Kontakt aufnehmen",
@@ -368,19 +357,6 @@
       "seoTitle": "Handtücher — Echte Textilkollektionen für globale Käufer",
       "seoDescription": "Entdecken Sie die Handtuchkollektionen von Kiran Global Exports über Bad-, Hotel-, Jacquard-, Waffel-, Zero-Twist-, Bordüren-, Pool-, Custom- und Spezialhandtuchserien."
     },
-    "rugs": {
-      "heroEyebrow": "Die Teppichkollektion / Kiran Global Exports",
-      "heroTitle": "Teppiche",
-      "heroLead": "Bad-, Hotel-, Hotellerie- und dekorative Teppiche, entwickelt für globale Käufer und Private-Label-Programme.",
-      "exploreCta": "Teppiche entdecken",
-      "categoriesEyebrow": "Die Teppichwelt entdecken",
-      "categoriesTitle": "Hauptkollektionen",
-      "collectionsCount": "{{count}} Kollektionen / nach Ihrem Markt entwickelt",
-      "ctaEyebrow": "Nach Ihrem Briefing entwickelt",
-      "ctaTitle": "Brauchen Sie eine Teppichkollektion für Ihren Markt?",
-      "seoTitle": "Premium-Teppiche — Bad, Hotel, Dekorativ & Individuell",
-      "seoDescription": "Entdecken Sie die Teppichkollektion von Kiran Global Exports: Bad-, Hotel-, Hotellerie-, Wohn-, Dekorations- und individuelle Teppiche, entwickelt für globale B2B-Käufer."
-    },
     "requestProductDetails": "Produktdetails anfragen",
     "reference_one": "{{count}} Referenz",
     "reference_other": "{{count}} Referenzen",
@@ -397,7 +373,6 @@
     "viewDetails": "Details ansehen",
     "b2bDevelopment": "B2B-Entwicklung",
     "requestProductDetails": "Produktdetails anfragen.",
-    "requestRugDetails": "Teppichdetails anfragen.",
     "contactExportTeamArrow": "Unser Export-Team kontaktieren",
     "collectionSubcategoryProducts": "{{category}} / Produktkollektion",
     "reference_one": "{{count}} Referenz",
@@ -405,10 +380,7 @@
     "availableReference_one": "{{count}} verfügbare Referenz",
     "availableReference_other": "{{count}} verfügbare Referenzen",
     "realReference_one": "{{count}} echte Referenz",
-    "realReference_other": "{{count}} echte Referenzen",
-    "rugCollectionEyebrow": "Teppichkollektion",
-    "rugAvailableLead": "Entdecken Sie die verfügbaren Teppichreferenzen und besprechen Sie dann Größe, Konstruktion, Farbe und Branding für Ihren Markt.",
-    "rugCustomLead": "Diese Kollektion wird nach Ihrer Spezifikation entwickelt, einschließlich Konstruktion, Größe, Farbe, Material und Branding."
+    "realReference_other": "{{count}} echte Referenzen"
   },
   "productDetail": {
     "notFoundTitle": "Produkt nicht gefunden",
@@ -449,16 +421,16 @@
   "about": {
     "seo": {
       "title": "Über uns",
-      "description": "Kiran Global Exports entwickelt in Indien Premium-Handtuch- und Teppichkollektionen für Hotellerie-, Einzelhandels- und Private-Label-Käufer weltweit."
+      "description": "Kiran Global Exports entwickelt in Indien Premium-Handtuch- und Wäschekollektionen für Hotellerie-, Einzelhandels- und Private-Label-Käufer weltweit."
     },
     "intro": {
       "eyebrow": "Über uns",
       "title": "Wo Handwerk auf Komfort trifft.",
-      "lead": "Kiran Global Exports verbindet indische Textilhandwerkskunst mit Käufern auf der ganzen Welt und entwickelt Premium-Handtuch- und Teppichkollektionen, die auf Qualität, Konsistenz und Präsentation aufbauen."
+      "lead": "Kiran Global Exports verbindet indische Textilhandwerkskunst mit Käufern auf der ganzen Welt und entwickelt Premium-Handtuch- und Wäschekollektionen, die auf Qualität, Konsistenz und Präsentation aufbauen."
     },
     "brandStory": {
       "heading": "Entwickelt um den Käufer, nicht um das Regal.",
-      "copy1": "Jede Kollektion beginnt mit einer Spezifikation, nicht mit einer Katalogseite. Wir arbeiten direkt mit Hotelgruppen, Distributoren, Einzelhändlern und Private-Label-Käufern zusammen, um Handtücher und Teppiche zu entwickeln, die zu ihrem Markt passen — von der Faserauswahl bis zur finalen Verpackung.",
+      "copy1": "Jede Kollektion beginnt mit einer Spezifikation, nicht mit einer Katalogseite. Wir arbeiten direkt mit Hotelgruppen, Distributoren, Einzelhändlern und Private-Label-Käufern zusammen, um Handtücher zu entwickeln, die zu ihrem Markt passen — von der Faserauswahl bis zur finalen Verpackung.",
       "copy2": "Unser Ansatz bevorzugt Konsistenz vor Volumen: verlässliche Spezifikationen, wiederholbare Produktion und direkte Kommunikation mit einem Export-Team, das internationale Käuferanforderungen versteht."
     },
     "approach": {
@@ -514,26 +486,10 @@
       "title": "Solapur, Maharashtra",
       "mapLink": "In Google Maps öffnen ↗"
     },
-    "rugSection": {
-      "eyebrow": "Direkte B2B-Teppiche",
-      "title": "Teppiche, geliefert nach Ihren Geschäftsanforderungen.",
-      "lead": "Neben unserem Handtuchgeschäft arbeitet Kiran Global Exports direkt mit B2B-Käufern für Teppiche zusammen. Wir beschaffen und entwickeln Produkte nach Design, Abmessungen, Materialien, Konstruktion, Farben, Mengen, Verpackung und kommerziellen Spezifikationen des Käufers.",
-      "copy": "Von Hotellerie- und Innenausstattungsprojekten bis hin zu Einzelhandels-, Großhandels- und Private-Label-Programmen ist unser Fokus einfach: die Anforderung verstehen, das richtige Produkt entwickeln und eine verlässliche Versorgung für die vereinbarte Spezifikation koordinieren."
-    },
-    "rugServices": [
-      "Individuelle Spezifikationen",
-      "B2B-Großmengen",
-      "Private-Label-Anforderungen",
-      "Hotellerie- & Projektanforderungen",
-      "Einzelhandels- & Großhandelsprogramme",
-      "Individuelle Designs & Abmessungen",
-      "Exportfertige Verpackung",
-      "Langfristige wiederkehrende Lieferung"
-    ],
     "cta": {
       "eyebrow": "Arbeiten Sie mit uns",
       "title": "Lassen Sie uns über Ihren Markt sprechen.",
-      "lead": "Unser Export-Team ist bereit, Ihre Spezifikation zu besprechen — ob Sie Handtücher beschaffen, ein Teppichprogramm entwickeln oder eine Private-Label-Kollektion aufbauen."
+      "lead": "Unser Export-Team ist bereit, Ihre Spezifikation zu besprechen — ob Sie Handtücher beschaffen, ein Wäscheprogramm entwickeln oder eine Private-Label-Kollektion aufbauen."
     },
     "registration": {
       "eyebrow": "Registriert & Konform",
@@ -550,7 +506,7 @@
   "collections": {
     "seo": {
       "title": "Unsere Kollektion — Hotel, Spa, Zuhause, Hotellerie & Einzelhandel",
-      "description": "Durchstöbern Sie die Handtuch- und Teppichkollektionen von Kiran Global Exports nach Käuferwelt."
+      "description": "Durchstöbern Sie die Handtuch- und Wäschekollektionen von Kiran Global Exports nach Käuferwelt."
     },
     "hero": {
       "eyebrow": "Unsere Welt entdecken",
@@ -561,10 +517,10 @@
     "worldLabel": "Welt",
     "worlds": {
       "hotel": {
-        "copy": "Schwerere Frottier- und getuftete Teppiche, gebaut für Haltbarkeit im Housekeeping-Zyklus und Präsentation."
+        "copy": "Schwerere Frottierware, gebaut für Haltbarkeit im Housekeeping-Zyklus und Präsentation."
       },
       "spa": {
-        "copy": "Leichte, schnelltrocknende Handtücher und niedrigflorige Teppiche für häufig genutzte Behandlungsräume."
+        "copy": "Leichte, schnelltrocknende Handtücher für häufig genutzte Behandlungsräume."
       },
       "home": {
         "copy": "Alltägliche Komfortstücke, entwickelt für Einzelhandels- und E-Commerce-Heimsortimente."
@@ -593,7 +549,7 @@
   "custom": {
     "seo": {
       "title": "Individuell & Private Label",
-      "description": "Entwickeln Sie mit Kiran Global Exports ein individuelles oder Private-Label-Handtuch- und Teppichprogramm — individuelle Größen, GSM, Farben, Branding und Verpackung."
+      "description": "Entwickeln Sie mit Kiran Global Exports ein individuelles oder Private-Label-Handtuch- und Wäscheprogramm — individuelle Größen, GSM, Farben, Branding und Verpackung."
     },
     "intro": {
       "eyebrow": "Individuell & Private Label",

@@ -5,7 +5,7 @@ import { siteConfig } from '@/data/config';
 
 /* ═══════════════════════════════════════════════
    SEO — Client-side Meta Tag Manager
-   Rugs & Towels Luxury Brand
+   Towels & Linen Luxury Brand
 ═══════════════════════════════════════════════ */
 
 /* ── Helpers ───────────────────────────────────── */
@@ -132,7 +132,7 @@ export default function SEO({
       ? (title.includes(siteConfig.brandName)
         ? title
         : `${title} | ${siteConfig.brandName}`)
-      : `${siteConfig.brandName} — Premium Towels & Rugs`;
+      : `${siteConfig.brandName} — Premium Towels & Linen`;
 
     const metaDesc     = truncate(description);
     const canonicalUrl = `${siteConfig.siteUrl}${location.pathname}`;

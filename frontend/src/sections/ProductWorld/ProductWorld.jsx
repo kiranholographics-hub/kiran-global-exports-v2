@@ -8,8 +8,7 @@ import styles from './ProductWorld.module.css';
 /* ── Panel index label ─────────────────────────── */
 const PANEL_INDEX = {
   towels: '01',
-  rugs: '02',
-  linen: '03',
+  linen: '02',
 };
 
 /* ═══════════════════════════════════════════════ */

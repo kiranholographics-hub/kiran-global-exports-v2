@@ -6,7 +6,7 @@
    exported function below purely because of naming, not an actual rule
    violation — renaming them would break every one of the 11+ page/component
    files that already import these exact function names. */
-// Product source of truth for the catalogue-browsing pages (Towels, Rugs,
+// Product source of truth for the catalogue-browsing pages (Towels,
 // Linen listing/category/detail routes, Collections). Backed by the
 // backend's /api/products, read here via React's `use()` hook so every
 // exported function below keeps its original name and synchronous-looking

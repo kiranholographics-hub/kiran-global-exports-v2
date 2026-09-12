@@ -5,7 +5,7 @@
 // rendering), so a build-time static sitemap is the practical approach —
 // it's regenerated fresh on every build.
 //
-// Only pages that are actually indexable go in here. Towels, Rugs,
+// Only pages that are actually indexable go in here. Towels,
 // Collections and Linen (plus every individual product page under them)
 // carry <SEO noindex> — the old kiranglobalexports.com site already ranks
 // for those exact product keywords, so indexing the same content twice

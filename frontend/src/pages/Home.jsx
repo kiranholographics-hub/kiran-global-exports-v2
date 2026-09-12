@@ -29,7 +29,7 @@ export default function Home() {
       {/* ── 2. Brand Introduction ───────────────── */}
       <BrandIntro />
 
-      {/* ── 3. Towels + Rugs World ──────────────── */}
+      {/* ── 3. Towels + Linen World ──────────────── */}
       <ProductWorld />
 
       {/* ── 4. Featured Towel Products ──────────── */}

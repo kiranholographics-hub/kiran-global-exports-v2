@@ -26,7 +26,7 @@ export default function NotFoundContent({ title, copy }) {
 
   const QUICK_LINKS = [
     { labelKey: 'notFound.quickLinks.towels', href: '/towels' },
-    { labelKey: 'notFound.quickLinks.rugs', href: '/rugs' },
+    { labelKey: 'notFound.quickLinks.linen', href: '/linen' },
     { labelKey: 'notFound.quickLinks.collections', href: '/collections' },
     { labelKey: 'notFound.quickLinks.custom', href: '/custom' },
     { labelKey: 'notFound.quickLinks.about', href: '/about' },

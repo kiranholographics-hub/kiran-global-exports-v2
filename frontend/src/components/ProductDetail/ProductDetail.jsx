@@ -54,14 +54,12 @@ export default function ProductDetail({
     : null;
   const related = getRelatedProducts(product, 3);
 
-  const interestLabel =
-    categorySlug === 'towels' ? 'Towels' : categorySlug === 'rugs' ? 'Rugs' : 'Linen';
+  const interestLabel = categorySlug === 'towels' ? 'Towels' : 'Linen';
   const inquiryHref = `/contact?product=${encodeURIComponent(
     product.slug
   )}&interest=${encodeURIComponent(interestLabel)}`;
 
-  const productType =
-    categorySlug === 'towels' ? 'Towel' : categorySlug === 'rugs' ? 'Rug' : 'Linen Product';
+  const productType = categorySlug === 'towels' ? 'Towel' : 'Linen Product';
 
   return (
     <>

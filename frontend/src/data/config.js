@@ -7,7 +7,7 @@
 
 export const siteConfig = {
   brandName: 'Kiran Global Exports',
-  tagline: 'Premium Towels & Rugs — International Exporter',
+  tagline: 'Premium Towels & Linen — International Exporter',
   domain: 'www.kiranglobal-exports.com',
   siteUrl: 'https://www.kiranglobal-exports.com',
 
@@ -31,7 +31,6 @@ export const siteConfig = {
     { labelKey: 'nav.home', href: '/' },
     { labelKey: 'nav.about', href: '/about' },
     { labelKey: 'nav.towels', href: '/towels' },
-    { labelKey: 'nav.rugs', href: '/rugs' },
     { labelKey: 'nav.linen', href: '/linen' },
     { labelKey: 'nav.collections', href: '/collections' },
     { labelKey: 'nav.export', href: '/export' },
@@ -42,7 +41,7 @@ export const siteConfig = {
 
   productInterestOptions: [
     { value: 'Towels', labelKey: 'common.productInterestOptions.towels' },
-    { value: 'Rugs', labelKey: 'common.productInterestOptions.rugs' },
+    { value: 'Linen', labelKey: 'common.productInterestOptions.linen' },
     { value: 'Both', labelKey: 'common.productInterestOptions.both' },
     { value: 'Custom / Private Label', labelKey: 'common.productInterestOptions.custom' },
   ],

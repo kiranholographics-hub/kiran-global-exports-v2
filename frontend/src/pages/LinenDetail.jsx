@@ -3,7 +3,7 @@ import ProductDetail from '@/components/ProductDetail/ProductDetail';
 
 /* ═══════════════════════════════════════════════
  * /linen/:categorySlug/:productSlug → product detail,
- * same spec-sheet layout used for Towels and Rugs.
+ * same spec-sheet layout used for Towels.
 ═══════════════════════════════════════════════ */
 export default function LinenDetailPage() {
   const { productSlug } = useParams();

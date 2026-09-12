@@ -1,12 +1,12 @@
 // ---------------------------------------------------------------------------
 // Linen category data.
 // ---------------------------------------------------------------------------
-// Unlike Towels/Rugs, these lines don't have individual catalogued
+// Unlike Towels, these lines don't have individual catalogued
 // products/photography yet — each tile links out to Contact with the
 // category pre-filled as their interest, rather than a product grid.
 // Swap `image` for real product photography as it becomes available, and
 // this can be upgraded to a full category → product listing later using
-// the same pattern as TowelCatalogue/RugCatalogue.
+// the same pattern as TowelCatalogue.
 // ---------------------------------------------------------------------------
 
 const linenCategories = [

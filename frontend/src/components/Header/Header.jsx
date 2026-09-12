@@ -12,7 +12,7 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const { pathname } = useLocation();
-  const isHeroPage = pathname === '/' || pathname === '/collections' || pathname === '/towels' || pathname === '/rugs' || pathname === '/linen';
+  const isHeroPage = pathname === '/' || pathname === '/collections' || pathname === '/towels' || pathname === '/linen';
   const [previousPathname, setPreviousPathname] = useState(pathname);
 
   if (pathname !== previousPathname) {

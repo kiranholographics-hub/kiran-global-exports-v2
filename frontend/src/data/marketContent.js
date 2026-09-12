@@ -36,8 +36,8 @@ const MARKET_CONTENT = {
   australia: {
     seoTitle: 'Cotton Towel & Bathrobe Exporter to Australia',
     seoDescription:
-      'Kiran Global Exports supplies cotton towels, bathrobes and rugs to Australian importers and distributors — sample-first, FOB direct from our partner mill in Solapur, duty-free under the India-Australia ECTA.',
-    heading: 'Terry towels and rugs, exported to Australia.',
+      'Kiran Global Exports supplies cotton towels and bathrobes to Australian importers and distributors — sample-first, FOB direct from our partner mill in Solapur, duty-free under the India-Australia ECTA.',
+    heading: 'Terry towels, exported to Australia.',
     lead: 'Sample-approved specification, shipped FOB direct from our partner mill, with most Indian-made terry textiles now entering Australia duty-free under the India-Australia Economic Cooperation and Trade Agreement — built for hospitality, retail and private-label buyers across Australia.',
     portsFaq: {
       q: 'Which Australian ports can you ship to?',
@@ -51,8 +51,8 @@ const MARKET_CONTENT = {
   usa: {
     seoTitle: 'Cotton Towel & Bathrobe Exporter to the USA',
     seoDescription:
-      'Kiran Global Exports supplies cotton towels, bathrobes and rugs to US importers and distributors — sample-first, FOB direct from our partner mill in Solapur, with FTC-compliant fibre and origin labelling.',
-    heading: 'Terry towels and rugs, exported to the United States.',
+      'Kiran Global Exports supplies cotton towels and bathrobes to US importers and distributors — sample-first, FOB direct from our partner mill in Solapur, with FTC-compliant fibre and origin labelling.',
+    heading: 'Terry towels, exported to the United States.',
     lead: 'Sample-approved specification, shipped FOB direct from our partner mill, with fibre-content and country-of-origin labelling prepared to FTC standards — built for hospitality groups, retail chains and private-label buyers across the US market.',
     portsFaq: {
       q: 'Which US ports can you ship to?',
@@ -66,8 +66,8 @@ const MARKET_CONTENT = {
   canada: {
     seoTitle: 'Cotton Towel & Bathrobe Exporter to Canada',
     seoDescription:
-      'Kiran Global Exports supplies cotton towels, bathrobes and rugs to Canadian importers and distributors — sample-first, FOB direct from our partner mill in Solapur, with bilingual English/French fibre labelling.',
-    heading: 'Terry towels and rugs, exported to Canada.',
+      'Kiran Global Exports supplies cotton towels and bathrobes to Canadian importers and distributors — sample-first, FOB direct from our partner mill in Solapur, with bilingual English/French fibre labelling.',
+    heading: 'Terry towels, exported to Canada.',
     lead: 'Sample-approved specification, shipped FOB direct from our partner mill, with fibre-content labelling produced in both English and French to meet Canada’s Textile Labelling Regulations — built for hospitality, retail and private-label buyers across Canada.',
     portsFaq: {
       q: 'Which Canadian ports can you ship to?',
@@ -81,8 +81,8 @@ const MARKET_CONTENT = {
   'south-america': {
     seoTitle: 'Cotton Towel & Bathrobe Exporter to South America',
     seoDescription:
-      'Kiran Global Exports supplies cotton towels, bathrobes and rugs to importers and distributors across South America — sample-first, FOB direct from our partner mill in Solapur.',
-    heading: 'Terry towels and rugs, exported across South America.',
+      'Kiran Global Exports supplies cotton towels and bathrobes to importers and distributors across South America — sample-first, FOB direct from our partner mill in Solapur.',
+    heading: 'Terry towels, exported across South America.',
     lead: 'Sample-approved specification, shipped FOB direct from our partner mill — built for hospitality, retail and private-label buyers across both Mercosur markets (Brazil, Argentina, Paraguay, Uruguay) and independently-tariffed markets like Peru, Colombia and Chile.',
     portsFaq: {
       q: 'Which South American ports can you ship to?',
@@ -96,8 +96,8 @@ const MARKET_CONTENT = {
   poland: {
     seoTitle: 'Cotton Towel & Bathrobe Exporter to Poland',
     seoDescription:
-      'Kiran Global Exports supplies cotton towels, bathrobes and rugs to Polish importers and distributors — sample-first, FOB direct from our partner mill in Solapur, cleared once for duty-free onward EU distribution.',
-    heading: 'Terry towels and rugs, exported to Poland.',
+      'Kiran Global Exports supplies cotton towels and bathrobes to Polish importers and distributors — sample-first, FOB direct from our partner mill in Solapur, cleared once for duty-free onward EU distribution.',
+    heading: 'Terry towels, exported to Poland.',
     lead: 'Sample-approved specification, shipped FOB direct from our partner mill — cleared once into the EU and moved duty-free from there, which is why many buyers use Poland’s growing warehousing network to redistribute across Central and Eastern Europe.',
     portsFaq: {
       q: 'Which ports or routes can you ship to for Poland?',
@@ -111,8 +111,8 @@ const MARKET_CONTENT = {
   finland: {
     seoTitle: 'Cotton Towel & Bathrobe Exporter to Finland',
     seoDescription:
-      'Kiran Global Exports supplies cotton towels, bathrobes and rugs to Finnish importers and distributors — sample-first, FOB direct from our partner mill in Solapur, with OEKO-TEX certified options for sauna and wellness ranges.',
-    heading: 'Terry towels and rugs, exported to Finland.',
+      'Kiran Global Exports supplies cotton towels and bathrobes to Finnish importers and distributors — sample-first, FOB direct from our partner mill in Solapur, with OEKO-TEX certified options for sauna and wellness ranges.',
+    heading: 'Terry towels, exported to Finland.',
     lead: 'Sample-approved specification, shipped FOB direct from our partner mill, with OEKO-TEX Standard 100 certified cotton available — suited to Finland’s high per-capita demand for towels and robes through its sauna and spa culture, as well as hospitality and retail buyers generally.',
     portsFaq: {
       q: 'Which Finnish ports can you ship to?',
@@ -126,8 +126,8 @@ const MARKET_CONTENT = {
   sweden: {
     seoTitle: 'Cotton Towel & Bathrobe Exporter to Sweden',
     seoDescription:
-      'Kiran Global Exports supplies cotton towels, bathrobes and rugs to Swedish importers and distributors — sample-first, FOB direct from our partner mill in Solapur, with OEKO-TEX certified options.',
-    heading: 'Terry towels and rugs, exported to Sweden.',
+      'Kiran Global Exports supplies cotton towels and bathrobes to Swedish importers and distributors — sample-first, FOB direct from our partner mill in Solapur, with OEKO-TEX certified options.',
+    heading: 'Terry towels, exported to Sweden.',
     lead: 'Sample-approved specification, shipped FOB direct from our partner mill, with OEKO-TEX Standard 100 certified cotton available for buyers who need it — built for hospitality, retail and private-label buyers across Sweden and the wider Nordic market.',
     portsFaq: {
       q: 'Which Swedish ports can you ship to?',
@@ -141,8 +141,8 @@ const MARKET_CONTENT = {
   norway: {
     seoTitle: 'Cotton Towel & Bathrobe Exporter to Norway',
     seoDescription:
-      'Kiran Global Exports supplies cotton towels, bathrobes and rugs to Norwegian importers and distributors — sample-first, FOB direct from our partner mill in Solapur, with customs handled directly since Norway sits outside the EU customs union.',
-    heading: 'Terry towels and rugs, exported to Norway.',
+      'Kiran Global Exports supplies cotton towels and bathrobes to Norwegian importers and distributors — sample-first, FOB direct from our partner mill in Solapur, with customs handled directly since Norway sits outside the EU customs union.',
+    heading: 'Terry towels, exported to Norway.',
     lead: 'Sample-approved specification, shipped FOB direct from our partner mill — since Norway is part of the European Economic Area but not the EU customs union, we prepare shipments for direct Norwegian customs clearance rather than routing through another EU port.',
     portsFaq: {
       q: 'Which Norwegian ports can you ship to?',
@@ -157,7 +157,7 @@ const MARKET_CONTENT = {
 
 const MOQ_FAQ = {
   q: 'What is the minimum order quantity?',
-  a: 'MOQ varies by product and is confirmed per specification once your sample is approved — ask our export team for the figure on the specific towel or rug you need.',
+  a: 'MOQ varies by product and is confirmed per specification once your sample is approved — ask our export team for the figure on the specific towel you need.',
 };
 
 const MATCH_FAQ = {
@@ -177,8 +177,8 @@ const PRIVATE_LABEL_FAQ = {
 function genericContent(countryName) {
   return {
     seoTitle: `Cotton Towel & Bathrobe Exporter to ${countryName}`,
-    seoDescription: `Kiran Global Exports supplies cotton towels, bathrobes and rugs to importers and distributors in ${countryName} — sample-first, FOB direct from our partner mill in Solapur.`,
-    heading: `Terry towels and rugs, exported to ${countryName}.`,
+    seoDescription: `Kiran Global Exports supplies cotton towels and bathrobes to importers and distributors in ${countryName} — sample-first, FOB direct from our partner mill in Solapur.`,
+    heading: `Terry towels, exported to ${countryName}.`,
     lead: `Sample-approved specification, shipped FOB direct from our partner mill — built for hospitality, retail and private-label buyers in ${countryName}.`,
     portsFaq: {
       q: `How do you handle shipping to ${countryName}?`,

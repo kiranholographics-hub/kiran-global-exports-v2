@@ -1,6 +1,6 @@
 {
   "common": {
-    "tagline": "Premium Towels & Rugs — International Exporter",
+    "tagline": "Premium Towels & Linen — International Exporter",
     "madeInIndia": "Made in India. Exported to the World.",
     "madeInIndiaShort": "Made in India · Exported to the World",
     "contactExportTeam": "Contact Our Export Team",
@@ -15,7 +15,7 @@
     },
     "productInterestOptions": {
       "towels": "Towels",
-      "rugs": "Rugs",
+      "linen": "Linen",
       "both": "Both",
       "custom": "Custom / Private Label"
     }
@@ -24,7 +24,6 @@
     "home": "Home",
     "about": "About",
     "towels": "Towels",
-    "rugs": "Rugs",
     "collections": "Collections",
     "export": "Export",
     "contact": "Contact",
@@ -68,7 +67,7 @@
     "rightsReserved": "All rights reserved.",
     "privacyPolicy": "Privacy Policy",
     "termsConditions": "Terms & Conditions",
-    "bottomTagline": "Premium Towels & Rugs — International Exporter",
+    "bottomTagline": "Premium Towels & Linen — International Exporter",
     "iecLabel": "IEC",
     "structureLine": "Official Marketing Partner of V P Mundada (Mundada Towels) — weaving terry in Solapur, Maharashtra since 1972."
   },
@@ -81,7 +80,7 @@
     "browseCollections": "Browse Collections",
     "quickLinks": {
       "towels": "Towels",
-      "rugs": "Rugs",
+      "linen": "Linen",
       "collections": "Collections",
       "custom": "Custom",
       "about": "About"
@@ -127,16 +126,6 @@
           "Spa & Salon Towels",
           "Hand & Face Towels",
           "Custom Towels"
-        ]
-      },
-      "rugs": {
-        "name": "Rugs",
-        "items": [
-          "Bath Rugs",
-          "Hotel Rugs",
-          "Home Rugs",
-          "Decorative Rugs",
-          "Custom Rugs"
         ]
       },
       "linen": {
@@ -298,7 +287,7 @@
   "contact": {
     "seo": {
       "title": "Contact",
-      "description": "Contact the Kiran Global Exports team to discuss towel and rug specifications, private-label development, or export inquiries."
+      "description": "Contact the Kiran Global Exports team to discuss towel and linen specifications, private-label development, or export inquiries."
     },
     "intro": {
       "eyebrow": "Get In Touch",
@@ -363,19 +352,6 @@
       "seoTitle": "Towel Collections for Global Buyers",
       "seoDescription": "Explore Kiran Global Exports towel collections across bath, hotel, jacquard, waffle, zero twist, border, pool, custom and specialty towel ranges."
     },
-    "rugs": {
-      "heroEyebrow": "The Rug Collection / Kiran Global Exports",
-      "heroTitle": "Rugs",
-      "heroLead": "Bath, hotel, hospitality and decorative rugs developed for global buyers and private-label programmes.",
-      "exploreCta": "Explore Rugs",
-      "categoriesEyebrow": "Explore the rug world",
-      "categoriesTitle": "Main collections",
-      "collectionsCount": "{{count}} collections / developed around your market",
-      "ctaEyebrow": "Developed around your brief",
-      "ctaTitle": "Need a rug collection built for your market?",
-      "seoTitle": "Premium Rugs — Bath, Hotel, Decorative & Custom",
-      "seoDescription": "Explore Kiran Global Exports' rug collection: bath, hotel, hospitality, home, decorative and custom rugs developed for global B2B buyers."
-    },
     "requestProductDetails": "Request product details",
     "reference_one": "{{count}} reference",
     "reference_other": "{{count}} references",
@@ -392,7 +368,6 @@
     "viewDetails": "View details",
     "b2bDevelopment": "B2B development",
     "requestProductDetails": "Request product details.",
-    "requestRugDetails": "Request rug details.",
     "contactExportTeamArrow": "Contact our export team",
     "collectionSubcategoryProducts": "{{category}} / Product collection",
     "reference_one": "{{count}} reference",
@@ -400,10 +375,7 @@
     "availableReference_one": "{{count}} available reference",
     "availableReference_other": "{{count}} available references",
     "realReference_one": "{{count}} product",
-    "realReference_other": "{{count}} products",
-    "rugCollectionEyebrow": "Rug collection",
-    "rugAvailableLead": "Explore the rug collection, then discuss size, construction, colour and branding for your market.",
-    "rugCustomLead": "This collection is developed to your specification, including construction, size, colour, material and branding."
+    "realReference_other": "{{count}} products"
   },
   "productDetail": {
     "notFoundTitle": "Product Not Found",
@@ -444,16 +416,16 @@
   "about": {
     "seo": {
       "title": "About",
-      "description": "Kiran Global Exports develops premium towel and rug collections in India for hospitality, retail and private-label buyers worldwide."
+      "description": "Kiran Global Exports develops premium towel and linen collections in India for hospitality, retail and private-label buyers worldwide."
     },
     "intro": {
       "eyebrow": "About Us",
       "title": "Where craft meets comfort.",
-      "lead": "Kiran Global Exports connects Indian textile craftsmanship with buyers around the world, developing premium towel and rug collections built around quality, consistency and presentation."
+      "lead": "Kiran Global Exports connects Indian textile craftsmanship with buyers around the world, developing premium towel and linen collections built around quality, consistency and presentation."
     },
     "brandStory": {
       "heading": "Developed around the buyer, not the shelf.",
-      "copy1": "Every collection begins with a specification, not a catalogue page. We work directly with hospitality groups, distributors, retailers and private-label buyers to develop towels and rugs suited to their market — from fibre selection through to final packing.",
+      "copy1": "Every collection begins with a specification, not a catalogue page. We work directly with hospitality groups, distributors, retailers and private-label buyers to develop towels suited to their market — from fibre selection through to final packing.",
       "copy2": "Our approach favours consistency over volume: dependable specifications, repeatable production, and direct communication with an export team that understands international buyer requirements."
     },
     "approach": {
@@ -509,26 +481,10 @@
       "title": "Solapur, Maharashtra",
       "mapLink": "Open in Google Maps ↗"
     },
-    "rugSection": {
-      "eyebrow": "Direct B2B Rugs",
-      "title": "Rugs supplied around your business requirements.",
-      "lead": "Alongside our towel business, Kiran Global Exports works directly with B2B buyers for rugs. We source and develop products around the buyer's design, dimensions, materials, construction, colours, quantities, packaging and commercial specifications.",
-      "copy": "From hospitality and interior projects to retail, wholesale and private-label programs, our focus is simple: understand the requirement, develop the right product and coordinate reliable supply for the agreed specification."
-    },
-    "rugServices": [
-      "Custom specifications",
-      "Bulk B2B quantities",
-      "Private-label requirements",
-      "Hospitality & project requirements",
-      "Retail & wholesale programs",
-      "Custom designs and dimensions",
-      "Export-ready packaging",
-      "Long-term repeat supply"
-    ],
     "cta": {
       "eyebrow": "Work With Us",
       "title": "Let's talk about your market.",
-      "lead": "Our export team is ready to discuss your specification, whether you are sourcing towels, developing a rug program or building a private-label collection."
+      "lead": "Our export team is ready to discuss your specification, whether you are sourcing towels, developing a linen program or building a private-label collection."
     },
     "registration": {
       "eyebrow": "Registered & Compliant",
@@ -545,7 +501,7 @@
   "collections": {
     "seo": {
       "title": "Our Collection — Hotel, Spa, Home, Hospitality & Retail",
-      "description": "Browse Kiran Global Exports towel and rug collections by buyer world."
+      "description": "Browse Kiran Global Exports towel and linen collections by buyer world."
     },
     "hero": {
       "eyebrow": "Explore our world",
@@ -556,10 +512,10 @@
     "worldLabel": "World",
     "worlds": {
       "hotel": {
-        "copy": "Heavier-hand terry and tufted rugs built for housekeeping-cycle durability and presentation."
+        "copy": "Heavier-hand terry built for housekeeping-cycle durability and presentation."
       },
       "spa": {
-        "copy": "Lightweight, fast-drying towels and low-pile rugs for high-frequency treatment-room use."
+        "copy": "Lightweight, fast-drying towels for high-frequency treatment-room use."
       },
       "home": {
         "copy": "Everyday comfort pieces developed for retail and e-commerce home ranges."
@@ -588,7 +544,7 @@
   "custom": {
     "seo": {
       "title": "Custom & Private Label",
-      "description": "Develop a custom or private-label towel and rug programme with Kiran Global Exports — custom sizes, GSM, colours, branding and packaging."
+      "description": "Develop a custom or private-label towel and linen programme with Kiran Global Exports — custom sizes, GSM, colours, branding and packaging."
     },
     "intro": {
       "eyebrow": "Custom & Private Label",

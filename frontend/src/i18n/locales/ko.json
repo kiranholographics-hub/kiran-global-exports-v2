@@ -1,6 +1,6 @@
 {
   "common": {
-    "tagline": "프리미엄 타월 & 러그 — 국제 수출업체",
+    "tagline": "프리미엄 타월 & 리넨 — 국제 수출업체",
     "madeInIndia": "인도산. 전 세계로 수출.",
     "madeInIndiaShort": "인도산 · 전 세계로 수출",
     "contactExportTeam": "수출팀에 문의하기",
@@ -15,7 +15,7 @@
     },
     "productInterestOptions": {
       "towels": "타월",
-      "rugs": "러그",
+      "linen": "리넨",
       "both": "둘 다",
       "custom": "맞춤 / 자체 브랜드"
     }
@@ -24,7 +24,6 @@
     "home": "홈",
     "about": "회사 소개",
     "towels": "타월",
-    "rugs": "러그",
     "collections": "컬렉션",
     "export": "수출",
     "contact": "문의하기",
@@ -68,7 +67,7 @@
     "rightsReserved": "모든 권리 보유.",
     "privacyPolicy": "개인정보 처리방침",
     "termsConditions": "이용약관",
-    "bottomTagline": "프리미엄 타월 & 러그 — 국제 수출업체",
+    "bottomTagline": "프리미엄 타월 & 리넨 — 국제 수출업체",
     "iecLabel": "IEC",
     "structureLine": "Kiran Global Exports는 Kiran Holographics의 마케팅 및 수출 부문입니다 — V P Mundada(Mundada Towels)의 공식 마케팅 파트너."
   },
@@ -81,7 +80,7 @@
     "browseCollections": "컬렉션 둘러보기",
     "quickLinks": {
       "towels": "타월",
-      "rugs": "러그",
+      "linen": "리넨",
       "collections": "컬렉션",
       "custom": "맞춤",
       "about": "회사 소개"
@@ -89,13 +88,13 @@
   },
   "home": {
     "seo": {
-      "title": "프리미엄 타월 & 러그 수출업체",
-      "description": "Kiran Global Exports는 글로벌 바이어, 호스피탈리티, 리테일 및 자체 브랜드 요구사항을 위해 인도산 프리미엄 타월과 러그를 공급하는 국제 공급업체이자 수출업체입니다."
+      "title": "프리미엄 타월 & 리넨 수출업체",
+      "description": "Kiran Global Exports는 글로벌 바이어, 호스피탈리티, 리테일 및 자체 브랜드 요구사항을 위해 인도산 프리미엄 타월과 리넨을 공급하는 국제 공급업체이자 수출업체입니다."
     },
     "hero": {
       "eyebrow": "Kiran Global Exports",
       "headline": "세계를 위해 만든 텍스타일.",
-      "subtitle": "프리미엄 수제 러그와 타월 — 인도에서 짜여져 전 세계에서 신뢰받고 있습니다.",
+      "subtitle": "프리미엄 수제 타월 — 인도에서 짜여져 전 세계에서 신뢰받고 있습니다.",
       "primaryCta": "컬렉션 둘러보기",
       "secondaryCta": "수출팀에 문의하기",
       "scroll": "스크롤",
@@ -104,7 +103,7 @@
     "brandIntro": {
       "eyebrow": "회사 소개",
       "heading": "세계를 여행하는 텍스타일을 만듭니다.",
-      "copy1": "Kiran Global Exports는 인도의 섬유 장인정신을 전 세계 바이어와 연결하며, 품질과 일관성, 프레젠테이션을 중시하는 기업을 위한 프리미엄 타월 및 러그 컬렉션을 개발합니다.",
+      "copy1": "Kiran Global Exports는 인도의 섬유 장인정신을 전 세계 바이어와 연결하며, 품질과 일관성, 프레젠테이션을 중시하는 기업을 위한 프리미엄 타월 컬렉션을 개발합니다.",
       "copy2": "사양 결정부터 선적까지, 모든 컬렉션은 바이어의 요구사항을 중심으로 만들어집니다 — 그 반대가 아닙니다.",
       "stats": {
         "years": "년의 수출 경력",
@@ -127,16 +126,6 @@
           "스파 & 살롱 타월",
           "핸드 & 페이스 타월",
           "맞춤 타월"
-        ]
-      },
-      "rugs": {
-        "name": "러그",
-        "items": [
-          "배스 러그",
-          "호텔 러그",
-          "홈 러그",
-          "장식용 러그",
-          "맞춤 러그"
         ]
       },
       "linen": {
@@ -303,7 +292,7 @@
   "contact": {
     "seo": {
       "title": "문의하기",
-      "description": "타월 및 러그 사양, 자체 브랜드 개발 또는 수출 문의에 대해 상담하려면 Kiran Global Exports 팀에 문의하세요."
+      "description": "타월 및 리넨 사양, 자체 브랜드 개발 또는 수출 문의에 대해 상담하려면 Kiran Global Exports 팀에 문의하세요."
     },
     "intro": {
       "eyebrow": "문의하기",
@@ -368,19 +357,6 @@
       "seoTitle": "타월 — 글로벌 바이어를 위한 실제 텍스타일 컬렉션",
       "seoDescription": "배스, 호텔, 자카드, 와플, 제로트위스트, 보더, 풀, 맞춤 및 전문 타월 범위에 걸쳐 Kiran Global Exports 타월 컬렉션을 둘러보세요."
     },
-    "rugs": {
-      "heroEyebrow": "러그 컬렉션 / Kiran Global Exports",
-      "heroTitle": "러그",
-      "heroLead": "글로벌 바이어와 자체 브랜드 프로그램을 위해 개발된 배스, 호텔, 호스피탈리티 및 장식용 러그.",
-      "exploreCta": "러그 둘러보기",
-      "categoriesEyebrow": "러그의 세계 둘러보기",
-      "categoriesTitle": "주요 컬렉션",
-      "collectionsCount": "당신의 시장에 맞춰 개발된 {{count}}개 컬렉션",
-      "ctaEyebrow": "당신의 요청에 맞춰 개발",
-      "ctaTitle": "당신의 시장을 위한 러그 컬렉션이 필요하신가요?",
-      "seoTitle": "프리미엄 러그 — 배스, 호텔, 장식용 & 맞춤",
-      "seoDescription": "글로벌 B2B 바이어를 위해 개발된 배스, 호텔, 호스피탈리티, 홈, 장식용 및 맞춤 러그: Kiran Global Exports의 러그 컬렉션을 둘러보세요."
-    },
     "requestProductDetails": "제품 상세 정보 요청",
     "reference_one": "{{count}}개 레퍼런스",
     "reference_other": "{{count}}개 레퍼런스",
@@ -397,7 +373,6 @@
     "viewDetails": "상세 보기",
     "b2bDevelopment": "B2B 개발",
     "requestProductDetails": "제품 상세 정보를 요청하세요.",
-    "requestRugDetails": "러그 상세 정보를 요청하세요.",
     "contactExportTeamArrow": "수출팀에 문의하기",
     "collectionSubcategoryProducts": "{{category}} / 제품 컬렉션",
     "reference_one": "{{count}}개 레퍼런스",
@@ -405,10 +380,7 @@
     "availableReference_one": "{{count}}개 이용 가능한 레퍼런스",
     "availableReference_other": "{{count}}개 이용 가능한 레퍼런스",
     "realReference_one": "{{count}}개 실제 레퍼런스",
-    "realReference_other": "{{count}}개 실제 레퍼런스",
-    "rugCollectionEyebrow": "러그 컬렉션",
-    "rugAvailableLead": "이용 가능한 러그 레퍼런스를 살펴본 후, 당신의 시장에 맞는 사이즈, 제작 방식, 색상 및 브랜딩에 대해 상담하세요.",
-    "rugCustomLead": "이 컬렉션은 제작 방식, 사이즈, 색상, 소재, 브랜딩을 포함하여 귀하의 사양에 맞춰 개발됩니다."
+    "realReference_other": "{{count}}개 실제 레퍼런스"
   },
   "productDetail": {
     "notFoundTitle": "제품을 찾을 수 없습니다",
@@ -449,16 +421,16 @@
   "about": {
     "seo": {
       "title": "회사 소개",
-      "description": "Kiran Global Exports는 전 세계 호스피탈리티, 리테일 및 자체 브랜드 바이어를 위해 인도에서 프리미엄 타월과 러그 컬렉션을 개발합니다."
+      "description": "Kiran Global Exports는 전 세계 호스피탈리티, 리테일 및 자체 브랜드 바이어를 위해 인도에서 프리미엄 타월과 리넨 컬렉션을 개발합니다."
     },
     "intro": {
       "eyebrow": "회사 소개",
       "title": "장인정신이 편안함을 만나는 곳.",
-      "lead": "Kiran Global Exports는 인도의 섬유 장인정신을 전 세계 바이어와 연결하며, 품질과 일관성, 프레젠테이션을 기반으로 한 프리미엄 타월 및 러그 컬렉션을 개발합니다."
+      "lead": "Kiran Global Exports는 인도의 섬유 장인정신을 전 세계 바이어와 연결하며, 품질과 일관성, 프레젠테이션을 기반으로 한 프리미엄 타월 및 리넨 컬렉션을 개발합니다."
     },
     "brandStory": {
       "heading": "매대가 아닌 바이어를 위해 개발됩니다.",
-      "copy1": "모든 컬렉션은 카탈로그 페이지가 아닌 사양에서 시작됩니다. 저희는 호스피탈리티 그룹, 유통업체, 소매업체 및 자체 브랜드 바이어와 직접 협력하여 섬유 선정부터 최종 포장까지, 그들의 시장에 맞는 타월과 러그를 개발합니다.",
+      "copy1": "모든 컬렉션은 카탈로그 페이지가 아닌 사양에서 시작됩니다. 저희는 호스피탈리티 그룹, 유통업체, 소매업체 및 자체 브랜드 바이어와 직접 협력하여 섬유 선정부터 최종 포장까지, 그들의 시장에 맞는 타월을 개발합니다.",
       "copy2": "저희의 접근 방식은 물량보다 일관성을 중시합니다: 신뢰할 수 있는 사양, 반복 가능한 생산, 그리고 국제 바이어의 요구사항을 이해하는 수출팀과의 직접적인 소통입니다."
     },
     "approach": {
@@ -514,26 +486,10 @@
       "title": "마하라슈트라주 솔라푸르",
       "mapLink": "구글 지도에서 열기 ↗"
     },
-    "rugSection": {
-      "eyebrow": "직접 B2B 러그",
-      "title": "귀사의 비즈니스 요구사항에 맞춰 공급되는 러그.",
-      "lead": "타월 사업과 함께, Kiran Global Exports는 러그 부문에서 B2B 바이어와 직접 협력합니다. 저희는 바이어의 디자인, 치수, 소재, 제작 방식, 색상, 수량, 포장 및 상업적 사양에 맞춰 제품을 소싱하고 개발합니다.",
-      "copy": "호스피탈리티 및 인테리어 프로젝트부터 리테일, 도매 및 자체 브랜드 프로그램까지, 저희의 초점은 간단합니다: 요구사항을 이해하고, 적합한 제품을 개발하며, 합의된 사양에 대한 신뢰할 수 있는 공급을 조율하는 것입니다."
-    },
-    "rugServices": [
-      "맞춤 사양",
-      "대량 B2B 수량",
-      "자체 브랜드 요구사항",
-      "호스피탈리티 및 프로젝트 요구사항",
-      "리테일 및 도매 프로그램",
-      "맞춤 디자인 및 치수",
-      "수출 대응 포장",
-      "장기 반복 공급"
-    ],
     "cta": {
       "eyebrow": "함께 일하기",
       "title": "당신의 시장에 대해 이야기해봐요.",
-      "lead": "타월을 소싱하든, 러그 프로그램을 개발하든, 자체 브랜드 컬렉션을 구축하든, 저희 수출팀은 당신의 사양에 대해 상담할 준비가 되어 있습니다."
+      "lead": "타월을 소싱하든, 리넨 프로그램을 개발하든, 자체 브랜드 컬렉션을 구축하든, 저희 수출팀은 당신의 사양에 대해 상담할 준비가 되어 있습니다."
     },
     "registration": {
       "eyebrow": "등록 및 규정 준수",
@@ -550,7 +506,7 @@
   "collections": {
     "seo": {
       "title": "저희 컬렉션 — 호텔, 스파, 홈, 호스피탈리티 & 리테일",
-      "description": "바이어 세계별로 Kiran Global Exports 타월 및 러그 컬렉션을 둘러보세요."
+      "description": "바이어 세계별로 Kiran Global Exports 타월 및 리넨 컬렉션을 둘러보세요."
     },
     "hero": {
       "eyebrow": "우리의 세계 둘러보기",
@@ -561,10 +517,10 @@
     "worldLabel": "세계",
     "worlds": {
       "hotel": {
-        "copy": "하우스키핑 주기의 내구성과 프레젠테이션을 위해 제작된 더 두꺼운 테리 및 터프티드 러그."
+        "copy": "하우스키핑 주기의 내구성과 프레젠테이션을 위해 제작된 더 두꺼운 테리."
       },
       "spa": {
-        "copy": "고빈도 트리트먼트룸 사용을 위한 가볍고 빠르게 마르는 타월과 저파일 러그."
+        "copy": "고빈도 트리트먼트룸 사용을 위한 가볍고 빠르게 마르는 타월."
       },
       "home": {
         "copy": "리테일 및 이커머스 홈 라인을 위해 개발된 일상적인 편안함의 제품들."
@@ -593,7 +549,7 @@
   "custom": {
     "seo": {
       "title": "맞춤 & 자체 브랜드",
-      "description": "Kiran Global Exports와 함께 맞춤 또는 자체 브랜드 타월 및 러그 프로그램을 개발하세요 — 맞춤 사이즈, GSM, 색상, 브랜딩 및 포장."
+      "description": "Kiran Global Exports와 함께 맞춤 또는 자체 브랜드 타월 및 리넨 프로그램을 개발하세요 — 맞춤 사이즈, GSM, 색상, 브랜딩 및 포장."
     },
     "intro": {
       "eyebrow": "맞춤 & 자체 브랜드",

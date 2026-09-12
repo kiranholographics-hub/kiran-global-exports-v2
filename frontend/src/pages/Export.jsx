@@ -45,7 +45,7 @@ export default function ExportPage() {
     <>
       <SEO
         title="Export Capability — International B2B Supply"
-        description="Kiran Global Exports supplies premium towels and rugs to hospitality, retail and distribution buyers across North America, Europe, the Middle East, Australia and Asia-Pacific."
+        description="Kiran Global Exports supplies premium towels and linen to hospitality, retail and distribution buyers across North America, Europe, the Middle East, Australia and Asia-Pacific."
       />
 
       {/* ── Page Intro ──────────────────────────── */}
