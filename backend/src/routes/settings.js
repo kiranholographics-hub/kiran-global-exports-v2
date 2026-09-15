@@ -18,13 +18,18 @@ router.get('/', async (_req, res) => {
 });
 
 router.patch('/', async (req, res) => {
-  const { notifyWhatsappNumber } = req.body || {};
+  const { notifyWhatsappNumber, excludedIps } = req.body || {};
   const update = {};
   if (notifyWhatsappNumber !== undefined) {
     // WhatsApp numbers are dialled with country code, digits only (e.g.
     // 919983911181) — strip anything else so a pasted "+91 99839 11181"
     // still works.
     update.notifyWhatsappNumber = String(notifyWhatsappNumber).replace(/[^\d]/g, '');
+  }
+  if (excludedIps !== undefined) {
+    update.excludedIps = Array.isArray(excludedIps)
+      ? excludedIps.map((ip) => String(ip).trim()).filter(Boolean)
+      : String(excludedIps).split(',').map((ip) => ip.trim()).filter(Boolean);
   }
   const settings = await Settings.findOneAndUpdate({ key: 'global' }, update, {
     new: true,

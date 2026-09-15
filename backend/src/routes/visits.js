@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import geoip from 'geoip-lite';
 import Visit from '../models/Visit.js';
+import Settings from '../models/Settings.js';
 import { requireAuth, requireRole } from '../auth.js';
 
 const router = Router();
@@ -69,6 +70,17 @@ router.post('/', async (req, res) => {
   const userAgent = clean(req.get('user-agent'), 300);
   if (BOT_UA_RE.test(userAgent)) {
     return res.status(204).end();
+  }
+
+  try {
+    const settings = await Settings.findOne({ key: 'global' });
+    if (settings?.excludedIps?.includes(req.ip)) {
+      return res.status(204).end();
+    }
+  } catch (err) {
+    console.error('[visits] excludedIps check error:', err.message);
+    // Fall through and log the visit rather than let a Settings lookup
+    // failure block real visit tracking.
   }
 
   const path = clean(req.body?.path, 300) || '/';
