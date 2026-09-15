@@ -117,7 +117,7 @@ export const linenProducts = [
     applications: ['Hospitality', 'Retail'],
     customization: 'Custom sizing, colourway, hem style, branding.',
     moq: 'Bulk / container inquiries — MOQ discussed per specification',
-    images: ['/images/linen/Hero-line.webp'],
+    images: ['/images/linen/napkin-linen.webp'],
     featured: false,
   },
 
@@ -139,7 +139,7 @@ export const linenProducts = [
     applications: ['Hospitality', 'Retail'],
     customization: 'Custom sizing, colourway, logo embroidery, packaging.',
     moq: 'Bulk / container inquiries — MOQ discussed per specification',
-    images: ['/images/linen/Hero-line.webp'],
+    images: ['/images/linen/apron-linen.webp'],
     featured: false,
   },
   {
@@ -159,7 +159,7 @@ export const linenProducts = [
     applications: ['Hospitality', 'Retail'],
     customization: 'Custom sizing, colourway, branding, packaging.',
     moq: 'Bulk / container inquiries — MOQ discussed per specification',
-    images: ['/images/linen/Hero-line.webp'],
+    images: ['/images/linen/potholder-set.webp'],
     featured: false,
   },
   {
@@ -179,7 +179,7 @@ export const linenProducts = [
     applications: ['Hospitality', 'Retail'],
     customization: 'Custom sizing, colourway, branding, packaging.',
     moq: 'Bulk / container inquiries — MOQ discussed per specification',
-    images: ['/images/linen/Hero-line.webp'],
+    images: ['/images/linen/Gloves-linen.webp'],
     featured: false,
   },
 
@@ -241,7 +241,7 @@ export const linenProducts = [
     applications: ['Hospitality', 'Retail', 'Home'],
     customization: 'Custom sizing, heading style, colourway, print.',
     moq: 'Bulk / container inquiries — MOQ discussed per specification',
-    images: ['/images/linen/Hero-line.webp'],
+    images: ['/images/linen/curtains-linen.webp'],
     featured: false,
   },
   {
@@ -261,7 +261,7 @@ export const linenProducts = [
     applications: ['Hospitality', 'Retail', 'Home'],
     customization: 'Custom sizing, colourway, print/embroidery, packaging.',
     moq: 'Bulk / container inquiries — MOQ discussed per specification',
-    images: ['/images/linen/Hero-line.webp'],
+    images: ['/images/linen/sit-pad.webp'],
     featured: false,
   },
   {
@@ -281,7 +281,7 @@ export const linenProducts = [
     applications: ['Retail', 'Home'],
     customization: 'Custom sizing, colourway, print/embroidery, packaging.',
     moq: 'Bulk / container inquiries — MOQ discussed per specification',
-    images: ['/images/linen/Hero-line.webp'],
+    images: ['/images/linen/floor_cushion.webp'],
     featured: false,
   },
 
