@@ -12,21 +12,26 @@
 //   MSG91_WHATSAPP_INTEGRATED_NUMBER — the connected sending number
 //     (digits only, with country code, e.g. 919983911181)
 //   NOTIFY_WHATSAPP_NUMBER          — owner's number to notify, same format
+//     (fallback only — the /hq → Settings page's saved number takes
+//     priority, so the owner can change it without touching Hostinger)
 
 function getConfig() {
-  const { MSG91_AUTH_KEY, MSG91_WHATSAPP_INTEGRATED_NUMBER, NOTIFY_WHATSAPP_NUMBER } = process.env;
-  if (!MSG91_AUTH_KEY || !MSG91_WHATSAPP_INTEGRATED_NUMBER || !NOTIFY_WHATSAPP_NUMBER) return null;
-  return { MSG91_AUTH_KEY, MSG91_WHATSAPP_INTEGRATED_NUMBER, NOTIFY_WHATSAPP_NUMBER };
+  const { MSG91_AUTH_KEY, MSG91_WHATSAPP_INTEGRATED_NUMBER } = process.env;
+  if (!MSG91_AUTH_KEY || !MSG91_WHATSAPP_INTEGRATED_NUMBER) return null;
+  return { MSG91_AUTH_KEY, MSG91_WHATSAPP_INTEGRATED_NUMBER };
 }
 
 /**
  * Sends the "website_visit_alert" WhatsApp template via MSG91.
+ * `notifyNumber` overrides NOTIFY_WHATSAPP_NUMBER when provided (pass the
+ * /hq Settings value here) — falls back to the env var if omitted/empty.
  * Never throws — a failed send should not block whatever triggered it.
  */
-export async function sendWhatsApp({ count, country, page }) {
+export async function sendWhatsApp({ count, country, page, notifyNumber }) {
   const config = getConfig();
-  if (!config) {
-    console.warn('[whatsapp] MSG91_AUTH_KEY / MSG91_WHATSAPP_INTEGRATED_NUMBER / NOTIFY_WHATSAPP_NUMBER not set — WhatsApp message will not be sent.');
+  const toNumber = notifyNumber || process.env.NOTIFY_WHATSAPP_NUMBER;
+  if (!config || !toNumber) {
+    console.warn('[whatsapp] MSG91_AUTH_KEY / MSG91_WHATSAPP_INTEGRATED_NUMBER / a notify number (Settings or NOTIFY_WHATSAPP_NUMBER) not set — WhatsApp message will not be sent.');
     return { sent: false, reason: 'not-configured' };
   }
 
@@ -49,7 +54,7 @@ export async function sendWhatsApp({ count, country, page }) {
             namespace: null,
             to_and_components: [
               {
-                to: [config.NOTIFY_WHATSAPP_NUMBER],
+                to: [toNumber],
                 components: {
                   body_count: { type: 'text', value: String(count), parameter_name: 'count' },
                   body_country: { type: 'text', value: String(country), parameter_name: 'country' },

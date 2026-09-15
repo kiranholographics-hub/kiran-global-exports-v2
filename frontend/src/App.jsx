@@ -35,6 +35,7 @@ const LegalPage = lazy(() => import('@/pages/LegalPage'));
 const HqLogin = lazy(() => import('@/pages/HqLogin'));
 const HqDashboard = lazy(() => import('@/pages/HqDashboard'));
 const HqEnquiries = lazy(() => import('@/pages/HqEnquiries'));
+const HqVisitors = lazy(() => import('@/pages/HqVisitors'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 // Shared data-loading boundary for the catalogue-browsing routes (Towels,
@@ -192,6 +193,7 @@ export default function App() {
               <Route element={<RequireAuth />}>
                 <Route path="/hq" element={<HqDashboard />} />
                 <Route path="/hq/enquiries" element={<HqEnquiries />} />
+                <Route path="/hq/visitors" element={<HqVisitors />} />
               </Route>
 
               {/* Dynamic market pages (e.g. /australia, /usa) — driven by

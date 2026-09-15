@@ -7,6 +7,7 @@ import styles from './HqShell.module.css';
 const NAV = [
   { to: '/hq', label: 'Global Markets', icon: '◎' },
   { to: '/hq/enquiries', label: 'Enquiries', icon: '✉' },
+  { to: '/hq/visitors', label: 'Visitors', icon: '◈' },
 ];
 
 /**

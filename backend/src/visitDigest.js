@@ -1,4 +1,5 @@
 import Visit from './models/Visit.js';
+import Settings from './models/Settings.js';
 import { sendWhatsApp } from './whatsapp.js';
 
 let running = false;
@@ -22,10 +23,12 @@ async function tick(windowMinutes) {
     }
     const [topCountry] = [...byCountry.entries()].sort((a, b) => b[1] - a[1])[0] || [];
 
+    const settings = await Settings.findOne({ key: 'global' });
     const result = await sendWhatsApp({
       count: visits.length,
       country: topCountry || 'Unknown',
       page: topPage || '/',
+      notifyNumber: settings?.notifyWhatsappNumber,
     });
     if (result.sent) {
       const ids = visits.map((v) => v._id);

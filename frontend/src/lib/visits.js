@@ -1,3 +1,5 @@
+import { ApiError } from './api';
+
 const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:4000';
 
 /**
@@ -20,4 +22,24 @@ export function reportVisit(path) {
   } catch {
     // ignore — e.g. fetch unavailable in some edge environment
   }
+}
+
+async function request(path, token) {
+  let res;
+  try {
+    res = await fetch(`${API_BASE}${path}`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+  } catch {
+    throw new ApiError('Could not reach the server.', 0);
+  }
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) {
+    throw new ApiError(data.error || 'Something went wrong.', res.status);
+  }
+  return data;
+}
+
+export function fetchVisitSummary(token) {
+  return request('/api/visits/summary', token);
 }

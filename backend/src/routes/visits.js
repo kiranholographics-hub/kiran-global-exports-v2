@@ -96,4 +96,37 @@ router.get('/', requireAuth, requireRole('admin'), async (req, res) => {
   }
 });
 
+// GET /api/visits/summary — admin-only dashboard widget: total visit count
+// (all-time, not capped like the raw listing above) and a country
+// breakdown, plus a 7/30-day count for a sense of recent traffic.
+router.get('/summary', requireAuth, requireRole('admin'), async (_req, res) => {
+  try {
+    const now = Date.now();
+    const since7d = new Date(now - 7 * 24 * 60 * 60 * 1000);
+    const since30d = new Date(now - 30 * 24 * 60 * 60 * 1000);
+
+    const [total, last7Days, last30Days, byCountry] = await Promise.all([
+      Visit.countDocuments(),
+      Visit.countDocuments({ createdAt: { $gte: since7d } }),
+      Visit.countDocuments({ createdAt: { $gte: since30d } }),
+      Visit.aggregate([
+        {
+          $group: {
+            _id: { $cond: [{ $eq: ['$country', ''] }, 'Unknown', '$country'] },
+            countryCode: { $first: '$countryCode' },
+            count: { $sum: 1 },
+          },
+        },
+        { $sort: { count: -1 } },
+        { $project: { _id: 0, country: '$_id', countryCode: 1, count: 1 } },
+      ]),
+    ]);
+
+    res.json({ total, last7Days, last30Days, byCountry });
+  } catch (err) {
+    console.error('[visits] summary error:', err.message);
+    res.status(500).json({ error: 'Could not load visit summary.' });
+  }
+});
+
 export default router;
