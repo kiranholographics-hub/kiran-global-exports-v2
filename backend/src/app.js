@@ -13,6 +13,7 @@ import visitsRouter from './routes/visits.js';
 import settingsRouter from './routes/settings.js';
 import updatesRouter from './routes/updates.js';
 import pagesRouter from './routes/pages.js';
+import testimonialsRouter from './routes/testimonials.js';
 
 const app = express();
 
@@ -54,6 +55,7 @@ app.use('/api/visits', visitsRouter);
 app.use('/api/settings', settingsRouter);
 app.use('/api/updates', updatesRouter);
 app.use('/api/pages', pagesRouter);
+app.use('/api/testimonials', testimonialsRouter);
 
 app.use((_req, res) => {
   res.status(404).json({ error: 'Not found' });

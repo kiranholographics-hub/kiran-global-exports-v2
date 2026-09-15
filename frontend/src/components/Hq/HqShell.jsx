@@ -10,6 +10,7 @@ const NAV = [
   { to: '/hq/visitors', label: 'Visitors', icon: '◈' },
   { to: '/hq/updates', label: 'Updates', icon: '✎' },
   { to: '/hq/pages', label: 'Pages', icon: '▢' },
+  { to: '/hq/testimonials', label: 'Testimonials', icon: '❝' },
 ];
 
 /**

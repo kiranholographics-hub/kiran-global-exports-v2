@@ -9,6 +9,7 @@ import Manufacturing from '@/sections/Manufacturing/Manufacturing';
 import GlobalExport from '@/sections/GlobalExport/GlobalExport';
 import CollectionsShowcase from '@/sections/CollectionsShowcase/CollectionsShowcase';
 import CustomPrivateLabel from '@/sections/CustomPrivateLabel/CustomPrivateLabel';
+import Testimonials from '@/sections/Testimonials/Testimonials';
 import CTASection from '@/components/CTASection/CTASection';
 
 /* ═══════════════════════════════════════════════ */
@@ -50,7 +51,10 @@ export default function Home() {
       {/* ── 9. Custom & Private Label ───────────── */}
       <CustomPrivateLabel />
 
-      {/* ── 10. Final CTA ───────────────────────── */}
+      {/* ── 10. Testimonials ────────────────────── */}
+      <Testimonials />
+
+      {/* ── 11. Final CTA ───────────────────────── */}
       <CTASection
         eyebrow={t('home.cta.eyebrow')}
         title={t('home.cta.title')}
