@@ -73,7 +73,7 @@
   font-family: var(--font-serif);
   font-size: var(--fs-display);
   font-weight: 500;
-  line-height: 0.96;
+  line-height: 1.14;
   letter-spacing: -0.05em;
   background: linear-gradient(145deg, #fffdf9 0%, #f2ebe0 55%, #ddc9a8 100%);
   -webkit-background-clip: text;

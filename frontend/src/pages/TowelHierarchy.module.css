@@ -33,7 +33,7 @@
   font-size: clamp(3.2rem, 6vw, 6rem);
   font-weight: 500;
   letter-spacing: -0.065em;
-  line-height: 0.91;
+  line-height: 1.1;
   color: var(--color-charcoal);
 
   background: linear-gradient(
@@ -105,7 +105,7 @@
   font-size: clamp(3.2rem, 6vw, 6rem);
   font-weight: 500;
   letter-spacing: -0.065em;
-  line-height: 0.91;
+  line-height: 1.1;
   color: var(--color-charcoal);
 
   background: linear-gradient(
@@ -233,7 +233,7 @@
   font-size: clamp(2.3rem, 4vw, 4.2rem);
   font-weight: 500;
   letter-spacing: -0.055em;
-  line-height: 0.95;
+  line-height: 1.13;
   color: var(--color-charcoal);
 
   background: linear-gradient(
@@ -541,7 +541,7 @@
   font-size: clamp(2.5rem, 4vw, 4.5rem);
   font-weight: 500;
   letter-spacing: -0.055em;
-  line-height: 0.98;
+  line-height: 1.15;
   color: var(--color-charcoal);
 
   background: linear-gradient(

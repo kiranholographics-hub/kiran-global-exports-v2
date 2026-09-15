@@ -86,7 +86,7 @@
   margin-top: 1rem;
   font-family: var(--font-serif);
   font-size: clamp(2rem, 3.6vw, 3.9rem);
-  line-height: 0.98;
+  line-height: 1.15;
   letter-spacing: -0.055em;
   color: var(--color-charcoal);
 
@@ -267,7 +267,7 @@
   .intro h2 {
     max-width: 15ch;
     font-size: clamp(2rem, 10vw, 2.75rem);
-    line-height: 1;
+    line-height: 1.15;
   }
 
   .gallery {
