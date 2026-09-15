@@ -11,6 +11,7 @@ import aiChatRouter from './routes/aiChat.js';
 import chatLeadRouter from './routes/chatLead.js';
 import visitsRouter from './routes/visits.js';
 import settingsRouter from './routes/settings.js';
+import updatesRouter from './routes/updates.js';
 
 const app = express();
 
@@ -50,6 +51,7 @@ app.use('/api/ai-chat', aiChatRouter);
 app.use('/api/chat/lead', chatLeadRouter);
 app.use('/api/visits', visitsRouter);
 app.use('/api/settings', settingsRouter);
+app.use('/api/updates', updatesRouter);
 
 app.use((_req, res) => {
   res.status(404).json({ error: 'Not found' });

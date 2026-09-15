@@ -8,6 +8,7 @@ const NAV = [
   { to: '/hq', label: 'Global Markets', icon: '◎' },
   { to: '/hq/enquiries', label: 'Enquiries', icon: '✉' },
   { to: '/hq/visitors', label: 'Visitors', icon: '◈' },
+  { to: '/hq/updates', label: 'Updates', icon: '✎' },
 ];
 
 /**

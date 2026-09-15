@@ -35,6 +35,7 @@ export const siteConfig = {
     { labelKey: 'nav.collections', href: '/collections' },
     { labelKey: 'nav.export', href: '/export' },
     { labelKey: 'nav.contact', href: '/contact' },
+    { labelKey: 'nav.updates', href: '/updates', hideFromHeader: true },
   ],
 
   headerCta: { labelKey: 'nav.startInquiry', href: '/contact' },
