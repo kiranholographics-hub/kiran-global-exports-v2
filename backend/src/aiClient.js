@@ -59,7 +59,9 @@ export async function getAiReply(message, history = []) {
 
   const response = await openai.chat.completions.create({
     model: process.env.OPENAI_MODEL || 'gpt-4o-mini',
-    max_completion_tokens: 500,
+    // See the note in suggestSeoMeta — kept generous so reasoning-model
+    // overhead can't crowd out the actual visible reply.
+    max_completion_tokens: 800,
     messages,
   });
 
@@ -96,7 +98,10 @@ export async function suggestSeoMeta({ title, body }) {
 
   const response = await openai.chat.completions.create({
     model: process.env.OPENAI_MODEL || 'gpt-4o-mini',
-    max_completion_tokens: 300,
+    // Generous headroom: some models spend part of this budget on internal
+    // reasoning tokens before producing any visible output, so a tight
+    // limit here can come back with zero actual content.
+    max_completion_tokens: 1000,
     response_format: { type: 'json_object' },
     messages: [
       { role: 'system', content: SEO_SYSTEM_PROMPT },
