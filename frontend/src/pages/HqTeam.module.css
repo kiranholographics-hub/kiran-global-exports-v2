@@ -90,7 +90,7 @@
 }
 
 .checkboxLabel input {
-  width: auto;
+  width: auto !important;
 }
 
 .form input,

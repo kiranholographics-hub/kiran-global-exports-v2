@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useAuth } from '@/components/Auth/AuthProvider';
 import HqShell from '@/components/Hq/HqShell';
+import ImagePicker from '@/components/Hq/ImagePicker';
 import { fetchAllUpdates, createUpdate, editUpdate, deleteUpdate } from '@/lib/updates';
 import { ApiError } from '@/lib/api';
 import styles from './HqUpdates.module.css';
@@ -149,12 +150,12 @@ export default function HqUpdates() {
           </label>
 
           <label>
-            Cover image URL
-            <input
-              type="text"
+            Cover image (optional)
+            <ImagePicker
               value={form.coverImage}
-              onChange={(ev) => setForm({ ...form, coverImage: ev.target.value })}
-              placeholder="/images/updates/example.webp (optional)"
+              onChange={(url) => setForm({ ...form, coverImage: url })}
+              token={token}
+              placeholder="Paste an image URL, or upload/choose below"
             />
           </label>
 

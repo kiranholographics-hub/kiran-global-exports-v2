@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useAuth } from '@/components/Auth/AuthProvider';
 import HqShell from '@/components/Hq/HqShell';
+import ImagePicker from '@/components/Hq/ImagePicker';
 import { fetchAllTeam, createTeamMember, editTeamMember, deleteTeamMember } from '@/lib/team';
 import { ApiError } from '@/lib/api';
 import styles from './HqTeam.module.css';
@@ -151,27 +152,25 @@ export default function HqTeam() {
             />
           </label>
 
-          <div className={styles.row}>
-            <label>
-              Photo URL
-              <input
-                type="text"
-                value={form.photo}
-                onChange={(ev) => setForm({ ...form, photo: ev.target.value })}
-                placeholder="/images/team/example.webp (optional)"
-              />
-            </label>
+          <label>
+            Photo (optional — shows initials if left blank)
+            <ImagePicker
+              value={form.photo}
+              onChange={(url) => setForm({ ...form, photo: url })}
+              token={token}
+              placeholder="Paste an image URL, or upload/choose below"
+            />
+          </label>
 
-            <label>
-              Display order
-              <input
-                type="number"
-                value={form.order}
-                onChange={(ev) => setForm({ ...form, order: ev.target.value })}
-                placeholder="0"
-              />
-            </label>
-          </div>
+          <label>
+            Display order
+            <input
+              type="number"
+              value={form.order}
+              onChange={(ev) => setForm({ ...form, order: ev.target.value })}
+              placeholder="0"
+            />
+          </label>
           <p className={styles.hint}>Lower numbers show first. Leave as 0 if it doesn't matter.</p>
 
           <label className={styles.checkboxLabel}>
