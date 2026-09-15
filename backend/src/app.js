@@ -14,6 +14,7 @@ import settingsRouter from './routes/settings.js';
 import updatesRouter from './routes/updates.js';
 import pagesRouter from './routes/pages.js';
 import testimonialsRouter from './routes/testimonials.js';
+import teamRouter from './routes/team.js';
 
 const app = express();
 
@@ -56,6 +57,7 @@ app.use('/api/settings', settingsRouter);
 app.use('/api/updates', updatesRouter);
 app.use('/api/pages', pagesRouter);
 app.use('/api/testimonials', testimonialsRouter);
+app.use('/api/team', teamRouter);
 
 app.use((_req, res) => {
   res.status(404).json({ error: 'Not found' });

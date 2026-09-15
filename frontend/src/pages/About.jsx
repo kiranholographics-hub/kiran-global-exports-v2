@@ -6,6 +6,7 @@ import ImageReveal from '@/components/ImageReveal/ImageReveal';
 import SectionHeading from '@/components/SectionHeading/SectionHeading';
 import CTASection from '@/components/CTASection/CTASection';
 import CertificationGallery from '@/components/CertificationGallery/CertificationGallery';
+import Team from '@/sections/Team/Team';
 import styles from './About.module.css';
 
 /* ═══════════════════════════════════════════════ */
@@ -116,6 +117,9 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      {/* ══ Team ══════════════════════════════════ */}
+      <Team />
 
       {/* ══ Partner Section ═══════════════════════ */}
       <section className={`section section--spacious ${styles.partnerSection}`}>

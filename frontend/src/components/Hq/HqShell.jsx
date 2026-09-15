@@ -11,6 +11,7 @@ const NAV = [
   { to: '/hq/updates', label: 'Updates', icon: '✎' },
   { to: '/hq/pages', label: 'Pages', icon: '▢' },
   { to: '/hq/testimonials', label: 'Testimonials', icon: '❝' },
+  { to: '/hq/team', label: 'Team', icon: '☺' },
 ];
 
 /**
