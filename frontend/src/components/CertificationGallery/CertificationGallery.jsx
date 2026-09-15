@@ -1,6 +1,8 @@
+import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import ScrollReveal from '@/components/ScrollReveal/ScrollReveal';
-import certifications from '@/data/certifications';
+import staticCertifications from '@/data/certifications';
+import { fetchCertifications } from '@/lib/certifications';
 import styles from './CertificationGallery.module.css';
 
 /* ═══════════════════════════════════════════════ */
@@ -11,6 +13,17 @@ export default function CertificationGallery() {
     t('certifications.chips.ethical'),
     t('certifications.chips.compliant'),
   ];
+
+  // Dashboard-managed certifications (via /hq/certifications) take over
+  // only once the owner actually publishes some — until then this keeps
+  // showing the existing built-in list, so nothing changes live on its
+  // own and nobody has to re-enter the current certificates by hand.
+  const [dashboardCerts, setDashboardCerts] = useState(null);
+  useEffect(() => {
+    fetchCertifications().then(setDashboardCerts).catch(() => setDashboardCerts([]));
+  }, []);
+  const certifications =
+    dashboardCerts && dashboardCerts.length > 0 ? dashboardCerts : staticCertifications;
 
   return (
     <section
@@ -74,7 +87,7 @@ export default function CertificationGallery() {
         >
           {certifications.map((cert, index) => (
             <ScrollReveal
-              key={cert.name}
+              key={cert.id || cert.name}
               delay={index * 0.06}
               amount={0.2}
             >
@@ -85,7 +98,7 @@ export default function CertificationGallery() {
                 {cert.image ? (
                   <img
                     src={cert.image}
-                    alt={cert.alt}
+                    alt={cert.alt || cert.name}
                     loading="lazy"
                     decoding="async"
                   />

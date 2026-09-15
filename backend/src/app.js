@@ -16,6 +16,7 @@ import pagesRouter from './routes/pages.js';
 import testimonialsRouter from './routes/testimonials.js';
 import teamRouter from './routes/team.js';
 import mediaRouter from './routes/media.js';
+import certificationsRouter from './routes/certifications.js';
 
 const app = express();
 
@@ -60,6 +61,7 @@ app.use('/api/pages', pagesRouter);
 app.use('/api/testimonials', testimonialsRouter);
 app.use('/api/team', teamRouter);
 app.use('/api/media', mediaRouter);
+app.use('/api/certifications', certificationsRouter);
 
 app.use((_req, res) => {
   res.status(404).json({ error: 'Not found' });

@@ -12,6 +12,7 @@ const NAV = [
   { to: '/hq/pages', label: 'Pages', icon: '▢' },
   { to: '/hq/testimonials', label: 'Testimonials', icon: '❝' },
   { to: '/hq/team', label: 'Team', icon: '☺' },
+  { to: '/hq/certifications', label: 'Certifications', icon: '✓' },
 ];
 
 /**
