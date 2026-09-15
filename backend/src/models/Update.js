@@ -9,6 +9,11 @@ const UpdateSchema = new mongoose.Schema(
     coverImage: { type: String, trim: true },
     published: { type: Boolean, default: true },
     publishedAt: { type: Date, default: Date.now },
+    // Set once this post is successfully auto-shared to Instagram (only
+    // attempted for published posts that have a cover image, since
+    // Instagram has no text-only post type). Absence just means it wasn't
+    // shared yet or sharing failed — never blocks saving the update itself.
+    instagramPostId: { type: String, trim: true },
   },
   { timestamps: true }
 );

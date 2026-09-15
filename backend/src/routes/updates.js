@@ -2,6 +2,7 @@ import { Router } from 'express';
 import Update from '../models/Update.js';
 import { requireAuth, requireRole } from '../auth.js';
 import { suggestSeoMeta } from '../aiClient.js';
+import { publishToInstagram, isInstagramConfigured } from '../instagramClient.js';
 
 const router = Router();
 
@@ -25,6 +26,17 @@ async function uniqueSlug(base, excludeId) {
     n += 1;
   }
   return slug;
+}
+
+// Fire-and-forget: an Instagram outage or API error should never fail the
+// admin's save, so this is never awaited by the route handler — it just
+// updates the post's own instagramPostId once (if) it succeeds.
+function shareToInstagramIfNeeded(update) {
+  if (!update.published || !update.coverImage || update.instagramPostId || !isInstagramConfigured()) return;
+  const caption = update.excerpt ? `${update.title}\n\n${update.excerpt}` : update.title;
+  publishToInstagram({ imageUrl: update.coverImage, caption })
+    .then((postId) => Update.findByIdAndUpdate(update._id, { instagramPostId: postId }))
+    .catch((err) => console.error('[updates] Instagram share failed:', err.message));
 }
 
 // ── Public ──────────────────────────────────────────────────────────
@@ -93,6 +105,7 @@ router.post('/', requireAuth, requireRole('admin'), async (req, res) => {
       published: published !== undefined ? Boolean(published) : true,
       publishedAt: publishedAt ? new Date(publishedAt) : new Date(),
     });
+    shareToInstagramIfNeeded(update);
     res.status(201).json(update.toJSON());
   } catch (err) {
     console.error('[updates] create error:', err.message);
@@ -120,6 +133,7 @@ router.patch('/:id', requireAuth, requireRole('admin'), async (req, res) => {
 
     const update = await Update.findByIdAndUpdate(req.params.id, patch, { new: true, runValidators: true });
     if (!update) return res.status(404).json({ error: 'Update not found.' });
+    shareToInstagramIfNeeded(update);
     res.json(update.toJSON());
   } catch (err) {
     console.error('[updates] update error:', err.message);
