@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
 
+import { sendWhatsApp } from './whatsapp.js';
 import authRouter from './routes/auth.js';
 import marketsRouter from './routes/markets.js';
 import enquiriesRouter from './routes/enquiries.js';
@@ -38,6 +39,18 @@ app.use(morgan(process.env.NODE_ENV === 'production' ? 'combined' : 'dev'));
 
 app.get('/api/health', (_req, res) => {
   res.json({ ok: true, service: 'kiran-global-exports-api' });
+});
+
+// Temporary — diagnoses why the WhatsApp visit-digest isn't sending, then
+// gets removed right after use. Triggers one real MSG91 test send.
+app.get('/api/_debug/whatsapp-check', async (_req, res) => {
+  const configured = {
+    MSG91_AUTH_KEY: !!process.env.MSG91_AUTH_KEY,
+    MSG91_WHATSAPP_INTEGRATED_NUMBER: !!process.env.MSG91_WHATSAPP_INTEGRATED_NUMBER,
+    NOTIFY_WHATSAPP_NUMBER: !!process.env.NOTIFY_WHATSAPP_NUMBER,
+  };
+  const result = await sendWhatsApp({ count: 1, country: 'Test', page: '/debug-check' });
+  res.json({ configured, sendResult: result });
 });
 
 app.use('/api/auth', authRouter);
