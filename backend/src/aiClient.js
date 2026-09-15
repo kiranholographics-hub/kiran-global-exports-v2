@@ -59,7 +59,7 @@ export async function getAiReply(message, history = []) {
 
   const response = await openai.chat.completions.create({
     model: process.env.OPENAI_MODEL || 'gpt-4o-mini',
-    max_tokens: 500,
+    max_completion_tokens: 500,
     messages,
   });
 
@@ -96,7 +96,7 @@ export async function suggestSeoMeta({ title, body }) {
 
   const response = await openai.chat.completions.create({
     model: process.env.OPENAI_MODEL || 'gpt-4o-mini',
-    max_tokens: 300,
+    max_completion_tokens: 300,
     response_format: { type: 'json_object' },
     messages: [
       { role: 'system', content: SEO_SYSTEM_PROMPT },
