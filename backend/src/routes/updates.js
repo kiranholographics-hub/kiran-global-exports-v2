@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import Update from '../models/Update.js';
 import { requireAuth, requireRole } from '../auth.js';
+import { suggestSeoMeta } from '../aiClient.js';
 
 const router = Router();
 
@@ -59,6 +60,20 @@ router.get('/admin/all', requireAuth, requireRole('admin'), async (_req, res) =>
   } catch (err) {
     console.error('[updates] admin list error:', err.message);
     res.status(500).json({ error: 'Could not load updates.' });
+  }
+});
+
+router.post('/suggest-seo', requireAuth, requireRole('admin'), async (req, res) => {
+  try {
+    const { title, body } = req.body || {};
+    if (!body || !String(body).trim()) {
+      return res.status(400).json({ error: 'Write the update body first, then ask for suggestions.' });
+    }
+    const suggestion = await suggestSeoMeta({ title, body: String(body).trim() });
+    res.json(suggestion);
+  } catch (err) {
+    console.error('[updates] suggest-seo error:', err.message);
+    res.status(502).json({ error: 'Could not generate suggestions right now.' });
   }
 });
 

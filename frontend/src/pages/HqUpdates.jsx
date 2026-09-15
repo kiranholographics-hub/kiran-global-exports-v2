@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { useAuth } from '@/components/Auth/AuthProvider';
 import HqShell from '@/components/Hq/HqShell';
 import ImagePicker from '@/components/Hq/ImagePicker';
-import { fetchAllUpdates, createUpdate, editUpdate, deleteUpdate } from '@/lib/updates';
+import { fetchAllUpdates, createUpdate, editUpdate, deleteUpdate, suggestUpdateSeo } from '@/lib/updates';
 import { ApiError } from '@/lib/api';
 import styles from './HqUpdates.module.css';
 
@@ -16,6 +16,7 @@ export default function HqUpdates() {
   const [editingId, setEditingId] = useState(null);
   const [form, setForm] = useState(EMPTY_FORM);
   const [saving, setSaving] = useState(false);
+  const [suggesting, setSuggesting] = useState(false);
 
   const load = useCallback(async () => {
     try {
@@ -80,6 +81,23 @@ export default function HqUpdates() {
       await load();
     } catch (err) {
       setError(err instanceof ApiError ? err.message : 'Could not update this post.');
+    }
+  };
+
+  const handleSuggestSeo = async () => {
+    setError('');
+    setSuggesting(true);
+    try {
+      const suggestion = await suggestUpdateSeo(token, { title: form.title, body: form.body });
+      setForm((f) => ({
+        ...f,
+        title: suggestion.title || f.title,
+        excerpt: suggestion.excerpt || f.excerpt,
+      }));
+    } catch (err) {
+      setError(err instanceof ApiError ? err.message : 'Could not generate suggestions right now.');
+    } finally {
+      setSuggesting(false);
     }
   };
 
@@ -148,6 +166,21 @@ export default function HqUpdates() {
               required
             />
           </label>
+
+          <div>
+            <button
+              type="button"
+              className={styles.ghostBtn}
+              onClick={handleSuggestSeo}
+              disabled={suggesting || !form.body.trim()}
+            >
+              {suggesting ? 'Thinking…' : '✨ Suggest SEO title & excerpt'}
+            </button>
+            <p className={styles.hint}>
+              Uses AI to suggest a search-friendly title and excerpt from what you've written
+              above — write the body first, then tweak the suggestion if needed.
+            </p>
+          </div>
 
           <label>
             Cover image (optional)

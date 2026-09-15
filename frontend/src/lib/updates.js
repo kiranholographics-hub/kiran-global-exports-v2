@@ -46,3 +46,10 @@ export function editUpdate(token, id, payload) {
 export function deleteUpdate(token, id) {
   return request(`/api/updates/${id}`, token, { method: 'DELETE' });
 }
+
+export function suggestUpdateSeo(token, { title, body }) {
+  return request('/api/updates/suggest-seo', token, {
+    method: 'POST',
+    body: JSON.stringify({ title, body }),
+  });
+}

@@ -67,3 +67,54 @@ export async function getAiReply(message, history = []) {
   if (!reply) throw new Error('No content in AI response');
   return reply;
 }
+
+const SEO_SYSTEM_PROMPT = `
+You are an SEO copywriter for Kiran Global Exports, a B2B cotton towel/bathrobe and linen
+exporter. Given a draft post's title and body, suggest a better page title and meta
+description for search engines.
+
+Rules:
+- Base everything only on the text given — never invent facts, prices, certifications or
+  claims that aren't in the body.
+- Match the plain, factual tone already used on the site — no hype, no exaggerated claims.
+- title: specific and keyword-rich (what a B2B buyer would actually search for), under 60
+  characters, no clickbait, no surrounding quote marks.
+- excerpt: a natural meta-description summarizing the post, 120-155 characters.
+- Reply with ONLY a JSON object: {"title": "...", "excerpt": "..."}
+- Write in the same language as the input body.
+`.trim();
+
+/**
+ * @param {{ title?: string, body: string }} draft
+ * @returns {Promise<{ title: string, excerpt: string }>}
+ */
+export async function suggestSeoMeta({ title, body }) {
+  const openai = getClient();
+  if (!openai) {
+    throw new Error('OPENAI_API_KEY not configured');
+  }
+
+  const response = await openai.chat.completions.create({
+    model: process.env.OPENAI_MODEL || 'gpt-4o-mini',
+    max_tokens: 300,
+    response_format: { type: 'json_object' },
+    messages: [
+      { role: 'system', content: SEO_SYSTEM_PROMPT },
+      { role: 'user', content: `Draft title: ${title || '(none yet)'}\n\nBody:\n${body}` },
+    ],
+  });
+
+  const raw = response.choices?.[0]?.message?.content;
+  if (!raw) throw new Error('No content in AI response');
+
+  let parsed;
+  try {
+    parsed = JSON.parse(raw);
+  } catch {
+    throw new Error('Could not parse AI response');
+  }
+  return {
+    title: typeof parsed.title === 'string' ? parsed.title.trim() : '',
+    excerpt: typeof parsed.excerpt === 'string' ? parsed.excerpt.trim() : '',
+  };
+}
