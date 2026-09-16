@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useId, useRef, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import ChatHeader from './ChatHeader';
 import ChatGate from './ChatGate';
@@ -81,6 +82,25 @@ function saveHistory(messages) {
 export default function AIChat() {
   const [open, setOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  // On the homepage's full-screen mobile hero, this fixed launcher sits
+  // right on top of the hero's own CTA buttons — so there it stays hidden
+  // until the visitor has scrolled roughly past the hero. Every other page
+  // has no such collision, so it's always shown there.
+  const { pathname } = useLocation();
+  const isHome = pathname === '/';
+  const [pastHero, setPastHero] = useState(!isHome);
+
+  useEffect(() => {
+    if (!isHome) {
+      setPastHero(true);
+      return undefined;
+    }
+    setPastHero(window.scrollY > window.innerHeight * 0.8);
+    const handler = () => setPastHero(window.scrollY > window.innerHeight * 0.8);
+    window.addEventListener('scroll', handler, { passive: true });
+    return () => window.removeEventListener('scroll', handler);
+  }, [isHome]);
 
   const initialLead = useRef(loadLead()).current;
   const [stage, setStage] = useState(initialLead?.stage || 'gate'); // gate | pending | declined | error | chat
@@ -275,7 +295,7 @@ export default function AIChat() {
   const showSuggestions = stage === 'chat' && messages.length === 1 && messages[0].id === 'welcome';
 
   return (
-    <div className={styles.root}>
+    <div className={styles.root} hidden={!pastHero}>
       <AnimatePresence>
         {open && (
           <motion.section

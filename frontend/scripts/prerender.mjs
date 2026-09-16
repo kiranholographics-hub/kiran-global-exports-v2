@@ -64,9 +64,13 @@ const MIME_TYPES = {
 const STATIC_ROUTES = [
   '/',
   '/about',
+  '/towels',
+  '/linen',
+  '/collections',
   '/custom',
   '/export',
   '/contact',
+  '/updates',
   '/privacy-policy',
   '/terms-and-conditions',
 ];

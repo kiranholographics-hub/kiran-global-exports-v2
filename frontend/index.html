@@ -6,6 +6,13 @@
     <link rel="apple-touch-icon" href="/favicon.svg" />
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#1e1a17" />
+
+    <!-- Hero poster — the first thing painted above the fold; loading it
+         eagerly avoids a black hero on slow connections while the video
+         itself is still fetching (preload="none" on the <video>). -->
+    <link rel="preload" as="image" href="/images/hero/hero-poster-mobile.webp" media="(max-width: 767px)" />
+    <link rel="preload" as="image" href="/images/hero/hero-poster-desktop.webp" media="(min-width: 768px)" />
 
     <!-- Google Search Console ownership verification — do not remove, even after verification succeeds -->
     <meta name="google-site-verification" content="m7YIWiCX8Z1EKNbqvd9uMmrgWSxxXP5yR4V1FoZxIi0" />
@@ -40,6 +47,16 @@
     </script>
   </head>
   <body>
+    <noscript>
+      <div style="font-family: system-ui, sans-serif; max-width: 40rem; margin: 4rem auto; padding: 0 1.5rem; text-align: center; color: #1e1a17;">
+        <h1 style="font-size: 1.5rem; margin-bottom: 1rem;">Kiran Global Exports</h1>
+        <p>This site needs JavaScript enabled to display properly. Please enable JavaScript, or reach our export team directly:</p>
+        <p style="margin-top: 1rem;">
+          Email: <a href="mailto:exportskiranglobal@gmail.com">exportskiranglobal@gmail.com</a><br />
+          Phone / WhatsApp: <a href="tel:+919983911181">+91 99839 11181</a>
+        </p>
+      </div>
+    </noscript>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { waLink, mailtoLink, telLink } from '@/data/config';
@@ -84,7 +84,27 @@ function resolveHref(link) {
 /* ═══════════════════════════════════════════════ */
 export default function FloatingInquire() {
   const { t } = useTranslation();
+  const { pathname } = useLocation();
   const [open, setOpen] = useState(false);
+
+  // Only the homepage has the full-screen hero — on mobile its CTA
+  // buttons sit right where this fixed trigger also lives, so on that
+  // one page it stays hidden until the visitor has scrolled roughly past
+  // the hero (rather than shifting it and colliding with something else
+  // further down instead).
+  const isHome = pathname === '/';
+  const [pastHero, setPastHero] = useState(!isHome);
+
+  useEffect(() => {
+    if (!isHome) {
+      setPastHero(true);
+      return undefined;
+    }
+    setPastHero(window.scrollY > window.innerHeight * 0.8);
+    const handler = () => setPastHero(window.scrollY > window.innerHeight * 0.8);
+    window.addEventListener('scroll', handler, { passive: true });
+    return () => window.removeEventListener('scroll', handler);
+  }, [isHome]);
 
   /* Close on Escape key */
   useEffect(() => {
@@ -121,7 +141,7 @@ export default function FloatingInquire() {
         )}
       </AnimatePresence>
 
-      <div className={styles.wrap}>
+      <div className={styles.wrap} hidden={!pastHero}>
 
         {/* ── Panel ───────────────────────────── */}
         <AnimatePresence>

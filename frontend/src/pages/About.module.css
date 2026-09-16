@@ -23,6 +23,11 @@
 
 /* ── Image ───────────────────────────────────── */
 .image {
+  /* A grid item's default min-width is auto, not 0 — without this, the
+     <img>'s own natural pixel width can force this track (and the whole
+     single-column grid) wider than the viewport on mobile, overflowing
+     it by the difference. */
+  min-width: 0;
   aspect-ratio: 4 / 5;
   overflow: hidden;
   border: 1px solid var(--border-subtle);

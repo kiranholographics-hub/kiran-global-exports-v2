@@ -95,7 +95,10 @@ export default function MobileNav({ open, onClose }) {
           {/* ── Nav Links ─────────────────────── */}
           <nav aria-label={t('mobileNav.primaryAria')}>
             <ul>
-              {siteConfig.nav.filter((item) => !item.hideFromHeader).map((item, i) => (
+              {/* hideFromHeader only keeps the desktop nav bar from getting
+                  crowded — this full-screen mobile menu has room for every
+                  link, Updates included. */}
+              {siteConfig.nav.map((item, i) => (
                 <motion.li
                   key={item.href}
                   className={styles.navItem}

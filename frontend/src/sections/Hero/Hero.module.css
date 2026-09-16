@@ -360,7 +360,7 @@
   align-items: center;
   gap: 0.5rem;
   color: var(--text-muted-inverse);
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -391,6 +391,14 @@
 
   .badge {
     display: flex;
+  }
+}
+
+@media (max-width: 767px) {
+  /* On mobile the scroll-linked parallax (180vh) just adds dead scroll
+     distance before the page settles — one screen is enough here. */
+  .hero {
+    height: 100svh;
   }
 }
 

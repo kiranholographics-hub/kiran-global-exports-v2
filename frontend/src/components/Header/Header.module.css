@@ -210,11 +210,18 @@
 }
 
 /* ── Hamburger Menu ──────────────────────────── */
+/* min-width/min-height give a real 44x44 tap target without changing how
+   big the three bars themselves look — they stay 28px wide, just
+   centered in more tappable padding around them. */
 .hamburger {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 5px;
   width: 28px;
+  min-width: 44px;
+  min-height: 44px;
   padding: 0.5rem 0;
   flex: 0 0 auto;
   cursor: pointer;
@@ -227,7 +234,7 @@
 
 .hamburger span {
   display: block;
-  width: 100%;
+  width: 28px;
   height: 1.5px;
   background: currentColor;
   transform-origin: center;
@@ -343,8 +350,13 @@
   }
 }
 
-/* ── 380px and below ─────────────────────────── */
-@media (max-width: 380px) {
+/* ── 480px and below ──────────────────────────── */
+/* Below this width the centered logo (mark + wordmark, positioned
+   absolute/centered by the 1079px rule above) gets wide enough that its
+   right edge runs under the language switcher on the right — measured
+   overlap at 390px. Dropping back to just the "KGE" mark removes the
+   overlap outright instead of trying to squeeze both to fit. */
+@media (max-width: 480px) {
   .logoWord {
     display: none;
   }

@@ -54,15 +54,7 @@ export default function Hero() {
           style={{ y, opacity }}
         >
 
-          {/* Visually-hidden H1 — every page needs exactly one H1 with real
-              keyword + value-prop text for SEO/accessibility, but the
-              visible design only shows the small eyebrow below. Present in
-              the DOM and readable by crawlers/screen readers, invisible on
-              screen. */}
-          <h1 className="sr-only">{t('home.hero.headline')}</h1>
-
-          {/* Eyebrow — sole visible heading text; the previous large H1 +
-              subtitle were removed so the hero video shows unobstructed. */}
+          {/* Eyebrow */}
           <motion.p
             className={styles.eyebrow}
             initial={{ opacity: 0, y: 14 }}
@@ -70,6 +62,28 @@ export default function Hero() {
             transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
           >
             {t('home.hero.eyebrow')}
+          </motion.p>
+
+          {/* Headline — a mobile visitor's first screen had no visible text
+              explaining what the company does; this is the actual H1,
+              visible on every viewport, not just present for crawlers. */}
+          <motion.h1
+            className={styles.headline}
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+          >
+            {t('home.hero.headline')}
+          </motion.h1>
+
+          {/* Subtitle */}
+          <motion.p
+            className={styles.subtitle}
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+          >
+            {t('home.hero.subtitle')}
           </motion.p>
 
           {/* CTA Buttons */}

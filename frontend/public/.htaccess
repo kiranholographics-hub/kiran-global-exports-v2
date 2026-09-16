@@ -1,6 +1,8 @@
-# SPA fallback for static Apache hosting (e.g. Hostinger). Only needed if
-# dist/ is served directly by Apache instead of server.js — Express already
-# handles this itself (see server.js). Harmless either way.
+# Live production hosting is Apache/static (confirmed by the working
+# www-redirect below, which only exists here — server.js has no such
+# logic). server.js is kept for local `npm run serve` testing / a future
+# move off static hosting, but THIS file is what actually governs the
+# live site — keep the two in sync when routes change.
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
@@ -15,7 +17,38 @@
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteRule ^ - [L]
 
-  # Everything else falls back to the SPA shell so React Router can handle
-  # deep links like /towels/bath-towels/bath-towel on a hard refresh.
-  RewriteRule ^ /index.html [L]
+  # Known SPA routes (see App.jsx) fall back to the shell so React Router
+  # can handle deep links like /towels/bath-towels/bath-towel on a hard
+  # refresh. Market pages (/usa, /australia, ...) are a live, admin-edited
+  # list (see /hq) that a static rewrite file can't query — the slugs
+  # below are what's active as of this deploy; add a new one here when a
+  # market goes live, same as prerender.mjs already needs to know about it.
+  RewriteRule ^(about|towels|linen|collections|export|custom|contact|updates|pages|privacy-policy|terms-and-conditions|hq|norway|sweden|finland|poland|south-america|canada|usa|australia)(/.*)?$ /index.html [L]
+
+  # Anything else is a genuine unknown URL — serve the SPA shell (so
+  # React Router's own <NotFound> page renders) but with a real 404
+  # status, not a silent 200. mod_rewrite can't itself change the status
+  # code, so this hands off to mod_alias's ErrorDocument instead.
+  RewriteRule ^ - [L]
+</IfModule>
+
+# The line above lets non-matching requests fall through to here with no
+# rewrite applied — Apache's normal 404 kicks in for a URL that isn't a
+# real file, and this tells it to serve the SPA shell (still tagged 404)
+# instead of the server's default error page.
+ErrorDocument 404 /index.html
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType video/mp4      "access plus 30 days"
+  ExpiresByType image/webp     "access plus 30 days"
+  ExpiresByType image/jpeg     "access plus 30 days"
+  ExpiresByType image/png      "access plus 30 days"
+  ExpiresByType font/woff2     "access plus 30 days"
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(mp4|webm|webp|jpg|jpeg|png|woff2)$">
+    Header set Cache-Control "public, max-age=2592000, immutable"
+  </FilesMatch>
 </IfModule>
