@@ -482,6 +482,32 @@
       "title": "Solapur, Maharashtra",
       "mapLink": "Open in Google Maps ↗"
     },
+    "linenPartner": {
+      "eyebrow": "Our Linen Partner",
+      "title": "Cotonex — GOTS-certified organic cotton manufacturing.",
+      "lead": "Kiran Global Exports works in partnership with Cotonex, a GOTS-certified organic cotton manufacturer based in Karur, Tamil Nadu. Together, we serve international buyers with certified organic linen developed around their specifications and compliance requirements.",
+      "tagline": "GOTS Certified · Organic Cotton",
+      "certLabel": "License GOTS-BVIN0317",
+      "location": "Karur, Tamil Nadu",
+      "copy1": "Cotonex is certified to the Global Organic Textile Standard (GOTS, Version 7.0) for home textiles, carried accessories, worn accessories, outdoor and dyed fabrics — audited and certified by Bureau Veritas under License GOTS-BVIN0317.",
+      "copy2": "The certified range spans bed linen, bath and kitchen linen, blankets and quilts, carpets and rugs, cushions and pillows, and woven fabrics, all built on 100% organic cotton.",
+      "copy3": "This certification lets Kiran Global Exports offer a genuinely organic linen program alongside our towel range, backed by independent, audited compliance rather than a self-declared claim."
+    },
+    "cotonexProducts": [
+      "Bed Linen",
+      "Bath & Kitchen Linen",
+      "Blankets & Quilts",
+      "Carpets & Rugs",
+      "Cushions & Pillows",
+      "Woven Fabrics",
+      "Bags & Totes",
+      "Aprons & Gloves"
+    ],
+    "linenLocationCard": {
+      "eyebrow": "Partner Location",
+      "title": "Karur, Tamil Nadu",
+      "mapLink": "Open in Google Maps ↗"
+    },
     "cta": {
       "eyebrow": "Work With Us",
       "title": "Let's talk about your market.",

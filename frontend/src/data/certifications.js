@@ -5,8 +5,15 @@
 // A `text`-only entry (no image) renders as a plain compliance line for
 // regulations that have no certificate to display (REACH, GPSR).
 const MUNDADA = 'Held by our manufacturing partner, V P Mundada (Solapur)';
+const COTONEX = 'Held by our linen manufacturing partner, Cotonex (Karur)';
 
 const certifications = [
+  {
+    name: 'GOTS Certified',
+    image: '/images/certifications/gots.webp',
+    alt: 'Global Organic Textile Standard (GOTS) certification — held by our linen manufacturing partner, Cotonex (Karur)',
+    caption: `${COTONEX} · License GOTS-BVIN0317 · Issued by Bureau Veritas`,
+  },
   {
     name: 'amfori Trade with Purpose',
     image: '/images/certifications/amfori.webp',

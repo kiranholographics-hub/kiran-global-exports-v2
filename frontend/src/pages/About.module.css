@@ -318,6 +318,17 @@
   filter: saturate(1.1);
 }
 
+/* Text wordmark fallback — for a partner with no logo asset yet */
+.partnerWordmark {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-charcoal);
+  text-align: center;
+}
+
 /* ── Partner Tagline ─────────────────────────── */
 .partnerTagline {
   margin-top: var(--space-sm);

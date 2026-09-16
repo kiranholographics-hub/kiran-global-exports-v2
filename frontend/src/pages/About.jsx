@@ -14,6 +14,7 @@ export default function AboutPage() {
   const { t } = useTranslation();
   const PILLARS = t('about.approach.pillars', { returnObjects: true });
   const MUNDADA_PRODUCTS = t('about.mundadaProducts', { returnObjects: true });
+  const COTONEX_PRODUCTS = t('about.cotonexProducts', { returnObjects: true });
 
   return (
     <>
@@ -222,6 +223,100 @@ export default function AboutPage() {
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 aria-label="Map showing Mundada Towels location in Solapur"
+              />
+            </ScrollReveal>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ══ Linen Partner Section ═════════════════ */}
+      <section className={`section section--spacious ${styles.partnerSection}`}>
+        <div className="container">
+
+          <ScrollReveal>
+            <SectionHeading
+              eyebrow={t('about.linenPartner.eyebrow')}
+              title={t('about.linenPartner.title')}
+            />
+            <p className={styles.partnerLead}>
+              {t('about.linenPartner.lead')}
+            </p>
+          </ScrollReveal>
+
+          {/* Partner Grid */}
+          <div className={styles.partnerGrid}>
+
+            {/* Brand Card — no logo asset yet, so a text wordmark stands in */}
+            <ScrollReveal delay={0.1}>
+              <div className={styles.partnerBrandCard}>
+                <div className={styles.logoWrap}>
+                  <span className={styles.partnerWordmark}>Cotonex</span>
+                </div>
+                <p className={styles.partnerTagline}>
+                  {t('about.linenPartner.tagline')}
+                </p>
+                <div className={styles.partnerMeta}>
+                  <span>{t('about.linenPartner.certLabel')}</span>
+                  <span>{t('about.linenPartner.location')}</span>
+                </div>
+              </div>
+            </ScrollReveal>
+
+            {/* Partner Content */}
+            <ScrollReveal delay={0.15} className={styles.partnerContent}>
+              <p className={styles.copy}>
+                {t('about.linenPartner.copy1')}
+              </p>
+              <p className={styles.copy}>
+                {t('about.linenPartner.copy2')}
+              </p>
+              <p className={styles.copy}>
+                {t('about.linenPartner.copy3')}
+              </p>
+
+              {/* Product Tags */}
+              <div
+                className={styles.productTags}
+                aria-label="Product types"
+              >
+                {COTONEX_PRODUCTS.map((product) => (
+                  <span key={product}>{product}</span>
+                ))}
+              </div>
+            </ScrollReveal>
+
+          </div>
+
+          {/* Location Grid */}
+          <div className={styles.locationGrid}>
+
+            {/* Location Card */}
+            <ScrollReveal className={styles.locationCard}>
+              <p className="eyebrow">{t('about.linenLocationCard.eyebrow')}</p>
+              <h3>{t('about.linenLocationCard.title')}</h3>
+              <p>
+                182/2C-1, Poornima Garden, Vennaimalai,<br />
+                Vengamedu, Karur 639006, Tamil Nadu, India
+              </p>
+              <a
+                className={styles.mapLink}
+                href="https://www.google.com/maps/search/?api=1&query=182%2F2C-1%2C%20Poornima%20Garden%2C%20Vennaimalai%2C%20Vengamedu%2C%20Karur%20639006%2C%20Tamil%20Nadu"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {t('about.linenLocationCard.mapLink')}
+              </a>
+            </ScrollReveal>
+
+            {/* Map */}
+            <ScrollReveal delay={0.1} className={styles.mapCard}>
+              <iframe
+                title="Cotonex location in Karur"
+                src="https://www.google.com/maps?q=182%2F2C-1%2C%20Poornima%20Garden%2C%20Vennaimalai%2C%20Vengamedu%2C%20Karur%20639006%2C%20Tamil%20Nadu&output=embed"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                aria-label="Map showing Cotonex location in Karur"
               />
             </ScrollReveal>
 
