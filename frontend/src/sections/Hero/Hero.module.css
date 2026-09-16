@@ -153,27 +153,6 @@
   flex-shrink: 0;
 }
 
-/* ── Headline ────────────────────────────────── */
-.headline {
-  font-family: var(--font-serif);
-  font-weight: 500;
-  font-size: var(--fs-display);
-  line-height: var(--lh-tight);
-  max-width: 18ch;
-  letter-spacing: -0.025em;
-
-  /* Warm gradient */
-  background: linear-gradient(
-    145deg,
-    #fffdf9 0%,
-    #f2ebe0 55%,
-    #ddc9a8 100%
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
 /* Word mask — stagger reveal */
 .wordMask {
   display: inline-block;
@@ -185,17 +164,6 @@
 .word {
   display: inline-block;
   will-change: transform;
-}
-
-/* ── Subtitle ────────────────────────────────── */
-.subtitle {
-  margin-top: var(--space-md);
-  font-size: var(--fs-lead);
-  font-weight: 300;
-  color: var(--text-muted-inverse);
-  max-width: 42ch;
-  line-height: var(--lh-body);
-  letter-spacing: 0.01em;
 }
 
 /* ── Actions Row ─────────────────────────────── */
@@ -403,24 +371,6 @@
 }
 
 @media (max-width: 640px) {
-  /* Desktop's headline reads as compact because the video does most of
-     the talking there; at phone width the same font-size wrapped to 5
-     lines and buried the video entirely. Shrinking it — and clamping the
-     subtitle to 2 lines — brings mobile back to that same "video first,
-     modest text" balance instead of a wall of text on top of it. */
-  .headline {
-    max-width: 100%;
-    letter-spacing: -0.015em;
-    font-size: clamp(2rem, 9vw, 2.75rem);
-  }
-
-  .subtitle {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    overflow: hidden;
-  }
-
   .actions {
     flex-direction: column;
     align-items: stretch;
@@ -435,12 +385,6 @@
 
   .eyebrow::before {
     width: 1.25rem;
-  }
-}
-
-@media (max-width: 380px) {
-  .subtitle {
-    font-size: 1rem;
   }
 }
 

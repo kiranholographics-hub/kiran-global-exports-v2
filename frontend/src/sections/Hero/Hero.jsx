@@ -64,27 +64,18 @@ export default function Hero() {
             {t('home.hero.eyebrow')}
           </motion.p>
 
-          {/* Headline — a mobile visitor's first screen had no visible text
-              explaining what the company does; this is the actual H1,
-              visible on every viewport, not just present for crawlers. */}
-          <motion.h1
-            className={styles.headline}
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-          >
+          {/* Headline — kept as a real H1 for SEO/screen readers, but the
+              owner wants the hero showing only the eyebrow + CTAs on every
+              device, so it's visually hidden (sr-only) rather than removed
+              outright. */}
+          <h1 className="sr-only">
             {t('home.hero.headline')}
-          </motion.h1>
+          </h1>
 
-          {/* Subtitle */}
-          <motion.p
-            className={styles.subtitle}
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          >
+          {/* Subtitle — same reasoning as the headline above. */}
+          <p className="sr-only">
             {t('home.hero.subtitle')}
-          </motion.p>
+          </p>
 
           {/* CTA Buttons */}
           <motion.div

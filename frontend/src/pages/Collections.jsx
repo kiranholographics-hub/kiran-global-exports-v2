@@ -38,6 +38,30 @@ const productsFor = (match) =>
     product.applications?.some((item) => match.includes(item))
   );
 
+// Linen products all happen to have been added more recently than most
+// Towel products, so a plain `.slice(0, 4)` on the applications-matched
+// list — sorted newest first by the API — was picking almost entirely
+// Linen items even on worlds where Towels were the majority match.
+// Interleaving by category guarantees each world's preview is a mix of
+// both, same as the actual catalogue underneath it.
+const pickBalanced = (products, limit = 4) => {
+  const byCategory = new Map();
+  for (const product of products) {
+    const list = byCategory.get(product.category) ?? [];
+    list.push(product);
+    byCategory.set(product.category, list);
+  }
+  const queues = [...byCategory.values()];
+  const picked = [];
+  let i = 0;
+  while (picked.length < limit && queues.some((q) => q.length)) {
+    const queue = queues[i % queues.length];
+    if (queue.length) picked.push(queue.shift());
+    i += 1;
+  }
+  return picked;
+};
+
 /* ── Hero animation ────────────────────────────── */
 const heroVariants = {
   eyebrow: {
@@ -138,7 +162,8 @@ export default function CollectionsPage() {
       {/* ══ Collection Worlds ═════════════════════ */}
       <div id="collection-list">
         {WORLD_SLUGS.map((world) => {
-          const products = productsFor(world.match);
+          const matched = productsFor(world.match);
+          const products = pickBalanced(matched, 4);
           const linenItems = (world.linen || []).map((slug) => linenBySlug.get(slug)).filter(Boolean);
           if (!products.length && !linenItems.length) return null;
           const name = t(`home.collectionsShowcase.worlds.${world.id}.name`);
@@ -175,7 +200,7 @@ export default function CollectionsPage() {
                   role="list"
                   aria-label={`${name} products`}
                 >
-                  {products.slice(0, 4).map((product, i) => (
+                  {products.map((product, i) => (
                     <ScrollReveal
                       key={product.id}
                       delay={i * 0.07}
@@ -188,7 +213,7 @@ export default function CollectionsPage() {
                   {linenItems.map((item, i) => (
                     <ScrollReveal
                       key={item.slug}
-                      delay={(products.slice(0, 4).length + i) * 0.07}
+                      delay={(products.length + i) * 0.07}
                     >
                       <div role="listitem">
                         <LinenTile slug={item.slug} image={item.image} />
@@ -197,8 +222,8 @@ export default function CollectionsPage() {
                   ))}
                 </div>
 
-                {/* View more — if more than 4 products */}
-                {products.length > 4 && (
+                {/* View more — if more matches exist beyond this preview */}
+                {matched.length > products.length && (
                   <ScrollReveal delay={0.3}>
                     <Link
                       to={world.href}
