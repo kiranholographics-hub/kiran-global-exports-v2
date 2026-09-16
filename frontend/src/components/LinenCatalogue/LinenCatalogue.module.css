@@ -668,15 +668,34 @@
     text-align: center;
   }
 
+  /* Horizontal swipe carousel — a stacked single column of category
+     cards was most of this page's mobile scroll length. */
   .categoryGrid {
-    grid-template-columns: 1fr;
-    padding-bottom: 4rem;
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 1.25rem;
+    margin-inline: calc(-1 * var(--page-gutter));
+    padding-inline: var(--page-gutter);
+    padding-bottom: 1rem;
+    scrollbar-width: none;
+  }
+
+  .categoryGrid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .categoryGrid > * {
+    flex: 0 0 78%;
+    width: auto;
+    scroll-snap-align: start;
   }
 
   .categoryCard,
   .categoryCard:nth-child(2n) {
     margin-top: 0;
-    grid-column: span 1;
   }
 
   .categoryMedia { aspect-ratio: 1.05; }

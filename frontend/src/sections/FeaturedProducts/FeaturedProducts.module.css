@@ -336,11 +336,31 @@
   }
 }
 
-/* ── Mobile — single column ──────────────────── */
+/* ── Mobile — horizontal swipe carousel ──────────
+   A stacked single column here meant scrolling past 6 full-height
+   product cards just to reach the next section. Swiping sideways
+   through them instead keeps the section short top-to-bottom. */
 @media (max-width: 480px) {
   .grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 1.25rem;
+    margin-inline: calc(-1 * var(--page-gutter));
+    padding-inline: var(--page-gutter);
+    padding-bottom: 0.5rem;
+    scrollbar-width: none;
+  }
+
+  .grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .grid > * {
+    flex: 0 0 78%;
+    scroll-snap-align: start;
   }
 
   .card:nth-child(2),

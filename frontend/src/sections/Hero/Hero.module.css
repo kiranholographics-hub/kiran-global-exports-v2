@@ -403,9 +403,22 @@
 }
 
 @media (max-width: 640px) {
+  /* Desktop's headline reads as compact because the video does most of
+     the talking there; at phone width the same font-size wrapped to 5
+     lines and buried the video entirely. Shrinking it — and clamping the
+     subtitle to 2 lines — brings mobile back to that same "video first,
+     modest text" balance instead of a wall of text on top of it. */
   .headline {
     max-width: 100%;
     letter-spacing: -0.015em;
+    font-size: clamp(2rem, 9vw, 2.75rem);
+  }
+
+  .subtitle {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
   }
 
   .actions {
