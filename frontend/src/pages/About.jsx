@@ -2,7 +2,6 @@ import { useTranslation } from 'react-i18next';
 import SEO from '@/components/SEO/SEO';
 import PageIntro from '@/components/PageIntro/PageIntro';
 import ScrollReveal from '@/components/ScrollReveal/ScrollReveal';
-import ImageReveal from '@/components/ImageReveal/ImageReveal';
 import SectionHeading from '@/components/SectionHeading/SectionHeading';
 import CTASection from '@/components/CTASection/CTASection';
 import CertificationGallery from '@/components/CertificationGallery/CertificationGallery';
@@ -33,40 +32,6 @@ export default function AboutPage() {
           { label: t('nav.about') },
         ]}
       />
-
-      {/* ══ Brand Story ═══════════════════════════ */}
-      <section className="section section--spacious">
-        <div className={`container ${styles.grid}`}>
-
-          {/* Image */}
-          <ScrollReveal direction="left">
-            <ImageReveal
-              src="/images/about/about.webp"
-              alt="Textile production floor"
-              label="About — Production"
-              className={styles.image}
-            />
-          </ScrollReveal>
-
-          {/* Text */}
-          <ScrollReveal delay={0.12}>
-            <h2 className={styles.heading}>
-              {t('about.brandStory.heading')}
-            </h2>
-            <div
-              className={styles.divider}
-              aria-hidden="true"
-            />
-            <p className={styles.copy}>
-              {t('about.brandStory.copy1')}
-            </p>
-            <p className={styles.copy}>
-              {t('about.brandStory.copy2')}
-            </p>
-          </ScrollReveal>
-
-        </div>
-      </section>
 
       {/* ══ Company Structure ═════════════════════ */}
       <section className={styles.structureSection}>
