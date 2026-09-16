@@ -12,7 +12,7 @@ const certifications = [
     name: 'GOTS Certified',
     image: '/images/certifications/gots.webp',
     alt: 'Global Organic Textile Standard (GOTS) certification — held by our linen manufacturing partner, Cotonex (Karur)',
-    caption: `${COTONEX} · License GOTS-BVIN0317 · Issued by Bureau Veritas`,
+    caption: `${COTONEX} · GOTS Version 7.0, 100% organic cotton · License GOTS-BVIN0317 · Issued by Bureau Veritas`,
   },
   {
     name: 'amfori Trade with Purpose',
