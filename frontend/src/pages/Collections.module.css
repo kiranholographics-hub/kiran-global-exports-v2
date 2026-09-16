@@ -550,9 +550,29 @@
     font-size: clamp(2.55rem, 13vw, 3.6rem);
   }
 
+  /* Horizontal swipe carousel — a stacked single column of product
+     cards was most of each world section's mobile scroll length. */
   .grid {
-    grid-template-columns: 1fr;
-    gap: 2.75rem;
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 1.25rem;
+    margin-inline: calc(-1 * var(--page-gutter));
+    padding-inline: var(--page-gutter);
+    padding-bottom: 0.5rem;
+    scrollbar-width: none;
+  }
+
+  .grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .grid > * {
+    flex: 0 0 78%;
+    width: auto;
+    scroll-snap-align: start;
   }
 
   .custom {
