@@ -18,6 +18,26 @@ kiran-global-exports-v2/
                 live job is receiving contact-form inquiries.
 ```
 
+## This is the active repo — live deployment topology
+
+This repo (`kiran-global-exports-v2`) is the **canonical, actively developed**
+codebase. Live hosting on Hostinger is split across two site entries:
+
+- **`kiranglobal-exports.com`** — serves the static production build of
+  `frontend/` (built with `npm run build`, uploaded as static files;
+  `.htaccess` handles SPA routing — see `frontend/public/.htaccess`).
+- **`api.kiranglobal-exports.com`** — runs `backend/` from this repo. It
+  must stay on this repo's backend, not the sibling repo's — see below.
+
+There is a sibling repo, [`kiran-global-exports-frontend`](https://github.com/kiranholographics-hub/kiran-global-exports-frontend),
+from an earlier stage of this project. Its `frontend/` is functionally
+identical to this repo's (same source, verified by diff). Its `backend/`
+is an **older, superseded** version missing the auth/JWT, Team,
+Testimonials, Certifications, Updates, and Markets routes and models that
+this repo's `frontend/` (the HQ dashboard at `/hq/*`) depends on — do not
+point `api.kiranglobal-exports.com` at that repo's backend, and treat that
+repo as historical reference only, not a deploy target.
+
 ## Quick start
 
 ```bash
