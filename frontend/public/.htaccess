@@ -40,7 +40,8 @@ ErrorDocument 404 /index.html
 
 <IfModule mod_expires.c>
   ExpiresActive On
-  ExpiresByType video/mp4      "access plus 30 days"
+  ExpiresByType video/mp4      "access plus 1 day"
+  ExpiresByType video/webm     "access plus 1 day"
   ExpiresByType image/webp     "access plus 30 days"
   ExpiresByType image/jpeg     "access plus 30 days"
   ExpiresByType image/png      "access plus 30 days"
@@ -48,7 +49,14 @@ ErrorDocument 404 /index.html
 </IfModule>
 
 <IfModule mod_headers.c>
-  <FilesMatch "\.(mp4|webm|webp|jpg|jpeg|png|woff2)$">
+  <!-- Short, non-immutable cache for videos: these get manually swapped
+       in place (same filename) via File Manager, unlike hashed JS/CSS
+       bundles, so a long immutable cache would hide a real replacement
+       from every browser that already fetched the old file. -->
+  <FilesMatch "\.(mp4|webm)$">
+    Header set Cache-Control "public, max-age=86400"
+  </FilesMatch>
+  <FilesMatch "\.(webp|jpg|jpeg|png|woff2)$">
     Header set Cache-Control "public, max-age=2592000, immutable"
   </FilesMatch>
 </IfModule>
