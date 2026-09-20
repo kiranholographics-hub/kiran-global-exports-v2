@@ -149,9 +149,9 @@ jobs:
             console.log('Copied ' + count + ' dynamic asset files to dist_add_only/assets.');
           }
 
-          const htaccessContent = 'Options -MultiViews\nRewriteEngine On\n\n# Serve existing static files and directories directly\nRewriteCond %{REQUEST_FILENAME} -f [OR]\nRewriteCond %{REQUEST_FILENAME} -d\nRewriteRule ^ - [L]\n\n# SPA Fallback\nRewriteRule ^ index.html [L]\n';
+          const htaccessContent = 'Options -MultiViews\nRewriteEngine On\n\n# 1. Directory trailing slash redirect\nRewriteCond %{REQUEST_FILENAME} -d\nRewriteCond %{REQUEST_URI} !(.*)/$\nRewriteRule ^(.*)$ /$1/ [L,R=301]\n\n# 2. Serve existing static files and directories directly\nRewriteCond %{REQUEST_FILENAME} -f [OR]\nRewriteCond %{REQUEST_FILENAME} -d\nRewriteRule ^ - [L]\n\n# 3. SPA Fallback\nRewriteRule ^ index.html [L]\n';
           fs.writeFileSync(path.join(addOnlyDir, '.htaccess'), htaccessContent, 'utf-8');
-          console.log('Created .htaccess for static file routing.');
+          console.log('Created .htaccess for static file & directory routing.');
 
           console.log('ADD-ONLY package built successfully.');
           "
@@ -166,3 +166,7 @@ jobs:
           local-dir: ./frontend/dist_add_only/
           server-dir: public_html/
           dangerous-clean-slate: false
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
