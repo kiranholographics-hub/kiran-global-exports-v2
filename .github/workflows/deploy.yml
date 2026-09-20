@@ -149,6 +149,10 @@ jobs:
             console.log('Copied ' + count + ' dynamic asset files to dist_add_only/assets.');
           }
 
+          const htaccessContent = 'Options -MultiViews\nRewriteEngine On\n\n# Serve existing static files and directories directly\nRewriteCond %{REQUEST_FILENAME} -f [OR]\nRewriteCond %{REQUEST_FILENAME} -d\nRewriteRule ^ - [L]\n\n# SPA Fallback\nRewriteRule ^ index.html [L]\n';
+          fs.writeFileSync(path.join(addOnlyDir, '.htaccess'), htaccessContent, 'utf-8');
+          console.log('Created .htaccess for static file routing.');
+
           console.log('ADD-ONLY package built successfully.');
           "
 
