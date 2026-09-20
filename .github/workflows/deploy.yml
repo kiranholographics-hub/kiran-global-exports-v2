@@ -1,0 +1,84 @@
+
+name: Deploy ADD-ONLY P1 Landing Pages to Hostinger
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy-add-only:
+    name: Build & Sync ADD-ONLY P1 files to Hostinger public_html
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install dependencies
+        working-directory: ./frontend
+        run: npm ci
+
+      - name: Build production bundle & prerender static routes
+        working-directory: ./frontend
+        run: npm run build
+
+      - name: Package ADD-ONLY P1 Files
+        working-directory: ./frontend
+        run: |
+          node -e "
+          const fs = require('fs');
+          const path = require('path');
+          const distDir = path.resolve('dist');
+          const addOnlyDir = path.resolve('dist_add_only');
+          fs.mkdirSync(addOnlyDir, { recursive: true });
+          const targetFiles = [
+            'export/usa-cotton-towel-supplier/index.html',
+            'export/canada-cotton-towel-supplier/index.html',
+            'export/australia-cotton-towel-supplier/index.html',
+            'export/south-africa-cotton-towel-supplier/index.html',
+            'export/south-america-cotton-towel-supplier/index.html',
+            'export/uae-cotton-towel-supplier/index.html',
+            'export/saudi-arabia-cotton-towel-supplier/index.html',
+            'solutions/hotel-towel-manufacturer/index.html',
+            'solutions/private-label-towel-manufacturer/index.html',
+            'assets/UsaTowelSupplier-D24anqWS.js',
+            'assets/CanadaTowelSupplier-BMRenXy0.js',
+            'assets/AustraliaTowelSupplier-CSp-XFpl.js',
+            'assets/SouthAfricaTowelSupplier-XOVi-29z.js',
+            'assets/SouthAmericaTowelSupplier-O213mtdr.js',
+            'assets/UaeTowelSupplier-BflqVXTg.js',
+            'assets/SaudiArabiaTowelSupplier-C9LjLshv.js',
+            'assets/HotelTowelManufacturer-CUYAy972.js',
+            'assets/PrivateLabelTowelManufacturer-BZKi99r6.js',
+            'assets/SEOLandingLayout-Djzl7Q3c.js',
+            'assets/SEOLandingLayout-DSWbJGeY.css'
+          ];
+          targetFiles.forEach(f => {
+            const src = path.join(distDir, f);
+            const dest = path.join(addOnlyDir, f);
+            fs.mkdirSync(path.dirname(dest), { recursive: true });
+            fs.copyFileSync(src, dest);
+          });
+          console.log('ADD-ONLY package built successfully.');
+          "
+
+      - name: Deploy ADD-ONLY P1 files to Hostinger FTP public_html
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: ${{ secrets.FTP_PORT || 21 }}
+          local-dir: ./frontend/dist_add_only/
+          server-dir: public_html/
+          dangerous-clean-slate: false
+```
