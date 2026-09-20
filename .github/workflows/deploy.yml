@@ -1,10 +1,6 @@
-
 name: Deploy ADD-ONLY P1 Landing Pages to Hostinger
 
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
 
 jobs:
@@ -27,11 +23,86 @@ jobs:
         working-directory: ./frontend
         run: npm ci
 
-      - name: Build production bundle & prerender static routes
+      - name: Build production bundle
         working-directory: ./frontend
         run: npm run build
 
-      - name: Package ADD-ONLY P1 Files
+      - name: Start Preview Server
+        working-directory: ./frontend
+        run: |
+          npm run preview -- --host 127.0.0.1 --port 4173 &
+          npx --yes wait-on http://127.0.0.1:4173
+
+      - name: Render 9 Approved P1 Routes with Puppeteer
+        working-directory: ./frontend
+        run: |
+          npm install --no-save puppeteer
+          node -e "
+          const puppeteer = require('puppeteer');
+          const fs = require('fs');
+          const path = require('path');
+
+          const routes = [
+            '/export/usa-cotton-towel-supplier',
+            '/export/canada-cotton-towel-supplier',
+            '/export/australia-cotton-towel-supplier',
+            '/export/south-africa-cotton-towel-supplier',
+            '/export/south-america-cotton-towel-supplier',
+            '/export/uae-cotton-towel-supplier',
+            '/export/saudi-arabia-cotton-towel-supplier',
+            '/solutions/hotel-towel-manufacturer',
+            '/solutions/private-label-towel-manufacturer'
+          ];
+
+          (async () => {
+            const browser = await puppeteer.launch({
+              headless: true,
+              args: ['--no-sandbox', '--disable-setuid-sandbox']
+            });
+            const page = await browser.newPage();
+
+            for (const r of routes) {
+              const url = 'http://127.0.0.1:4173' + r;
+              console.log('Rendering:', url);
+              await page.goto(url, { waitUntil: 'networkidle0', timeout: 30000 });
+              await page.evaluate(() => new Promise(resolve => setTimeout(resolve, 1000)));
+
+              const html = await page.content();
+              const targetDir = path.join(__dirname, 'dist', r.slice(1));
+              fs.mkdirSync(targetDir, { recursive: true });
+              fs.writeFileSync(path.join(targetDir, 'index.html'), html, 'utf-8');
+              console.log('Saved:', path.join('dist', r.slice(1), 'index.html'));
+            }
+
+            await browser.close();
+          })();
+          "
+
+      - name: Verify 9 P1 Static HTML Files Exist
+        working-directory: ./frontend
+        run: |
+          test -f dist/export/usa-cotton-towel-supplier/index.html
+          test -f dist/export/canada-cotton-towel-supplier/index.html
+          test -f dist/export/australia-cotton-towel-supplier/index.html
+          test -f dist/export/south-africa-cotton-towel-supplier/index.html
+          test -f dist/export/south-america-cotton-towel-supplier/index.html
+          test -f dist/export/uae-cotton-towel-supplier/index.html
+          test -f dist/export/saudi-arabia-cotton-towel-supplier/index.html
+          test -f dist/solutions/hotel-towel-manufacturer/index.html
+          test -f dist/solutions/private-label-towel-manufacturer/index.html
+
+          echo "ALL 9 P1 HTML FILES VERIFIED WITH test -f:"
+          ls -lh dist/export/usa-cotton-towel-supplier/index.html
+          ls -lh dist/export/canada-cotton-towel-supplier/index.html
+          ls -lh dist/export/australia-cotton-towel-supplier/index.html
+          ls -lh dist/export/south-africa-cotton-towel-supplier/index.html
+          ls -lh dist/export/south-america-cotton-towel-supplier/index.html
+          ls -lh dist/export/uae-cotton-towel-supplier/index.html
+          ls -lh dist/export/saudi-arabia-cotton-towel-supplier/index.html
+          ls -lh dist/solutions/hotel-towel-manufacturer/index.html
+          ls -lh dist/solutions/private-label-towel-manufacturer/index.html
+
+      - name: Package ADD-ONLY P1 Files (Dynamic Hash Resolution)
         working-directory: ./frontend
         run: |
           node -e "
@@ -39,35 +110,45 @@ jobs:
           const path = require('path');
           const distDir = path.resolve('dist');
           const addOnlyDir = path.resolve('dist_add_only');
+
+          if (fs.existsSync(addOnlyDir)) {
+            fs.rmSync(addOnlyDir, { recursive: true, force: true });
+          }
           fs.mkdirSync(addOnlyDir, { recursive: true });
-          const targetFiles = [
-            'export/usa-cotton-towel-supplier/index.html',
-            'export/canada-cotton-towel-supplier/index.html',
-            'export/australia-cotton-towel-supplier/index.html',
-            'export/south-africa-cotton-towel-supplier/index.html',
-            'export/south-america-cotton-towel-supplier/index.html',
-            'export/uae-cotton-towel-supplier/index.html',
-            'export/saudi-arabia-cotton-towel-supplier/index.html',
-            'solutions/hotel-towel-manufacturer/index.html',
-            'solutions/private-label-towel-manufacturer/index.html',
-            'assets/UsaTowelSupplier-D24anqWS.js',
-            'assets/CanadaTowelSupplier-BMRenXy0.js',
-            'assets/AustraliaTowelSupplier-CSp-XFpl.js',
-            'assets/SouthAfricaTowelSupplier-XOVi-29z.js',
-            'assets/SouthAmericaTowelSupplier-O213mtdr.js',
-            'assets/UaeTowelSupplier-BflqVXTg.js',
-            'assets/SaudiArabiaTowelSupplier-C9LjLshv.js',
-            'assets/HotelTowelManufacturer-CUYAy972.js',
-            'assets/PrivateLabelTowelManufacturer-BZKi99r6.js',
-            'assets/SEOLandingLayout-Djzl7Q3c.js',
-            'assets/SEOLandingLayout-DSWbJGeY.css'
+
+          const p1Routes = [
+            'export/usa-cotton-towel-supplier',
+            'export/canada-cotton-towel-supplier',
+            'export/australia-cotton-towel-supplier',
+            'export/south-africa-cotton-towel-supplier',
+            'export/south-america-cotton-towel-supplier',
+            'export/uae-cotton-towel-supplier',
+            'export/saudi-arabia-cotton-towel-supplier',
+            'solutions/hotel-towel-manufacturer',
+            'solutions/private-label-towel-manufacturer'
           ];
-          targetFiles.forEach(f => {
-            const src = path.join(distDir, f);
-            const dest = path.join(addOnlyDir, f);
+
+          p1Routes.forEach(r => {
+            const src = path.join(distDir, r, 'index.html');
+            const dest = path.join(addOnlyDir, r, 'index.html');
             fs.mkdirSync(path.dirname(dest), { recursive: true });
             fs.copyFileSync(src, dest);
           });
+
+          const assetsDir = path.join(distDir, 'assets');
+          const destAssetsDir = path.join(addOnlyDir, 'assets');
+          fs.mkdirSync(destAssetsDir, { recursive: true });
+
+          if (fs.existsSync(assetsDir)) {
+            const assetFiles = fs.readdirSync(assetsDir);
+            let count = 0;
+            assetFiles.forEach(f => {
+              fs.copyFileSync(path.join(assetsDir, f), path.join(destAssetsDir, f));
+              count++;
+            });
+            console.log('Copied ' + count + ' dynamic asset files to dist_add_only/assets.');
+          }
+
           console.log('ADD-ONLY package built successfully.');
           "
 
@@ -77,9 +158,7 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          port: ${{ secrets.FTP_PORT || 21 }}
+          port: 21
           local-dir: ./frontend/dist_add_only/
           server-dir: public_html/
-          dangerous-clean-slate: false 
-      
-
+          dangerous-clean-slate: false
