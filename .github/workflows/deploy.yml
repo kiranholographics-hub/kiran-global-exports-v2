@@ -81,4 +81,7 @@ jobs:
           local-dir: ./frontend/dist_add_only/
           server-dir: public_html/
           dangerous-clean-slate: false
-```
+```yaml
+    local-dir: ./frontend/dist_add_only/
+    server-dir: public_html/
+    dangerous-clean-slate: false
