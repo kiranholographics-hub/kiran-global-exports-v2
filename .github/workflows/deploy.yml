@@ -231,6 +231,21 @@ jobs:
             process.exit(1);
           }
 
+          // The sitemap is rebuilt by scripts/generate-seo-files.js on every
+          // build and was being left behind here, so the live site kept
+          // serving whichever sitemap was uploaded by hand last — 15 URLs
+          // against the 71 this build generates. robots.txt rides along
+          // because it is what points crawlers at the sitemap.
+          ['sitemap.xml', 'robots.txt'].forEach(name => {
+            const src = path.join(distDir, name);
+            if (!fs.existsSync(src)) {
+              console.error('ERROR: dist/' + name + ' missing!');
+              process.exit(1);
+            }
+            fs.copyFileSync(src, path.join(addOnlyDir, name));
+            console.log('Copied dist/' + name);
+          });
+
           console.log('ADD-ONLY package built successfully.');
           "
 
