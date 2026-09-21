@@ -259,7 +259,11 @@ jobs:
           local-dir: ./frontend/dist_add_only/
           server-dir: public_html/
           dangerous-clean-slate: false
-          state-name: .ftp-deploy-sync-state-add-only.json
+          # Renamed so the action stops trusting the state file run 13 left
+          # behind: it compares that manifest against the local files and
+          # never checks the server, so it has reported "0 changes" on every
+          # run since while the live site served none of them.
+          state-name: .ftp-deploy-sync-state-add-only-v2.json
           dry-run: ${{ inputs.dry_run }}
           exclude: |
             **/.git*
@@ -290,7 +294,7 @@ jobs:
           check "/export/usa-cotton-towel-supplier/" "Cotton towel supplier for United States importers."
           check "/solutions/hotel-towel-manufacturer/" "Hotel towel manufacturer for hospitality buyers."
           if [ "$failed" = "1" ]; then
-            echo "::error::Files uploaded but the live site does not serve them. The FTP_SERVER/FTP_USERNAME secrets point at a different server than the one hosting www.kiranglobal-exports.com — re-copy them from hPanel > Websites > kiranglobal-exports.com > Files > FTP Accounts."
+            echo "::error::The upload reported success but www.kiranglobal-exports.com does not serve these pages. Check that server-dir matches the directory this domain is actually served from."
             exit 1
           fi
           echo "Live site is serving the new pages."
