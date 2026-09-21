@@ -265,3 +265,26 @@ jobs:
             **/.git*
             **/.git*/**
             **/node_modules/**
+
+      # The action reports "Sync complete" for whatever FTP endpoint it is
+      # given, even one that is not the filesystem serving this domain —
+      # that is exactly how run 13 uploaded 165 files and changed nothing
+      # anyone could see. A deploy is only real once the live site serves
+      # it, so ask the live site and fail if it does not.
+      - name: Verify the deploy actually reached the live site
+        if: ${{ !inputs.dry_run }}
+        run: |
+          failed=0
+          for path in \
+            "/export/usa-cotton-towel-supplier/" \
+            "/solutions/hotel-towel-manufacturer/" ; do
+            code=$(curl -s -o /dev/null -w '%{http_code}' \
+              "https://www.kiranglobal-exports.com$path?cachebust=${GITHUB_RUN_ID}")
+            echo "  $code  $path"
+            [ "$code" = "200" ] || failed=1
+          done
+          if [ "$failed" = "1" ]; then
+            echo "::error::Files uploaded but the live site does not serve them. The FTP_SERVER/FTP_USERNAME secrets point at a different server than the one hosting www.kiranglobal-exports.com — re-copy them from hPanel > Websites > kiranglobal-exports.com > Files > FTP Accounts."
+            exit 1
+          fi
+          echo "Live site is serving the new pages."
