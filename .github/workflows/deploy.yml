@@ -291,6 +291,15 @@ jobs:
           else
             echo "  ok       $bundle points at the real API"
           fi
+          # Informational only: whether the catalogue renders depends on the
+          # API being up at this moment, which a deploy cannot control.
+          for path in "/" "/towels/" "/usa/" ; do
+            echo "  info     $(curl -s -o /dev/null -w '%{http_code}' \
+              "https://www.kiranglobal-exports.com$path?cachebust=${GITHUB_RUN_ID}")  $path"
+          done
+          echo "  info     api $(curl -s -o /dev/null -w '%{http_code}' \
+            https://api.kiranglobal-exports.com/api/health)  /api/health"
+
           if [ "$failed" = "1" ]; then
             echo "::error::The upload reported success but www.kiranglobal-exports.com does not serve these pages. Check that server-dir matches the directory this domain is actually served from."
             exit 1
