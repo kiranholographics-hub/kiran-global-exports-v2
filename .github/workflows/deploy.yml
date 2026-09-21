@@ -222,35 +222,6 @@ jobs:
           console.log('ADD-ONLY package built successfully.');
           "
 
-      # A previous run reported "Sync complete" for every file yet nothing
-      # reached the live docroot, so print what the FTP account actually
-      # sees before trusting server-dir. Runs read-only, never fails the job.
-      - name: Show what the FTP account sees (diagnostic)
-        env:
-          FTP_HOST: ${{ secrets.FTP_SERVER }}
-          FTP_USER: ${{ secrets.FTP_USERNAME }}
-          FTP_PASS: ${{ secrets.FTP_PASSWORD }}
-        run: |
-          # -k because the cert is issued for the hostname, not the bare IP
-          # this account connects by; the action itself does not verify either.
-          # Which directory does this account actually land in? If the root
-          # already lists about/assets/export, it is the docroot itself and
-          # server-dir must be "./", not "public_html/".
-          for dir in "" "public_html/" "public_html/public_html/" ; do
-            echo "===== FTP /$dir ====="
-            curl -s -k --ssl-reqd --ftp-pasv --list-only \
-              "ftp://$FTP_HOST/$dir" --user "$FTP_USER:$FTP_PASS" \
-              | head -25 || echo "(could not list)"
-          done
-
-          echo "===== what the LIVE site serves for the same paths ====="
-          for url in \
-            "https://www.kiranglobal-exports.com/export/usa-cotton-towel-supplier/" \
-            "https://www.kiranglobal-exports.com/assets/SeoLandingPage-CJyB-GkB.js" \
-            "https://www.kiranglobal-exports.com/assets/index-BHZTjTcP.js" ; do
-            echo "  $(curl -s -o /dev/null -w '%{http_code}' "$url")  $url"
-          done
-
       # NOTE: The .htaccess in this package (built from frontend/public/.htaccess)
       # replaces the server's existing .htaccess. Review the diff before a non-dry-run deploy.
       - name: Deploy ADD-ONLY P1 files to Hostinger FTP public_html
