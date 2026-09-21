@@ -1,4 +1,4 @@
-name: Deploy ADD-ONLY P1 Landing Pages to Hostinger
+name: Deploy ADD-ONLY prerendered pages to Hostinger
 
 on:
   workflow_dispatch:
@@ -10,7 +10,7 @@ on:
 
 jobs:
   build-and-deploy-add-only:
-    name: Build & Sync ADD-ONLY P1 files to Hostinger public_html
+    name: Build & sync ADD-ONLY files to Hostinger
     runs-on: ubuntu-latest
 
     # Vite bakes this into the bundle at build time and falls back to
@@ -52,10 +52,9 @@ jobs:
           import puppeteer from 'puppeteer';
           import fs from 'node:fs';
           import path from 'node:path';
-          // The routes come from the page data itself, so adding a landing
-          // page is one entry in seoLandingPages.js — this workflow, the
-          // prerenderer and the sitemap all pick it up with no edit here.
-          import { SEO_LANDING_ROUTES as routes } from './src/data/seoLandingPages.js';
+          // The route list lives with the app, not in this file — see the
+          // note in src/data/deployRoutes.js.
+          import { DEPLOY_ROUTES as routes } from './src/data/deployRoutes.js';
 
           const __dirname = process.cwd();
           console.log('Rendering ' + routes.length + ' routes');
@@ -69,32 +68,44 @@ jobs:
               });
               const page = await browser.newPage();
 
+              // Collect every bad route rather than stopping at the first:
+              // one run then names all of them instead of surfacing them one
+              // failed deploy at a time.
+              const broken = [];
+
               for (const r of routes) {
                 const url = 'http://127.0.0.1:4173' + r;
-                console.log('Rendering & validating:', url);
                 const res = await page.goto(url, { waitUntil: 'networkidle0', timeout: 30000 });
-                
-                if (!res || res.status() !== 200) {
-                  throw new Error('HTTP Status ' + (res ? res.status() : 'NULL') + ' for route ' + r);
-                }
-
                 await page.evaluate(() => new Promise(resolve => setTimeout(resolve, 1000)));
 
                 const html = await page.content();
                 const hasH1 = await page.evaluate(() => !!document.querySelector('h1'));
+                const status = res ? res.status() : 0;
 
-                if (!hasH1) {
-                  throw new Error('Missing <h1> element on route: ' + r);
-                }
-                if (html.includes('Page Not Found')) {
-                  throw new Error('Rendered 404 Page Not Found on route: ' + r);
+                let why = null;
+                if (status !== 200) why = 'HTTP ' + status;
+                else if (!hasH1) why = 'no <h1>';
+                else if (html.includes('Page Not Found')) why = 'rendered the not-found page';
+
+                if (why) {
+                  console.error('  BROKEN  ' + r + '  (' + why + ')');
+                  broken.push(r + ' — ' + why);
+                  continue;
                 }
 
                 const targetDir = path.join(__dirname, 'dist', r.slice(1));
                 fs.mkdirSync(targetDir, { recursive: true });
                 fs.writeFileSync(path.join(targetDir, 'index.html'), html, 'utf-8');
-                console.log('Saved valid rendered HTML:', path.join('dist', r.slice(1), 'index.html'));
+                console.log('  ok      ' + r);
               }
+
+              if (broken.length) {
+                console.error('');
+                console.error(broken.length + ' of ' + routes.length + ' routes did not render:');
+                broken.forEach(b => console.error('  - ' + b));
+                process.exit(1);
+              }
+              console.log('All ' + routes.length + ' routes rendered.');
             } catch (err) {
               console.error('FATAL RENDER ERROR:', err.message);
               process.exit(1);
@@ -110,9 +121,9 @@ jobs:
           node --input-type=module -e "
           import fs from 'node:fs';
           import path from 'node:path';
-          import { SEO_LANDING_ROUTES } from './src/data/seoLandingPages.js';
+          import { DEPLOY_ROUTES } from './src/data/deployRoutes.js';
 
-          const required = SEO_LANDING_ROUTES.map(r => 'dist' + r + '/index.html');
+          const required = DEPLOY_ROUTES.map(r => 'dist' + r + '/index.html');
 
           console.log('VERIFYING ' + required.length + ' STATIC HTML FILES:');
           let hasFailure = false;
@@ -152,7 +163,7 @@ jobs:
           node --input-type=module -e "
           import fs from 'node:fs';
           import path from 'node:path';
-          import { SEO_LANDING_ROUTES } from './src/data/seoLandingPages.js';
+          import { DEPLOY_ROUTES } from './src/data/deployRoutes.js';
           const distDir = path.resolve('dist');
           const addOnlyDir = path.resolve('dist_add_only');
 
@@ -161,13 +172,13 @@ jobs:
           }
           fs.mkdirSync(addOnlyDir, { recursive: true });
 
-          // Copy root index.html to register all P1 routes in React Router
+          // Copy root index.html so React Router knows every route
           if (fs.existsSync(path.join(distDir, 'index.html'))) {
             fs.copyFileSync(path.join(distDir, 'index.html'), path.join(addOnlyDir, 'index.html'));
-            console.log('Copied updated root index.html with all registered P1 routes.');
+            console.log('Copied updated root index.html.');
           }
 
-          const p1Routes = SEO_LANDING_ROUTES.map(r => r.replace(/^\//, ''));
+          const p1Routes = DEPLOY_ROUTES.map(r => r.replace(/^\//, ''));
 
           p1Routes.forEach(r => {
             const src = path.join(distDir, r, 'index.html');
@@ -207,7 +218,7 @@ jobs:
 
       # NOTE: The .htaccess in this package (built from frontend/public/.htaccess)
       # replaces the server's existing .htaccess. Review the diff before a non-dry-run deploy.
-      - name: Deploy ADD-ONLY P1 files to Hostinger FTP public_html
+      - name: Deploy ADD-ONLY files to Hostinger over FTPS
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
