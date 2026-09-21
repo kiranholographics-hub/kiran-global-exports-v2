@@ -28,6 +28,7 @@ const Linen = lazy(() => import('@/pages/Linen'));
 const LinenCategoryPage = lazy(() => import('@/pages/LinenCategoryPage'));
 const LinenDetail = lazy(() => import('@/pages/LinenDetail'));
 const Export = lazy(() => import('@/pages/Export'));
+const SeoLandingPage = lazy(() => import('@/pages/SeoLandingPage'));
 const MarketPage = lazy(() => import('@/pages/MarketPage'));
 const Custom = lazy(() => import('@/pages/Custom'));
 const Contact = lazy(() => import('@/pages/Contact'));
@@ -192,6 +193,8 @@ export default function App() {
               </Route>
 
               <Route path="/export" element={<Export />} />
+              <Route path="/export/:slug" element={<SeoLandingPage section="export" />} />
+              <Route path="/solutions/:slug" element={<SeoLandingPage section="solutions" />} />
               <Route path="/custom" element={<Custom />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/privacy-policy" element={<LegalPage kind="privacy" />} />

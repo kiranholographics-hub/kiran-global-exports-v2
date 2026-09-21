@@ -30,6 +30,7 @@ import fs from 'node:fs/promises';
 import fsSync from 'node:fs';
 import http from 'node:http';
 import puppeteer from 'puppeteer';
+import { SEO_LANDING_ROUTES } from '../src/data/seoLandingPages.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DIST_DIR = path.join(__dirname, '..', 'dist');
@@ -73,6 +74,10 @@ const STATIC_ROUTES = [
   '/updates',
   '/privacy-policy',
   '/terms-and-conditions',
+  // Search-led landing pages under /export/* and /solutions/*. Unlike the
+  // market routes below, their copy is static, so they prerender fully
+  // even when no API is reachable (as in CI).
+  ...SEO_LANDING_ROUTES,
 ];
 
 // process.env, not import.meta.env — see the matching note in

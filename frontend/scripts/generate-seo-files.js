@@ -25,6 +25,7 @@ import { writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { siteConfig } from '../src/data/config.js';
+import { SEO_LANDING_ROUTES } from '../src/data/seoLandingPages.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const outPath = path.join(__dirname, '../public/sitemap.xml');
@@ -37,6 +38,9 @@ const STATIC_ROUTES = [
   { path: '/contact', priority: '0.9' },
   { path: '/privacy-policy', priority: '0.3' },
   { path: '/terms-and-conditions', priority: '0.3' },
+  // Search-led landing pages — these are the pages we actively want
+  // ranking for sourcing queries, so they sit just under /contact.
+  ...SEO_LANDING_ROUTES.map((route) => ({ path: route, priority: '0.8' })),
 ];
 
 // process.env, not import.meta.env — this is a plain Node script run

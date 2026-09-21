@@ -23,7 +23,7 @@
   # list (see /hq) that a static rewrite file can't query — the slugs
   # below are what's active as of this deploy; add a new one here when a
   # market goes live, same as prerender.mjs already needs to know about it.
-  RewriteRule ^(about|towels|linen|collections|export|custom|contact|updates|pages|privacy-policy|terms-and-conditions|hq|norway|sweden|finland|poland|south-america|canada|usa|australia)(/.*)?$ /index.html [L]
+  RewriteRule ^(about|towels|linen|collections|export|solutions|custom|contact|updates|pages|privacy-policy|terms-and-conditions|hq|norway|sweden|finland|poland|south-america|canada|usa|australia)(/.*)?$ /index.html [L]
 
   # Anything else is a genuine unknown URL — serve the SPA shell (so
   # React Router's own <NotFound> page renders) but with a real 404
