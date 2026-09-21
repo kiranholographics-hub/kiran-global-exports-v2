@@ -3,6 +3,7 @@
 
 # build output
 /dist
+/dist_add_only
 public/sitemap.xml
 
 # testing
