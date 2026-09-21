@@ -2,6 +2,11 @@ name: Deploy ADD-ONLY P1 Landing Pages to Hostinger
 
 on:
   workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry Run mode (lists uploads/deletions without changing files on server)'
+        type: boolean
+        default: true
 
 jobs:
   build-and-deploy-add-only:
@@ -55,52 +60,99 @@ jobs:
           ];
 
           (async () => {
-            const browser = await puppeteer.launch({
-              headless: true,
-              args: ['--no-sandbox', '--disable-setuid-sandbox']
-            });
-            const page = await browser.newPage();
+            let browser;
+            try {
+              browser = await puppeteer.launch({
+                headless: true,
+                args: ['--no-sandbox', '--disable-setuid-sandbox']
+              });
+              const page = await browser.newPage();
 
-            for (const r of routes) {
-              const url = 'http://127.0.0.1:4173' + r;
-              console.log('Rendering:', url);
-              await page.goto(url, { waitUntil: 'networkidle0', timeout: 30000 });
-              await page.evaluate(() => new Promise(resolve => setTimeout(resolve, 1000)));
+              for (const r of routes) {
+                const url = 'http://127.0.0.1:4173' + r;
+                console.log('Rendering & validating:', url);
+                const res = await page.goto(url, { waitUntil: 'networkidle0', timeout: 30000 });
+                
+                if (!res || res.status() !== 200) {
+                  throw new Error('HTTP Status ' + (res ? res.status() : 'NULL') + ' for route ' + r);
+                }
 
-              const html = await page.content();
-              const targetDir = path.join(__dirname, 'dist', r.slice(1));
-              fs.mkdirSync(targetDir, { recursive: true });
-              fs.writeFileSync(path.join(targetDir, 'index.html'), html, 'utf-8');
-              console.log('Saved:', path.join('dist', r.slice(1), 'index.html'));
+                await page.evaluate(() => new Promise(resolve => setTimeout(resolve, 1000)));
+
+                const html = await page.content();
+                const hasH1 = await page.evaluate(() => !!document.querySelector('h1'));
+
+                if (!hasH1) {
+                  throw new Error('Missing <h1> element on route: ' + r);
+                }
+                if (html.includes('Page Not Found')) {
+                  throw new Error('Rendered 404 "Page Not Found" on route: ' + r);
+                }
+
+                const targetDir = path.join(__dirname, 'dist', r.slice(1));
+                fs.mkdirSync(targetDir, { recursive: true });
+                fs.writeFileSync(path.join(targetDir, 'index.html'), html, 'utf-8');
+                console.log('Saved valid rendered HTML:', path.join('dist', r.slice(1), 'index.html'));
+              }
+            } catch (err) {
+              console.error('FATAL RENDER ERROR:', err.message);
+              process.exit(1);
+            } finally {
+              if (browser) await browser.close();
             }
-
-            await browser.close();
           })();
           "
 
-      - name: Verify 9 P1 Static HTML Files Exist
+      - name: Verify 9 P1 Static HTML Files Exist & Valid
         working-directory: ./frontend
         run: |
-          test -f dist/export/usa-cotton-towel-supplier/index.html
-          test -f dist/export/canada-cotton-towel-supplier/index.html
-          test -f dist/export/australia-cotton-towel-supplier/index.html
-          test -f dist/export/south-africa-cotton-towel-supplier/index.html
-          test -f dist/export/south-america-cotton-towel-supplier/index.html
-          test -f dist/export/uae-cotton-towel-supplier/index.html
-          test -f dist/export/saudi-arabia-cotton-towel-supplier/index.html
-          test -f dist/solutions/hotel-towel-manufacturer/index.html
-          test -f dist/solutions/private-label-towel-manufacturer/index.html
+          node -e "
+          const fs = require('fs');
+          const path = require('path');
 
-          echo "ALL 9 P1 HTML FILES VERIFIED WITH test -f:"
-          ls -lh dist/export/usa-cotton-towel-supplier/index.html
-          ls -lh dist/export/canada-cotton-towel-supplier/index.html
-          ls -lh dist/export/australia-cotton-towel-supplier/index.html
-          ls -lh dist/export/south-africa-cotton-towel-supplier/index.html
-          ls -lh dist/export/south-america-cotton-towel-supplier/index.html
-          ls -lh dist/export/uae-cotton-towel-supplier/index.html
-          ls -lh dist/export/saudi-arabia-cotton-towel-supplier/index.html
-          ls -lh dist/solutions/hotel-towel-manufacturer/index.html
-          ls -lh dist/solutions/private-label-towel-manufacturer/index.html
+          const required = [
+            'dist/export/usa-cotton-towel-supplier/index.html',
+            'dist/export/canada-cotton-towel-supplier/index.html',
+            'dist/export/australia-cotton-towel-supplier/index.html',
+            'dist/export/south-africa-cotton-towel-supplier/index.html',
+            'dist/export/south-america-cotton-towel-supplier/index.html',
+            'dist/export/uae-cotton-towel-supplier/index.html',
+            'dist/export/saudi-arabia-cotton-towel-supplier/index.html',
+            'dist/solutions/hotel-towel-manufacturer/index.html',
+            'dist/solutions/private-label-towel-manufacturer/index.html'
+          ];
+
+          console.log('VERIFYING 9 P1 STATIC HTML FILES:');
+          let hasFailure = false;
+
+          required.forEach(relPath => {
+            const absPath = path.resolve(relPath);
+            if (!fs.existsSync(absPath)) {
+              console.error('❌ MISSING FILE:', relPath);
+              hasFailure = true;
+              return;
+            }
+            const stats = fs.statSync(absPath);
+            const content = fs.readFileSync(absPath, 'utf-8');
+
+            console.log('  File:', relPath, '| Size:', stats.size, 'bytes');
+
+            if (stats.size < 3072) {
+              console.error('❌ FILE TOO SMALL (<3KB):', relPath, 'Size:', stats.size);
+              hasFailure = true;
+            }
+            if (content.includes('Page Not Found')) {
+              console.error('❌ FILE CONTAINS "Page Not Found":', relPath);
+              hasFailure = true;
+            }
+          });
+
+          if (hasFailure) {
+            console.error('VERIFICATION FAILED!');
+            process.exit(1);
+          }
+          console.log('ALL 9 P1 STATIC HTML FILES VERIFIED VALID ✅');
+          "
 
       - name: Package ADD-ONLY P1 Files (Dynamic Hash Resolution)
         working-directory: ./frontend
@@ -115,6 +167,12 @@ jobs:
             fs.rmSync(addOnlyDir, { recursive: true, force: true });
           }
           fs.mkdirSync(addOnlyDir, { recursive: true });
+
+          // Copy root index.html to register all P1 routes in React Router
+          if (fs.existsSync(path.join(distDir, 'index.html'))) {
+            fs.copyFileSync(path.join(distDir, 'index.html'), path.join(addOnlyDir, 'index.html'));
+            console.log('Copied updated root index.html with all registered P1 routes.');
+          }
 
           const p1Routes = [
             'export/usa-cotton-towel-supplier',
@@ -149,13 +207,21 @@ jobs:
             console.log('Copied ' + count + ' dynamic asset files to dist_add_only/assets.');
           }
 
-          const htaccessContent = 'Options -MultiViews\nRewriteEngine On\n\n# 1. Directory trailing slash redirect\nRewriteCond %{REQUEST_FILENAME} -d\nRewriteCond %{REQUEST_URI} !(.*)/$\nRewriteRule ^(.*)$ /$1/ [L,R=301]\n\n# 2. Serve existing static files and directories directly\nRewriteCond %{REQUEST_FILENAME} -f [OR]\nRewriteCond %{REQUEST_FILENAME} -d\nRewriteRule ^ - [L]\n\n# 3. SPA Fallback\nRewriteRule ^ index.html [L]\n';
-          fs.writeFileSync(path.join(addOnlyDir, '.htaccess'), htaccessContent, 'utf-8');
-          console.log('Created .htaccess for static file & directory routing.');
+          // Copy static deploy/.htaccess file
+          const htaccessSrc = path.resolve('deploy/.htaccess');
+          if (fs.existsSync(htaccessSrc)) {
+            fs.copyFileSync(htaccessSrc, path.join(addOnlyDir, '.htaccess'));
+            console.log('Copied static deploy/.htaccess to dist_add_only/.htaccess');
+          } else {
+            console.error('ERROR: deploy/.htaccess file missing!');
+            process.exit(1);
+          }
 
           console.log('ADD-ONLY package built successfully.');
           "
 
+      # NOTE: The deploy/.htaccess file in this package replaces the server's existing .htaccess.
+      # Compare it with the server's live .htaccess before executing a non-dry-run deploy.
       - name: Deploy ADD-ONLY P1 files to Hostinger FTP public_html
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
@@ -163,9 +229,12 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           port: 21
+          protocol: ftps
           local-dir: ./frontend/dist_add_only/
           server-dir: public_html/
           dangerous-clean-slate: false
+          state-name: .ftp-deploy-sync-state-add-only.json
+          dry-run: ${{ inputs.dry_run }}
           exclude: |
             **/.git*
             **/.git*/**
