@@ -95,7 +95,6 @@ export default function CollectionsPage() {
       <SEO
         title={t('collections.seo.title')}
         description={t('collections.seo.description')}
-        noindex
       />
 
       {/* ══ Hero ══════════════════════════════════ */}

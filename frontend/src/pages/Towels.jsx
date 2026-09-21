@@ -9,7 +9,6 @@ export default function TowelsPage() {
       <SEO
         title={t('catalogue.towels.seoTitle')}
         description={t('catalogue.towels.seoDescription')}
-        noindex
       />
       <TowelCatalogue />
     </>

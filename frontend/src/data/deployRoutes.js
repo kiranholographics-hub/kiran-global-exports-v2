@@ -22,6 +22,7 @@
 
 import { SEO_LANDING_ROUTES } from './seoLandingPages.js';
 import { towelProducts } from './towelCatalog.js';
+import { linenProducts } from './linenCatalog.js';
 
 // Mirrors getTowelProductPath() in towelHierarchy.js, which can't be
 // imported here: it pulls in products.js, and that module calls React's
@@ -39,8 +40,25 @@ export const TOWEL_CATEGORY_ROUTES = [
 
 export const TOWEL_PRODUCT_ROUTES = towelProducts.map(towelProductPath);
 
+// Linen has no subtype level, so its paths are always category/product.
+export const LINEN_CATEGORY_ROUTES = [
+  ...new Set(linenProducts.map((p) => `/linen/${p.subcategory}`)),
+];
+
+export const LINEN_PRODUCT_ROUTES = linenProducts.map(
+  (p) => `/linen/${p.subcategory}/${p.slug}`
+);
+
+// The three listing pages at the top of the catalogue. They read the API
+// too, so like everything below them they are an empty shell to a crawler
+// unless they are rendered here.
+export const CATALOGUE_INDEX_ROUTES = ['/towels', '/linen', '/collections'];
+
 export const DEPLOY_ROUTES = [
   ...SEO_LANDING_ROUTES,
+  ...CATALOGUE_INDEX_ROUTES,
   ...TOWEL_CATEGORY_ROUTES,
   ...TOWEL_PRODUCT_ROUTES,
+  ...LINEN_CATEGORY_ROUTES,
+  ...LINEN_PRODUCT_ROUTES,
 ];

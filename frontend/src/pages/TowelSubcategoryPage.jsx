@@ -53,7 +53,6 @@ export default function TowelSubcategoryPage() {
         title={`${subtype.name} | Kiran Global Exports`}
         description={`${subtype.description} Explore the product collection and request details from Kiran Global Exports.`}
         image={subtype.representativeImage}
-        noindex
       />
 
       <main className={styles.page}>

@@ -29,7 +29,6 @@ export default function TowelCategoryPage() {
         title={`${category.name} | Premium Towel Supplier & Exporter`}
         description={`${category.name} collections developed for hospitality, retail, spa and private-label buyers by Kiran Global Exports.`}
         image={category.representativeImage}
-        noindex
       />
 
       <main className={styles.page}>

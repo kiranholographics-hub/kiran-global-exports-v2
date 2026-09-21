@@ -67,7 +67,6 @@ export default function ProductDetail({
         title={`${product.name} — Premium ${productType}`}
         description={product.shortDescription}
         image={product.images?.[0]}
-        noindex
       />
 
       {/* ══ Hero ══════════════════════════════════ */}

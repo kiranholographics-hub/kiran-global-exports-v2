@@ -5,12 +5,27 @@
 // rendering), so a build-time static sitemap is the practical approach —
 // it's regenerated fresh on every build.
 //
-// Only pages that are actually indexable go in here. Towels,
-// Collections and Linen (plus every individual product page under them)
-// carry <SEO noindex> — the old kiranglobalexports.com site already ranks
-// for those exact product keywords, so indexing the same content twice
-// would have the two sites competing with each other. Keep this list in
-// sync with whichever pages still have noindex removed.
+// Only pages that are actually indexable go in here.
+//
+// The catalogue — Towels, Linen, Collections and every category and
+// product page under them — used to be excluded and marked <SEO
+// noindex>, to keep this site from competing with the old
+// kiranglobalexports.com, which already ranked for those exact product
+// keywords. That call was reversed: this site is the one being ranked
+// now, so the noindex came off and the routes are listed below.
+//
+// Two consequences worth knowing. Both sites now target the same
+// product keywords, so which page Google prefers is out of our hands
+// until the old site redirects here or points its canonical tags this
+// way. And catalogue pages read the API at runtime, so they carry real
+// content for a crawler only because the deploy workflow prerenders
+// them (see src/data/deployRoutes.js) — a route listed here that the
+// workflow does not render would submit an empty shell.
+//
+// The legal pages keep their noindex and are deliberately NOT listed:
+// a URL that is in the sitemap and noindex at the same time is
+// reported as an error in Search Console, which is noise in exactly
+// the report used to check on everything else.
 //
 // Market pages (/australia, /usa, ...) are added dynamically below by
 // fetching the live list of ACTIVE markets from the production API —
@@ -26,9 +41,21 @@ import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { siteConfig } from '../src/data/config.js';
 import { SEO_LANDING_ROUTES } from '../src/data/seoLandingPages.js';
+import { TOWEL_CATEGORY_ROUTES, TOWEL_PRODUCT_ROUTES } from '../src/data/deployRoutes.js';
+import { linenProducts } from '../src/data/linenCatalog.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const outPath = path.join(__dirname, '../public/sitemap.xml');
+
+// Derived the same way the deploy workflow derives what it renders, so a
+// product added to the catalogue is listed here and prerendered without
+// either list being edited.
+const LINEN_CATEGORY_ROUTES = [
+  ...new Set(linenProducts.map((item) => `/linen/${item.subcategory}`)),
+];
+const LINEN_PRODUCT_ROUTES = linenProducts.map(
+  (item) => `/linen/${item.subcategory}/${item.slug}`
+);
 
 const STATIC_ROUTES = [
   { path: '', priority: '1.0' },
@@ -36,11 +63,19 @@ const STATIC_ROUTES = [
   { path: '/custom', priority: '0.7' },
   { path: '/export', priority: '0.7' },
   { path: '/contact', priority: '0.9' },
-  { path: '/privacy-policy', priority: '0.3' },
-  { path: '/terms-and-conditions', priority: '0.3' },
   // Search-led landing pages — these are the pages we actively want
   // ranking for sourcing queries, so they sit just under /contact.
   ...SEO_LANDING_ROUTES.map((route) => ({ path: route, priority: '0.8' })),
+  // Catalogue. Listing pages above their categories, categories above
+  // individual products — the priority is only a hint about which of our
+  // own pages matters more to us, not a ranking lever.
+  { path: '/towels', priority: '0.8' },
+  { path: '/linen', priority: '0.8' },
+  { path: '/collections', priority: '0.7' },
+  ...TOWEL_CATEGORY_ROUTES.map((route) => ({ path: route, priority: '0.7' })),
+  ...LINEN_CATEGORY_ROUTES.map((route) => ({ path: route, priority: '0.7' })),
+  ...TOWEL_PRODUCT_ROUTES.map((route) => ({ path: route, priority: '0.6' })),
+  ...LINEN_PRODUCT_ROUTES.map((route) => ({ path: route, priority: '0.6' })),
 ];
 
 // process.env, not import.meta.env — this is a plain Node script run

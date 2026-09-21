@@ -9,7 +9,6 @@ export default function LinenPage() {
       <SEO
         title={t('linen.seo.title')}
         description={t('linen.seo.description')}
-        noindex
       />
       <LinenCatalogue />
     </>

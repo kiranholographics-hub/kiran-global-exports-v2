@@ -35,7 +35,6 @@ export default function LinenCategoryPage() {
         title={`${name} | Premium Linen Supplier & Exporter`}
         description={`${description} Developed for hospitality, retail and private-label buyers by Kiran Global Exports.`}
         image={products[0]?.images?.[0] || category.heroImage}
-        noindex
       />
 
       <main className={styles.page}>
