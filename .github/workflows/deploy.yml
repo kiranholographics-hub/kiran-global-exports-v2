@@ -13,6 +13,12 @@ jobs:
     name: Build & Sync ADD-ONLY P1 files to Hostinger public_html
     runs-on: ubuntu-latest
 
+    # Vite bakes this into the bundle at build time and falls back to
+    # http://localhost:4000 when it is unset, so a build without it ships a
+    # site whose every API call points at the visitor's own machine.
+    env:
+      VITE_API_URL: https://api.kiranglobal-exports.com
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -272,6 +278,19 @@ jobs:
           }
           check "/export/usa-cotton-towel-supplier/" "Cotton towel supplier for United States importers."
           check "/solutions/hotel-towel-manufacturer/" "Hotel towel manufacturer for hospitality buyers."
+
+          # A bundle built without VITE_API_URL points every API call at the
+          # visitor's own machine, which breaks the catalogue and the contact
+          # form site-wide while every page still looks fine.
+          bundle=$(curl -s "https://www.kiranglobal-exports.com/?cachebust=${GITHUB_RUN_ID}" \
+            | grep -oE '/assets/index-[A-Za-z0-9_-]+\.js' | head -1)
+          if [ -n "$bundle" ] && curl -s "https://www.kiranglobal-exports.com$bundle" \
+               | grep -q "localhost:4000"; then
+            echo "  BAD      $bundle still points at localhost:4000"
+            failed=1
+          else
+            echo "  ok       $bundle points at the real API"
+          fi
           if [ "$failed" = "1" ]; then
             echo "::error::The upload reported success but www.kiranglobal-exports.com does not serve these pages. Check that server-dir matches the directory this domain is actually served from."
             exit 1

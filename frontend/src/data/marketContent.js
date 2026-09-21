@@ -34,6 +34,7 @@ export const REASONS = [
 
 const MARKET_CONTENT = {
   australia: {
+    countryName: 'Australia',
     seoTitle: 'Cotton Towel & Bathrobe Exporter to Australia',
     seoDescription:
       'Kiran Global Exports supplies cotton towels and bathrobes to Australian importers and distributors — sample-first, FOB direct from our partner mill in Solapur, duty-free under the India-Australia ECTA.',
@@ -49,6 +50,7 @@ const MARKET_CONTENT = {
     },
   },
   usa: {
+    countryName: 'the United States',
     seoTitle: 'Cotton Towel & Bathrobe Exporter to the USA',
     seoDescription:
       'Kiran Global Exports supplies cotton towels and bathrobes to US importers and distributors — sample-first, FOB direct from our partner mill in Solapur, with FTC-compliant fibre and origin labelling.',
@@ -64,6 +66,7 @@ const MARKET_CONTENT = {
     },
   },
   canada: {
+    countryName: 'Canada',
     seoTitle: 'Cotton Towel & Bathrobe Exporter to Canada',
     seoDescription:
       'Kiran Global Exports supplies cotton towels and bathrobes to Canadian importers and distributors — sample-first, FOB direct from our partner mill in Solapur, with bilingual English/French fibre labelling.',
@@ -79,6 +82,7 @@ const MARKET_CONTENT = {
     },
   },
   'south-america': {
+    countryName: 'South America',
     seoTitle: 'Cotton Towel & Bathrobe Exporter to South America',
     seoDescription:
       'Kiran Global Exports supplies cotton towels and bathrobes to importers and distributors across South America — sample-first, FOB direct from our partner mill in Solapur.',
@@ -94,6 +98,7 @@ const MARKET_CONTENT = {
     },
   },
   poland: {
+    countryName: 'Poland',
     seoTitle: 'Cotton Towel & Bathrobe Exporter to Poland',
     seoDescription:
       'Kiran Global Exports supplies cotton towels and bathrobes to Polish importers and distributors — sample-first, FOB direct from our partner mill in Solapur, cleared once for duty-free onward EU distribution.',
@@ -109,6 +114,7 @@ const MARKET_CONTENT = {
     },
   },
   finland: {
+    countryName: 'Finland',
     seoTitle: 'Cotton Towel & Bathrobe Exporter to Finland',
     seoDescription:
       'Kiran Global Exports supplies cotton towels and bathrobes to Finnish importers and distributors — sample-first, FOB direct from our partner mill in Solapur, with OEKO-TEX certified options for sauna and wellness ranges.',
@@ -124,6 +130,7 @@ const MARKET_CONTENT = {
     },
   },
   sweden: {
+    countryName: 'Sweden',
     seoTitle: 'Cotton Towel & Bathrobe Exporter to Sweden',
     seoDescription:
       'Kiran Global Exports supplies cotton towels and bathrobes to Swedish importers and distributors — sample-first, FOB direct from our partner mill in Solapur, with OEKO-TEX certified options.',
@@ -139,6 +146,7 @@ const MARKET_CONTENT = {
     },
   },
   norway: {
+    countryName: 'Norway',
     seoTitle: 'Cotton Towel & Bathrobe Exporter to Norway',
     seoDescription:
       'Kiran Global Exports supplies cotton towels and bathrobes to Norwegian importers and distributors — sample-first, FOB direct from our partner mill in Solapur, with customs handled directly since Norway sits outside the EU customs union.',
@@ -185,6 +193,17 @@ function genericContent(countryName) {
       a: `We coordinate FOB shipment to your nearest major port or logistics hub — our export team will confirm the best routing for ${countryName} once your order is scoped.`,
     },
   };
+}
+
+// The market pages are prerendered in CI, where no API is reachable, so
+// MarketPage falls back to this when the lookup cannot reach the server —
+// otherwise those pages ship to crawlers with no copy at all, which is why
+// Search Console lists them as discovered but not indexed. Only the
+// hand-written markets above qualify; one created from /hq with no entry
+// here has no country name to fall back to.
+export function getStaticMarket(slug) {
+  const bespoke = MARKET_CONTENT[slug];
+  return bespoke ? { slug, countryName: bespoke.countryName } : null;
 }
 
 export function getMarketContent(slug, countryName) {

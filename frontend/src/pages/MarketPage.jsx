@@ -7,13 +7,17 @@ import SectionHeading from '@/components/SectionHeading/SectionHeading';
 import CTASection from '@/components/CTASection/CTASection';
 import NotFoundContent from '@/components/NotFoundContent/NotFoundContent';
 import { fetchMarketBySlug } from '@/lib/publicMarkets';
-import { REASONS, getMarketContent } from '@/data/marketContent';
+import { REASONS, getMarketContent, getStaticMarket } from '@/data/marketContent';
 import styles from './MarketPage.module.css';
 
 /* ═══════════════════════════════════════════════ */
 export default function MarketPage() {
   const { marketSlug } = useParams();
-  const market = use(fetchMarketBySlug(marketSlug));
+  const fetched = use(fetchMarketBySlug(marketSlug));
+  // When the server could not be asked at all, fall back to the
+  // hand-written market rather than an error page — see the note in
+  // lib/publicMarkets.js.
+  const market = fetched?.unreachable ? getStaticMarket(marketSlug) : fetched;
 
   if (!market) {
     return (

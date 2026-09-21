@@ -29,7 +29,12 @@ async function loadMarket(slug) {
   try {
     res = await fetch(`${API_BASE}/api/markets/public/${encodeURIComponent(slug)}`);
   } catch {
-    throw new ApiError('Could not reach the server.', 0);
+    // Unreachable is not the same as missing: a 404 means the market was
+    // deactivated in /hq and the page should say so, while this means we
+    // simply could not ask. MarketPage renders its hand-written copy for
+    // this case instead of an error, which is also what lets CI prerender
+    // those pages with real content.
+    return { unreachable: true };
   }
   if (res.status === 404) return null;
   const data = await res.json().catch(() => ({}));
