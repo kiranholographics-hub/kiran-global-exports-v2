@@ -1,0 +1,110 @@
+# Asks the live site what it is actually serving. Deliberately separate
+# from deploy.yml: it builds nothing, so it answers in seconds and can be
+# run any time — after a deploy, after a manual File Manager change, or
+# when a page looks wrong — without a five-minute build first.
+#
+# Every check greps the response body. Status codes are useless here: the
+# SPA rewrite answers 200 with the old shell for any known prefix, which
+# is exactly how a deploy once reported success while publishing nothing.
+name: Verify the live site
+
+on:
+  workflow_dispatch:
+
+jobs:
+  verify:
+    name: Check what www.kiranglobal-exports.com serves
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check the live pages
+        run: |
+          SITE="https://www.kiranglobal-exports.com"
+          BUST="?cachebust=${GITHUB_RUN_ID}"
+          failed=0
+
+          # $1 path, $2 description, $3 string the body must contain
+          has() {
+            body=$(curl -sL --max-time 30 "$SITE$1$BUST")
+            if printf '%s' "$body" | grep -qF -- "$3"; then
+              echo "  ok       $2"
+            else
+              echo "  MISSING  $2  — $1 does not contain: $3"
+              failed=1
+            fi
+          }
+
+          # $1 path, $2 description, $3 string the body must NOT contain
+          lacks() {
+            body=$(curl -sL --max-time 30 "$SITE$1$BUST")
+            if printf '%s' "$body" | grep -qF -- "$3"; then
+              echo "  BAD      $2  — $1 still contains: $3"
+              failed=1
+            else
+              echo "  ok       $2"
+            fi
+          }
+
+          echo "── Landing pages carry their own copy ──"
+          has /export/usa-cotton-towel-supplier/ \
+            "USA page heading" "Cotton towel supplier for United States importers."
+          has /export/usa-cotton-towel-supplier/ \
+            "USA page unique intro" "two or three intermediaries"
+          has /solutions/hotel-towel-manufacturer/ \
+            "Hotel page heading" "Hotel towel manufacturer for hospitality buyers."
+          has /solutions/hotel-towel-manufacturer/ \
+            "Hotel page unique intro" "A hotel towel fails in one of three ways"
+
+          echo "── Structured data ──"
+          has /export/usa-cotton-towel-supplier/ "FAQPage schema" '"@type":"FAQPage"'
+          has /export/usa-cotton-towel-supplier/ "BreadcrumbList schema" '"@type":"BreadcrumbList"'
+
+          echo "── Catalogue is prerendered and indexable ──"
+          has  /towels/bath-towels/ "Towel category renders" "<h1"
+          lacks /towels/bath-towels/ "Towel category is indexable" "noindex"
+          has  /towels/bath-towels/bath-towel/ "Towel product renders" "<h1"
+          lacks /towels/bath-towels/bath-towel/ "Towel product is indexable" "noindex"
+          has  /linen/bed/ "Linen category renders" "<h1"
+          lacks /linen/bed/ "Linen category is indexable" "noindex"
+
+          echo "── Sitemap ──"
+          sitemap=$(curl -sL --max-time 30 "$SITE/sitemap.xml")
+          count=$(printf '%s' "$sitemap" | grep -c "<loc>" || true)
+          echo "  info     sitemap lists $count URLs"
+          # 71 static entries plus the active market pages. Well under that
+          # means the build shipped the old list, not the new one.
+          if [ "$count" -lt 70 ]; then
+            echo "  BAD      sitemap has only $count URLs — expected 70+"
+            failed=1
+          fi
+          # A URL that is both listed here and noindex is reported as an
+          # error in Search Console, so the legal pages must stay out.
+          if printf '%s' "$sitemap" | grep -q "privacy-policy"; then
+            echo "  BAD      sitemap still lists the noindex legal pages"
+            failed=1
+          else
+            echo "  ok       sitemap leaves the noindex legal pages out"
+          fi
+
+          echo "── Bundle points at the real API ──"
+          bundle=$(curl -sL --max-time 30 "$SITE/$BUST" \
+            | grep -oE '/assets/index-[A-Za-z0-9_-]+\.js' | head -1)
+          if [ -z "$bundle" ]; then
+            echo "  BAD      could not find the main bundle in the homepage"
+            failed=1
+          elif curl -sL --max-time 30 "$SITE$bundle" | grep -q "localhost:4000"; then
+            echo "  BAD      $bundle points at localhost:4000"
+            failed=1
+          else
+            echo "  ok       $bundle points at the real API"
+          fi
+
+          echo "── Informational ──"
+          echo "  api $(curl -s -o /dev/null -w '%{http_code}' --max-time 30 \
+            https://api.kiranglobal-exports.com/api/health)  /api/health"
+
+          if [ "$failed" = "1" ]; then
+            echo "::error::The live site is not serving what this repository builds."
+            exit 1
+          fi
+          echo ""
+          echo "Live site checks all passed."
