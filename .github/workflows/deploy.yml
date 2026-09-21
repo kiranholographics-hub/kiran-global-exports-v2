@@ -222,6 +222,25 @@ jobs:
           console.log('ADD-ONLY package built successfully.');
           "
 
+      # A previous run reported "Sync complete" for every file yet nothing
+      # reached the live docroot, so print what the FTP account actually
+      # sees before trusting server-dir. Runs read-only, never fails the job.
+      - name: Show what the FTP account sees (diagnostic)
+        env:
+          FTP_HOST: ${{ secrets.FTP_SERVER }}
+          FTP_USER: ${{ secrets.FTP_USERNAME }}
+          FTP_PASS: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          list() {
+            echo "===== listing: $1 ====="
+            curl -s --ssl-reqd --list-only "ftp://$FTP_HOST/$1" --user "$FTP_USER:$FTP_PASS" \
+              || echo "(could not list $1)"
+          }
+          list ""
+          list "public_html/"
+          list "public_html/export/"
+          list "public_html/public_html/"
+
       # NOTE: The .htaccess in this package (built from frontend/public/.htaccess)
       # replaces the server's existing .htaccess. Review the diff before a non-dry-run deploy.
       - name: Deploy ADD-ONLY P1 files to Hostinger FTP public_html
