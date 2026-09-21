@@ -86,7 +86,7 @@ jobs:
                   throw new Error('Missing <h1> element on route: ' + r);
                 }
                 if (html.includes('Page Not Found')) {
-                  throw new Error('Rendered 404 "Page Not Found" on route: ' + r);
+                  throw new Error('Rendered 404 Page Not Found on route: ' + r);
                 }
 
                 const targetDir = path.join(__dirname, 'dist', r.slice(1));
@@ -142,7 +142,7 @@ jobs:
               hasFailure = true;
             }
             if (content.includes('Page Not Found')) {
-              console.error('❌ FILE CONTAINS "Page Not Found":', relPath);
+              console.error('❌ FILE CONTAINS Page Not Found:', relPath);
               hasFailure = true;
             }
           });
@@ -207,21 +207,23 @@ jobs:
             console.log('Copied ' + count + ' dynamic asset files to dist_add_only/assets.');
           }
 
-          // Copy static deploy/.htaccess file
-          const htaccessSrc = path.resolve('deploy/.htaccess');
+          // Copy the built .htaccess (Vite copies frontend/public/.htaccess into
+          // dist/ verbatim during the build step above) — this is the single
+          // source of truth, so there is nothing separate to keep in sync.
+          const htaccessSrc = path.join(distDir, '.htaccess');
           if (fs.existsSync(htaccessSrc)) {
             fs.copyFileSync(htaccessSrc, path.join(addOnlyDir, '.htaccess'));
-            console.log('Copied static deploy/.htaccess to dist_add_only/.htaccess');
+            console.log('Copied dist/.htaccess (from frontend/public/.htaccess) to dist_add_only/.htaccess');
           } else {
-            console.error('ERROR: deploy/.htaccess file missing!');
+            console.error('ERROR: dist/.htaccess file missing!');
             process.exit(1);
           }
 
           console.log('ADD-ONLY package built successfully.');
           "
 
-      # NOTE: The deploy/.htaccess file in this package replaces the server's existing .htaccess.
-      # Compare it with the server's live .htaccess before executing a non-dry-run deploy.
+      # NOTE: The .htaccess in this package (built from frontend/public/.htaccess)
+      # replaces the server's existing .htaccess. Review the diff before a non-dry-run deploy.
       - name: Deploy ADD-ONLY P1 files to Hostinger FTP public_html
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
