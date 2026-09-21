@@ -1,4 +1,4 @@
-import { use } from 'react';
+import { use, useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 import SEO from '@/components/SEO/SEO';
 import PageIntro from '@/components/PageIntro/PageIntro';
@@ -19,6 +19,14 @@ export default function MarketPage() {
   // lib/publicMarkets.js.
   const market = fetched?.unreachable ? getStaticMarket(marketSlug) : fetched;
 
+  // Shared by the rendered trail and its BreadcrumbList markup — see the
+  // same note in SeoLandingPage.jsx. Above the not-found return because
+  // hooks can't run conditionally.
+  const breadcrumbs = useMemo(
+    () => [{ label: 'Home', href: '/' }, { label: market?.countryName }],
+    [market?.countryName]
+  );
+
   if (!market) {
     return (
       <>
@@ -35,16 +43,18 @@ export default function MarketPage() {
 
   return (
     <>
-      <SEO title={content.seoTitle} description={content.seoDescription} />
+      <SEO
+        title={content.seoTitle}
+        description={content.seoDescription}
+        faqs={content.faqs}
+        breadcrumbs={breadcrumbs}
+      />
 
       <PageIntro
         eyebrow={market.countryName}
         title={content.heading}
         lead={content.lead}
-        breadcrumbs={[
-          { label: 'Home', href: '/' },
-          { label: market.countryName },
-        ]}
+        breadcrumbs={breadcrumbs}
         meta={[
           { label: '22+ Years Exporting' },
           { label: 'FOB Direct from Mill' },

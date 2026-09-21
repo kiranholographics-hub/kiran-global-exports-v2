@@ -107,6 +107,13 @@ function truncate(str, max = 155) {
  *  type        — OG type: 'website' | 'article' | 'product'
  *  product     — optional product data for Product schema
  *  article     — optional article data for Article schema
+ *  faqs        — optional [{ q, a }] for FAQPage schema. Pass the same
+ *                array the page already renders; a question Google finds
+ *                only in the schema and not on the page is a structured-
+ *                data violation, not a shortcut.
+ *  breadcrumbs — optional [{ label, href? }] in the same shape PageIntro
+ *                takes, for BreadcrumbList schema. The last crumb is the
+ *                current page and needs no href.
  */
 export default function SEO({
   title,
@@ -116,6 +123,8 @@ export default function SEO({
   type     = 'website',
   product,
   article,
+  faqs,
+  breadcrumbs,
 }) {
   const location = useLocation();
   const { i18n } = useTranslation();
@@ -239,6 +248,49 @@ export default function SEO({
       },
     });
 
+    /* ── JSON-LD: FAQPage (optional) ─────────── */
+    // Every FAQ on this site is already written as a real question with a
+    // self-contained answer, which is exactly what this markup wants —
+    // it just makes the pairs machine-readable so they can win the
+    // expandable FAQ result instead of being read as body prose.
+    if (faqs?.length) {
+      setJsonLd('faq', {
+        '@context': 'https://schema.org',
+        '@type':    'FAQPage',
+        mainEntity: faqs.map((f) => ({
+          '@type': 'Question',
+          name:    f.q,
+          acceptedAnswer: { '@type': 'Answer', text: f.a },
+        })),
+      });
+    } else {
+      removeJsonLd('faq');
+    }
+
+    /* ── JSON-LD: BreadcrumbList (optional) ──── */
+    // Gives the search result the Home › Export › United States trail
+    // instead of the bare URL, and tells Google how these pages nest —
+    // which a flat /export/<slug> path does not say on its own.
+    if (breadcrumbs?.length) {
+      setJsonLd('breadcrumbs', {
+        '@context': 'https://schema.org',
+        '@type':    'BreadcrumbList',
+        itemListElement: breadcrumbs.map((crumb, i) => ({
+          '@type':  'ListItem',
+          position: i + 1,
+          name:     crumb.label,
+          // The current page is the last crumb and links nowhere, so it
+          // carries no item — that is what the spec expects, not the
+          // canonical URL repeated.
+          ...(crumb.href
+            ? { item: new URL(crumb.href, siteConfig.siteUrl).toString() }
+            : {}),
+        })),
+      });
+    } else {
+      removeJsonLd('breadcrumbs');
+    }
+
     /* ── JSON-LD: Product (optional) ─────────── */
     if (product) {
       setJsonLd('product', {
@@ -298,7 +350,7 @@ export default function SEO({
       removeJsonLd('article');
     }
 
-  }, [title, description, image, noindex, type, product, article, location.pathname, i18n.language]);
+  }, [title, description, image, noindex, type, product, article, faqs, breadcrumbs, location.pathname, i18n.language]);
 
   return null;
 }

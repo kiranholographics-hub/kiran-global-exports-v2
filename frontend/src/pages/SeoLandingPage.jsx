@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import SEO from '@/components/SEO/SEO';
@@ -10,6 +11,7 @@ import {
   CAPABILITIES,
   PRODUCT_RANGE,
   getSeoLandingPage,
+  getRelatedLandingPages,
 } from '@/data/seoLandingPages';
 import styles from './SeoLandingPage.module.css';
 
@@ -22,6 +24,23 @@ const SECTION_LABELS = {
 export default function SeoLandingPage({ section }) {
   const { slug } = useParams();
   const page = getSeoLandingPage(section, slug);
+  const parent = SECTION_LABELS[section] || SECTION_LABELS.export;
+
+  // One array for the rendered trail and its BreadcrumbList markup, so the
+  // two can't describe different paths — and memoised, since a fresh array
+  // each render would have <SEO> rewrite every tag in <head> each time.
+  // Computed above the not-found return because hooks can't run
+  // conditionally.
+  const breadcrumbs = useMemo(
+    () => [
+      { label: 'Home', href: '/' },
+      { label: parent.label, href: parent.href },
+      { label: page?.eyebrow },
+    ],
+    [parent.label, parent.href, page?.eyebrow]
+  );
+
+  const related = getRelatedLandingPages(section, slug);
 
   if (!page) {
     return (
@@ -35,27 +54,52 @@ export default function SeoLandingPage({ section }) {
     );
   }
 
-  const parent = SECTION_LABELS[section] || SECTION_LABELS.export;
-
   return (
     <>
-      <SEO title={page.seoTitle} description={page.seoDescription} />
+      <SEO
+        title={page.seoTitle}
+        description={page.seoDescription}
+        faqs={page.faqs}
+        breadcrumbs={breadcrumbs}
+      />
 
       <PageIntro
         eyebrow={page.eyebrow}
         title={page.heading}
         lead={page.lead}
-        breadcrumbs={[
-          { label: 'Home', href: '/' },
-          { label: parent.label, href: parent.href },
-          { label: page.eyebrow },
-        ]}
+        breadcrumbs={breadcrumbs}
         meta={[
           { label: 'Mill Direct, FOB' },
           { label: '100% Cotton Ringspun' },
           { label: 'Sample First' },
         ]}
       />
+
+      {/* ══ Unique body copy ══════════════════════
+          Comes before the shared CAPABILITIES/PRODUCT_RANGE blocks on
+          purpose: those nine words-for-word identical sections are what
+          made these pages look like each other to a crawler, so the text
+          that is only on this page has to be the text it reads first. */}
+      <section className={`section section--spacious ${styles.introSection}`}>
+        <div className="container">
+          <div className={styles.introLayout}>
+            <ScrollReveal className={styles.introBody}>
+              {page.intro.map((para) => (
+                <p key={para.slice(0, 40)} className={styles.introPara}>{para}</p>
+              ))}
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.08} className={styles.buyersCard}>
+              <h2 className={styles.buyersTitle}>Who we supply</h2>
+              <ul className={styles.buyersList}>
+                {page.buyers.map((b) => (
+                  <li key={b}>{b}</li>
+                ))}
+              </ul>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
 
       {/* ══ What you get ══════════════════════════ */}
       <section className={`section section--spacious ${styles.capabilitySection}`}>
@@ -128,6 +172,28 @@ export default function SeoLandingPage({ section }) {
               </ScrollReveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ══ Related pages ═════════════════════════ */}
+      <section className={`section ${styles.relatedSection}`}>
+        <div className="container">
+          <ScrollReveal>
+            <SectionHeading
+              eyebrow="Also supplying"
+              title="Other markets and solutions."
+            />
+          </ScrollReveal>
+
+          <ScrollReveal>
+            <ul className={styles.relatedList}>
+              {related.map((r) => (
+                <li key={r.href}>
+                  <Link to={r.href} className={styles.relatedLink}>{r.label}</Link>
+                </li>
+              ))}
+            </ul>
+          </ScrollReveal>
         </div>
       </section>
 
