@@ -274,15 +274,21 @@ jobs:
       - name: Verify the deploy actually reached the live site
         if: ${{ !inputs.dry_run }}
         run: |
+          # Check the body, not the status: the SPA rewrite answers 200 with
+          # the old shell for any known prefix, so a status check passes even
+          # when nothing was published.
           failed=0
-          for path in \
-            "/export/usa-cotton-towel-supplier/" \
-            "/solutions/hotel-towel-manufacturer/" ; do
-            code=$(curl -s -o /dev/null -w '%{http_code}' \
-              "https://www.kiranglobal-exports.com$path?cachebust=${GITHUB_RUN_ID}")
-            echo "  $code  $path"
-            [ "$code" = "200" ] || failed=1
-          done
+          check() {
+            body=$(curl -s "https://www.kiranglobal-exports.com$1?cachebust=${GITHUB_RUN_ID}")
+            if printf '%s' "$body" | grep -qF "$2"; then
+              echo "  ok       $1"
+            else
+              echo "  MISSING  $1  (expected to contain: $2)"
+              failed=1
+            fi
+          }
+          check "/export/usa-cotton-towel-supplier/" "Cotton towel supplier for United States importers."
+          check "/solutions/hotel-towel-manufacturer/" "Hotel towel manufacturer for hospitality buyers."
           if [ "$failed" = "1" ]; then
             echo "::error::Files uploaded but the live site does not serve them. The FTP_SERVER/FTP_USERNAME secrets point at a different server than the one hosting www.kiranglobal-exports.com — re-copy them from hPanel > Websites > kiranglobal-exports.com > Files > FTP Accounts."
             exit 1
