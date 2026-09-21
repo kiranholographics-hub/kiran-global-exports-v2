@@ -262,13 +262,16 @@ jobs:
           port: 21
           protocol: ftps
           local-dir: ./frontend/dist_add_only/
-          server-dir: public_html/
+          # This FTP account is scoped to the domain, so its login directory
+          # already is the docroot — "public_html/" put every upload in a
+          # public_html/public_html/ nobody serves.
+          server-dir: ./
           dangerous-clean-slate: false
           # Renamed so the action stops trusting the state file run 13 left
           # behind: it compares that manifest against the local files and
           # never checks the server, so it has reported "0 changes" on every
           # run since while the live site served none of them.
-          state-name: .ftp-deploy-sync-state-add-only-v2.json
+          state-name: .ftp-deploy-sync-state-add-only-v3.json
           dry-run: ${{ inputs.dry_run }}
           exclude: |
             **/.git*
