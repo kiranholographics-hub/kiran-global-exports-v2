@@ -233,10 +233,15 @@ jobs:
         run: |
           # -k because the cert is issued for the hostname, not the bare IP
           # this account connects by; the action itself does not verify either.
-          echo "===== what FTP sees under public_html/export/ ====="
-          curl -s -k --ssl-reqd --ftp-pasv --list-only \
-            "ftp://$FTP_HOST/public_html/export/" --user "$FTP_USER:$FTP_PASS" \
-            || echo "(could not list)"
+          # Which directory does this account actually land in? If the root
+          # already lists about/assets/export, it is the docroot itself and
+          # server-dir must be "./", not "public_html/".
+          for dir in "" "public_html/" "public_html/public_html/" ; do
+            echo "===== FTP /$dir ====="
+            curl -s -k --ssl-reqd --ftp-pasv --list-only \
+              "ftp://$FTP_HOST/$dir" --user "$FTP_USER:$FTP_PASS" \
+              | head -25 || echo "(could not list)"
+          done
 
           echo "===== what the LIVE site serves for the same paths ====="
           for url in \
