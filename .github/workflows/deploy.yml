@@ -233,17 +233,18 @@ jobs:
         run: |
           # -k because the cert is issued for the hostname, not the bare IP
           # this account connects by; the action itself does not verify either.
-          list() {
-            echo "===== listing: /$1 ====="
-            curl -s -k --ssl-reqd --ftp-pasv --list-only \
-              "ftp://$FTP_HOST/$1" --user "$FTP_USER:$FTP_PASS" \
-              || echo "(could not list /$1)"
-          }
-          list ""
-          list "public_html/"
-          list "public_html/export/"
-          list "public_html/assets/"
-          list "domains/"
+          echo "===== what FTP sees under public_html/export/ ====="
+          curl -s -k --ssl-reqd --ftp-pasv --list-only \
+            "ftp://$FTP_HOST/public_html/export/" --user "$FTP_USER:$FTP_PASS" \
+            || echo "(could not list)"
+
+          echo "===== what the LIVE site serves for the same paths ====="
+          for url in \
+            "https://www.kiranglobal-exports.com/export/usa-cotton-towel-supplier/" \
+            "https://www.kiranglobal-exports.com/assets/SeoLandingPage-CJyB-GkB.js" \
+            "https://www.kiranglobal-exports.com/assets/index-BHZTjTcP.js" ; do
+            echo "  $(curl -s -o /dev/null -w '%{http_code}' "$url")  $url"
+          done
 
       # NOTE: The .htaccess in this package (built from frontend/public/.htaccess)
       # replaces the server's existing .htaccess. Review the diff before a non-dry-run deploy.
