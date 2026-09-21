@@ -51,6 +51,7 @@ jobs:
           node --input-type=module -e "
           import puppeteer from 'puppeteer';
           import fs from 'node:fs';
+          import os from 'node:os';
           import path from 'node:path';
           // The route list lives with the app, not in this file — see the
           // note in src/data/deployRoutes.js.
@@ -62,9 +63,22 @@ jobs:
           (async () => {
             let browser;
             try {
+              // --disable-web-security (with its own --user-data-dir, which
+              // Chrome requires before it honours the flag): the towel pages
+              // read the catalogue from /api/products, and the API's origin
+              // allow-list has no entry for the throwaway preview server this
+              // renders against, so the fetch is blocked, the page never
+              // leaves Suspense and the route comes out with no <h1>. Safe
+              // here — this browser only ever loads our own freshly built
+              // bundle and is thrown away with the runner.
               browser = await puppeteer.launch({
                 headless: true,
-                args: ['--no-sandbox', '--disable-setuid-sandbox']
+                args: [
+                  '--no-sandbox',
+                  '--disable-setuid-sandbox',
+                  '--disable-web-security',
+                  '--user-data-dir=' + fs.mkdtempSync(path.join(os.tmpdir(), 'render-'))
+                ]
               });
               const page = await browser.newPage();
 
@@ -82,10 +96,14 @@ jobs:
                 const hasH1 = await page.evaluate(() => !!document.querySelector('h1'));
                 const status = res ? res.status() : 0;
 
+                // The specific causes come first: both of them also render
+                // without an <h1>, so checking that first would report every
+                // one of them as the same uninformative 'no <h1>'.
                 let why = null;
                 if (status !== 200) why = 'HTTP ' + status;
-                else if (!hasH1) why = 'no <h1>';
                 else if (html.includes('Page Not Found')) why = 'rendered the not-found page';
+                else if (html.includes('load the catalogue')) why = 'the catalogue API call failed';
+                else if (!hasH1) why = 'no <h1>';
 
                 if (why) {
                   console.error('  BROKEN  ' + r + '  (' + why + ')');

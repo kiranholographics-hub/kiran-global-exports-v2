@@ -29,6 +29,7 @@ import path from 'node:path';
 import fs from 'node:fs/promises';
 import fsSync from 'node:fs';
 import http from 'node:http';
+import os from 'node:os';
 import puppeteer from 'puppeteer';
 import { SEO_LANDING_ROUTES } from '../src/data/seoLandingPages.js';
 
@@ -241,9 +242,22 @@ async function main() {
   // available — without these flags Chrome refuses to start at all
   // ("No usable sandbox!"). Fine here since we're only rendering our
   // own already-built site, not arbitrary/untrusted pages.
+  //
+  // --disable-web-security (+ its own --user-data-dir, without which Chrome
+  // ignores the flag): the catalogue pages read /api/products, and the API's
+  // origin allow-list has no entry for the throwaway localhost server we
+  // render against — see the same note in backend/src/routes/markets.js,
+  // which works around it server-side for its own endpoints. Without this
+  // the fetch is blocked, the page never leaves Suspense, and every towel
+  // route renders with no <h1>.
   const browser = await puppeteer.launch({
     headless: 'new',
-    args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    args: [
+      '--no-sandbox',
+      '--disable-setuid-sandbox',
+      '--disable-web-security',
+      `--user-data-dir=${fsSync.mkdtempSync(path.join(os.tmpdir(), 'prerender-'))}`,
+    ],
   });
 
   let failed = 0;
