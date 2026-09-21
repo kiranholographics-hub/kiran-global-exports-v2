@@ -3,6 +3,11 @@
 # logic). server.js is kept for local `npm run serve` testing / a future
 # move off static hosting, but THIS file is what actually governs the
 # live site — keep the two in sync when routes change.
+# Apache must not answer /export/usa-cotton-towel-supplier with a
+# usa-cotton-towel-supplier.html it negotiated for itself; every route here
+# is a directory with an index.html in it.
+Options -MultiViews
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
@@ -11,6 +16,13 @@
   # ever indexed (avoids the non-www/www duplicate-content split).
   RewriteCond %{HTTP_HOST} ^kiranglobal-exports\.com$ [NC]
   RewriteRule ^ https://www.kiranglobal-exports.com%{REQUEST_URI} [L,R=301]
+
+  # Settle a prerendered route on one URL: /export/usa-cotton-towel-supplier
+  # and .../supplier/ are the same page, so send the slashless form to the
+  # canonical one rather than letting both answer and split the ranking.
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteCond %{REQUEST_URI} !/$
+  RewriteRule ^(.*)$ /$1/ [L,R=301]
 
   # Let real files and directories (assets, images, prerendered route folders) through as-is.
   RewriteCond %{REQUEST_FILENAME} -f [OR]
@@ -49,6 +61,15 @@ ErrorDocument 404 /index.html
 </IfModule>
 
 <IfModule mod_headers.c>
+  <!-- Never cache the HTML itself. It is what points at the hashed bundles,
+       so a stale copy keeps serving an old site long after a deploy — the
+       pages are small and revalidating them costs nothing. -->
+  <FilesMatch "\.(html|htm)$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires 0
+  </FilesMatch>
+
   <!-- Short, non-immutable cache for videos: these get manually swapped
        in place (same filename) via File Manager, unlike hashed JS/CSS
        bundles, so a long immutable cache would hide a real replacement

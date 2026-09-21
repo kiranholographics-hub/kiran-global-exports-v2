@@ -44,26 +44,21 @@ jobs:
           npm run preview -- --host 127.0.0.1 --port 4173 &
           npx --yes wait-on http://127.0.0.1:4173
 
-      - name: Render 9 Approved P1 Routes with Puppeteer
+      - name: Render every landing route with Puppeteer
         working-directory: ./frontend
         run: |
           npm install --no-save puppeteer
-          node -e "
-          const puppeteer = require('puppeteer');
-          const fs = require('fs');
-          const path = require('path');
+          node --input-type=module -e "
+          import puppeteer from 'puppeteer';
+          import fs from 'node:fs';
+          import path from 'node:path';
+          // The routes come from the page data itself, so adding a landing
+          // page is one entry in seoLandingPages.js — this workflow, the
+          // prerenderer and the sitemap all pick it up with no edit here.
+          import { SEO_LANDING_ROUTES as routes } from './src/data/seoLandingPages.js';
 
-          const routes = [
-            '/export/usa-cotton-towel-supplier',
-            '/export/canada-cotton-towel-supplier',
-            '/export/australia-cotton-towel-supplier',
-            '/export/south-africa-cotton-towel-supplier',
-            '/export/south-america-cotton-towel-supplier',
-            '/export/uae-cotton-towel-supplier',
-            '/export/saudi-arabia-cotton-towel-supplier',
-            '/solutions/hotel-towel-manufacturer',
-            '/solutions/private-label-towel-manufacturer'
-          ];
+          const __dirname = process.cwd();
+          console.log('Rendering ' + routes.length + ' routes');
 
           (async () => {
             let browser;
@@ -109,26 +104,17 @@ jobs:
           })();
           "
 
-      - name: Verify 9 P1 Static HTML Files Exist & Valid
+      - name: Verify the rendered HTML files
         working-directory: ./frontend
         run: |
-          node -e "
-          const fs = require('fs');
-          const path = require('path');
+          node --input-type=module -e "
+          import fs from 'node:fs';
+          import path from 'node:path';
+          import { SEO_LANDING_ROUTES } from './src/data/seoLandingPages.js';
 
-          const required = [
-            'dist/export/usa-cotton-towel-supplier/index.html',
-            'dist/export/canada-cotton-towel-supplier/index.html',
-            'dist/export/australia-cotton-towel-supplier/index.html',
-            'dist/export/south-africa-cotton-towel-supplier/index.html',
-            'dist/export/south-america-cotton-towel-supplier/index.html',
-            'dist/export/uae-cotton-towel-supplier/index.html',
-            'dist/export/saudi-arabia-cotton-towel-supplier/index.html',
-            'dist/solutions/hotel-towel-manufacturer/index.html',
-            'dist/solutions/private-label-towel-manufacturer/index.html'
-          ];
+          const required = SEO_LANDING_ROUTES.map(r => 'dist' + r + '/index.html');
 
-          console.log('VERIFYING 9 P1 STATIC HTML FILES:');
+          console.log('VERIFYING ' + required.length + ' STATIC HTML FILES:');
           let hasFailure = false;
 
           required.forEach(relPath => {
@@ -157,15 +143,16 @@ jobs:
             console.error('VERIFICATION FAILED!');
             process.exit(1);
           }
-          console.log('ALL 9 P1 STATIC HTML FILES VERIFIED VALID ✅');
+          console.log('ALL ' + required.length + ' STATIC HTML FILES VERIFIED VALID ✅');
           "
 
-      - name: Package ADD-ONLY P1 Files (Dynamic Hash Resolution)
+      - name: Package ADD-ONLY files (dynamic hash resolution)
         working-directory: ./frontend
         run: |
-          node -e "
-          const fs = require('fs');
-          const path = require('path');
+          node --input-type=module -e "
+          import fs from 'node:fs';
+          import path from 'node:path';
+          import { SEO_LANDING_ROUTES } from './src/data/seoLandingPages.js';
           const distDir = path.resolve('dist');
           const addOnlyDir = path.resolve('dist_add_only');
 
@@ -180,17 +167,7 @@ jobs:
             console.log('Copied updated root index.html with all registered P1 routes.');
           }
 
-          const p1Routes = [
-            'export/usa-cotton-towel-supplier',
-            'export/canada-cotton-towel-supplier',
-            'export/australia-cotton-towel-supplier',
-            'export/south-africa-cotton-towel-supplier',
-            'export/south-america-cotton-towel-supplier',
-            'export/uae-cotton-towel-supplier',
-            'export/saudi-arabia-cotton-towel-supplier',
-            'solutions/hotel-towel-manufacturer',
-            'solutions/private-label-towel-manufacturer'
-          ];
+          const p1Routes = SEO_LANDING_ROUTES.map(r => r.replace(/^\//, ''));
 
           p1Routes.forEach(r => {
             const src = path.join(distDir, r, 'index.html');
