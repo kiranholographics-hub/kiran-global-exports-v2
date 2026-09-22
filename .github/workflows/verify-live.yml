@@ -93,6 +93,71 @@ jobs:
           # read as a fact if it reaches the markup.
           lacks /towels/bath-towels/bath-towel/ "no placeholder spec in the markup" '"weight":"[Confirm'
 
+          echo "── Every landing page, not just a sample ──"
+          # The two checked above were standing in for nine. A page whose
+          # copy silently fell back to the shared blocks would have passed
+          # every check so far.
+          for slug in usa canada australia south-africa south-america uae saudi-arabia; do
+            page="/export/$slug-cotton-towel-supplier/"
+            has "$page" "$slug has an h1" "<h1"
+            has "$page" "$slug has FAQ markup" '"@type":"FAQPage"'
+            has "$page" "$slug has its own buyer list" "Who we supply"
+          done
+          for slug in hotel-towel-manufacturer private-label-towel-manufacturer; do
+            has "/solutions/$slug/" "$slug has an h1" "<h1"
+            has "/solutions/$slug/" "$slug has FAQ markup" '"@type":"FAQPage"'
+          done
+
+          echo "── The structured data actually parses ──"
+          # Presence of the string proves nothing: malformed JSON-LD is
+          # ignored by Google exactly like markup that was never there.
+          # Pull every block out of a page and parse it.
+          check_jsonld() {
+            curl -sL --max-time 30 "$SITE$1$BUST" > /tmp/page.html
+            if node -e '
+              const fs = require("fs");
+              const html = fs.readFileSync("/tmp/page.html", "utf-8");
+              const blocks = [...html.matchAll(
+                /<script[^>]*application\/ld\+json[^>]*>([\s\S]*?)<\/script>/g
+              )].map(m => m[1]);
+              if (!blocks.length) { console.error("no JSON-LD at all"); process.exit(1); }
+              const types = [];
+              for (const b of blocks) {
+                let parsed;
+                try { parsed = JSON.parse(b); }
+                catch (e) { console.error("unparseable block: " + e.message); process.exit(1); }
+                if (!parsed["@context"]) { console.error("block has no @context"); process.exit(1); }
+                types.push(parsed["@type"]);
+              }
+              console.log("    " + blocks.length + " blocks: " + types.join(", "));
+            '; then
+              echo "  ok       $2"
+            else
+              echo "  BAD      $2 — JSON-LD is malformed"
+              failed=1
+            fi
+          }
+          check_jsonld /export/usa-cotton-towel-supplier/ "landing page JSON-LD parses"
+          check_jsonld /towels/bath-towels/bath-towel/ "product page JSON-LD parses"
+          check_jsonld /usa/ "market page JSON-LD parses"
+
+          echo "── No broken internal links on the hub pages ──"
+          # /export and the footer are where the whole site now hangs off.
+          # A typo in either quietly orphans pages again.
+          for page in /export/ /usa/ /towels/; do
+            curl -sL --max-time 30 "$SITE$page$BUST" > /tmp/hub.html
+            links=$(grep -oE 'href="/[a-z0-9/-]*"' /tmp/hub.html \
+              | sed 's/href="//; s/"//' | sort -u)
+            for link in $links; do
+              code=$(curl -sL -o /dev/null -w '%{http_code}' --max-time 20 "$SITE$link")
+              if [ "$code" != "200" ]; then
+                echo "  BROKEN   $page -> $link  (HTTP $code)"
+                failed=1
+              fi
+            done
+            echo "  ok       $page — $(printf '%s\n' "$links" | wc -l) internal links all resolve"
+          done
+
           echo "── Sitemap ──"
           sitemap=$(curl -sL --max-time 30 "$SITE/sitemap.xml")
           count=$(printf '%s' "$sitemap" | grep -c "<loc>" || true)
