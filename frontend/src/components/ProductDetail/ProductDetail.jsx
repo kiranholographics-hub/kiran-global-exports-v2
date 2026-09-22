@@ -84,7 +84,7 @@ export default function ProductDetail({
   // written in — the buyer only fills the blanks.
   const emailHref = mailtoLink(
     `${interestLabel} inquiry — ${product.name}`,
-    inquiryEmailBody(product.name)
+    inquiryEmailBody({ productName: product.name })
   );
   const whatsappHref = waLink(
     `Hello, I would like a quotation for ${product.name}.`

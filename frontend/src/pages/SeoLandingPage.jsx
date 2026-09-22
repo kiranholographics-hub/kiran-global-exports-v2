@@ -202,6 +202,9 @@ export default function SeoLandingPage({ section }) {
         title="Send us your specification."
         lead="Tell us the product, size, GSM and quantity you need — our export team replies within 24 hours with an FOB quotation."
         emailSubject={`${page.eyebrow} inquiry — Kiran Global Exports`}
+        // 'Hospitality' and 'Private Label' are not countries, so only the
+        // export pages prefill it.
+        emailCountry={page.section === 'export' ? page.eyebrow : undefined}
         primaryHref="/contact"
         primaryLabel="Contact Our Export Team"
         secondaryHref="/collections"

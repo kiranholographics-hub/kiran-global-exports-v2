@@ -72,25 +72,39 @@ export function mailtoLink(subject = 'Product Inquiry — Kiran Global Exports',
 // Buyers write to us directly rather than filling in the form, so the
 // email they open is where the inquiry actually starts — putting these
 // in it saves a round of back-and-forth on nearly every one.
-export function inquiryEmailBody(productName) {
+//
+// Grouped rather than listed flat: who is asking, what they want made,
+// and the commercial terms. A buyer who cannot answer everything still
+// sends it, which is why nothing here is phrased as required.
+export function inquiryEmailBody({ productName, country } = {}) {
   return [
     'Hello Kiran Global Exports,',
     '',
-    'Please quote for the following:',
+    'Please send us a quotation for the following.',
     '',
-    `Product:            ${productName || ''}`,
-    'Size:               ',
-    'GSM / weight:       ',
-    'Colour:             ',
-    'Quantity:           ',
-    'Destination port:   ',
-    'Branding / label:   ',
+    '--- Your details ---',
+    'Company:                  ',
+    'Contact name:             ',
+    `Country:                  ${country || ''}`,
     '',
-    'Anything else we should know:',
+    '--- Product ---',
+    `Product:                  ${productName || ''}`,
+    'Size:                     ',
+    'GSM / weight:             ',
+    'Colour:                   ',
+    'Quantity:                 ',
+    'Packing:                  ',
+    'Branding / label:         ',
+    '',
+    '--- Commercial ---',
+    'Destination port:         ',
+    'Target price (if any):    ',
+    'Required delivery date:   ',
+    'Sample required:          Yes / No',
+    '',
+    '--- Anything else we should know ---',
     '',
     '',
-    'Company:            ',
-    'Contact name:       ',
   ].join('\n');
 }
 

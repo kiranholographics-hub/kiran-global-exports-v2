@@ -19,11 +19,12 @@ export default function CTASection({
   // the form is the second option, not the first.
   emailSubject,
   emailProduct,
+  emailCountry,
 }) {
   const { t } = useTranslation();
   const resolvedPrimaryLabel = primaryLabel || t('common.contactExportTeam');
   const emailHref = emailSubject
-    ? mailtoLink(emailSubject, inquiryEmailBody(emailProduct))
+    ? mailtoLink(emailSubject, inquiryEmailBody({ productName: emailProduct, country: emailCountry }))
     : null;
   return (
     <section className={`section section--dark ${styles.section}`}>
