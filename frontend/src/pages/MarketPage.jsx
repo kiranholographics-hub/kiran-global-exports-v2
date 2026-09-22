@@ -1,5 +1,5 @@
 import { use, useMemo } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import SEO from '@/components/SEO/SEO';
 import PageIntro from '@/components/PageIntro/PageIntro';
 import ScrollReveal from '@/components/ScrollReveal/ScrollReveal';
@@ -8,6 +8,7 @@ import CTASection from '@/components/CTASection/CTASection';
 import NotFoundContent from '@/components/NotFoundContent/NotFoundContent';
 import { fetchMarketBySlug } from '@/lib/publicMarkets';
 import { REASONS, getMarketContent, getStaticMarket } from '@/data/marketContent';
+import { getLandingPageForMarket } from '@/data/seoLandingPages';
 import styles from './MarketPage.module.css';
 
 /* ═══════════════════════════════════════════════ */
@@ -40,6 +41,9 @@ export default function MarketPage() {
   }
 
   const content = getMarketContent(market.slug, market.countryName);
+  // The sourcing guide for this market already links here; this is the
+  // same pair read the other way, so neither page is a dead end.
+  const guide = getLandingPageForMarket(market.slug);
 
   return (
     <>
@@ -106,6 +110,25 @@ export default function MarketPage() {
           </div>
         </div>
       </section>
+
+      {guide && (
+        <section className={`section ${styles.guideSection}`}>
+          <div className="container">
+            <ScrollReveal className={styles.guideCard}>
+              <p className={styles.guideEyebrow}>Sourcing detail</p>
+              <h2 className={styles.guideTitle}>{guide.label}</h2>
+              <p className={styles.guideBody}>
+                This page covers why buyers in {market.countryName} work with
+                us. The sourcing guide covers how — the mill, the
+                specification, labelling and what each shipment carries.
+              </p>
+              <Link to={guide.href} className={styles.guideLink}>
+                Read the {guide.eyebrow} sourcing guide
+              </Link>
+            </ScrollReveal>
+          </div>
+        </section>
+      )}
 
       <CTASection
         eyebrow={`${market.countryName} Inquiry`}

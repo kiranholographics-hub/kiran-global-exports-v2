@@ -201,6 +201,19 @@ function genericContent(countryName) {
 // Search Console lists them as discovered but not indexed. Only the
 // hand-written markets above qualify; one created from /hq with no entry
 // here has no country name to fall back to.
+// The markets with hand-written copy, for the sitewide footer links.
+// Deliberately this static list rather than the live one from /hq: the
+// footer renders on every page and must not depend on an API call, and a
+// market with no entry here has no copy worth linking to anyway.
+export function getStaticMarketLinks() {
+  return Object.entries(MARKET_CONTENT).map(([slug, market]) => ({
+    href: `/${slug}`,
+    // countryName is written for prose ("importers in the United
+    // States"); a link in a list wants the bare name.
+    label: market.countryName.replace(/^the /i, ''),
+  }));
+}
+
 export function getStaticMarket(slug) {
   const bespoke = MARKET_CONTENT[slug];
   return bespoke ? { slug, countryName: bespoke.countryName } : null;

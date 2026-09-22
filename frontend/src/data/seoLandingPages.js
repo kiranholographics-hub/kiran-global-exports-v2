@@ -409,6 +409,19 @@ export function getLandingPageGroups() {
   return groups;
 }
 
+// The sourcing guide for a market page, if one exists. The guides
+// already link out to the market pages via relatedMarket; this is the
+// same relationship read the other way, so the pair link to each other
+// instead of the market page being a dead end.
+export function getLandingPageForMarket(marketSlug) {
+  const entry = Object.entries(PAGES).find(
+    ([, page]) => page.relatedMarket?.href === `/${marketSlug}`
+  );
+  if (!entry) return null;
+  const [key, page] = entry;
+  return { href: `/${key}`, label: page.seoTitle, eyebrow: page.eyebrow };
+}
+
 // Sibling pages, for the cross-links at the foot of each one. Derived
 // rather than hand-listed per page so a tenth page is linked from the
 // other nine the moment it is added above — a page nothing links to is

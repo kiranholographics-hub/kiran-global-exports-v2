@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { siteConfig, waLink, mailtoLink, telLink, formatPhoneDisplay } from '@/data/config';
+import { getStaticMarketLinks } from '@/data/marketContent';
 import CertificationGallery from '@/components/CertificationGallery/CertificationGallery';
 import styles from './Footer.module.css';
 
@@ -98,13 +99,19 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* ── Export Regions Column ──────────────── */}
+        {/* ── Export Markets Column ──────────────────
+            These were the region names as plain text. They are the
+            market pages now, because nothing on the site linked to any
+            of them — they sat in the sitemap and nowhere else, which is
+            how a page Google is allowed to index still goes unindexed.
+            A footer is on every page, so this is the one place that
+            fixes it for all eight at once. */}
         <div className={styles.col}>
           <p className={styles.colHeading}>{t('footer.exportRegions')}</p>
           <ul>
-            {siteConfig.exportRegions.map((r) => (
-              <li key={r.value} className={styles.regionTag}>
-                {t(r.labelKey)}
+            {getStaticMarketLinks().map((market) => (
+              <li key={market.href}>
+                <Link to={market.href}>{market.label}</Link>
               </li>
             ))}
           </ul>

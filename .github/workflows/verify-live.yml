@@ -68,6 +68,14 @@ jobs:
           has /export/ "/export links to the hospitality guide" "/solutions/hotel-towel-manufacturer"
           has /export/ "/export links to the private label guide" "/solutions/private-label-towel-manufacturer"
 
+          echo "── The market pages are reachable from the site ──"
+          # The footer renders on every page, so one check per market on
+          # one page covers the whole site.
+          for m in usa canada australia south-america poland finland sweden norway; do
+            has /about/ "footer links to /$m" "\"/$m\""
+          done
+          has /usa/ "USA market page links to its sourcing guide" "/export/usa-cotton-towel-supplier"
+
           echo "── Catalogue is prerendered and indexable ──"
           has  /towels/bath-towels/ "Towel category renders" "<h1"
           lacks /towels/bath-towels/ "Towel category is indexable" "noindex"
