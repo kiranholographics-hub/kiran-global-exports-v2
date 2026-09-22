@@ -22,10 +22,35 @@ jobs:
           BUST="?cachebust=${GITHUB_RUN_ID}"
           failed=0
 
+          mkdir -p /tmp/pages
+
+          # Fetch a path once and keep it. Every assertion used to fetch
+          # the page again — nine checks against /export meant nine
+          # downloads of /export — which is how this check grew to a few
+          # hundred requests and started being rate-limited by the host.
+          # $1 path; echoes the local file holding the body.
+          fetch() {
+            local key file
+            key=$(printf '%s' "$1" | tr -c 'A-Za-z0-9' '_')
+            file="/tmp/pages/$key"
+            if [ ! -f "$file" ]; then
+              # || true: a timeout must fail its own check, not kill the
+              # run under `bash -e` and skip every check after it.
+              curl -sL --max-time 30 "$SITE$1$BUST" > "$file" 2>/dev/null || true
+              # Be a good citizen on shared hosting.
+              sleep 0.3
+            fi
+            printf '%s' "$file"
+          }
+
           # $1 path, $2 description, $3 string the body must contain
           has() {
-            body=$(curl -sL --max-time 30 "$SITE$1$BUST")
-            if printf '%s' "$body" | grep -qF -- "$3"; then
+            local file
+            file=$(fetch "$1")
+            if [ ! -s "$file" ]; then
+              echo "  NO REPLY $2  — $1 returned nothing (timeout or error)"
+              failed=1
+            elif grep -qF -- "$3" "$file"; then
               echo "  ok       $2"
             else
               echo "  MISSING  $2  — $1 does not contain: $3"
@@ -35,8 +60,12 @@ jobs:
 
           # $1 path, $2 description, $3 string the body must NOT contain
           lacks() {
-            body=$(curl -sL --max-time 30 "$SITE$1$BUST")
-            if printf '%s' "$body" | grep -qF -- "$3"; then
+            local file
+            file=$(fetch "$1")
+            if [ ! -s "$file" ]; then
+              echo "  NO REPLY $2  — $1 returned nothing (timeout or error)"
+              failed=1
+            elif grep -qF -- "$3" "$file"; then
               echo "  BAD      $2  — $1 still contains: $3"
               failed=1
             else
@@ -113,10 +142,11 @@ jobs:
           # ignored by Google exactly like markup that was never there.
           # Pull every block out of a page and parse it.
           check_jsonld() {
-            curl -sL --max-time 30 "$SITE$1$BUST" > /tmp/page.html
+            JSONLD_FILE=$(fetch "$1")
+            export JSONLD_FILE
             if node -e '
               const fs = require("fs");
-              const html = fs.readFileSync("/tmp/page.html", "utf-8");
+              const html = fs.readFileSync(process.env.JSONLD_FILE, "utf-8");
               const blocks = [...html.matchAll(
                 /<script[^>]*application\/ld\+json[^>]*>([\s\S]*?)<\/script>/g
               )].map(m => m[1]);
@@ -145,21 +175,27 @@ jobs:
           # /export and the footer are where the whole site now hangs off.
           # A typo in either quietly orphans pages again.
           for page in /export/ /usa/ /towels/; do
-            curl -sL --max-time 30 "$SITE$page$BUST" > /tmp/hub.html
-            links=$(grep -oE 'href="/[a-z0-9/-]*"' /tmp/hub.html \
+            hub=$(fetch "$page")
+            links=$(grep -oE 'href="/[a-z0-9/-]*"' "$hub" \
               | sed 's/href="//; s/"//' | sort -u)
+            broken=0
+            total=0
             for link in $links; do
-              code=$(curl -sL -o /dev/null -w '%{http_code}' --max-time 20 "$SITE$link")
+              total=$((total + 1))
+              code=$(curl -sL -o /dev/null -w '%{http_code}' --max-time 20 \
+                "$SITE$link" 2>/dev/null || echo 000)
               if [ "$code" != "200" ]; then
                 echo "  BROKEN   $page -> $link  (HTTP $code)"
+                broken=$((broken + 1))
                 failed=1
               fi
+              sleep 0.2
             done
-            echo "  ok       $page — $(printf '%s\n' "$links" | wc -l) internal links all resolve"
+            [ "$broken" = "0" ] && echo "  ok       $page — all $total internal links resolve"
           done
 
           echo "── Sitemap ──"
-          sitemap=$(curl -sL --max-time 30 "$SITE/sitemap.xml")
+          sitemap=$(curl -sL --max-time 30 "$SITE/sitemap.xml" 2>/dev/null || true)
           count=$(printf '%s' "$sitemap" | grep -c "<loc>" || true)
           echo "  info     sitemap lists $count URLs"
           # 71 static entries plus the active market pages. Well under that
