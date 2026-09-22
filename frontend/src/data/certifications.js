@@ -30,13 +30,13 @@ const certifications = [
     name: 'Global Recycled Standard',
     image: '/images/certifications/grs.webp',
     alt: 'Global Recycled Standard (GRS) certification — held by our manufacturing partner, V P Mundada (Solapur)',
-    caption: `${MUNDADA} · Scope Certificate [Confirm with Mundada] · Issued by Bureau Veritas`,
+    caption: `${MUNDADA} · Issued by Bureau Veritas`,
   },
   {
     name: 'OEKO-TEX STANDARD 100',
     image: '/images/certifications/oeko-tex-standard-100.webp',
     alt: 'OEKO-TEX® STANDARD 100 certification — held by our manufacturing partner, V P Mundada (Solapur)',
-    caption: `${MUNDADA} · Certificate [Confirm with Mundada]`,
+    caption: MUNDADA,
   },
   {
     name: 'OEKO-TEX STeP',
@@ -48,7 +48,7 @@ const certifications = [
     name: 'OEKO-TEX MADE IN GREEN',
     image: '/images/certifications/oeko-tex-made-in-green.webp',
     alt: 'OEKO-TEX® MADE IN GREEN certification — held by our manufacturing partner, V P Mundada (Solapur)',
-    caption: `${MUNDADA} · Certificate [Confirm with Mundada]`,
+    caption: MUNDADA,
   },
   {
     name: 'FIEO',

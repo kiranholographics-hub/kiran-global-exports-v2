@@ -78,15 +78,23 @@ function resolveImage(image) {
 
 /**
  * Whether a spec value is a real figure rather than a note standing in for
- * one. The catalogue deliberately carries "[Confirm with Mundada]" where
- * the mill has not confirmed a number yet, and "Buyer specified" where
- * there is no single answer — honest on the page, but a placeholder is
- * not a fact, and Product markup is read as one.
+ * one. The catalogue says "Confirmed on quotation" where the mill has not
+ * given a figure yet, and "Buyer specified" where there is no single
+ * answer — the honest thing to show a buyer, and not a specification,
+ * which is what this markup would present it as.
  */
 function isRealSpec(value) {
   if (!value) return false;
   const text = String(value);
-  return !text.includes('[') && !/specifi/i.test(text);
+  // "Confirmed on quotation", "Buyer specified", "Specified per project":
+  // honest answers for a buyer reading the page, and not specifications,
+  // which is what this markup would present them as.
+  return !/confirm|specifi/i.test(text);
+}
+
+/** A weight is only a weight if it states a number. */
+function isRealWeight(value) {
+  return isRealSpec(value) && /\d/.test(String(value));
 }
 
 /** Truncate description to recommended length */
@@ -328,7 +336,7 @@ export default function SEO({
         ...(isRealSpec(product.material) && { material: product.material }),
         // The catalogue already writes gsm as "400 GSM", so appending the
         // unit again gave "400 GSM GSM".
-        ...(isRealSpec(product.gsm) && {
+        ...(isRealWeight(product.gsm) && {
           weight: /gsm/i.test(product.gsm) ? product.gsm : `${product.gsm} GSM`,
         }),
       });

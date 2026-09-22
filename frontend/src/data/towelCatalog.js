@@ -4,12 +4,18 @@ const thumb = (category, slug) =>
 
 // ---------------------------------------------------------------------------
 // Product copy note (Sept 2026 SEO/content audit):
-// Specs left as "[Confirm with Mundada]" are real gaps, not filler —
-// GSM, size, MOQ and construction need to come from the mill before these
-// go live. Filling in a plausible-sounding number instead of the real one
-// is worse than leaving the gap visible, since a serious buyer checks
-// these against the physical sample. Replace every bracketed placeholder
-// with the confirmed figure before publishing.
+// A spec reading "Confirmed on quotation" is a real gap, not filler. GSM,
+// size, MOQ and construction have to come from the mill; a
+// plausible-sounding number in place of the real one is worse than the
+// gap, because a serious buyer checks these against the physical sample
+// and specifies a container against them. Replace each one with the
+// confirmed figure as it arrives — never with an estimate.
+//
+// These used to read "[Confirm with Mundada]", which was an internal note
+// shown to customers on the live site. The wording changed; the gap did
+// not. SEO.jsx keeps these values out of the Product structured data (see
+// isRealSpec there), so filling one in is also what puts a real
+// specification in front of Google.
 //
 // Description copy (Oct 2026): every product below now has a distinct,
 // substantive description — what the construction actually does, and
@@ -29,14 +35,14 @@ const albumTowelProducts = [
     description:
       "Ringspun cotton yarn is combed and twisted tighter than standard carded cotton, which is what lets this towel go through hundreds of commercial wash cycles without the pile matting down or the colour dulling. It's the workhorse of the range — not the softest towel we make (that's the Zero Twist), but the one built to still look and feel right after a year of hotel laundry. Right choice for volume hospitality and retail programmes where cost-per-wash matters more than hand-feel on day one.",
     material: "100% ringspun cotton terry",
-    gsm: "[Confirm with Mundada]",
-    size: "[Confirm with Mundada]",
-    colors: ["White", "Ivory", "[Confirm with Mundada]"],
+    gsm: "Confirmed on quotation",
+    size: "Confirmed on quotation",
+    colors: ["White", "Ivory", "Custom colourways on request"],
     construction: "Ringspun cotton terry, dobby border",
     applications: ["Hospitality", "Retail", "Home"],
     customization:
       "Size, colour, border and private-label options available on request.",
-    moq: "[Confirm with Mundada]",
+    moq: "Confirmed on quotation",
     images: [image("bath", "bath-towel"), image("bath", "bath-towel-2")],
     imageThumbs: [thumb("bath", "bath-towel"), thumb("bath", "bath-towel-2")],
     featured: true,
@@ -55,12 +61,12 @@ const albumTowelProducts = [
     material: "100% cotton terry",
     gsm: "400 GSM",
     size: "60 × 120 cm",
-    colors: ["White", "Ivory", "[Confirm with Mundada]"],
+    colors: ["White", "Ivory", "Custom colourways on request"],
     construction: "Cotton terry, dobby border",
     applications: ["Hospitality", "Spa", "Retail"],
     customization:
       "Colour, size and private-label development available on request.",
-    moq: "[Confirm with Mundada]",
+    moq: "Confirmed on quotation",
     images: [image("bath-sheets", "bath-sheet")],
     imageThumbs: [thumb("bath-sheets", "bath-sheet")],
     featured: true,
@@ -77,14 +83,14 @@ const albumTowelProducts = [
     description:
       "The dobby border isn't decoration — it's a woven-in reference line that housekeeping staff and guests both use to tell a hand towel from a bath towel from a bath mat at a glance, especially when several sizes are stacked together. That's the actual reason almost every hotel programme specifies a bordered towel rather than a plain one. Built for repeat bulk ordering where every shipment needs to match the last one exactly — the border pattern is set in the weave, not printed, so it doesn't fade out of sync with the rest of the towel.",
     material: "100% cotton terry",
-    gsm: "[Confirm with Mundada]",
-    size: "[Confirm with Mundada]",
-    colors: ["White", "Ivory", "[Confirm with Mundada]"],
+    gsm: "Confirmed on quotation",
+    size: "Confirmed on quotation",
+    colors: ["White", "Ivory", "Custom colourways on request"],
     construction: "Dobby border",
     applications: ["Hospitality", "Hotels", "Resorts"],
     customization:
       "Custom border, size, colour and branding available on request.",
-    moq: "[Confirm with Mundada]",
+    moq: "Confirmed on quotation",
     images: [image("hotel", "hotel-border-towel")],
     imageThumbs: [thumb("hotel", "hotel-border-towel")],
     featured: true,
@@ -101,14 +107,14 @@ const albumTowelProducts = [
     description:
       "A jacquard loom changes which threads sit on top at each point in the weave to build the pattern directly into the towel's structure — there's no ink or dye layer sitting on the surface that can crack, peel or fade unevenly the way a printed pattern eventually does. That's the whole case for jacquard over print for a retail or private-label towel meant to last: the pattern is as durable as the towel itself. The trade-off is development time — jacquard patterns need to be programmed into the loom, so custom artwork takes longer to sample than a printed design would.",
     material: "100% cotton, jacquard weave",
-    gsm: "[Confirm with Mundada]",
-    size: "[Confirm with Mundada]",
-    colors: ["White", "Ivory", "[Confirm with Mundada]"],
+    gsm: "Confirmed on quotation",
+    size: "Confirmed on quotation",
+    colors: ["White", "Ivory", "Custom colourways on request"],
     construction: "Jacquard weave",
     applications: ["Hospitality", "Retail", "Private label"],
     customization:
       "Custom jacquard artwork, size, colour and branding available on request.",
-    moq: "[Confirm with Mundada]",
+    moq: "Confirmed on quotation",
     images: [
       image("jacquard", "jacquard-towel"),
       image("jacquard", "jacquard-towel-detail"),
@@ -131,14 +137,14 @@ const albumTowelProducts = [
     description:
       "The honeycomb grid in a waffle weave isn't just texture — it's a structural way of exposing more surface area to air than a flat weave or a terry loop pile can, which is the actual reason waffle towels dry faster on the line and take up less space folded in a spa cabinet or gym bag. What it gives up against terry is raw absorbency per square inch, since there's less pile to hold water in the first place. Right fit for spa, wellness and travel-oriented ranges where dry time and pack size matter more than maximum absorbency; not the towel to spec for a heavy-use hotel bath programme.",
     material: "100% cotton, waffle weave",
-    gsm: "[Confirm with Mundada]",
-    size: "[Confirm with Mundada]",
-    colors: ["White", "Ivory", "[Confirm with Mundada]"],
+    gsm: "Confirmed on quotation",
+    size: "Confirmed on quotation",
+    colors: ["White", "Ivory", "Custom colourways on request"],
     construction: "Waffle weave / one-side waffle terry",
     applications: ["Spa", "Hospitality", "Retail"],
     customization:
       "Custom size, colour, branding and packaging available on request.",
-    moq: "[Confirm with Mundada]",
+    moq: "Confirmed on quotation",
     images: [
       image("waffle", "waffle-weave-towel"),
       image("waffle", "waffle-terry-detail"),
@@ -162,14 +168,14 @@ const albumTowelProducts = [
     description:
       "In zero twist yarn the cotton fibres are held together without the usual spinning twist. The towel feels noticeably softer in the hand, absorbs faster than a conventionally spun towel of the same weight, and dries quicker because the pile holds less water in the yarn core. This is a premium retail and boutique hospitality product — it is not built for heavy industrial tunnel washing. If your programme is high-volume hotel laundry, our pure white or plain-dyed terry is the better fit, and we will say so.",
     material: "Zero twist cotton yarn pile, ring spun ground",
-    gsm: "[Confirm with Mundada]",
-    size: "[Confirm with Mundada]",
+    gsm: "Confirmed on quotation",
+    size: "Confirmed on quotation",
     colors: ["Piece dyed", "Pantone matching available"],
     construction: "Zero twist cotton yarn pile, ring spun ground",
     applications: ["Retail", "Spa", "Hospitality"],
     customization:
       "Woven label, satin label, heat transfer or embroidery. Custom size, weight, colour and private-label options available on request.",
-    moq: "[Confirm with Mundada]",
+    moq: "Confirmed on quotation",
     bestFor: "Retail brands, boutique hotels, spa and wellness, premium private-label programmes, gifting.",
     packing: "Bulk carton, individual polybag, belly band or gift box.",
     images: [image("zero-twist", "zero-twist-towel")],
@@ -188,14 +194,14 @@ const albumTowelProducts = [
     description:
       "The Greek key (meander) pattern has been used on hospitality textiles long enough that it now reads as timeless rather than dated in a way most border patterns don't — which is exactly why buyers keep specifying it for properties that don't want to redo their towel programme every time décor trends shift. At 50 × 100 cm it sits as a hand-towel-to-small-bath-towel format, woven with the same dobby-border technique as our other bordered ranges so the pattern holds through commercial washing rather than fading unevenly.",
     material: "100% cotton terry",
-    gsm: "[Confirm with Mundada]",
+    gsm: "Confirmed on quotation",
     size: "50 × 100 cm",
-    colors: ["White", "Ivory", "[Confirm with Mundada]"],
+    colors: ["White", "Ivory", "Custom colourways on request"],
     construction: "Greek border, dobby weave",
     applications: ["Hospitality", "Retail", "Private label"],
     customization:
       "Custom border artwork, colours and branding available on request.",
-    moq: "[Confirm with Mundada]",
+    moq: "Confirmed on quotation",
     images: [
       image("dobby-border", "greek-border-towel"),
       image("dobby-border", "three-line-border-towel"),
@@ -218,14 +224,14 @@ const albumTowelProducts = [
     description:
       "A resort towel that stays in visibly good condition for its full service life is mostly a colour decision, not a fabric one: solid white shows chlorine bleaching, sunscreen oil marks and general sun fade far faster than a striped or patterned colourway does, which is why almost every poolside and beach programme runs stripes rather than plain white. Built in cotton terry for the absorbency guests actually want at a pool, with the wash-durability to handle a resort's laundry frequency rather than a household one.",
     material: "100% cotton terry",
-    gsm: "[Confirm with Mundada]",
-    size: "[Confirm with Mundada]",
-    colors: ["[Confirm with Mundada — striped and solid colourways available]"],
+    gsm: "Confirmed on quotation",
+    size: "Confirmed on quotation",
+    colors: ["Striped and solid colourways on request"],
     construction: "Cotton terry",
     applications: ["Resorts", "Hospitality", "Leisure"],
     customization:
       "Custom stripes, colourways, size and branding available on request.",
-    moq: "[Confirm with Mundada]",
+    moq: "Confirmed on quotation",
     images: [
       image("pool-beach", "pool-towel"),
       image("pool-beach", "beach-towel"),
@@ -248,14 +254,14 @@ const albumTowelProducts = [
     description:
       "The three ways to put a logo on a towel aren't interchangeable: woven labels are the most durable and the most expensive to set up, since they're made on a separate small loom and then attached; embroidery sits in the middle on both cost and durability, and can pucker the terry pile slightly around dense designs; heat-transfer is the cheapest and fastest to sample but the first to show wear after repeated commercial washing. We'll tell you which fits your order volume and budget rather than defaulting to whichever is easiest for us to produce.",
     material: "100% cotton terry",
-    gsm: "[Confirm with Mundada]",
-    size: "[Confirm with Mundada]",
-    colors: ["[Confirm with Mundada]"],
+    gsm: "Confirmed on quotation",
+    size: "Confirmed on quotation",
+    colors: ["Custom colourways on request"],
     construction: "Custom branding — woven, embroidered or heat-transfer",
     applications: ["Hospitality", "Corporate", "Private label"],
     customization:
       "Logo, label, colour, size and packaging development available on request.",
-    moq: "[Confirm with Mundada]",
+    moq: "Confirmed on quotation",
     images: [
       image("logo-custom", "logo-towel"),
       image("logo-custom", "logo-towel-detail"),
@@ -278,14 +284,14 @@ const albumTowelProducts = [
     description:
       "On a bath mat, the tufted cotton pile itself rarely wears out before the non-slip backing does — repeated commercial washing is harder on rubber or latex backings than on the cotton face, and a backing that's started to crack or lose grip is a liability a hotel notices immediately. That's the spec worth confirming closely for a bulk hospitality order: backing type and its rated wash-cycle life, not just pile weight. Developed alongside our bath towel ranges so mat and towel colourways match exactly, order to order.",
     material: "100% cotton tufted pile",
-    gsm: "[Confirm with Mundada]",
-    size: "[Confirm with Mundada]",
-    colors: ["White", "Ivory", "[Confirm with Mundada]"],
+    gsm: "Confirmed on quotation",
+    size: "Confirmed on quotation",
+    colors: ["White", "Ivory", "Custom colourways on request"],
     construction: "Tufted cotton pile, non-slip backing",
     applications: ["Hospitality", "Spa", "Home"],
     customization:
       "Custom size, colour, backing and private-label packaging available on request.",
-    moq: "[Confirm with Mundada]",
+    moq: "Confirmed on quotation",
     images: [image("bath-mats", "cotton-bath-mat")],
     imageThumbs: [thumb("bath-mats", "cotton-bath-mat")],
     featured: false,
@@ -302,14 +308,14 @@ const albumTowelProducts = [
     description:
       "This is the front-of-house half of our kitchen textile range — hand napkins sized and finished for table-side use in restaurants and F&B service, where presentation and a soft hand-feel matter as much as absorbency. For back-of-house dish-drying and general kitchen utility, our Kitchen Towel (a heavier terry/waffle construction built to handle grease and repeated hard use) is the better spec. Ordering both under one programme keeps front and back-of-house textiles visually consistent.",
     material: "100% cotton",
-    gsm: "[Confirm with Mundada]",
-    size: "[Confirm with Mundada]",
-    colors: ["White", "Ivory", "[Confirm with Mundada]"],
+    gsm: "Confirmed on quotation",
+    size: "Confirmed on quotation",
+    colors: ["White", "Ivory", "Custom colourways on request"],
     construction: "Cotton terry / waffle weave",
     applications: ["F&B", "Retail", "Home"],
     customization:
       "Custom weave, colour, labels and packaging available on request.",
-    moq: "[Confirm with Mundada]",
+    moq: "Confirmed on quotation",
     images: [
       image("kitchen", "kitchen-napkin"),
       image("kitchen", "hand-napkins"),
@@ -332,14 +338,14 @@ const albumTowelProducts = [
     description:
       "Most textiles sold as \"bamboo\" — this one included — use bamboo viscose: the bamboo plant is pulped and chemically processed into a rayon-type fibre, not spun directly from raw bamboo strands the way cotton is spun from raw cotton. That's standard across the industry and not a defect, but it matters for how you describe the product to your own retail customers, especially anywhere \"eco-friendly\" or \"natural fibre\" claims get scrutinised. We'll confirm the exact blend ratio and fibre processing per order so your product listing can be accurate rather than aspirational.",
     material: "Bamboo blend — final composition available on request",
-    gsm: "[Confirm with Mundada]",
-    size: "[Confirm with Mundada]",
-    colors: ["[Confirm with Mundada]"],
-    construction: "[Confirm with Mundada]",
+    gsm: "Confirmed on quotation",
+    size: "Confirmed on quotation",
+    colors: ["Custom colourways on request"],
+    construction: "Confirmed on quotation",
     applications: ["Spa", "Wellness", "Retail"],
     customization:
       "Custom composition, size, colour and branding available on request.",
-    moq: "[Confirm with Mundada]",
+    moq: "Confirmed on quotation",
     images: [image("bamboo-specialty", "bamboo-towel")],
     imageThumbs: [thumb("bamboo-specialty", "bamboo-towel")],
     featured: false,
@@ -356,13 +362,13 @@ const albumTowelProducts = [
     description:
       "Terry gloves are almost always ordered as an accessory alongside a spa or hospitality towel range rather than as a standalone product — worth knowing if you're pricing a first order, since MOQ efficiency usually comes from bundling them with a larger towel or robe programme rather than ordering gloves in isolation. Used for gentle exfoliation and cleansing application in spa and personal-care settings; sized to be sold individually or packed into a matching gift or amenity set.",
     material: "100% cotton terry",
-    gsm: "[Confirm with Mundada]",
-    size: "[Confirm with Mundada]",
-    colors: ["White", "Ivory", "[Confirm with Mundada]"],
+    gsm: "Confirmed on quotation",
+    size: "Confirmed on quotation",
+    colors: ["White", "Ivory", "Custom colourways on request"],
     construction: "Cotton terry",
     applications: ["Spa", "Hospitality", "Wellness"],
     customization: "Custom size, colour, branding and set packaging available on request.",
-    moq: "[Confirm with Mundada]",
+    moq: "Confirmed on quotation",
     images: [image("accessories", "terry-gloves")],
     imageThumbs: [thumb("accessories", "terry-gloves")],
     featured: false,
@@ -381,13 +387,13 @@ const albumTowelProducts = [
     description:
       "Two decisions shape a bathrobe order more than anything else: collar style and base construction. A shawl collar sits flatter and reads more classic-hotel; a kimono collar is lower-cost to produce and has become the standard for boutique and spa-positioned properties. Construction-wise, terry gives more absorbency and weight (better for a genuine post-bath robe), while waffle is lighter, dries faster and packs smaller — the pick spa and wellness programmes usually make. We'll walk through both trade-offs against your guest profile before you commit to a spec.",
     material: "100% cotton terry / waffle blend",
-    gsm: "[Confirm with Mundada]",
+    gsm: "Confirmed on quotation",
     size: "S–XL (custom sizing available)",
-    colors: ["White", "Ivory", "[Confirm with Mundada]"],
+    colors: ["White", "Ivory", "Custom colourways on request"],
     construction: "Shawl or kimono collar, belt tie",
     applications: ["Hospitality", "Retail", "Spa"],
     customization: "Custom embroidery, sizing, collar style, packaging.",
-    moq: "[Confirm with Mundada]",
+    moq: "Confirmed on quotation",
     images: [image("logo-custom", "logo-towel-detail")],
     imageThumbs: [thumb("logo-custom", "logo-towel-detail")],
     featured: true,
@@ -404,13 +410,13 @@ const albumTowelProducts = [
     description:
       "This is cut and finished specifically for turban-style hair wrapping and salon treatment use — narrower and lighter than a bath towel, with a lower-pile terry that grips damp hair without adding the bulk a full bath towel would around the head. Absorbency-per-weight matters more here than raw absorbency, since salon and spa staff are handling dozens of these through a shift; a heavier towel that dries slower doesn't just inconvenience the guest, it slows the laundry turnaround the business depends on.",
     material: "100% cotton terry",
-    gsm: "[Confirm with Mundada]",
-    size: "[Confirm with Mundada]",
-    colors: ["White", "Sage", "[Confirm with Mundada]"],
+    gsm: "Confirmed on quotation",
+    size: "Confirmed on quotation",
+    colors: ["White", "Sage", "Custom colourways on request"],
     construction: "Cotton terry, reinforced hem",
     applications: ["Spa", "Hospitality", "Retail"],
     customization: "Custom sizing, colourway, embroidered branding.",
-    moq: "[Confirm with Mundada]",
+    moq: "Confirmed on quotation",
     images: ["/images/linen/hair-spa-towel.webp"],
     imageThumbs: ["/images/linen/hair-spa-towel.webp"],
     featured: true,
@@ -427,13 +433,13 @@ const albumTowelProducts = [
     description:
       "\"White\" isn't one spec — optical brighteners can shift the shade warmer or cooler depending on the finishing process, and that same brightener treatment affects how the towel responds to chlorine bleaching, which most large hotel laundry programmes rely on. A towel optimised for the cleanest white under fluorescent lighting isn't automatically the one that holds its whiteness best after fifty industrial chlorine washes — worth specifying which matters more for your programme before we run the finishing.",
     material: "100% cotton terry",
-    gsm: "[Confirm with Mundada]",
-    size: "[Confirm with Mundada]",
+    gsm: "Confirmed on quotation",
+    size: "Confirmed on quotation",
     colors: ["White"],
     construction: "Dobby border, reinforced hem",
     applications: ["Hospitality", "Spa", "Retail"],
     customization: "Custom sizing, border design, private-label packaging.",
-    moq: "[Confirm with Mundada]",
+    moq: "Confirmed on quotation",
     images: [image("bath", "bath-towel")],
     imageThumbs: [thumb("bath", "bath-towel")],
     featured: false,
@@ -450,13 +456,13 @@ const albumTowelProducts = [
     description:
       "We piece-dye with reactive dyes, which bond chemically to the cotton fibre rather than sitting as a surface coating the way pigment dyes do — the practical difference shows up after the twentieth commercial wash, when a reactive-dyed towel is still close to its original shade and a pigment-dyed one has visibly dulled. That durability is what makes plain-dyed terry the standard choice for retail and private-label ranges that need a colour to still match the original approval sample a year into a repeat-order relationship. Full Pantone matching available for private-label colour development.",
     material: "100% cotton terry",
-    gsm: "[Confirm with Mundada]",
-    size: "[Confirm with Mundada]",
+    gsm: "Confirmed on quotation",
+    size: "Confirmed on quotation",
     colors: ["Full dye-shade range — Pantone matching available"],
     construction: "Piece-dyed cotton terry",
     applications: ["Retail", "Hospitality", "Private label"],
     customization: "Custom colourway, sizing, private-label packaging.",
-    moq: "[Confirm with Mundada]",
+    moq: "Confirmed on quotation",
     images: [image("bath", "bath-towel-2")],
     imageThumbs: [thumb("bath", "bath-towel-2")],
     featured: false,
@@ -473,13 +479,13 @@ const albumTowelProducts = [
     description:
       "Standard terry has loop pile on both faces; this construction keeps the loop on one side for absorbency and finishes the other side in a flat, smooth weave — which makes the towel meaningfully thinner and easier to fold flat than double-sided terry of the same weight. Hotels running a minimal, low-bulk bathroom aesthetic often spec this over standard terry for exactly that reason. The trade-off is roughly half the absorbent surface area of a fully double-sided towel, so it suits a display or amenity role better than a primary bath towel role.",
     material: "100% cotton",
-    gsm: "[Confirm with Mundada]",
-    size: "[Confirm with Mundada]",
-    colors: ["White", "Ivory", "[Confirm with Mundada]"],
+    gsm: "Confirmed on quotation",
+    size: "Confirmed on quotation",
+    colors: ["White", "Ivory", "Custom colourways on request"],
     construction: "One-side terry loop, reverse smooth weave",
     applications: ["Retail", "Hospitality"],
     customization: "Custom sizing, colourway, branding.",
-    moq: "[Confirm with Mundada]",
+    moq: "Confirmed on quotation",
     images: [image("bath", "bath-towel")],
     imageThumbs: [thumb("bath", "bath-towel")],
     featured: false,
@@ -496,13 +502,13 @@ const albumTowelProducts = [
     description:
       "This is the back-of-house half of our kitchen range — built in a heavier terry or waffle construction than our Kitchen Towel & Napkin line, since drying dishes and handling hot cookware puts more mechanical stress and grease exposure on a towel than table-side service does. Waffle construction is the better spec if fast turnaround between uses matters in a busy commercial kitchen; standard terry if raw absorbency for heavy spills is the priority. Either way, it's built to survive daily commercial-kitchen washing, not delicate home laundering.",
     material: "100% cotton terry / waffle weave",
-    gsm: "[Confirm with Mundada]",
-    size: "[Confirm with Mundada]",
-    colors: ["White", "Ivory", "[Confirm with Mundada — full colour range available]"],
+    gsm: "Confirmed on quotation",
+    size: "Confirmed on quotation",
+    colors: ["White", "Ivory", "Full colour range on request"],
     construction: "Terry or waffle weave, reinforced hem",
     applications: ["Retail", "Hospitality", "F&B"],
     customization: "Custom sizing, weave, colourway, private-label packaging.",
-    moq: "[Confirm with Mundada]",
+    moq: "Confirmed on quotation",
     images: [image("kitchen", "kitchen-napkin")],
     imageThumbs: [thumb("kitchen", "kitchen-napkin")],
     featured: false,
@@ -519,13 +525,13 @@ const albumTowelProducts = [
     description:
       "Closure type is the detail that matters most on a bib order: snap closures are faster to put on and adjust across a couple of sizes, but the snap hardware is also the first thing to fail after repeated washing; tie closures last longer wash-for-wash but take more time to fasten, which matters at scale in a hospital or hospitality amenity setting. We'll confirm which fits your setting before running a full order rather than defaulting to whichever we already have tooled up.",
     material: "100% cotton terry",
-    gsm: "[Confirm with Mundada]",
-    size: "[Confirm with Mundada]",
-    colors: ["White", "Pastel range", "[Confirm with Mundada]"],
+    gsm: "Confirmed on quotation",
+    size: "Confirmed on quotation",
+    colors: ["White", "Pastel range", "Custom colourways on request"],
     construction: "Snap or tie closure, reinforced edge",
     applications: ["Retail", "Hospitality"],
     customization: "Custom colourway, embroidery, private-label packaging.",
-    moq: "[Confirm with Mundada]",
+    moq: "Confirmed on quotation",
     images: [image("kitchen", "hand-napkins")],
     imageThumbs: [thumb("kitchen", "hand-napkins")],
     featured: false,
