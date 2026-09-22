@@ -18,3 +18,4 @@ public/sitemap.xml
 .env
 .env.local
 .env.*.local
+/deployed-routes.json

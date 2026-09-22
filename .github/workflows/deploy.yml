@@ -55,14 +55,32 @@ jobs:
           import path from 'node:path';
           // The route list lives with the app, not in this file — see the
           // note in src/data/deployRoutes.js.
-          import { DEPLOY_ROUTES as routes } from './src/data/deployRoutes.js';
+          import { DEPLOY_ROUTES as baseRoutes } from './src/data/deployRoutes.js';
 
           const __dirname = process.cwd();
-          console.log('Rendering ' + routes.length + ' routes');
+
+          // Market pages (/usa, /australia, ...) are an admin-edited list
+          // in /hq, so they cannot live in a static file the way the rest
+          // do — ask the API which ones are active, exactly as
+          // scripts/prerender.mjs does. A failure here is not fatal: the
+          // rest of the site still deploys, and the market pages already
+          // live stay as they are.
+          async function marketRoutes() {
+            try {
+              const res = await fetch(process.env.VITE_API_URL + '/api/markets/public');
+              if (!res.ok) throw new Error('HTTP ' + res.status);
+              return (await res.json()).map(m => '/' + m.slug);
+            } catch (err) {
+              console.warn('  ! could not fetch active markets (' + err.message + ') — deploying without them');
+              return [];
+            }
+          }
 
           (async () => {
             let browser;
             try {
+              const routes = [...baseRoutes, ...(await marketRoutes())];
+              console.log('Rendering ' + routes.length + ' routes');
               // --disable-web-security (with its own --user-data-dir, which
               // Chrome requires before it honours the flag): the towel pages
               // read the catalogue from /api/products, and the API's origin
@@ -123,6 +141,14 @@ jobs:
                 broken.forEach(b => console.error('  - ' + b));
                 process.exit(1);
               }
+              // The steps that verify, package and ship these need the
+              // same list, and only this step can know it — it is the one
+              // that asked the API which market pages exist.
+              fs.writeFileSync(
+                path.join(__dirname, 'deployed-routes.json'),
+                JSON.stringify(routes),
+                'utf-8'
+              );
               console.log('All ' + routes.length + ' routes rendered.');
             } catch (err) {
               console.error('FATAL RENDER ERROR:', err.message);
@@ -139,7 +165,9 @@ jobs:
           node --input-type=module -e "
           import fs from 'node:fs';
           import path from 'node:path';
-          import { DEPLOY_ROUTES } from './src/data/deployRoutes.js';
+          // Written by the render step, which resolves the market pages
+          // from the API — see the note there.
+          const DEPLOY_ROUTES = JSON.parse(fs.readFileSync('deployed-routes.json', 'utf-8'));
 
           const required = DEPLOY_ROUTES.map(r => 'dist' + r + '/index.html');
 
@@ -181,7 +209,7 @@ jobs:
           node --input-type=module -e "
           import fs from 'node:fs';
           import path from 'node:path';
-          import { DEPLOY_ROUTES } from './src/data/deployRoutes.js';
+          const DEPLOY_ROUTES = JSON.parse(fs.readFileSync('deployed-routes.json', 'utf-8'));
           const distDir = path.resolve('dist');
           const addOnlyDir = path.resolve('dist_add_only');
 

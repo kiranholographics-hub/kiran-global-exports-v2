@@ -54,7 +54,23 @@ export const LINEN_PRODUCT_ROUTES = linenProducts.map(
 // unless they are rendered here.
 export const CATALOGUE_INDEX_ROUTES = ['/towels', '/linen', '/collections'];
 
+// The rest of the site's own pages. scripts/prerender.mjs has always
+// written these into dist/ and the deploy has never shipped them, so a
+// change to /about, /export or /contact reached the build and stopped
+// there — which is how /export could gain a section linking to all nine
+// landing pages and the live page still not have it.
+export const TOP_LEVEL_ROUTES = [
+  '/about',
+  '/custom',
+  '/export',
+  '/contact',
+  '/updates',
+  '/privacy-policy',
+  '/terms-and-conditions',
+];
+
 export const DEPLOY_ROUTES = [
+  ...TOP_LEVEL_ROUTES,
   ...SEO_LANDING_ROUTES,
   ...CATALOGUE_INDEX_ROUTES,
   ...TOWEL_CATEGORY_ROUTES,
