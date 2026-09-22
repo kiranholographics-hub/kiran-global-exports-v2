@@ -1,0 +1,69 @@
+# Pushes the catalogue in frontend/src/data/{towelCatalog,linenCatalog}.js
+# into MongoDB, which is what GET /api/products reads and therefore what
+# every product and category page on the live site actually shows. Editing
+# those files changes the build; it does not change the site until this
+# has run.
+#
+# Manual only, and dry run by default. This writes to the production
+# database: each record is overwritten with what the file says, so an edit
+# made in /hq to a product that also exists in the catalog files is lost,
+# and a product unpublished there is published again. Nothing is ever
+# deleted. Run the dry run first — it prints every field that would change
+# and writes nothing.
+name: Seed the catalogue into the database
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run (report what would change, write nothing)'
+        type: boolean
+        default: true
+
+jobs:
+  seed:
+    name: Sync catalogue files to MongoDB
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: backend/package-lock.json
+
+      - name: Install backend dependencies
+        working-directory: ./backend
+        run: npm ci
+
+      - name: Check the database connection string is set
+        run: |
+          if [ -z "${{ secrets.MONGODB_URI }}" ]; then
+            echo "::error::MONGODB_URI is not set. Add it under Settings > Secrets and variables > Actions."
+            exit 1
+          fi
+          echo "MONGODB_URI is set."
+
+      - name: Seed
+        working-directory: ./backend
+        env:
+          MONGODB_URI: ${{ secrets.MONGODB_URI }}
+        run: |
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            npm run seed -- --dry-run
+          else
+            npm run seed
+          fi
+
+      - name: What to do next
+        if: ${{ !inputs.dry_run }}
+        run: |
+          echo "The database now matches the catalogue files."
+          echo ""
+          echo "The live product pages are prerendered HTML, so they still"
+          echo "hold what the API returned at the last deploy. Run the"
+          echo "'Deploy ADD-ONLY prerendered pages to Hostinger' workflow to"
+          echo "rebuild them, then 'Verify the live site' to confirm."
