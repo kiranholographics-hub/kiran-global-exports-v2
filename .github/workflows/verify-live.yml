@@ -121,6 +121,16 @@ jobs:
           # where the mill has not given a figure. Honest on the page;
           # read as a fact if it reaches the markup.
           lacks /towels/bath-towels/bath-towel/ "no placeholder spec in the markup" '"weight":"[Confirm'
+          # The markup check above passed while the visible spec table
+          # still read "[Confirm with Mundada]" to every visitor: the
+          # catalogue files are only the source, and the page renders
+          # what GET /api/products returns, which is MongoDB. Editing the
+          # files without re-running backend/npm run seed changes nothing
+          # a visitor sees. Check the body, which is what they read.
+          lacks /towels/bath-towels/bath-towel/ "no internal note on the product page" "Confirm with Mundada"
+          lacks /towels/bath-towels/ "no internal note on the category page" "Confirm with Mundada"
+          lacks /linen/bed/ "no internal note on the linen page" "Confirm with Mundada"
+          lacks /about/ "no internal note in the certification strip" "Confirm with Mundada"
 
           echo "── Every landing page, not just a sample ──"
           # The two checked above were standing in for nine. A page whose
