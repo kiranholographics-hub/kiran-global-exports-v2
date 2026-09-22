@@ -35,6 +35,13 @@ export default function LinenCategoryPage() {
         title={`${name} | Premium Linen Supplier & Exporter`}
         description={`${description} Developed for hospitality, retail and private-label buyers by Kiran Global Exports.`}
         image={products[0]?.images?.[0] || category.heroImage}
+        // Same trail the <nav> below renders — see the note in
+        // TowelCategoryPage.jsx.
+        breadcrumbs={[
+          { label: t('nav.home'), href: '/' },
+          { label: t('nav.linen'), href: '/linen' },
+          { label: name },
+        ]}
       />
 
       <main className={styles.page}>

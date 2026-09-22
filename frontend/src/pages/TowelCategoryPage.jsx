@@ -29,6 +29,14 @@ export default function TowelCategoryPage() {
         title={`${category.name} | Premium Towel Supplier & Exporter`}
         description={`${category.name} collections developed for hospitality, retail, spa and private-label buyers by Kiran Global Exports.`}
         image={category.representativeImage}
+        // Same trail the <nav> below renders. Passed as a literal rather
+        // than memoised: this page re-renders rarely, and <SEO> only
+        // rewrites head tags, which is idempotent.
+        breadcrumbs={[
+          { label: t('nav.home'), href: '/' },
+          { label: t('nav.towels'), href: '/towels' },
+          { label: category.name },
+        ]}
       />
 
       <main className={styles.page}>

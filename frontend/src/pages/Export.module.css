@@ -397,3 +397,56 @@
     transition: none;
   }
 }
+/* ── Sourcing Guides ─────────────────────────── */
+.guidesSection {
+  background: var(--bg-paper);
+}
+
+.guideGroupHeading {
+  font-family: var(--font-serif);
+  font-size: var(--fs-h3);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--color-charcoal);
+  margin: clamp(2.5rem, 4vw, 3.5rem) 0 var(--space-md);
+}
+
+.guideGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  gap: var(--space-sm);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.guideCard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  height: 100%;
+  padding: clamp(1.1rem, 2vw, 1.5rem);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-primary);
+  transition: border-color var(--dur-fast) var(--ease-soft),
+              transform var(--dur-fast) var(--ease-soft);
+}
+
+.guideCard:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+.guideLabel {
+  font-size: var(--fs-small);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.guideBlurb {
+  font-size: var(--fs-body);
+  font-weight: 300;
+  line-height: var(--lh-body);
+  color: var(--color-charcoal);
+}

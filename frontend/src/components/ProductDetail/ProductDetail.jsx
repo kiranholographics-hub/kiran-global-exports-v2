@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import SEO from '@/components/SEO/SEO';
@@ -17,6 +18,27 @@ export default function ProductDetail({
 }) {
   const { t } = useTranslation();
   const product = getProductBySlug(slug);
+  const category = getCategoryBySlug(categorySlug);
+  const parentCategory = parentCategorySlug
+    ? getCategoryBySlug('towels')?.subcategories.find(
+        (item) => item.slug === parentCategorySlug
+      )
+    : null;
+
+  // Memoised, and above the not-found return since hooks cannot run
+  // conditionally: a fresh array each render would have <SEO> rewrite
+  // every tag in <head> every time.
+  const breadcrumbs = useMemo(
+    () => [
+      { label: t('nav.home'), href: '/' },
+      { label: category?.name, href: `/${categorySlug}` },
+      ...(parentCategory
+        ? [{ label: parentCategory.name, href: `/towels/${parentCategory.slug}` }]
+        : []),
+      { label: product?.name },
+    ],
+    [t, category?.name, categorySlug, parentCategory, product?.name]
+  );
 
   /* ── Spec Rows Config ──────────────────────────── */
   const SPEC_ROWS = [
@@ -46,12 +68,8 @@ export default function ProductDetail({
   }
 
   /* ── Data ────────────────────────────────────── */
-  const category       = getCategoryBySlug(categorySlug);
-  const parentCategory = parentCategorySlug
-    ? getCategoryBySlug('towels')?.subcategories.find(
-        (item) => item.slug === parentCategorySlug
-      )
-    : null;
+  // category and parentCategory are resolved above, alongside the
+  // breadcrumb trail that needs them.
   const related = getRelatedProducts(product, 3);
 
   const interestLabel = categorySlug === 'towels' ? 'Towels' : 'Linen';
@@ -67,6 +85,13 @@ export default function ProductDetail({
         title={`${product.name} — Premium ${productType}`}
         description={product.shortDescription}
         image={product.images?.[0]}
+        type="product"
+        // SEO.jsx has carried Product markup all along and nothing was
+        // passing it, so thirty-five product pages described themselves
+        // to Google as ordinary web pages.
+        product={product}
+        // Same trail the <nav> below renders, so the two cannot disagree.
+        breadcrumbs={breadcrumbs}
       />
 
       {/* ══ Hero ══════════════════════════════════ */}

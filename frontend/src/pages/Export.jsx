@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import SEO from '@/components/SEO/SEO';
 import PageIntro from '@/components/PageIntro/PageIntro';
 import ScrollReveal from '@/components/ScrollReveal/ScrollReveal';
@@ -5,6 +6,7 @@ import SectionHeading from '@/components/SectionHeading/SectionHeading';
 import CTASection from '@/components/CTASection/CTASection';
 import { useTranslation } from 'react-i18next';
 import { siteConfig } from '@/data/config';
+import { getLandingPageGroups } from '@/data/seoLandingPages';
 import styles from './Export.module.css';
 
 /* ── Export Steps ──────────────────────────────── */
@@ -41,6 +43,7 @@ const STATS = [
 /* ═══════════════════════════════════════════════ */
 export default function ExportPage() {
   const { t } = useTranslation();
+  const landingPages = getLandingPageGroups();
   return (
     <>
       <SEO
@@ -117,6 +120,53 @@ export default function ExportPage() {
                 </div>
               ))}
             </div>
+          </ScrollReveal>
+
+        </div>
+      </section>
+
+      {/* ══ Sourcing Guides ═══════════════════════
+          The pages under /export/* and /solutions/* name this page as
+          their parent in their breadcrumbs. Until this section existed
+          it did not link back to a single one of them, so the only way
+          in was the sitemap. */}
+      <section className={`section section--spacious ${styles.guidesSection}`}>
+        <div className="container">
+
+          <ScrollReveal>
+            <SectionHeading
+              eyebrow="Sourcing Guides"
+              title="Buying from India, by market."
+              lead="What each market asks us about first — labelling, duty, ports and lead time — answered for the buyers who ask it."
+            />
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.1}>
+            <h3 className={styles.guideGroupHeading}>By destination</h3>
+            <ul className={styles.guideGrid}>
+              {landingPages.export.map((page) => (
+                <li key={page.href}>
+                  <Link to={page.href} className={styles.guideCard}>
+                    <span className={styles.guideLabel}>{page.label}</span>
+                    <span className={styles.guideBlurb}>{page.blurb}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.15}>
+            <h3 className={styles.guideGroupHeading}>By requirement</h3>
+            <ul className={styles.guideGrid}>
+              {landingPages.solutions.map((page) => (
+                <li key={page.href}>
+                  <Link to={page.href} className={styles.guideCard}>
+                    <span className={styles.guideLabel}>{page.label}</span>
+                    <span className={styles.guideBlurb}>{page.blurb}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </ScrollReveal>
 
         </div>

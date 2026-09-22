@@ -389,6 +389,26 @@ export function getSeoLandingPage(section, slug) {
   return PAGES[`${section}/${slug}`] || null;
 }
 
+// The whole set, grouped, for the hub section on /export. Nothing on the
+// site linked to these pages at all — not the nav, not the footer, not
+// /export, whose own breadcrumb claims to be their parent — so the only
+// route in was the sitemap. A page nothing links to is one Google treats
+// as peripheral however good it is, which is most of why they sat in
+// "Discovered - currently not indexed".
+export function getLandingPageGroups() {
+  const groups = { export: [], solutions: [] };
+  Object.entries(PAGES).forEach(([key, page]) => {
+    groups[page.section]?.push({
+      href: `/${key}`,
+      // The eyebrow ("United States", "Private Label") is the short form;
+      // seoTitle is written for a search result and is too long for a link.
+      label: page.eyebrow,
+      blurb: page.heading,
+    });
+  });
+  return groups;
+}
+
 // Sibling pages, for the cross-links at the foot of each one. Derived
 // rather than hand-listed per page so a tenth page is linked from the
 // other nine the moment it is added above — a page nothing links to is

@@ -76,6 +76,19 @@ function resolveImage(image) {
   }
 }
 
+/**
+ * Whether a spec value is a real figure rather than a note standing in for
+ * one. The catalogue deliberately carries "[Confirm with Mundada]" where
+ * the mill has not confirmed a number yet, and "Buyer specified" where
+ * there is no single answer — honest on the page, but a placeholder is
+ * not a fact, and Product markup is read as one.
+ */
+function isRealSpec(value) {
+  if (!value) return false;
+  const text = String(value);
+  return !text.includes('[') && !/specifi/i.test(text);
+}
+
 /** Truncate description to recommended length */
 function truncate(str, max = 155) {
   if (!str || str.length <= max) return str;
@@ -312,8 +325,12 @@ export default function SEO({
             name:    siteConfig.brandName,
           },
         },
-        ...(product.material && { material: product.material }),
-        ...(product.gsm      && { weight:   `${product.gsm} GSM` }),
+        ...(isRealSpec(product.material) && { material: product.material }),
+        // The catalogue already writes gsm as "400 GSM", so appending the
+        // unit again gave "400 GSM GSM".
+        ...(isRealSpec(product.gsm) && {
+          weight: /gsm/i.test(product.gsm) ? product.gsm : `${product.gsm} GSM`,
+        }),
       });
     } else {
       removeJsonLd('product');

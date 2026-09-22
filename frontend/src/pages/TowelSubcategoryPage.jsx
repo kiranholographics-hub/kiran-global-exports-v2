@@ -53,6 +53,14 @@ export default function TowelSubcategoryPage() {
         title={`${subtype.name} | Kiran Global Exports`}
         description={`${subtype.description} Explore the product collection and request details from Kiran Global Exports.`}
         image={subtype.representativeImage}
+        // Same trail the <nav> below renders — see the note in
+        // TowelCategoryPage.jsx.
+        breadcrumbs={[
+          { label: t('nav.home'), href: '/' },
+          { label: t('nav.towels'), href: '/towels' },
+          { label: category.name, href: `/towels/${category.slug}` },
+          { label: subtype.name },
+        ]}
       />
 
       <main className={styles.page}>

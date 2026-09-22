@@ -58,6 +58,16 @@ jobs:
           has /export/usa-cotton-towel-supplier/ "FAQPage schema" '"@type":"FAQPage"'
           has /export/usa-cotton-towel-supplier/ "BreadcrumbList schema" '"@type":"BreadcrumbList"'
 
+          echo "── The landing pages are reachable from the site ──"
+          # They were orphans: in the sitemap, linked to each other, and
+          # linked to from nowhere else on the site — not even /export,
+          # which their own breadcrumbs name as their parent.
+          for slug in usa canada australia south-africa south-america uae saudi-arabia; do
+            has /export/ "/export links to $slug" "/export/$slug-cotton-towel-supplier"
+          done
+          has /export/ "/export links to the hospitality guide" "/solutions/hotel-towel-manufacturer"
+          has /export/ "/export links to the private label guide" "/solutions/private-label-towel-manufacturer"
+
           echo "── Catalogue is prerendered and indexable ──"
           has  /towels/bath-towels/ "Towel category renders" "<h1"
           lacks /towels/bath-towels/ "Towel category is indexable" "noindex"
@@ -65,6 +75,15 @@ jobs:
           lacks /towels/bath-towels/bath-towel/ "Towel product is indexable" "noindex"
           has  /linen/bed/ "Linen category renders" "<h1"
           lacks /linen/bed/ "Linen category is indexable" "noindex"
+
+          echo "── Catalogue structured data ──"
+          has  /towels/bath-towels/bath-towel/ "Product schema" '"@type":"Product"'
+          has  /towels/bath-towels/bath-towel/ "Product breadcrumbs" '"@type":"BreadcrumbList"'
+          has  /towels/bath-towels/ "Category breadcrumbs" '"@type":"BreadcrumbList"'
+          # Most of the catalogue still carries "[Confirm with Mundada]"
+          # where the mill has not given a figure. Honest on the page;
+          # read as a fact if it reaches the markup.
+          lacks /towels/bath-towels/bath-towel/ "no placeholder spec in the markup" '"weight":"[Confirm'
 
           echo "── Sitemap ──"
           sitemap=$(curl -sL --max-time 30 "$SITE/sitemap.xml")
