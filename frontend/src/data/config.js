@@ -62,8 +62,36 @@ export function waLink(message = "Hello, I'd like to know more about Kiran Globa
   return `https://wa.me/${digits}?text=${encodeURIComponent(message)}`;
 }
 
-export function mailtoLink(subject = 'Product Inquiry — Kiran Global Exports') {
-  return `mailto:${siteConfig.contact.email}?subject=${encodeURIComponent(subject)}`;
+export function mailtoLink(subject = 'Product Inquiry — Kiran Global Exports', body) {
+  const query = [`subject=${encodeURIComponent(subject)}`];
+  if (body) query.push(`body=${encodeURIComponent(body)}`);
+  return `mailto:${siteConfig.contact.email}?${query.join('&')}`;
+}
+
+// The questions our export team has to ask anyway before it can quote.
+// Buyers write to us directly rather than filling in the form, so the
+// email they open is where the inquiry actually starts — putting these
+// in it saves a round of back-and-forth on nearly every one.
+export function inquiryEmailBody(productName) {
+  return [
+    'Hello Kiran Global Exports,',
+    '',
+    'Please quote for the following:',
+    '',
+    `Product:            ${productName || ''}`,
+    'Size:               ',
+    'GSM / weight:       ',
+    'Colour:             ',
+    'Quantity:           ',
+    'Destination port:   ',
+    'Branding / label:   ',
+    '',
+    'Anything else we should know:',
+    '',
+    '',
+    'Company:            ',
+    'Contact name:       ',
+  ].join('\n');
 }
 
 export function telLink() {

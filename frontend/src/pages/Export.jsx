@@ -233,6 +233,7 @@ export default function ExportPage() {
         eyebrow="Export Inquiry"
         title="Discuss your destination market."
         lead="Our export team will confirm feasibility, lead time and next steps for your region."
+        emailSubject="Export inquiry — Kiran Global Exports"
         primaryHref="/contact"
         primaryLabel="Contact Our Export Team"
         secondaryHref="/collections"

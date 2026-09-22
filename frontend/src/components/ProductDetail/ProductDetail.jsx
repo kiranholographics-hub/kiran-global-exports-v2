@@ -8,6 +8,7 @@ import ScrollReveal from '@/components/ScrollReveal/ScrollReveal';
 import ProductCard from '@/components/ProductCard/ProductCard';
 import { getProductBySlug, getRelatedProducts } from '@/data/products';
 import { getCategoryBySlug } from '@/data/categories';
+import { mailtoLink, inquiryEmailBody, waLink } from '@/data/config';
 import styles from './ProductDetail.module.css';
 
 /* ═══════════════════════════════════════════════ */
@@ -76,6 +77,18 @@ export default function ProductDetail({
   const inquiryHref = `/contact?product=${encodeURIComponent(
     product.slug
   )}&interest=${encodeURIComponent(interestLabel)}`;
+
+  // Buyers send their own specification by email rather than filling in
+  // the form, so this is where an inquiry actually begins. The product is
+  // already named and the questions we would have to ask are already
+  // written in — the buyer only fills the blanks.
+  const emailHref = mailtoLink(
+    `${interestLabel} inquiry — ${product.name}`,
+    inquiryEmailBody(product.name)
+  );
+  const whatsappHref = waLink(
+    `Hello, I would like a quotation for ${product.name}.`
+  );
 
   const productType = categorySlug === 'towels' ? 'Towel' : 'Linen Product';
 
@@ -230,12 +243,9 @@ export default function ProductDetail({
                 <p className={styles.ctaSubtext}>
                   {t('productDetail.interestedSubtext')}
                 </p>
-                <Link
-                  to={inquiryHref}
-                  className={styles.cta}
-                >
+                <a href={emailHref} className={styles.cta}>
                   <span className={styles.ctaInner}>
-                    {t('common.contactExportTeam')}
+                    Email your specification
                     <span
                       className={styles.ctaArrow}
                       aria-hidden="true"
@@ -243,7 +253,19 @@ export default function ProductDetail({
                       →
                     </span>
                   </span>
-                </Link>
+                </a>
+
+                <p className={styles.ctaAlt}>
+                  <a
+                    href={whatsappHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    WhatsApp us
+                  </a>
+                  <span aria-hidden="true"> · </span>
+                  <Link to={inquiryHref}>{t('common.contactExportTeam')}</Link>
+                </p>
               </div>
 
             </ScrollReveal>

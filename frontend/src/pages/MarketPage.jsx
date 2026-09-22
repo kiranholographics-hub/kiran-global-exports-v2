@@ -134,6 +134,7 @@ export default function MarketPage() {
         eyebrow={`${market.countryName} Inquiry`}
         title="Send us your specification."
         lead="Tell us the product, size, GSM and quantity you need — our export team replies within 24 hours with an FOB quotation."
+        emailSubject={`Inquiry from ${market.countryName} — Kiran Global Exports`}
         primaryHref={`/contact?country=${encodeURIComponent(market.countryName)}`}
         primaryLabel="Contact Our Export Team"
         secondaryHref="/collections"

@@ -201,6 +201,7 @@ export default function SeoLandingPage({ section }) {
         eyebrow={`${page.eyebrow} Inquiry`}
         title="Send us your specification."
         lead="Tell us the product, size, GSM and quantity you need — our export team replies within 24 hours with an FOB quotation."
+        emailSubject={`${page.eyebrow} inquiry — Kiran Global Exports`}
         primaryHref="/contact"
         primaryLabel="Contact Our Export Team"
         secondaryHref="/collections"

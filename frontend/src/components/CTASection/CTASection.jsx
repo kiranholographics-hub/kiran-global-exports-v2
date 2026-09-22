@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import ScrollReveal from '@/components/ScrollReveal/ScrollReveal';
+import { mailtoLink, inquiryEmailBody } from '@/data/config';
 import styles from './CTASection.module.css';
 
 export default function CTASection({
@@ -12,9 +13,18 @@ export default function CTASection({
   primaryLabel,
   secondaryHref,
   secondaryLabel,
+  // Pass these and the section leads with an email button instead of the
+  // form. Buyers send their own specification by email rather than
+  // filling anything in, so on the pages where an inquiry actually starts
+  // the form is the second option, not the first.
+  emailSubject,
+  emailProduct,
 }) {
   const { t } = useTranslation();
   const resolvedPrimaryLabel = primaryLabel || t('common.contactExportTeam');
+  const emailHref = emailSubject
+    ? mailtoLink(emailSubject, inquiryEmailBody(emailProduct))
+    : null;
   return (
     <section className={`section section--dark ${styles.section}`}>
       <div className={`container`}>
@@ -43,22 +53,28 @@ export default function CTASection({
             {/* ── CTA Buttons ──────────────────── */}
             <div className={styles.actions}>
 
-              {/* Primary Button */}
-              <Link
-                to={primaryHref}
-                className={styles.primary}
-              >
-                <span>{resolvedPrimaryLabel}</span>
-              </Link>
-
-              {/* Secondary Button (optional) */}
-              {secondaryHref && (
-                <Link
-                  to={secondaryHref}
-                  className={styles.secondary}
-                >
-                  <span>{secondaryLabel}</span>
-                </Link>
+              {emailHref ? (
+                <>
+                  {/* Opens the buyer's own mail client with the questions
+                      we would have to ask anyway already written in. */}
+                  <a href={emailHref} className={styles.primary}>
+                    <span>Email your specification</span>
+                  </a>
+                  <Link to={primaryHref} className={styles.secondary}>
+                    <span>{resolvedPrimaryLabel}</span>
+                  </Link>
+                </>
+              ) : (
+                <>
+                  <Link to={primaryHref} className={styles.primary}>
+                    <span>{resolvedPrimaryLabel}</span>
+                  </Link>
+                  {secondaryHref && (
+                    <Link to={secondaryHref} className={styles.secondary}>
+                      <span>{secondaryLabel}</span>
+                    </Link>
+                  )}
+                </>
               )}
 
             </div>

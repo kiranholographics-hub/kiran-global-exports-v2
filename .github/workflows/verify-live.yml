@@ -204,6 +204,14 @@ jobs:
             [ "$broken" = "0" ] && echo "  ok       $page — all $total internal links resolve"
           done
 
+          echo "── An inquiry can start by email ──"
+          # Buyers send their own specification by email; they do not fill
+          # in the form. Every CTA on the site used to lead to the form.
+          has /export/usa-cotton-towel-supplier/ "landing page offers email" "Email your specification"
+          has /towels/bath-towels/bath-towel/ "product page offers email" "Email your specification"
+          has /towels/bath-towels/bath-towel/ "product email names the product" "mailto:"
+          has /usa/ "market page offers email" "Email your specification"
+
           echo "── Sitemap ──"
           sitemap=$(curl -sL --max-time 30 "$SITE/sitemap.xml" 2>/dev/null || true)
           count=$(printf '%s' "$sitemap" | grep -c "<loc>" || true)
