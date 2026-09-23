@@ -708,6 +708,43 @@ const PAGES = {
     ],
   },
 
+  'solutions/cotton-towel-manufacturer-india': {
+    section: 'solutions',
+    eyebrow: 'Sourcing from India',
+    seoTitle: 'Cotton Towel Manufacturer in India — Direct from the Mill',
+    seoDescription:
+      'Cotton towel manufacturer and exporter based in Solapur, India — towels made to your specification since 1972, OEKO-TEX and BSCI certified, sample-first, FOB direct from Nhava Sheva and Mundra.',
+    heading: 'Cotton towel manufacturer in India.',
+    lead: 'Bath towels, hotel ranges, bathrobes and bath mats made to your specification at our partner mill in Solapur — one of India\'s oldest towel-weaving centres — and shipped FOB direct from Nhava Sheva or Mundra to importers worldwide.',
+    intro: [
+      'Solapur has been a towel-weaving city for longer than most of the mills operating there today, and ours is one of them: V P Mundada has been weaving in Solapur since 1972. That matters to a buyer evaluating India as a source, not just this one supplier, because a manufacturing cluster this established means depth — trained weaving and finishing labour, dyehouses built for cotton terry specifically, and a supply chain used to producing at export volume, not a single factory operating in isolation.',
+      'India also grows a large share of the world\'s cotton, which is the other half of why buyers evaluate it as a source in the first place — raw material proximity keeps cost and lead time more predictable than importing cotton to weave elsewhere. What we add on top of that is process: a physical sample approved before bulk, colour fixed by lab dip before bulk dyeing, and certification — OEKO-TEX STANDARD 100, MADE IN GREEN and STeP, ISO 9001:2015, GRS and amfori BSCI — that answers the compliance questions a first-time buyer from India usually has before anything else.',
+    ],
+    buyers: [
+      'Importers and distributors opening a new supply line from India',
+      'Retail and hospitality brands diversifying their supplier base',
+      'Private-label brands looking for a mill rather than a trading company',
+      'Buyers already importing from India who want to add towels to an existing supply chain',
+    ],
+    faqs: [
+      {
+        q: 'Why do so many towel buyers source from India?',
+        a: 'Raw cotton availability, weaving expertise concentrated in established manufacturing clusters like Solapur, and export infrastructure built specifically around textile shipments all keep FOB pricing competitive without a compromise on certification or process — which is why India remains one of the largest towel-exporting countries rather than a low-cost alternative to something better made elsewhere.',
+      },
+      {
+        q: 'Which Indian ports do you ship from?',
+        a: 'FOB shipment is coordinated from Nhava Sheva (JNPT) near Mumbai and from Mundra in Gujarat, the two ports handling the large majority of India\'s containerised textile exports; your freight forwarder confirms routing and the onward leg to your destination.',
+      },
+      {
+        q: 'Do we deal with the mill directly, or through a trading company?',
+        a: 'Directly. Kiran Global Exports quotes and ships FOB from our manufacturing partner V P Mundada in Solapur, so a specification question is answered by the people running the production floor, not relayed through an intermediary.',
+      },
+      MOQ_FAQ,
+      MATCH_FAQ,
+      SAMPLE_FAQ,
+    ],
+  },
+
   'solutions/hotel-towel-manufacturer': {
     section: 'solutions',
     eyebrow: 'Hospitality',

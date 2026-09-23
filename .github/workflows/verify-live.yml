@@ -98,6 +98,7 @@ jobs:
           done
           has /export/ "/export links to the hospitality guide" "/solutions/hotel-towel-manufacturer"
           has /export/ "/export links to the private label guide" "/solutions/private-label-towel-manufacturer"
+          has /export/ "/export links to the India sourcing guide" "/solutions/cotton-towel-manufacturer-india"
 
           echo "── The market pages are reachable from the site ──"
           # The footer renders on every page, so one check per market on
@@ -146,10 +147,14 @@ jobs:
             has "$page" "$slug has FAQ markup" '"@type":"FAQPage"'
             has "$page" "$slug has its own buyer list" "Who we supply"
           done
-          for slug in hotel-towel-manufacturer private-label-towel-manufacturer; do
+          for slug in hotel-towel-manufacturer private-label-towel-manufacturer cotton-towel-manufacturer-india; do
             has "/solutions/$slug/" "$slug has an h1" "<h1"
             has "/solutions/$slug/" "$slug has FAQ markup" '"@type":"FAQPage"'
           done
+          has /solutions/cotton-towel-manufacturer-india/ \
+            "India page names Solapur" "Solapur"
+          has /solutions/cotton-towel-manufacturer-india/ \
+            "India page names the ports" "Nhava Sheva"
 
           echo "── The structured data actually parses ──"
           # Presence of the string proves nothing: malformed JSON-LD is
