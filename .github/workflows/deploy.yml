@@ -119,6 +119,15 @@ jobs:
                 ]
               });
               const page = await browser.newPage();
+              // Every SPA route falls back to the same index.html, so once
+              // one route's copy is cached, Chrome can revalidate a later
+              // route against it and get back 304 Not Modified instead of a
+              // fresh 200 — which page.goto() then reports as the route's
+              // own status. That is what took down /updates: the shell was
+              // already cached from an earlier route in this same loop.
+              // A real crawler does not carry this browser's cache between
+              // page loads, so disable it here too.
+              await page.setCacheEnabled(false);
 
               // Collect every bad route rather than stopping at the first:
               // one run then names all of them instead of surfacing them one
