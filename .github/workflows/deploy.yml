@@ -76,10 +76,30 @@ jobs:
             }
           }
 
+          // Published guides, same reasoning: /hq is where they are written,
+          // so only the API knows which exist. Without rendering them, an
+          // article is in the sitemap and serves a crawler an empty shell.
+          async function updateRoutes() {
+            try {
+              const res = await fetch(process.env.VITE_API_URL + '/api/updates');
+              if (!res.ok) throw new Error('HTTP ' + res.status);
+              const updates = await res.json();
+              if (!updates.length) return [];
+              return ['/updates', ...updates.map(u => '/updates/' + u.slug)];
+            } catch (err) {
+              console.warn('  ! could not fetch updates (' + err.message + ') — deploying without them');
+              return [];
+            }
+          }
+
           (async () => {
             let browser;
             try {
-              const routes = [...baseRoutes, ...(await marketRoutes())];
+              const routes = [
+                ...baseRoutes,
+                ...(await marketRoutes()),
+                ...(await updateRoutes()),
+              ];
               console.log('Rendering ' + routes.length + ' routes');
               // --disable-web-security (with its own --user-data-dir, which
               // Chrome requires before it honours the flag): the towel pages

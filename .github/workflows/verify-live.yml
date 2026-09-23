@@ -220,12 +220,17 @@ jobs:
           # Checked by their own URL, not by counting sitemap entries. A
           # count went up once for an unrelated reason and was read as
           # proof an article had published, which it was not.
-          has /updates/ "the updates page lists something" "<h1"
-          for slug in what-to-send-a-towel-manufacturer-when-you-ask-for-a-quote \
-                      how-to-specify-a-hotel-towel \
-                      zero-twist-ringspun-waffle-which-towel-construction-suits-which-buyer; do
-            has "/updates/$slug/" "$slug is live" "<h1"
-          done
+          # Not "<h1>": index.html carries one inside its <noscript>, so a
+          # page serving nothing but the SPA shell passed that check while
+          # containing none of the article. Ask for text only the article
+          # itself has.
+          has /updates/ "the updates page lists the guides" "How to specify a hotel towel"
+          has /updates/what-to-send-a-towel-manufacturer-when-you-ask-for-a-quote/ \
+            "the quote guide is rendered" "pricing a towel needs six things"
+          has /updates/how-to-specify-a-hotel-towel/ \
+            "the hotel guide is rendered" "washed at higher temperatures"
+          has /updates/zero-twist-ringspun-waffle-which-towel-construction-suits-which-buyer/ \
+            "the construction guide is rendered" "what each one is genuinely good at"
           # The body renderer turns "## " into a subheading; if that broke,
           # the guide is one wall of text with the markers still showing.
           has /updates/how-to-specify-a-hotel-towel/ "headings rendered" "The three ways it fails"
