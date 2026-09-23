@@ -4,18 +4,22 @@ const thumb = (category, slug) =>
 
 // ---------------------------------------------------------------------------
 // Product copy note (Sept 2026 SEO/content audit):
-// A spec reading "Confirmed on quotation" is a real gap, not filler. GSM,
-// size, MOQ and construction have to come from the mill; a
-// plausible-sounding number in place of the real one is worse than the
-// gap, because a serious buyer checks these against the physical sample
-// and specifies a container against them. Replace each one with the
-// confirmed figure as it arrives — never with an estimate.
+// "Confirmed on quotation" is the answer, not a placeholder waiting to be
+// replaced. This is a custom-specification business: the buyer sends the
+// GSM, size and quantity they want made, and the quotation comes back
+// against it. Publishing a fixed figure per product would describe a
+// catalogue we do not sell from, and a number we cannot stand behind is
+// worse than none at all, since a buyer specifies a container against it
+// and checks it against the sample.
 //
-// These used to read "[Confirm with Mundada]", which was an internal note
-// shown to customers on the live site. The wording changed; the gap did
-// not. SEO.jsx keeps these values out of the Product structured data (see
-// isRealSpec there), so filling one in is also what puts a real
-// specification in front of Google.
+// So do not fill these in with an estimate, and do not treat them as an
+// open task. If the mill ever does confirm a real figure for a product,
+// that figure can go in — nothing else.
+//
+// These used to read "[Confirm with Mundada]", an internal note that was
+// being shown to customers on the live site. SEO.jsx keeps non-figures out
+// of the Product structured data (see isRealSpec there), so the markup
+// stays honest either way.
 //
 // Description copy (Oct 2026): every product below now has a distinct,
 // substantive description — what the construction actually does, and
