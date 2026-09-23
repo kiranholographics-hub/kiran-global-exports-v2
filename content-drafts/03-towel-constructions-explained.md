@@ -1,15 +1,9 @@
-# Draft 3 — product education
-
-**Title**
-Zero twist, ringspun, waffle: which towel construction suits which buyer
-
-**Slug**
-zero-twist-ringspun-waffle-which-towel-construction-suits-which-buyer
-
-**Excerpt**
-Five constructions, what each one is actually good at, and the buyer each one is wrong for.
-
---- BODY ---
+---
+title: Zero twist, ringspun, waffle: which towel construction suits which buyer
+slug: zero-twist-ringspun-waffle-which-towel-construction-suits-which-buyer
+excerpt: Five constructions, what each one is actually good at, and the buyer each one is wrong for.
+published: true
+---
 
 Towel constructions are usually explained as a list of features, which is not much help when you are choosing between them. What follows is the opposite: what each one is genuinely good at, and who should not buy it.
 

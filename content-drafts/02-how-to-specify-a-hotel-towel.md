@@ -1,15 +1,9 @@
-# Draft 2 — hospitality
-
-**Title**
-How to specify a hotel towel
-
-**Slug**
-how-to-specify-a-hotel-towel
-
-**Excerpt**
-A hotel towel fails in one of three ways, and all three are decided at the mill rather than in the linen room.
-
---- BODY ---
+---
+title: How to specify a hotel towel
+slug: how-to-specify-a-hotel-towel
+excerpt: A hotel towel fails in one of three ways, and all three are decided at the mill rather than in the linen room.
+published: true
+---
 
 A hotel towel does not wear out the way a domestic one does. It is washed at higher temperatures, with stronger chemistry, far more often, and it is judged by a guest who has no reason to be generous about it. Specify it like a domestic towel and it fails in one of three ways.
 

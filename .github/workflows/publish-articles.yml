@@ -1,0 +1,64 @@
+# Publishes the buyer guides in content-drafts/ to the Updates collection,
+# which is what /updates reads.
+#
+# The drafts live in git, so an article is reviewed in a diff and
+# republished by re-running this. Only the slugs found in content-drafts/
+# are touched — anything written in /hq is left alone.
+#
+# Manual, and dry run by default. This writes to the production database.
+name: Publish articles
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run (report what would change, write nothing)'
+        type: boolean
+        default: true
+
+jobs:
+  publish:
+    name: Sync content-drafts to the Updates collection
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: backend/package-lock.json
+
+      - name: Install backend dependencies
+        working-directory: ./backend
+        run: npm ci
+
+      - name: Check the database connection string is set
+        run: |
+          if [ -z "${{ secrets.MONGODB_URI }}" ]; then
+            echo "::error::MONGODB_URI is not set. Add it under Settings > Secrets and variables > Actions."
+            exit 1
+          fi
+          echo "MONGODB_URI is set."
+
+      - name: Publish
+        working-directory: ./backend
+        env:
+          MONGODB_URI: ${{ secrets.MONGODB_URI }}
+        run: |
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            npm run publish-articles -- --dry-run
+          else
+            npm run publish-articles
+          fi
+
+      - name: What to do next
+        if: ${{ !inputs.dry_run }}
+        run: |
+          echo "The articles are in the database and live at /updates."
+          echo ""
+          echo "Run the 'Deploy ADD-ONLY prerendered pages to Hostinger'"
+          echo "workflow next: that is what regenerates the sitemap so it"
+          echo "lists them. Then 'Verify the live site'."

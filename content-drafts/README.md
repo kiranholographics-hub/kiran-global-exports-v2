@@ -3,16 +3,36 @@
 Buyer guides written for /updates. Nothing here is published — each file
 is a draft to review, edit and paste into /hq → Updates.
 
-## How to publish one
+## How to publish
 
-1. Open /hq and sign in, then go to Updates.
-2. Copy the **Title**, **Excerpt** and **Body** from the draft into the
-   matching boxes. Body is everything under `--- BODY ---`.
-3. Add a cover image if you have one (optional; it is also what lets the
-   post auto-share to Instagram).
-4. Leave "Published" ticked and save.
-5. Run the deploy workflow so the sitemap picks the article up, then the
-   live check.
+Run the **Publish articles** workflow in GitHub Actions. It reads every
+`.md` file here and upserts it into the Updates collection by slug, so
+editing a draft and re-running it republishes that article rather than
+creating a second one. Dry run first — it prints what would change and
+writes nothing.
+
+Then run the deploy workflow, which is what regenerates the sitemap so
+it lists them, and the live check.
+
+The database only accepts connections from addresses on the MongoDB
+Atlas IP access list, and GitHub's runners are not on it. Before running
+this, add `0.0.0.0/0` there with the 6-hour temporary option, and delete
+it afterwards.
+
+Anything written directly in /hq is untouched — this only ever writes the
+slugs it finds in this folder. A cover image is not set here; add one in
+/hq afterwards if you want the post to auto-share to Instagram.
+
+## File format
+
+    ---
+    title: ...
+    slug: ...
+    excerpt: ...
+    published: true
+    ---
+
+    Body starts here.
 
 ## What the body supports
 

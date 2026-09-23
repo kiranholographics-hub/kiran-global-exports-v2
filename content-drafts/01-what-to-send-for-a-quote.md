@@ -1,15 +1,9 @@
-# Draft 1 — highest priority
-
-**Title**
-What to send a towel manufacturer when you ask for a quote
-
-**Slug** (auto-generated from the title, check it reads)
-what-to-send-a-towel-manufacturer-when-you-ask-for-a-quote
-
-**Excerpt**
-The six things a mill needs before it can price your order — and why a vague enquiry takes three weeks to answer.
-
---- BODY ---
+---
+title: What to send a towel manufacturer when you ask for a quote
+slug: what-to-send-a-towel-manufacturer-when-you-ask-for-a-quote
+excerpt: The six things a mill needs before it can price your order — and why a vague enquiry takes three weeks to answer.
+published: true
+---
 
 Most quotation requests we receive cannot be answered as written. Not because the buyer has done anything wrong, but because pricing a towel needs six things, and a first email usually carries two of them. Each missing one is another exchange, and an enquiry that could have been quoted the same day takes a fortnight instead.
 
