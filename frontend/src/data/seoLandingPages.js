@@ -711,14 +711,17 @@ const PAGES = {
   'solutions/cotton-towel-manufacturer-india': {
     section: 'solutions',
     eyebrow: 'Sourcing from India',
-    seoTitle: 'Cotton Towel Manufacturer in India — Direct from the Mill',
+    // "Manufacturer" and "exporter" are searched about equally for this —
+    // covering both here, rather than picking one, is why both appear.
+    seoTitle: 'Cotton Towel Manufacturer & Exporter in India',
     seoDescription:
-      'Cotton towel manufacturer and exporter based in Solapur, India — towels made to your specification since 1972, OEKO-TEX and BSCI certified, sample-first, FOB direct from Nhava Sheva and Mundra.',
+      'Cotton towel manufacturer and exporter in Solapur, India, since 1972 — OEKO-TEX, ISO and BSCI certified, plus GOTS-certified organic cotton linen via our partner in Karur. Sample-first, FOB direct from Nhava Sheva and Mundra.',
     heading: 'Cotton towel manufacturer in India.',
     lead: 'Bath towels, hotel ranges, bathrobes and bath mats made to your specification at our partner mill in Solapur — one of India\'s oldest towel-weaving centres — and shipped FOB direct from Nhava Sheva or Mundra to importers worldwide.',
     intro: [
       'Solapur has been a towel-weaving city for longer than most of the mills operating there today, and ours is one of them: V P Mundada has been weaving in Solapur since 1972. That matters to a buyer evaluating India as a source, not just this one supplier, because a manufacturing cluster this established means depth — trained weaving and finishing labour, dyehouses built for cotton terry specifically, and a supply chain used to producing at export volume, not a single factory operating in isolation.',
-      'India also grows a large share of the world\'s cotton, which is the other half of why buyers evaluate it as a source in the first place — raw material proximity keeps cost and lead time more predictable than importing cotton to weave elsewhere. What we add on top of that is process: a physical sample approved before bulk, colour fixed by lab dip before bulk dyeing, and certification — OEKO-TEX STANDARD 100, MADE IN GREEN and STeP, ISO 9001:2015, GRS and amfori BSCI — that answers the compliance questions a first-time buyer from India usually has before anything else.',
+      'India also grows a large share of the world\'s cotton, which is the other half of why buyers evaluate it as a source in the first place — raw material proximity keeps cost and lead time more predictable than importing cotton to weave elsewhere. What we add on top of that is process: a physical sample approved before bulk, colour fixed by lab dip before bulk dyeing, and certification — OEKO-TEX STANDARD 100, MADE IN GREEN and STeP, ISO 9001:2015, GRS and amfori BSCI at the towel mill — that answers the compliance questions a first-time buyer from India usually has before anything else.',
+      'Cotton is not one product here, either. Towels are woven at V P Mundada in Solapur; organic cotton bed and table linen is made by our partner Cotonex in Karur under GOTS Version 7.0 — a separate certification, for a separate line, and one worth naming correctly rather than folding into the towel mill\'s certifications as if it were the same claim.',
     ],
     buyers: [
       'Importers and distributors opening a new supply line from India',
@@ -738,6 +741,10 @@ const PAGES = {
       {
         q: 'Do we deal with the mill directly, or through a trading company?',
         a: 'Directly. Kiran Global Exports quotes and ships FOB from our manufacturing partner V P Mundada in Solapur, so a specification question is answered by the people running the production floor, not relayed through an intermediary.',
+      },
+      {
+        q: 'Can we also source organic cotton linen from India through you?',
+        a: 'Yes — bed and table linen in organic cotton is made by our partner Cotonex in Karur, certified under GOTS Version 7.0. It ships alongside a towel order or on its own, quoted and documented separately since it is a different certification from the towel mill\'s.',
       },
       MOQ_FAQ,
       MATCH_FAQ,
