@@ -84,6 +84,25 @@ const STATIC_ROUTES = [
 // injected version.
 const API_BASE = process.env.VITE_API_URL || 'https://api.kiranglobal-exports.com';
 
+// Published updates, the same way: /hq is where they are written, so the
+// list only exists in the database. Without this an article could be
+// published and sit there with nothing telling Google it exists.
+async function fetchUpdateRoutes() {
+  try {
+    const res = await fetch(`${API_BASE}/api/updates`);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const updates = await res.json();
+    if (!updates.length) return [];
+    return [
+      { path: '/updates', priority: '0.6' },
+      ...updates.map((u) => ({ path: `/updates/${u.slug}`, priority: '0.6' })),
+    ];
+  } catch (err) {
+    console.warn(`[generate-seo-files] could not fetch updates (${err.message}) — sitemap will omit them this build.`);
+    return [];
+  }
+}
+
 async function fetchActiveMarketRoutes() {
   try {
     const res = await fetch(`${API_BASE}/api/markets/public`);
@@ -97,7 +116,11 @@ async function fetchActiveMarketRoutes() {
 }
 
 async function main() {
-  const routes = [...STATIC_ROUTES, ...(await fetchActiveMarketRoutes())];
+  const [marketRoutes, updateRoutes] = await Promise.all([
+    fetchActiveMarketRoutes(),
+    fetchUpdateRoutes(),
+  ]);
+  const routes = [...STATIC_ROUTES, ...marketRoutes, ...updateRoutes];
 
   const urls = routes
     .map(

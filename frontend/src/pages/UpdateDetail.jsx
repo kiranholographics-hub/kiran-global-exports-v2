@@ -5,6 +5,42 @@ import NotFoundContent from '@/components/NotFoundContent/NotFoundContent';
 import { fetchUpdateBySlug } from '@/lib/updates';
 import styles from './UpdateDetail.module.css';
 
+/**
+ * Renders an update's body.
+ *
+ * Blank-line-separated paragraphs, as before — plus two things a buyer
+ * guide needs and a company announcement never did: a block starting
+ * "## " becomes a subheading, and a block whose lines all start "- "
+ * becomes a bulleted list. Anything else is still a paragraph, so every
+ * update written before this renders exactly as it did.
+ *
+ * Deliberately not a Markdown parser. These are two rules that earn their
+ * place; a dependency that handles inline formatting, tables and raw HTML
+ * would also hand whoever writes an update the ability to inject it.
+ */
+function renderBody(body) {
+  return body
+    .split(/\n\s*\n/)
+    .map((block) => block.trim())
+    .filter(Boolean)
+    .map((block, i) => {
+      if (block.startsWith('## ')) {
+        return <h2 key={i}>{block.slice(3).trim()}</h2>;
+      }
+      const lines = block.split('\n').map((line) => line.trim());
+      if (lines.length > 1 && lines.every((line) => line.startsWith('- '))) {
+        return (
+          <ul key={i}>
+            {lines.map((line, j) => (
+              <li key={j}>{line.slice(2).trim()}</li>
+            ))}
+          </ul>
+        );
+      }
+      return <p key={i}>{block}</p>;
+    });
+}
+
 export default function UpdateDetail() {
   const { slug } = useParams();
   const [update, setUpdate] = useState(undefined); // undefined = loading, null = not found
@@ -64,12 +100,7 @@ export default function UpdateDetail() {
               )}
 
               <div className={styles.body}>
-                {update.body
-                  .split(/\n\s*\n/)
-                  .filter((p) => p.trim())
-                  .map((para, i) => (
-                    <p key={i}>{para.trim()}</p>
-                  ))}
+                {renderBody(update.body)}
               </div>
 
               <Link to="/updates" className={styles.backLink}>

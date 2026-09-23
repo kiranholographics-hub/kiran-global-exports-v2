@@ -85,3 +85,43 @@
   font-weight: 600;
   color: var(--accent);
 }
+
+/* Subheadings and lists inside an update body. Buyer guides need these;
+   the company announcements these pages started with did not. */
+.body h2 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--color-charcoal);
+  margin: var(--space-lg) 0 var(--space-xs);
+}
+
+.body h2:first-child {
+  margin-top: 0;
+}
+
+.body ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.body li {
+  position: relative;
+  padding-left: var(--space-md);
+  color: var(--text-muted);
+  line-height: var(--lh-body);
+}
+
+.body li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: 0.5rem;
+  height: 1px;
+  background: var(--accent);
+}
