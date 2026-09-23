@@ -216,14 +216,29 @@ jobs:
           has /towels/bath-towels/bath-towel/ "product email names the product" "mailto:"
           has /usa/ "market page offers email" "Email your specification"
 
+          echo "── The buyer guides are live ──"
+          # Checked by their own URL, not by counting sitemap entries. A
+          # count went up once for an unrelated reason and was read as
+          # proof an article had published, which it was not.
+          has /updates/ "the updates page lists something" "<h1"
+          for slug in what-to-send-a-towel-manufacturer-when-you-ask-for-a-quote \
+                      how-to-specify-a-hotel-towel \
+                      zero-twist-ringspun-waffle-which-towel-construction-suits-which-buyer; do
+            has "/updates/$slug/" "$slug is live" "<h1"
+          done
+          # The body renderer turns "## " into a subheading; if that broke,
+          # the guide is one wall of text with the markers still showing.
+          has /updates/how-to-specify-a-hotel-towel/ "headings rendered" "The three ways it fails"
+          lacks /updates/how-to-specify-a-hotel-towel/ "no raw heading markers" "## "
+
           echo "── Sitemap ──"
           sitemap=$(curl -sL --max-time 30 "$SITE/sitemap.xml" 2>/dev/null || true)
           count=$(printf '%s' "$sitemap" | grep -c "<loc>" || true)
           echo "  info     sitemap lists $count URLs"
           # 71 static entries plus the active market pages. Well under that
           # means the build shipped the old list, not the new one.
-          if [ "$count" -lt 82 ]; then
-            echo "  BAD      sitemap has only $count URLs — expected 82+"
+          if [ "$count" -lt 99 ]; then
+            echo "  BAD      sitemap has only $count URLs — expected 99+"
             failed=1
           fi
           # A URL that is both listed here and noindex is reported as an
