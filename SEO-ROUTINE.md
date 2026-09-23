@@ -35,10 +35,16 @@ information.
 
 Nothing to do if all four look normal. That is the point of a routine.
 
-## Every week or two — publish an article
+## Articles — one written per day, published whenever convenient
 
-One at a time, not three at once. Each one wants a couple of weeks to
-settle before the next.
+The target pace is a new draft roughly every day, from the backlog in
+`content-drafts/CALENDAR.md`. Publishing is a separate step from
+writing, and does not need to happen daily: the database only accepts
+connections while Atlas's Network Access is open, so publish in
+whatever batch is convenient — daily if that suits, or several at once
+every week or two. Google records the real date each one actually goes
+live either way; there is no ranking benefit to publishing on a
+schedule versus in a batch, only to the content existing at all.
 
 The drafts are in `content-drafts/`. Publishing runs from there:
 
@@ -48,6 +54,9 @@ The drafts are in `content-drafts/`. Publishing runs from there:
    and puts it in the sitemap; publishing alone does neither.
 4. GitHub Actions → "Verify the live site".
 5. Atlas → delete the IP entry.
+
+Ask Claude for a new draft whenever the backlog needs topping up —
+`CALENDAR.md` lists titles queued but not yet written.
 
 Ask Claude for a new draft when the folder runs out.
 
@@ -68,13 +77,25 @@ Bring either to Claude and it gets built.
 
 - **Do not check daily.** The data lags by days; a flat number tomorrow
   means nothing.
-- **Do not publish every draft at once.** Three articles in one day
-  reads as a dump, and you learn nothing about which one worked.
 - **Do not add a country page for a market you do not want.** Thin pages
   for markets nobody asked about are worse than no page.
 - **Do not put product specifications on the site.** This is a
   custom-specification business — the buyer sends theirs and we quote
   against it. "Confirmed on quotation" is the answer, not a gap.
+- **Do not build one page per city.** Considered and rejected on
+  2026-09-23 — recorded here so the reasoning does not have to be
+  re-argued next time it comes up. A country page earns its own content
+  because customs, labelling and duty differ by country and are public,
+  verifiable facts (Brexit labelling for the UK, Norway sitting outside
+  the EU customs union, and so on). None of that varies by city within
+  one country — Mumbai and Chennai clear customs under the same rules —
+  so a page per city either repeats the country page with the city name
+  swapped (a doorway-page pattern Google's own policy names directly)
+  or invents city-specific detail that is not true. A genuinely distinct
+  hub city — one with a real, checkable reason of its own, the way
+  Rotterdam is a re-export hub rather than just a Dutch port — could
+  earn a page on the same terms a country does. "All major world
+  cities" cannot.
 
 ## Where things are
 
