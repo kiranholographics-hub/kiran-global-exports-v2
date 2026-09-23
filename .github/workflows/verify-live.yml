@@ -91,7 +91,9 @@ jobs:
           # They were orphans: in the sitemap, linked to each other, and
           # linked to from nowhere else on the site — not even /export,
           # which their own breadcrumbs name as their parent.
-          for slug in usa canada australia south-africa south-america uae saudi-arabia; do
+          for slug in usa canada australia south-africa south-america uae saudi-arabia \
+                      uk germany netherlands france spain italy sweden norway \
+                      denmark japan south-korea new-zealand; do
             has /export/ "/export links to $slug" "/export/$slug-cotton-towel-supplier"
           done
           has /export/ "/export links to the hospitality guide" "/solutions/hotel-towel-manufacturer"
@@ -136,7 +138,9 @@ jobs:
           # The two checked above were standing in for nine. A page whose
           # copy silently fell back to the shared blocks would have passed
           # every check so far.
-          for slug in usa canada australia south-africa south-america uae saudi-arabia; do
+          for slug in usa canada australia south-africa south-america uae saudi-arabia \
+                      uk germany netherlands france spain italy sweden norway \
+                      denmark japan south-korea new-zealand; do
             page="/export/$slug-cotton-towel-supplier/"
             has "$page" "$slug has an h1" "<h1"
             has "$page" "$slug has FAQ markup" '"@type":"FAQPage"'
@@ -218,8 +222,8 @@ jobs:
           echo "  info     sitemap lists $count URLs"
           # 71 static entries plus the active market pages. Well under that
           # means the build shipped the old list, not the new one.
-          if [ "$count" -lt 70 ]; then
-            echo "  BAD      sitemap has only $count URLs — expected 70+"
+          if [ "$count" -lt 82 ]; then
+            echo "  BAD      sitemap has only $count URLs — expected 82+"
             failed=1
           fi
           # A URL that is both listed here and noindex is reported as an

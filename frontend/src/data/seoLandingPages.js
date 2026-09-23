@@ -307,6 +307,407 @@ const PAGES = {
     ],
   },
 
+
+  'export/uk-cotton-towel-supplier': {
+    section: 'export',
+    eyebrow: 'United Kingdom',
+    seoTitle: 'Cotton Towel Supplier for UK Importers',
+    seoDescription:
+      'Cotton towel supplier for UK importers, hotel groups and private-label brands — towels made to your specification at our partner mill in Solapur, sample-first, FOB direct, with UK fibre and care labelling prepared.',
+    heading: 'Cotton towel supplier for United Kingdom importers.',
+    lead: 'Bath towels, hotel ranges, bathrobes and bath mats built to your specification at our partner mill in Solapur and shipped FOB direct — with fibre-content and care labelling prepared for the UK market.',
+    intro: [
+      'Since leaving the EU the UK sets its own import and labelling rules, which is the part most buyers want settled before anything else. Fibre-content and care labelling is prepared for the UK market as part of the order, and the certificate of origin, commercial invoice and packing list your customs broker asks for are prepared with every shipment rather than chased afterwards.',
+      'The towels themselves are made to your brief — GSM, size, colour, border, weave and packaging — at our manufacturing partner V P Mundada in Solapur, weaving since 1972. Nothing goes to bulk until you have approved a physical sample, and colour is fixed by lab dip before bulk dyeing, so the container after this one matches this one.',
+    ],
+    buyers: [
+      'Importers and wholesale distributors supplying UK retail',
+      'Hotel groups, serviced apartments and hospitality suppliers',
+      'Retail and e-commerce brands running own-label towel ranges',
+      'Spa, gym and healthcare buyers ordering to specification',
+    ],
+    faqs: [
+      {
+        q: 'Which UK ports do you ship to?',
+        a: 'We coordinate FOB shipment to major UK ports including Felixstowe, Southampton, London Gateway and Liverpool; your freight forwarder handles routing and the onward leg from origin.',
+      },
+      {
+        q: 'Does the labelling meet UK requirements?',
+        a: 'Fibre content, care instructions and country of origin are prepared for the UK market as part of the order, and your own brand artwork can be applied to the same specification. Tell us what your retailer or buyer requires and we will confirm it before production.',
+      },
+      MOQ_FAQ,
+      MATCH_FAQ,
+      SAMPLE_FAQ,
+    ],
+  },
+
+  'export/germany-cotton-towel-supplier': {
+    section: 'export',
+    eyebrow: 'Germany',
+    seoTitle: 'Cotton Towel Supplier for German Importers',
+    seoDescription:
+      'Cotton towel supplier for German importers, hotel groups and private-label brands — OEKO-TEX, BSCI and ISO 9001 certified production, sample-first, FOB direct to Hamburg and Bremerhaven.',
+    heading: 'Cotton towel supplier for German importers.',
+    lead: 'Bath towels, hotel ranges, bathrobes and bath mats made to your specification at our partner mill in Solapur — produced under OEKO-TEX, BSCI and ISO 9001:2015 certification and shipped FOB direct.',
+    intro: [
+      'German buyers ask for supply-chain evidence earlier and in more detail than most, and increasingly they are required to. The mill holds OEKO-TEX STANDARD 100, OEKO-TEX MADE IN GREEN, OEKO-TEX STeP, ISO 9001:2015, GRS and amfori BSCI certification, and our organic cotton linen is made under GOTS Version 7.0 — the documentation your compliance team will ask for exists before you ask for it, not after.',
+      'Production itself is straightforward: GSM, size, colour, border, weave and packaging to your brief, a physical sample approved before bulk, and lab-dip colour approval before bulk dyeing so a repeat order matches. Goods are REACH and GPSR compliant, and fibre-content and care labelling is prepared in German.',
+    ],
+    buyers: [
+      'Importers and wholesale distributors supplying German retail',
+      'Hotel groups, resorts and hospitality linen suppliers',
+      'Retail and private-label brands with supply-chain reporting duties',
+      'Spa, wellness and healthcare institutional buyers',
+    ],
+    faqs: [
+      {
+        q: 'Which German ports do you ship to?',
+        a: 'We coordinate FOB shipment to Hamburg and Bremerhaven, and to Rotterdam or Antwerp where your forwarder prefers to route inland from there; the onward leg is handled by your freight forwarder.',
+      },
+      {
+        q: 'What supply-chain documentation can you provide?',
+        a: 'OEKO-TEX STANDARD 100, MADE IN GREEN and STeP, ISO 9001:2015, GRS and amfori BSCI certification for the mill, GOTS Version 7.0 for organic cotton linen, plus REACH and GPSR compliance. Tell us what your compliance team needs and we will confirm what can be supplied before you order.',
+      },
+      MOQ_FAQ,
+      MATCH_FAQ,
+      SAMPLE_FAQ,
+    ],
+  },
+
+  'export/netherlands-cotton-towel-supplier': {
+    section: 'export',
+    eyebrow: 'Netherlands',
+    seoTitle: 'Cotton Towel Supplier for Dutch Importers',
+    seoDescription:
+      'Cotton towel supplier for Dutch importers and EU distributors — towels made to your specification at our partner mill in Solapur, sample-first, FOB direct to Rotterdam, REACH and GPSR compliant.',
+    heading: 'Cotton towel supplier for Netherlands importers.',
+    lead: 'Bath towels, hotel ranges, bathrobes and bath mats built to your specification at our partner mill in Solapur and shipped FOB direct to Rotterdam — for importers and distributors supplying the Netherlands and the wider EU.',
+    intro: [
+      'A lot of what lands at Rotterdam does not stay in the Netherlands. Dutch buyers are often distributors serving customers across the EU, which makes consistency the specification: a range that looks slightly different from one container to the next becomes a complaint from every customer at once. Colour is approved by lab dip before bulk dyeing and every batch is checked against the approved sample, so a single order can carry several specifications and still arrive matched — and so can the reorder.',
+      'Goods are REACH and GPSR compliant, and fibre-content and care labelling is prepared in Dutch or in whichever EU languages your customers need. The towels are woven at our manufacturing partner V P Mundada in Solapur and quoted FOB direct from the mill.',
+    ],
+    buyers: [
+      'Importers and distributors supplying the Netherlands and the EU',
+      'Hotel groups, resorts and hospitality linen suppliers',
+      'Retail and private-label brands',
+      'Spa, wellness and institutional buyers',
+    ],
+    faqs: [
+      {
+        q: 'Which Dutch ports do you ship to?',
+        a: 'We coordinate FOB shipment to Rotterdam, Europe\'s largest container port, and to Amsterdam where your forwarder prefers it; the onward leg across the EU is handled by your freight forwarder.',
+      },
+      {
+        q: 'Can you supply labelling for several EU markets in one order?',
+        a: 'Yes — fibre-content and care labelling can be prepared in the languages your customers require, and a single order can combine specifications for several markets. Tell us the destination markets and we will confirm the labelling before production.',
+      },
+      MOQ_FAQ,
+      MATCH_FAQ,
+      SAMPLE_FAQ,
+    ],
+  },
+
+  'export/france-cotton-towel-supplier': {
+    section: 'export',
+    eyebrow: 'France',
+    seoTitle: 'Cotton Towel Supplier for French Importers',
+    seoDescription:
+      'Cotton towel supplier for French importers, hotel groups and retail brands — towels made to your specification at our partner mill in Solapur, sample-first, FOB direct to Le Havre and Marseille.',
+    heading: 'Cotton towel supplier for French importers.',
+    lead: 'Bath towels, hotel ranges, bathrobes and bath mats made to your specification at our partner mill in Solapur and shipped FOB direct — with French fibre-content and care labelling prepared for the order.',
+    intro: [
+      'French hospitality buys towels the way it buys everything else for a room: to a specification that has to hold across every property in the group, for years. That is a manufacturing problem more than a sourcing one. Colour is approved by lab dip before bulk dyeing and every batch is checked against the sample you approved, so the towels that arrive for a second property match the ones already in service at the first.',
+      'Fibre-content and care labelling is prepared in French, goods are REACH and GPSR compliant, and the certificate of origin, commercial invoice and packing list your clearing agent asks for are prepared with each shipment. Production is at our manufacturing partner V P Mundada in Solapur, weaving since 1972, quoted FOB direct from the mill.',
+    ],
+    buyers: [
+      'Hotel groups, resorts and hospitality linen suppliers',
+      'Importers and wholesale distributors supplying French retail',
+      'Retail and private-label brands',
+      'Spa, thalasso and wellness operators',
+    ],
+    faqs: [
+      {
+        q: 'Which French ports do you ship to?',
+        a: 'We coordinate FOB shipment to Le Havre, Marseille-Fos and Dunkerque; your freight forwarder handles routing and the onward leg from origin.',
+      },
+      {
+        q: 'Is labelling prepared in French?',
+        a: 'Yes — fibre content, care instructions and country of origin are prepared in French as part of the order, and your own brand artwork is applied to the same specification.',
+      },
+      MOQ_FAQ,
+      MATCH_FAQ,
+      SAMPLE_FAQ,
+    ],
+  },
+
+
+  'export/spain-cotton-towel-supplier': {
+    section: 'export',
+    eyebrow: 'Spain',
+    seoTitle: 'Cotton Towel Supplier for Spanish Importers & Hotels',
+    seoDescription:
+      'Cotton towel supplier for Spanish hotel groups, importers and retail brands — pool, beach and bath ranges made to your specification at our partner mill in Solapur, FOB direct to Valencia and Barcelona.',
+    heading: 'Cotton towel supplier for Spain.',
+    lead: 'Pool and beach towels, hotel bath ranges, bathrobes and bath mats made to your specification at our partner mill in Solapur and shipped FOB direct — built for Spanish resort and hospitality volumes.',
+    intro: [
+      'Spanish hospitality runs on pool and beach towels in quantities most markets never touch, and they fail differently from bath towels: sun, chlorine and daily industrial washing pull colour out of a poorly dyed towel within a season. Vat-dyed cotton is the usual answer, and colour is approved by lab dip before bulk dyeing so a mid-season top-up matches the towels already at the poolside.',
+      'Bath ranges, bathrobes and bath mats can be produced to one matched specification for the same property. Fibre-content and care labelling is prepared in Spanish, goods are REACH and GPSR compliant, and everything is woven at our manufacturing partner V P Mundada in Solapur and quoted FOB direct.',
+    ],
+    buyers: [
+      'Hotel groups, resorts and beach clubs',
+      'Importers and distributors supplying Spanish hospitality',
+      'Retail and private-label brands',
+      'Spa, wellness and holiday-apartment operators',
+    ],
+    faqs: [
+      {
+        q: 'Which Spanish ports do you ship to?',
+        a: 'We coordinate FOB shipment to Valencia, Barcelona, Algeciras and Bilbao; your freight forwarder handles routing and the onward leg from origin.',
+      },
+      {
+        q: 'Will pool towel colour survive a season of sun and chlorine?',
+        a: 'Vat-dyed cotton is what we usually recommend for pool and beach programmes precisely because it holds colour through sun exposure and repeated commercial washing. Tell us the colours you need and we will develop lab dips for your approval before bulk.',
+      },
+      MOQ_FAQ,
+      MATCH_FAQ,
+      SAMPLE_FAQ,
+    ],
+  },
+
+  'export/italy-cotton-towel-supplier': {
+    section: 'export',
+    eyebrow: 'Italy',
+    seoTitle: 'Cotton Towel Supplier for Italian Importers',
+    seoDescription:
+      'Cotton towel supplier for Italian importers, hotel groups and private-label brands — jacquard, waffle and bordered towels made to your design at our partner mill in Solapur, FOB direct to Genoa and La Spezia.',
+    heading: 'Cotton towel supplier for Italian importers.',
+    lead: 'Jacquard, waffle, bordered and plain cotton towels developed to your design at our partner mill in Solapur — for Italian retail brands, hotel groups and distributors, shipped FOB direct.',
+    intro: [
+      'Italian buyers tend to arrive with a design rather than a product code, which is the kind of brief this mill is set up for. Jacquard and dobby patterns are woven in, not printed, so the design holds through the wash instead of fading out of step with the towel; waffle and one-side-terry constructions are available where the look matters as much as the absorbency.',
+      'Send a drawing, a photograph or a towel you already buy, and we will develop a matching specification — construction, border, GSM, colour — and quote against it before you commit. Colour is approved by lab dip before bulk dyeing, labelling is prepared in Italian, and goods are REACH and GPSR compliant.',
+    ],
+    buyers: [
+      'Retail and private-label brands developing own designs',
+      'Hotel groups, resorts and hospitality linen suppliers',
+      'Importers and wholesale distributors',
+      'Spa and wellness operators',
+    ],
+    faqs: [
+      {
+        q: 'Which Italian ports do you ship to?',
+        a: 'We coordinate FOB shipment to Genoa, La Spezia, Livorno and Trieste; your freight forwarder handles routing and the onward leg from origin.',
+      },
+      {
+        q: 'Can you weave our own jacquard design?',
+        a: 'Yes — jacquard and dobby designs are developed to your artwork and woven into the towel rather than printed on it. Send the design and we will produce a sample for your approval before any bulk production begins.',
+      },
+      MOQ_FAQ,
+      MATCH_FAQ,
+      SAMPLE_FAQ,
+    ],
+  },
+
+  'export/sweden-cotton-towel-supplier': {
+    section: 'export',
+    eyebrow: 'Sweden',
+    seoTitle: 'Cotton Towel Supplier for Swedish Importers',
+    seoDescription:
+      'Cotton towel supplier for Swedish importers, hotel groups and retail brands — OEKO-TEX and GOTS certified production, sample-first, FOB direct to Gothenburg.',
+    heading: 'Cotton towel supplier for Swedish importers.',
+    lead: 'Bath towels, hotel ranges, bathrobes and bath mats made to your specification at our partner mill in Solapur — produced under OEKO-TEX and BSCI certification and shipped FOB direct to Gothenburg.',
+    intro: [
+      'Swedish buyers ask about the mill before they ask about the towel, and they ask for it in writing. The certification exists: OEKO-TEX STANDARD 100, MADE IN GREEN and STeP, ISO 9001:2015, GRS and amfori BSCI at our manufacturing partner V P Mundada in Solapur, and GOTS Version 7.0 for organic cotton linen through our partner Cotonex in Karur.',
+      'Beyond the paperwork, the commercial relationship is direct — quotations and shipment come FOB from the mill, not through a trading chain — so a question about the dyehouse or the working conditions is answered by the people running the floor. Labelling is prepared in Swedish, and goods are REACH and GPSR compliant.',
+    ],
+    buyers: [
+      'Importers and distributors supplying Swedish retail',
+      'Hotel groups, spa and hospitality linen suppliers',
+      'Retail and private-label brands with sustainability reporting',
+      'Institutional and contract buyers',
+    ],
+    faqs: [
+      {
+        q: 'Which Swedish ports do you ship to?',
+        a: 'We coordinate FOB shipment to Gothenburg, the largest port in Scandinavia, and to Stockholm, Helsingborg or Malmo where your forwarder prefers; the onward leg is handled by your freight forwarder.',
+      },
+      {
+        q: 'Can you supply organic or recycled cotton?',
+        a: 'Organic cotton linen is made by our partner Cotonex in Karur under GOTS Version 7.0, and the towel mill holds Global Recycled Standard certification. Tell us which standard your programme needs and we will confirm what can be supplied against it.',
+      },
+      MOQ_FAQ,
+      MATCH_FAQ,
+      SAMPLE_FAQ,
+    ],
+    relatedMarket: { href: '/sweden', label: 'Exporting to Sweden' },
+  },
+
+  'export/norway-cotton-towel-supplier': {
+    section: 'export',
+    eyebrow: 'Norway',
+    seoTitle: 'Cotton Towel Supplier for Norwegian Importers',
+    seoDescription:
+      'Cotton towel supplier for Norwegian importers, hotel groups and retail brands — towels made to your specification at our partner mill in Solapur, sample-first, FOB direct to Oslo, with full clearance documentation.',
+    heading: 'Cotton towel supplier for Norwegian importers.',
+    lead: 'Bath towels, hotel ranges, bathrobes and bath mats made to your specification at our partner mill in Solapur and shipped FOB direct to Norway, with the documentation your customs agent needs prepared for each shipment.',
+    intro: [
+      'Norway sits outside the EU customs union, so a shipment clears differently from one going to Sweden or Denmark next door — and the paperwork is where that difference shows up. Certificate of origin, commercial invoice, packing list and the supporting compliance documentation your customs agent asks for are prepared as a standard part of every shipment, not assembled after the container has sailed.',
+      'The towels are made to your brief at our manufacturing partner V P Mundada in Solapur, weaving since 1972, under OEKO-TEX, ISO 9001:2015, GRS and amfori BSCI certification. A physical sample is approved before bulk, and colour is fixed by lab dip before bulk dyeing so repeat orders match.',
+    ],
+    buyers: [
+      'Importers and distributors supplying Norwegian retail',
+      'Hotel groups, resorts and hospitality linen suppliers',
+      'Retail and private-label brands',
+      'Spa, wellness and institutional buyers',
+    ],
+    faqs: [
+      {
+        q: 'Which Norwegian ports do you ship to?',
+        a: 'We coordinate FOB shipment to Oslo, and to Gothenburg or Hamburg where your forwarder prefers to route overland from there; the onward leg is handled by your freight forwarder.',
+      },
+      {
+        q: 'Does Norway being outside the EU change anything for us?',
+        a: 'It changes the clearance paperwork rather than the product. Certificate of origin, commercial invoice, packing list and supporting compliance documentation are prepared for each shipment — tell us what your customs agent requires and we will confirm it before dispatch.',
+      },
+      MOQ_FAQ,
+      MATCH_FAQ,
+      SAMPLE_FAQ,
+    ],
+    relatedMarket: { href: '/norway', label: 'Exporting to Norway' },
+  },
+
+  'export/denmark-cotton-towel-supplier': {
+    section: 'export',
+    eyebrow: 'Denmark',
+    seoTitle: 'Cotton Towel Supplier for Danish Importers',
+    seoDescription:
+      'Cotton towel supplier for Danish importers, hotel groups and design-led retail brands — OEKO-TEX certified towels made to your specification at our partner mill in Solapur, FOB direct to Aarhus and Copenhagen.',
+    heading: 'Cotton towel supplier for Danish importers.',
+    lead: 'Bath towels, waffle and bordered ranges, bathrobes and bath mats developed to your specification at our partner mill in Solapur — under OEKO-TEX certification, shipped FOB direct.',
+    intro: [
+      'Danish retail buys textiles on design and on provenance, usually in that order, and expects both to be verifiable. Weave, border, colour and finish are developed to your brief rather than picked from a range — waffle, dobby border, jacquard, zero-twist — and the mill\'s OEKO-TEX STANDARD 100, MADE IN GREEN and STeP certification, along with ISO 9001:2015, GRS and amfori BSCI, is the provenance side of that answered in documents rather than assurances.',
+      'A physical sample is approved before bulk on every order, and colour is fixed by lab dip before bulk dyeing so the second production run matches the first. Labelling is prepared in Danish, and goods are REACH and GPSR compliant.',
+    ],
+    buyers: [
+      'Design-led retail and private-label brands',
+      'Importers and distributors supplying Danish retail',
+      'Hotel groups, spa and hospitality operators',
+      'Institutional and contract buyers',
+    ],
+    faqs: [
+      {
+        q: 'Which Danish ports do you ship to?',
+        a: 'We coordinate FOB shipment to Aarhus and Copenhagen, and to Hamburg or Gothenburg where your forwarder prefers to route from there; the onward leg is handled by your freight forwarder.',
+      },
+      {
+        q: 'Can you develop a towel to our own design?',
+        a: 'Yes — weave, border, GSM, colour and finish are built to your brief, and a physical sample is developed for your approval before any bulk production. Send a design, a reference product or a towel you already buy and we will quote against it.',
+      },
+      MOQ_FAQ,
+      MATCH_FAQ,
+      SAMPLE_FAQ,
+    ],
+  },
+
+
+  'export/japan-cotton-towel-supplier': {
+    section: 'export',
+    eyebrow: 'Japan',
+    seoTitle: 'Cotton Towel Supplier for Japanese Importers',
+    seoDescription:
+      'Cotton towel supplier for Japanese importers, hotel groups and retail brands — towels made to an approved sample at our partner mill in Solapur, OEKO-TEX certified, FOB direct to Tokyo, Yokohama and Kobe.',
+    heading: 'Cotton towel supplier for Japanese importers.',
+    lead: 'Bath towels, hotel ranges, bathrobes and bath mats produced against an approved sample at our partner mill in Solapur and shipped FOB direct — for Japanese importers, hospitality groups and retail brands.',
+    intro: [
+      'Japanese buyers judge a supplier on the third shipment, not the first. Anyone can make a good sample; the question is whether production two years from now still matches it. That is why colour is approved by lab dip before bulk dyeing and every batch is checked against the approved sample — and why nothing enters bulk production before you have had a physical sample in your hands and said yes to it.',
+      'Orders often start small and grow, and that is a normal way to begin here rather than something to apologise for: a first order at trial volume tells you more about a mill than any certificate. The mill holds OEKO-TEX STANDARD 100, MADE IN GREEN and STeP, ISO 9001:2015, GRS and amfori BSCI certification, and quotations come FOB direct from the mill, not through a trading chain.',
+    ],
+    buyers: [
+      'Importers and trading companies supplying Japanese retail',
+      'Hotel groups, ryokan and hospitality linen suppliers',
+      'Retail and private-label brands',
+      'Spa, onsen and wellness operators',
+    ],
+    faqs: [
+      {
+        q: 'Which Japanese ports do you ship to?',
+        a: 'We coordinate FOB shipment to Tokyo, Yokohama, Kobe, Osaka and Nagoya; your freight forwarder handles routing and the onward leg from origin.',
+      },
+      {
+        q: 'Can we start with a trial order before committing to volume?',
+        a: 'Yes, and it is a sensible way to begin. Tell us the specification and the trial quantity you have in mind and our export team will confirm what is workable for that product before you order.',
+      },
+      MOQ_FAQ,
+      MATCH_FAQ,
+      SAMPLE_FAQ,
+    ],
+  },
+
+  'export/south-korea-cotton-towel-supplier': {
+    section: 'export',
+    eyebrow: 'South Korea',
+    seoTitle: 'Cotton Towel Supplier for South Korean Importers',
+    seoDescription:
+      'Cotton towel supplier for Korean importers, hotel groups and private-label brands — OEKO-TEX certified towels made to your specification at our partner mill in Solapur, FOB direct to Busan and Incheon.',
+    heading: 'Cotton towel supplier for South Korean importers.',
+    lead: 'Bath towels, hotel ranges, bathrobes and bath mats made to your specification at our partner mill in Solapur and shipped FOB direct to Busan and Incheon — for Korean importers, hospitality groups and retail brands.',
+    intro: [
+      'Korean hospitality and retail both move quickly on ranges, which puts the pressure on development time rather than on price alone. Send a reference product or a brief and we will develop a matching specification — GSM, construction, border, colour — and quote against it before you commit to anything, with a physical sample approved before bulk.',
+      'Production is at our manufacturing partner V P Mundada in Solapur, weaving since 1972, under OEKO-TEX STANDARD 100, MADE IN GREEN and STeP, ISO 9001:2015, GRS and amfori BSCI certification. Colour is approved by lab dip before bulk dyeing, so when a range reorders it matches what is already on the shelf.',
+    ],
+    buyers: [
+      'Importers and distributors supplying Korean retail',
+      'Hotel groups, resorts and hospitality linen suppliers',
+      'Retail, e-commerce and private-label brands',
+      'Spa, jjimjilbang and wellness operators',
+    ],
+    faqs: [
+      {
+        q: 'Which Korean ports do you ship to?',
+        a: 'We coordinate FOB shipment to Busan, one of the world\'s largest container ports, and to Incheon; your freight forwarder handles routing and the onward leg from origin.',
+      },
+      {
+        q: 'How quickly can you develop a sample from our reference?',
+        a: 'Development time depends on the construction and whether new colours need lab dips. Send the reference and we will confirm a realistic sample timeline along with the quotation, rather than promising a date before we have seen it.',
+      },
+      MOQ_FAQ,
+      MATCH_FAQ,
+      SAMPLE_FAQ,
+    ],
+  },
+
+  'export/new-zealand-cotton-towel-supplier': {
+    section: 'export',
+    eyebrow: 'New Zealand',
+    seoTitle: 'Cotton Towel Supplier for New Zealand Importers',
+    seoDescription:
+      'Cotton towel supplier for New Zealand importers, hotels and retail brands — bath, pool and beach ranges made to your specification at our partner mill in Solapur, FOB direct to Auckland and Tauranga.',
+    heading: 'Cotton towel supplier for New Zealand importers.',
+    lead: 'Bath towels, pool and beach ranges, bathrobes and bath mats made to your specification at our partner mill in Solapur and shipped FOB direct to New Zealand.',
+    intro: [
+      'New Zealand orders are usually smaller than Australian ones and the freight leg is longer, which makes what goes into a container matter more than how often one ships. A single order can combine several specifications — bath, pool and beach, bathrobes, bath mats — so a season\'s range travels together instead of arriving in pieces across three shipments.',
+      'Everything is built to your brief at our manufacturing partner V P Mundada in Solapur, with a physical sample approved before bulk and lab-dip colour approval before bulk dyeing, so next season\'s repeat matches this one. Certificate of origin, commercial invoice and packing list are prepared with each shipment.',
+    ],
+    buyers: [
+      'Importers and wholesale distributors supplying NZ retail',
+      'Hotels, lodges, motels and holiday-park operators',
+      'Surf, beach and lifestyle brands running private label',
+      'Spa, gym and aged-care buyers',
+    ],
+    faqs: [
+      {
+        q: 'Which New Zealand ports do you ship to?',
+        a: 'We coordinate FOB shipment to Auckland, Tauranga and Lyttelton; your freight forwarder handles routing and the onward leg from origin.',
+      },
+      {
+        q: 'Can we combine several products in one shipment?',
+        a: 'Yes — a single order can carry several specifications across bath, pool, beach, robes and mats. Because colour is lab-dip approved before bulk dyeing, the whole range still arrives consistent with what you approved.',
+      },
+      MOQ_FAQ,
+      MATCH_FAQ,
+      SAMPLE_FAQ,
+    ],
+  },
+
   'solutions/hotel-towel-manufacturer': {
     section: 'solutions',
     eyebrow: 'Hospitality',
