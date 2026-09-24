@@ -342,7 +342,7 @@ jobs:
           # behind: it compares that manifest against the local files and
           # never checks the server, so it has reported "0 changes" on every
           # run since while the live site served none of them.
-          state-name: .ftp-deploy-sync-state-add-only-v3.json
+          state-name: .ftp-deploy-sync-state-add-only-v4.json
           dry-run: ${{ inputs.dry_run }}
           exclude: |
             **/.git*
