@@ -270,6 +270,19 @@ jobs:
           has  /oshibori/ "Oshibori page renders" "made for altitude."
           has  /oshibori/ "Oshibori page names the product" "Oshibori,"
           lacks /oshibori/ "Oshibori page is not the 404 shell" "Page Not Found"
+          # The five img src references on the page are binary files, so the
+          # text-based has()/lacks() above can't check them — ask for the
+          # actual HTTP status of each instead.
+          for photo in fold_both_sides front_loop_side back_ground_side closeup_open_weave hem_border; do
+            code=$(curl -sL -o /dev/null -w '%{http_code}' --max-time 20 \
+              "$SITE/oshibori/photos/$photo.jpg" 2>/dev/null || echo 000)
+            if [ "$code" = "200" ]; then
+              echo "  ok       oshibori photo: $photo.jpg"
+            else
+              echo "  MISSING  oshibori photo: $photo.jpg  (HTTP $code)"
+              failed=1
+            fi
+          done
 
           echo "── Bundle points at the real API ──"
           bundle=$(curl -sL --max-time 30 "$SITE/$BUST" \
