@@ -264,12 +264,12 @@ jobs:
           # frontend/public/oshibori/index.html — not a React route, so none
           # of the checks above touch it; verify it shipped and is not the
           # old page it replaced (if any) or a 404 shell.
-          has  /oshibori/ "Oshibori page renders" "Oshibori, made for altitude."
+          # The heading has a <br> between the comma and "made for altitude"
+          # (see frontend/public/oshibori/index.html), not a space — match
+          # what is actually in the markup.
+          has  /oshibori/ "Oshibori page renders" "made for altitude."
+          has  /oshibori/ "Oshibori page names the product" "Oshibori,"
           lacks /oshibori/ "Oshibori page is not the 404 shell" "Page Not Found"
-          echo "  DEBUG --- first 600 chars of /oshibori/ ---"
-          head -c 600 "$(fetch /oshibori/)"
-          echo ""
-          echo "  DEBUG --- end ---"
 
           echo "── Bundle points at the real API ──"
           bundle=$(curl -sL --max-time 30 "$SITE/$BUST" \
