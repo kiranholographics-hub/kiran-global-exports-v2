@@ -266,6 +266,10 @@ jobs:
           # old page it replaced (if any) or a 404 shell.
           has  /oshibori/ "Oshibori page renders" "Oshibori, made for altitude."
           lacks /oshibori/ "Oshibori page is not the 404 shell" "Page Not Found"
+          echo "  DEBUG --- first 600 chars of /oshibori/ ---"
+          head -c 600 "$(fetch /oshibori/)"
+          echo ""
+          echo "  DEBUG --- end ---"
 
           echo "── Bundle points at the real API ──"
           bundle=$(curl -sL --max-time 30 "$SITE/$BUST" \
