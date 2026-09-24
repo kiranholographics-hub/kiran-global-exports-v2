@@ -144,7 +144,14 @@ export default function SeoLandingPage({ section }) {
           </ScrollReveal>
 
           <ScrollReveal className={styles.rangeLinks}>
-            <Link to="/towels" className={styles.rangeLink}>Browse the towel catalogue</Link>
+            <a
+              href="/downloads/kiran-global-exports-catalogue.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.rangeLink}
+            >
+              Download our product catalogue (PDF)
+            </a>
             {page.relatedMarket && (
               <Link to={page.relatedMarket.href} className={styles.rangeLink}>
                 {page.relatedMarket.label}

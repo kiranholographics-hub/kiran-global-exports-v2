@@ -303,11 +303,13 @@ jobs:
             console.log('Copied dist/' + name);
           });
 
-          // Standalone static pages that live under frontend/public/ rather
-          // than as a React route (Vite copies them into dist/ verbatim, but
-          // they are not in DEPLOY_ROUTES so the render step above never
-          // touches them) — copy each folder across whole.
-          ['oshibori'].forEach(dir => {
+          // Standalone static pages/assets that live under frontend/public/
+          // rather than as a React route (Vite copies them into dist/
+          // verbatim, but they are not in DEPLOY_ROUTES so the render step
+          // above never touches them) — copy each folder across whole.
+          // 'downloads' holds the PDF product catalogue linked from every
+          // SEO landing page's "Download our product catalogue" link.
+          ['oshibori', 'downloads'].forEach(dir => {
             const src = path.join(distDir, dir);
             if (!fs.existsSync(src)) {
               console.error('ERROR: dist/' + dir + ' missing!');

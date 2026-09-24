@@ -284,6 +284,20 @@ jobs:
             fi
           done
 
+          echo "── Product catalogue PDF ──"
+          # Linked from the "Download our product catalogue" link on every
+          # SEO landing page (frontend/src/pages/SeoLandingPage.jsx) — a
+          # binary file, so check HTTP status rather than grep the body.
+          has /export/usa-cotton-towel-supplier/ "landing page links the catalogue PDF" "/downloads/kiran-global-exports-catalogue.pdf"
+          code=$(curl -sL -o /dev/null -w '%{http_code}' --max-time 20 \
+            "$SITE/downloads/kiran-global-exports-catalogue.pdf" 2>/dev/null || echo 000)
+          if [ "$code" = "200" ]; then
+            echo "  ok       catalogue PDF resolves"
+          else
+            echo "  MISSING  catalogue PDF  (HTTP $code)"
+            failed=1
+          fi
+
           echo "── Bundle points at the real API ──"
           bundle=$(curl -sL --max-time 30 "$SITE/$BUST" \
             | grep -oE '/assets/index-[A-Za-z0-9_-]+\.js' | head -1)
