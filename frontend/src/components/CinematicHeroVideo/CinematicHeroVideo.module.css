@@ -42,9 +42,6 @@
 }
 
 /* ── Poster ──────────────────────────────────── */
-/* Desktop poster by default; the mobile media query below swaps it — a
-   <video> only has one poster attribute, so the responsive choice has to
-   happen here in CSS instead. */
 .poster {
   position: absolute;
   inset: 0;
@@ -55,16 +52,10 @@
   object-fit: cover;
   object-position: var(--hero-video-position, center center);
 
-  background-image:    var(--hero-poster-desktop);
+  background-image:    var(--hero-video-poster);
   background-position: var(--hero-video-position, center center);
   background-size:     cover;
   background-repeat:   no-repeat;
-}
-
-@media (max-width: 767px) {
-  .poster {
-    background-image: var(--hero-poster-mobile);
-  }
 }
 
 /* ── Poster only mode ────────────────────────── */
