@@ -322,6 +322,25 @@ jobs:
           console.log('ADD-ONLY package built successfully.');
           "
 
+      # Standalone static folders (oshibori/, downloads/). The node -e block
+      # above tries to copy them too but the console output for those forEach
+      # iterations was silently dropped in run #53's log — the folders never
+      # reached the FTP upload despite exiting 0. This shell step is the
+      # foolproof backup: it fails loudly if a source folder is missing.
+      - name: Copy standalone static folders into the ADD-ONLY package
+        working-directory: ./frontend
+        run: |
+          set -e
+          for dir in oshibori downloads; do
+            if [ ! -d "dist/$dir" ]; then
+              echo "::error::dist/$dir missing — Vite should have copied frontend/public/$dir/"
+              exit 1
+            fi
+            rm -rf "dist_add_only/$dir"
+            cp -r "dist/$dir" "dist_add_only/$dir"
+            echo "  ok  copied dist/$dir/ ($(find dist_add_only/$dir -type f | wc -l) files) into ADD-ONLY package"
+          done
+
       # NOTE: The .htaccess in this package (built from frontend/public/.htaccess)
       # replaces the server's existing .htaccess. Review the diff before a non-dry-run deploy.
       - name: Deploy ADD-ONLY files to Hostinger over FTPS
