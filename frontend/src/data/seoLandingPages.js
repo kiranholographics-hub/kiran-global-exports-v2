@@ -739,6 +739,10 @@ const PAGES = {
         a: 'FOB shipment is coordinated from Nhava Sheva (JNPT) near Mumbai and from Mundra in Gujarat, the two ports handling the large majority of India\'s containerised textile exports; your freight forwarder confirms routing and the onward leg to your destination.',
       },
       {
+        q: 'Which countries do you currently export to?',
+        a: 'North America (the USA and Canada), Europe (the UK, Germany, the Netherlands, France, Spain, Italy, Sweden, Norway and Denmark), the Middle East (the UAE and Saudi Arabia), Asia-Pacific (Japan, South Korea, New Zealand and Australia), South Africa and South America. Container-load FOB shipping from Nhava Sheva or Mundra reaches all of these on standard commercial routes — see the sourcing guide for your own country for the specifics that differ by destination, like labelling and customs documentation.',
+      },
+      {
         q: 'Do we deal with the mill directly, or through a trading company?',
         a: 'Directly. Kiran Global Exports quotes and ships FOB from our manufacturing partner V P Mundada in Solapur, so a specification question is answered by the people running the production floor, not relayed through an intermediary.',
       },
