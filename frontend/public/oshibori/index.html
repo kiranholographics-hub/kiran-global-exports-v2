@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kiran Global Exports</title>
+<meta name="description" content="Oshibori, made for altitude — a lightweight, open-weave terry hot towel for airline caterers, hotels, restaurants and spas. Woven in Vietnam, developed by Kiran Global Exports.">
+<link rel="canonical" href="https://www.kiranglobal-exports.com/oshibori/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f6f2ea;
+    --paper-raised: #fbf8f2;
+    --ink: #1d2129;
+    --mute: #6c6558;
+    --line: #ddd4c1;
+    --indigo: #2c4870;
+    --indigo-deep: #1a2f4d;
+    --steam: #dfe6e6;
+    --gold: #8f6d2e;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #15171b;
+      --paper-raised: #1b1e23;
+      --ink: #e9e4d8;
+      --mute: #a39c8c;
+      --line: #34383d;
+      --indigo: #8fabce;
+      --indigo-deep: #b6c8e0;
+      --steam: #232a2f;
+      --gold: #cbab68;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #15171b;
+    --paper-raised: #1b1e23;
+    --ink: #e9e4d8;
+    --mute: #a39c8c;
+    --line: #34383d;
+    --indigo: #8fabce;
+    --indigo-deep: #b6c8e0;
+    --steam: #232a2f;
+    --gold: #cbab68;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "IBM Plex Sans", Arial, sans-serif;
+    padding-inline: 24px;
+    line-height: 1.6;
+    margin: 0;
+  }
+  .wrap { max-width: 980px; margin: 0 auto; }
+
+  h1, h2, h3 { font-family: "Fraunces", Georgia, serif; font-weight: 500; text-wrap: balance; margin: 0; }
+  em.jp { font-style: italic; font-weight: 500; color: var(--indigo); }
+
+  a { color: var(--indigo); }
+
+  /* header */
+  header.site {
+    position: sticky; top: env(safe-area-inset-top, 0px);
+    background: color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--line);
+    z-index: 10;
+  }
+  .site-inner {
+    max-width: 980px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    padding-block: 14px; gap: 16px; flex-wrap: wrap;
+  }
+  .wordmark { font-family: "Fraunces", serif; font-weight: 600; font-size: 16px; letter-spacing: 0.02em; }
+  nav.site-nav { display: flex; gap: 22px; font-size: 13px; }
+  nav.site-nav a { text-decoration: none; color: var(--mute); }
+  nav.site-nav a:hover { color: var(--indigo); }
+
+  /* hero */
+  .hero {
+    padding-block: 56px 40px;
+    display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center;
+  }
+  .hero .eyebrow {
+    font-family: "IBM Plex Mono", monospace; font-size: 11.5px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 14px; display: block;
+  }
+  .hero h1 { font-size: clamp(34px, 5vw, 52px); line-height: 1.05; }
+  .hero p.lede { color: var(--mute); font-size: 16px; margin-top: 16px; max-width: 46ch; }
+  .hero .cta-row { display: flex; gap: 14px; margin-top: 26px; flex-wrap: wrap; }
+  .btn {
+    font-size: 13.5px; font-weight: 500; padding: 11px 18px; border-radius: 3px;
+    text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+    border: 1px solid var(--line);
+  }
+  .btn.primary { background: var(--indigo); color: var(--paper-raised); border-color: var(--indigo); }
+  .btn.ghost { color: var(--ink); }
+  .hero-photo {
+    aspect-ratio: 4/5; border-radius: 4px; overflow: hidden; border: 1px solid var(--line);
+    background: var(--steam);
+  }
+  .hero-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  section { padding-block: 44px; border-top: 1px solid var(--line); }
+  .kicker {
+    font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--mute); margin-bottom: 10px; display: block;
+  }
+  h2.section-title { font-size: clamp(24px, 3vw, 30px); margin-bottom: 18px; }
+
+  /* about */
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; }
+  .about-grid p { color: var(--mute); font-size: 15px; }
+  .about-grid p + p { margin-top: 14px; }
+  dl.stat-list { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-content: start; }
+  dl.stat-list div { border-left: 2px solid var(--indigo); padding-left: 12px; }
+  dl.stat-list dt { font-family: "IBM Plex Mono", monospace; font-size: 22px; color: var(--ink); }
+  dl.stat-list dd { font-size: 12.5px; color: var(--mute); margin: 2px 0 0; }
+
+  /* product */
+  .product-intro { color: var(--mute); font-size: 15px; max-width: 68ch; margin-bottom: 26px; }
+  .spec-table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 4px; }
+  table.spec { width: 100%; border-collapse: collapse; font-size: 13.5px; min-width: 560px; }
+  table.spec th, table.spec td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--line); }
+  table.spec th { font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--mute); background: var(--paper-raised); }
+  table.spec td.num, table.spec th.num { text-align: right; font-family: "IBM Plex Mono", monospace; }
+  table.spec tr:last-child td { border-bottom: none; }
+  table.spec td.hi { color: var(--indigo); font-weight: 500; }
+
+  .photo-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 26px; }
+  .photo-grid figure { margin: 0; }
+  .photo-grid img { width: 100%; height: 150px; object-fit: cover; border-radius: 4px; border: 1px solid var(--line); display: block; }
+  .photo-grid figcaption { font-size: 11px; color: var(--mute); margin-top: 6px; }
+
+  .diff-list { display: grid; gap: 14px; margin-top: 10px; }
+  .diff-list .row { display: grid; grid-template-columns: 88px 1fr; gap: 16px; align-items: baseline; }
+  .diff-list .row .val { font-family: "IBM Plex Mono", monospace; color: var(--indigo); font-size: 14px; }
+  .diff-list .row p { margin: 0; font-size: 14.5px; color: var(--mute); }
+
+  .sizes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 22px; }
+  .size-card { background: var(--paper-raised); border: 1px solid var(--line); border-radius: 4px; padding: 16px; }
+  .size-card .sz { font-family: "IBM Plex Mono", monospace; font-size: 18px; }
+  .size-card .wt { font-size: 12.5px; color: var(--mute); margin-top: 4px; }
+
+  /* certification */
+  .cert-box {
+    background: var(--paper-raised); border: 1px solid var(--line); border-radius: 6px;
+    padding: 24px; display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: start;
+  }
+  .cert-mark {
+    width: 52px; height: 52px; border-radius: 50%; border: 2px solid var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-family: "IBM Plex Mono", monospace; font-size: 10px; color: var(--gold); text-align: center; line-height: 1.15;
+  }
+  .cert-box h3 { font-size: 18px; margin-bottom: 6px; }
+  .cert-box p { color: var(--mute); font-size: 14px; margin: 0; }
+  .cert-checks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 22px; }
+  .cert-checks div { font-size: 13px; color: var(--mute); }
+  .cert-checks div b { display: block; color: var(--ink); font-family: "IBM Plex Mono", monospace; font-size: 15px; margin-bottom: 3px; }
+
+  /* contact */
+  .contact-box {
+    display: flex; justify-content: space-between; align-items: center; gap: 20px;
+    background: var(--indigo-deep); color: #f4f0e6; border-radius: 6px; padding: 30px 32px; flex-wrap: wrap;
+  }
+  .contact-box h2 { color: #f4f0e6; font-size: 24px; }
+  .contact-box p { color: #cfd6e2; font-size: 14px; margin-top: 6px; }
+  .email-pill {
+    display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.2); border-radius: 30px; padding: 10px 8px 10px 18px;
+  }
+  .email-pill span { font-family: "IBM Plex Mono", monospace; font-size: 13.5px; color: #f4f0e6; user-select: all; }
+  .copy-btn {
+    background: #f4f0e6; color: var(--indigo-deep); border: none; border-radius: 20px;
+    padding: 7px 14px; font-size: 12.5px; font-weight: 600; cursor: pointer; font-family: inherit;
+  }
+  .copy-btn:focus-visible, .btn:focus-visible, nav.site-nav a:focus-visible { outline: 2px solid var(--indigo); outline-offset: 2px; }
+
+  footer.site { padding-block: 26px 40px; color: var(--mute); font-size: 12.5px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+
+  @media (max-width: 720px) {
+    .hero { grid-template-columns: 1fr; padding-block: 40px 28px; }
+    .hero-photo { order: -1; aspect-ratio: 16/10; }
+    .about-grid { grid-template-columns: 1fr; }
+    .photo-grid { grid-template-columns: repeat(2, 1fr); }
+    .cert-box { grid-template-columns: 1fr; }
+    .cert-checks { grid-template-columns: 1fr 1fr; }
+    .sizes { grid-template-columns: 1fr; }
+    .contact-box { flex-direction: column; align-items: flex-start; }
+    nav.site-nav { gap: 14px; font-size: 12px; }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    section { animation: rise 0.5s ease-out both; }
+    @keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="site-inner">
+    <div class="wordmark">KIRAN GLOBAL EXPORTS</div>
+    <nav class="site-nav">
+      <a href="#about">About</a>
+      <a href="#product">Product</a>
+      <a href="#certification">Certification</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <section class="hero" style="border-top:none;">
+    <div>
+      <span class="eyebrow">Sourcing &amp; Trading · India</span>
+      <h1>Oshibori,<br>made for altitude.</h1>
+      <p class="lede">A lightweight, open-weave terry hot towel — the Japanese hospitality ritual, rebuilt for airline caterers, hotels, restaurants and spas. Woven in Vietnam, developed by Kiran Global Exports.</p>
+      <div class="cta-row">
+        <a class="btn primary" href="#contact">Request the spec sheet</a>
+        <a class="btn ghost" href="#product">See the construction</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="photos/fold_both_sides.jpg" alt="Folded oshibori towel showing loop texture and open weave">
+    </div>
+  </section>
+
+  <section id="about">
+    <span class="kicker">About</span>
+    <h2 class="section-title">A trading house built around one towel.</h2>
+    <div class="about-grid">
+      <div>
+        <p><em class="jp">Oshibori</em> — the hot towel offered on arrival in Japanese hospitality — is usually a dense, heavy terry. We're developing a version that runs against that instinct: an open, almost see-through ground carrying tall cotton loops, so it heats fast, cools fast, and dries faster than anything at standard hotel-towel density.</p>
+        <p>Kiran Global Exports is sourcing this construction from specialist oshibori weavers in Thai Binh and Nam Dinh, Vietnam. The samples travel first to the OEKO-TEX exhibition in Delhi, then into import orders for Indian and export markets — airlines, airline caterers, hotel groups, restaurants and spas.</p>
+      </div>
+      <dl class="stat-list">
+        <div><dt>195</dt><dd>GSM, finished — Quality A, 100% cotton</dd></div>
+        <div><dt>3.0mm</dt><dd>pile height, tall loop on open ground</dd></div>
+        <div><dt>≤5s</dt><dd>absorbency — sinking / drop test</dd></div>
+        <div><dt>≤5%</dt><dd>shrinkage after home wash, ISO 6330</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section id="product">
+    <span class="kicker">Product</span>
+    <h2 class="section-title">Lightweight open-weave oshibori</h2>
+    <p class="product-intro">A very light, semi see-through 100% cotton terry with tall loops on a low-density, gauze-like ground. One side is loop-dense, the other shows the open ground grid. A flat woven border is folded and stitched as the hem. Two reference qualities, tested on the finished fabric:</p>
+
+    <div class="spec-table-wrap">
+      <table class="spec">
+        <tr>
+          <th>Parameter</th>
+          <th class="num">Quality A</th>
+          <th class="num">Quality B</th>
+        </tr>
+        <tr><td>Composition</td><td class="num hi">100% Cotton</td><td class="num">73% Cotton / 27% Polyester</td></tr>
+        <tr><td>GSM (finished)</td><td class="num hi">195 g/m²</td><td class="num">185 g/m²</td></tr>
+        <tr><td>EPI, pile + ground</td><td class="num hi">61 (30+31)</td><td class="num">52 (26+26)</td></tr>
+        <tr><td>PPI</td><td class="num hi">38</td><td class="num">33</td></tr>
+        <tr><td>Pile warp</td><td class="num hi">~20s Ne</td><td class="num">~22s Ne</td></tr>
+        <tr><td>Ground warp</td><td class="num hi">~20s Ne</td><td class="num">~16s Ne</td></tr>
+        <tr><td>Pile ratio (ground:pile)</td><td class="num hi">1 : 2.86</td><td class="num">1 : 3.28</td></tr>
+        <tr><td>Pile height</td><td class="num hi">3.0 mm</td><td class="num">4.0 mm</td></tr>
+      </table>
+    </div>
+
+    <div class="photo-grid">
+      <figure><img src="photos/front_loop_side.jpg" alt="Front loop side of the towel"><figcaption>Front — loop side</figcaption></figure>
+      <figure><img src="photos/back_ground_side.jpg" alt="Back open ground grid of the towel"><figcaption>Back — open ground</figcaption></figure>
+      <figure><img src="photos/closeup_open_weave.jpg" alt="Close-up of the open weave and loops"><figcaption>Close-up — weave &amp; loops</figcaption></figure>
+      <figure><img src="photos/hem_border.jpg" alt="Flat woven hem border"><figcaption>Border — folded &amp; stitched</figcaption></figure>
+    </div>
+
+    <div class="diff-list">
+      <div class="row"><div class="val">01</div><p>Most mass sits in the loops, not the ground — low density (52–61 EPI, 33–38 PPI) plus a high pile ratio (1:2.9–1:3.3) and tall loops (3–4mm), so it's light but still reads as a towel.</p></div>
+      <div class="row"><div class="val">02</div><p>The open, breathable grid dries far faster than standard 350–500 GSM face towels — built for hot-then-cold cycling, not for soaking up a shower.</p></div>
+      <div class="row"><div class="val">03</div><p>The technical challenge is running an open ground stably on the loom — loop stability, border shrinkage, low-density handling — which is exactly why it's being developed with specialist oshibori weavers rather than general towel mills.</p></div>
+    </div>
+
+    <div class="sizes">
+      <div class="size-card"><div class="sz">27 × 27 cm</div><div class="wt">≈15 g/pc · ≈180 g/dozen</div></div>
+      <div class="size-card"><div class="sz">28 × 28 cm</div><div class="wt">≈16 g/pc · ≈190 g/dozen</div></div>
+      <div class="size-card"><div class="sz">30 × 30 cm</div><div class="wt">≈18 g/pc · ≈220 g/dozen</div></div>
+    </div>
+  </section>
+
+  <section id="certification">
+    <span class="kicker">Certification &amp; finish</span>
+    <h2 class="section-title">Built for repeat industrial wash.</h2>
+    <div class="cert-box">
+      <div class="cert-mark">OEKO<br>TEX<br>100</div>
+      <div>
+        <h3>OEKO-TEX Standard 100 — mandatory</h3>
+        <p>Every factory under consideration must hold a current OEKO-TEX Standard 100 certificate for the fabric and finished product. GOTS and OCS organic certification are being requested where available, for buyers who need it.</p>
+      </div>
+    </div>
+    <div class="cert-checks">
+      <div><b>No silicone</b>Soft hydrophilic finish only — softener that doesn't cut absorbency.</div>
+      <div><b>Colour fastness ≥4</b>Washing (ISO 105-C06); rubbing dry ≥4, wet ≥3 (ISO 105-X12).</div>
+      <div><b>Rental-grade</b>Withstands repeated hot-water heating and industrial wash without loop loss or hem opening.</div>
+    </div>
+  </section>
+
+  <section id="contact" style="padding-bottom:0;">
+    <span class="kicker">Get in touch</span>
+    <div class="contact-box">
+      <div>
+        <h2>Sampling now — meet us at OEKO-TEX Delhi.</h2>
+        <p>Sample requests, factory quotes, or buyer enquiries for the airline hot towel program.</p>
+      </div>
+      <div class="email-pill">
+        <span id="email-text">exportskiranglobal@gmail.com</span>
+        <button class="copy-btn" id="copy-btn" type="button">Copy</button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site">
+    <div>Kiran Global Exports · India</div>
+    <div>Oshibori development programme · 2026</div>
+  </footer>
+
+</div>
+
+<script>
+  (function () {
+    var btn = document.getElementById('copy-btn');
+    var text = document.getElementById('email-text').textContent.trim();
+    btn.addEventListener('click', function () {
+      function done() {
+        btn.textContent = 'Copied';
+        setTimeout(function () { btn.textContent = 'Copy'; }, 1600);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done).catch(function () {
+          selectFallback();
+          done();
+        });
+      } else {
+        selectFallback();
+        done();
+      }
+      function selectFallback() {
+        var range = document.createRange();
+        range.selectNodeContents(document.getElementById('email-text'));
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+      }
+    });
+  })();
+</script>
+
+</body>
+</html>

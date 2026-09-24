@@ -63,6 +63,10 @@ const STATIC_ROUTES = [
   { path: '/custom', priority: '0.7' },
   { path: '/export', priority: '0.7' },
   { path: '/contact', priority: '0.9' },
+  // Standalone static microsite page (not a React route) — see
+  // frontend/public/oshibori/index.html and the matching copy step in
+  // deploy.yml's packaging job.
+  { path: '/oshibori', priority: '0.6' },
   // Search-led landing pages — these are the pages we actively want
   // ranking for sourcing queries, so they sit just under /contact.
   ...SEO_LANDING_ROUTES.map((route) => ({ path: route, priority: '0.8' })),

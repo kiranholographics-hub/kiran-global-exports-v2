@@ -260,6 +260,13 @@ jobs:
             echo "  ok       sitemap leaves the noindex legal pages out"
           fi
 
+          echo "── Standalone static pages ──"
+          # frontend/public/oshibori/index.html — not a React route, so none
+          # of the checks above touch it; verify it shipped and is not the
+          # old page it replaced (if any) or a 404 shell.
+          has  /oshibori/ "Oshibori page renders" "Oshibori, made for altitude."
+          lacks /oshibori/ "Oshibori page is not the 404 shell" "Page Not Found"
+
           echo "── Bundle points at the real API ──"
           bundle=$(curl -sL --max-time 30 "$SITE/$BUST" \
             | grep -oE '/assets/index-[A-Za-z0-9_-]+\.js' | head -1)
