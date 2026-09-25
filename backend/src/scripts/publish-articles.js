@@ -55,7 +55,7 @@ function parseDraft(text, filename) {
 
 async function run() {
   const files = (await readdir(DRAFTS_DIR))
-    .filter((f) => f.endsWith('.md') && f !== 'README.md')
+    .filter((f) => f.endsWith('.md') && f !== 'README.md' && f !== 'CALENDAR.md')
     .sort();
 
   const articles = [];
