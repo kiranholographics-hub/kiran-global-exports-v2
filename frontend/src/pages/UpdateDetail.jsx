@@ -95,7 +95,7 @@ export default function UpdateDetail() {
 
               {update.coverImage && (
                 <div className={styles.cover}>
-                  <img src={update.coverImage} alt="" />
+                  <img src={update.coverImage} alt={update.title} />
                 </div>
               )}
 

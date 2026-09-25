@@ -47,7 +47,7 @@ export default function Updates() {
                   <Link to={`/updates/${u.slug}`} className={styles.card}>
                     {u.coverImage && (
                       <div className={styles.cardImage}>
-                        <img src={u.coverImage} alt="" loading="lazy" />
+                        <img src={u.coverImage} alt={u.title} loading="lazy" />
                       </div>
                     )}
                     <div className={styles.cardBody}>
