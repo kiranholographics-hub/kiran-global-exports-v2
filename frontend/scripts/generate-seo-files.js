@@ -91,9 +91,13 @@ const API_BASE = process.env.VITE_API_URL || 'https://api.kiranglobal-exports.co
 // Published updates, the same way: /hq is where they are written, so the
 // list only exists in the database. Without this an article could be
 // published and sit there with nothing telling Google it exists.
+// AbortSignal.timeout on both calls below: a slow/unresponsive API (as
+// opposed to one that refuses the connection outright) would otherwise
+// hang this fetch — and the build step calling it — indefinitely, since
+// plain fetch has no default timeout of its own.
 async function fetchUpdateRoutes() {
   try {
-    const res = await fetch(`${API_BASE}/api/updates`);
+    const res = await fetch(`${API_BASE}/api/updates`, { signal: AbortSignal.timeout(10_000) });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const updates = await res.json();
     if (!updates.length) return [];
@@ -109,7 +113,7 @@ async function fetchUpdateRoutes() {
 
 async function fetchActiveMarketRoutes() {
   try {
-    const res = await fetch(`${API_BASE}/api/markets/public`);
+    const res = await fetch(`${API_BASE}/api/markets/public`, { signal: AbortSignal.timeout(10_000) });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const markets = await res.json();
     return markets.map((m) => ({ path: `/${m.slug}`, priority: '0.7' }));
