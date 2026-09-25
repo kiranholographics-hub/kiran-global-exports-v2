@@ -12,12 +12,18 @@ city or a country — those live in `seoLandingPages.js`, not here, and
 only get added where the business genuinely wants that market (see the
 note in SEO-ROUTINE.md on doorway pages).
 
+## Written (06–08, published or ready to publish)
+
+- Hotel towel GSM guide (400/500/600 GSM compared) — covers what was
+  queued as #2 below plus the buyer-facing GSM-tier question that came
+  up separately; drop #2 from the queue, it's done.
+- How to choose cotton towels for hotels, spas and salons
+- What makes a good hotel pool towel
+
 ## Queued
 
 1. Lab dip and colour matching, explained — what happens between
    "we approved a shade" and the bulk dyeing running
-2. How towel weight is actually measured, and why two mills' "500 GSM"
-   can feel different in the hand
 3. Reading a pre-shipment sample properly — what a serious buyer
    checks before approving bulk, not just whether it looks right
 4. Private label vs white label — what is actually being customised

@@ -750,6 +750,10 @@ const PAGES = {
         q: 'Can we also source organic cotton linen from India through you?',
         a: 'Yes — bed and table linen in organic cotton is made by our partner Cotonex in Karur, certified under GOTS Version 7.0. It ships alongside a towel order or on its own, quoted and documented separately since it is a different certification from the towel mill\'s.',
       },
+      {
+        q: 'How do I actually request a quotation?',
+        a: 'Send us the product, an approximate quantity and your destination port — a reference product or photo helps if you already buy something similar elsewhere. We reply with a proposed specification and, once you confirm it, a physical sample follows before anything goes to bulk. For a container-load order, see our bulk hotel towels page for how packing and lead time are confirmed at that volume.',
+      },
       MOQ_FAQ,
       MATCH_FAQ,
       SAMPLE_FAQ,
@@ -821,6 +825,45 @@ const PAGES = {
       },
       MATCH_FAQ,
       MOQ_FAQ,
+      SAMPLE_FAQ,
+    ],
+    relatedMarket: { href: '/custom', label: 'Custom & Private Label' },
+  },
+
+  'solutions/bulk-hotel-towels': {
+    section: 'solutions',
+    eyebrow: 'Bulk Orders',
+    seoTitle: 'Bulk Hotel Towels: Sizes, GSM, Materials & Customisation',
+    seoDescription:
+      'Bulk hotel towels by the container load — sizing, GSM and customisation explained, sample-first ordering, FOB shipping from our partner mill in Solapur.',
+    heading: 'Bulk hotel towels, ordered right the first time.',
+    lead: 'A container-load order behaves differently to a trial order — the sizing, packing and sampling sequence all change once quantity is real. Here is what to lock down before you place one, and how the process runs at our partner mill in Solapur.',
+    intro: [
+      "Buying towels by the container load is a different exercise to buying a case for a trial. Carton weight and packing efficiency start to matter — how many pieces fold into a standard carton, how that carton stacks in a container, and whether the size and fold you've specified actually uses the space efficiently or leaves a container part-empty on a fixed freight cost. None of this shows up on a small sample order, which is exactly why it's worth raising before the bulk order, not after the container is already booked.",
+      'The sequence that protects a bulk order is the same one regardless of quantity, just with more at stake if a step is skipped: a physical sample approved first, colour fixed by lab dip before the bulk dyeing run, then production against the approved reference, followed by in-line quality checks before packing rather than only at the end. Skipping the lab-dip step on a large order is the single most common way a buyer ends up with a container of towels that technically match the sample but visibly do not sit right next to it.',
+      'Customisation scales into bulk orders the same way it does into smaller ones — woven labels, hang tags, branded packaging and carton marking are all built into the production run rather than added afterward, which is both cheaper and more consistent than a separate branding pass on finished stock. Buyers building a private label range at bulk volume should also see our dedicated private-label page, which covers what can and cannot be customised in more depth.',
+    ],
+    buyers: [
+      'Hotel groups and procurement teams placing container-load orders',
+      'Distributors and wholesalers restocking multiple properties',
+      'Hospitality group purchasing organisations (GPOs)',
+      'Contract linen suppliers sourcing for several client hotels at once',
+    ],
+    faqs: [
+      {
+        q: 'How is a bulk order packed for shipping?',
+        a: "Towels are folded and cartoned to make efficient use of container space — carton size and fold are agreed as part of the specification, not decided after production, since changing them late affects how many cartons fit per container and therefore the freight cost per piece.",
+      },
+      {
+        q: 'How long does a bulk order take from sample approval to shipment?',
+        a: 'It depends on the quantity, the specification and current production scheduling, so we confirm a realistic timeline once we know the product and the volume — tell us both and we will give you a real date, not a general estimate.',
+      },
+      {
+        q: 'Can a bulk order still be customised, or only standard stock?',
+        a: 'Customisation is built into the production run itself — GSM, size, colour, border, woven labels and packaging are all specified upfront for the full order, the same way they would be for a smaller batch.',
+      },
+      MOQ_FAQ,
+      MATCH_FAQ,
       SAMPLE_FAQ,
     ],
     relatedMarket: { href: '/custom', label: 'Custom & Private Label' },
