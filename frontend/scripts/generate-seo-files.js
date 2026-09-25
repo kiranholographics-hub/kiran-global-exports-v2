@@ -130,10 +130,16 @@ async function main() {
   ]);
   const routes = [...STATIC_ROUTES, ...marketRoutes, ...updateRoutes];
 
+  // .htaccess 301-redirects every prerendered route to its trailing-slash
+  // form to keep one canonical URL per page (see the matching note in
+  // SEO.jsx) — a sitemap entry without the slash would just send Google
+  // through that redirect on every crawl instead of naming the final URL.
+  const withTrailingSlash = (route) => (!route || route === '/' ? '/' : `${route.replace(/\/+$/, '')}/`);
+
   const urls = routes
     .map(
       ({ path: route, priority }) =>
-        `  <url>\n    <loc>${siteConfig.siteUrl}${route}</loc>\n    <priority>${priority}</priority>\n  </url>`
+        `  <url>\n    <loc>${siteConfig.siteUrl}${withTrailingSlash(route)}</loc>\n    <priority>${priority}</priority>\n  </url>`
     )
     .join('\n');
 

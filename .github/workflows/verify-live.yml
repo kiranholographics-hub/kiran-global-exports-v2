@@ -87,6 +87,23 @@ jobs:
           has /export/usa-cotton-towel-supplier/ "FAQPage schema" '"@type":"FAQPage"'
           has /export/usa-cotton-towel-supplier/ "BreadcrumbList schema" '"@type":"BreadcrumbList"'
 
+          echo "── Canonical tag matches the URL actually served ──"
+          # .htaccess 301-redirects every prerendered route to its
+          # trailing-slash form, so a canonical tag naming the slashless
+          # version points at a URL that immediately redirects away from
+          # itself instead of at the page it's on. Caught this exact way
+          # once already (SEO.jsx and generate-seo-files.js both built the
+          # URL from the router path with no normalisation) — this check
+          # is what would have caught it before it shipped.
+          has / "homepage canonical is self-referencing" \
+            'rel="canonical" href="https://www.kiranglobal-exports.com/"'
+          has /export/poland-cotton-towel-supplier/ "export page canonical has trailing slash" \
+            'rel="canonical" href="https://www.kiranglobal-exports.com/export/poland-cotton-towel-supplier/"'
+          has /solutions/bulk-hotel-towels/ "solutions page canonical has trailing slash" \
+            'rel="canonical" href="https://www.kiranglobal-exports.com/solutions/bulk-hotel-towels/"'
+          has /updates/hotel-towel-gsm-guide/ "article canonical has trailing slash" \
+            'rel="canonical" href="https://www.kiranglobal-exports.com/updates/hotel-towel-gsm-guide/"'
+
           echo "── The landing pages are reachable from the site ──"
           # They were orphans: in the sitemap, linked to each other, and
           # linked to from nowhere else on the site — not even /export,
@@ -262,6 +279,16 @@ jobs:
             failed=1
           else
             echo "  ok       sitemap leaves the noindex legal pages out"
+          fi
+          # Every listed URL redirects to its own trailing-slash form (see
+          # the canonical check above) — a sitemap entry without one just
+          # makes Google follow that redirect on every crawl instead of
+          # requesting the final URL directly.
+          if printf '%s' "$sitemap" | grep -qF "<loc>https://www.kiranglobal-exports.com/export/poland-cotton-towel-supplier</loc>"; then
+            echo "  BAD      sitemap lists a page URL without its trailing slash"
+            failed=1
+          else
+            echo "  ok       sitemap URLs carry the trailing slash they actually resolve to"
           fi
 
           echo "── Standalone static pages ──"

@@ -165,7 +165,15 @@ export default function SEO({
       : `${siteConfig.brandName} — Premium Towels & Linen`;
 
     const metaDesc     = truncate(description);
-    const canonicalUrl = `${siteConfig.siteUrl}${location.pathname}`;
+    // .htaccess 301-redirects every prerendered route to its trailing-slash
+    // form (e.g. /export/usa-cotton-towel-supplier -> .../supplier/) to
+    // keep one canonical URL per page — so the canonical tag has to match
+    // that same form, or it names a URL that immediately redirects away
+    // from itself.
+    const pathWithSlash = location.pathname === '/'
+      ? '/'
+      : `${location.pathname.replace(/\/+$/, '')}/`;
+    const canonicalUrl = `${siteConfig.siteUrl}${pathWithSlash}`;
     const absoluteImg  = resolveImage(image);
 
     /* ── Title ───────────────────────────────── */
