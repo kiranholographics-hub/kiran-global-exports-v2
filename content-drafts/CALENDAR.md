@@ -20,6 +20,7 @@ note in SEO-ROUTINE.md on doorway pages).
 - How to choose cotton towels for hotels, spas and salons
 - Lab dip and colour matching, explained
 - Reading a pre-shipment sample properly
+- Private label vs white label
 
 Note: "what makes a good hotel pool towel" was drafted as an article,
 then retired and rebuilt as a landing page instead
@@ -29,8 +30,6 @@ site duplicating its own content on the same topic.
 
 ## Queued
 
-4. Private label vs white label — what is actually being customised
-   in each, and what stays the same
 5. Container loading for towels — how quantity, packing and carton
    size decide what actually fits in a 20ft vs a 40ft container
 6. What "sample-first" actually protects a buyer from, and what it
