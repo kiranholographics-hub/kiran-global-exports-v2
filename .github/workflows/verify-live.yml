@@ -147,7 +147,7 @@ jobs:
             has "$page" "$slug has FAQ markup" '"@type":"FAQPage"'
             has "$page" "$slug has its own buyer list" "Who we supply"
           done
-          for slug in hotel-towel-manufacturer private-label-towel-manufacturer cotton-towel-manufacturer-india; do
+          for slug in hotel-towel-manufacturer private-label-towel-manufacturer cotton-towel-manufacturer-india bulk-hotel-towels; do
             has "/solutions/$slug/" "$slug has an h1" "<h1"
             has "/solutions/$slug/" "$slug has FAQ markup" '"@type":"FAQPage"'
           done
@@ -155,6 +155,10 @@ jobs:
             "India page names Solapur" "Solapur"
           has /solutions/cotton-towel-manufacturer-india/ \
             "India page names the ports" "Nhava Sheva"
+          has /solutions/cotton-towel-manufacturer-india/ \
+            "India page answers how to request a quotation" "How do I actually request a quotation"
+          has /solutions/bulk-hotel-towels/ \
+            "bulk hotel towels page covers packing" "How is a bulk order packed"
 
           echo "── The structured data actually parses ──"
           # Presence of the string proves nothing: malformed JSON-LD is
