@@ -12,13 +12,18 @@ city or a country — those live in `seoLandingPages.js`, not here, and
 only get added where the business genuinely wants that market (see the
 note in SEO-ROUTINE.md on doorway pages).
 
-## Written (06–08, published or ready to publish)
+## Written (06–07, ready to publish once DB access is open)
 
 - Hotel towel GSM guide (400/500/600 GSM compared) — covers what was
   queued as #2 below plus the buyer-facing GSM-tier question that came
   up separately; drop #2 from the queue, it's done.
 - How to choose cotton towels for hotels, spas and salons
-- What makes a good hotel pool towel
+
+Note: "what makes a good hotel pool towel" was drafted as an article,
+then retired and rebuilt as a landing page instead
+(`solutions/hotel-pool-towels` in seoLandingPages.js) — the master SEO
+prompt asked for it as a page, and keeping both would have been the
+site duplicating its own content on the same topic.
 
 ## Queued
 

@@ -868,6 +868,89 @@ const PAGES = {
     ],
     relatedMarket: { href: '/custom', label: 'Custom & Private Label' },
   },
+
+  'solutions/hotel-towels-supplier-what-to-check': {
+    section: 'solutions',
+    eyebrow: 'Buyer Checklist',
+    seoTitle: 'Hotel Towels Supplier for Bulk Orders: What Buyers Should Check',
+    seoDescription:
+      'What to verify before committing to a hotel towels supplier — sampling process, certification proof and mill transparency, from our partner mill in Solapur.',
+    heading: 'Choosing a hotel towels supplier: what to check before you commit.',
+    lead: "Most hotel towel disappointments trace back to a question that was never asked before the first order, not a defect in the product itself. This is the checklist worth running through with any supplier — including us — before committing to a bulk order.",
+    intro: [
+      "A hotel towel supplier's website almost always looks credible. Product photos, certification logos, a professional tone — none of that tells you whether the person you're emailing actually controls production or is relaying your questions to someone else three steps removed. The questions below are the ones that surface that difference quickly, and they apply whether you're evaluating us or anyone else.",
+      "Ask which mill actually produces the order, by name, and whether you can request a sample directly tied to that mill's current production rather than a stock reference sample that may be years old. A supplier who answers this specifically and quickly is usually working close to the factory floor; one who deflects to \"our manufacturing partners\" without naming one is often further from production than their marketing suggests.",
+      "Ask how colour is approved before bulk dyeing runs, not after. Lab-dip approval — a small dyed swatch signed off before the full batch is dyed — is standard practice among suppliers who actually manage their own quality process. Its absence is one of the more reliable predictors of a reorder that doesn't quite match the first shipment.",
+    ],
+    buyers: [
+      'First-time importers evaluating suppliers before an initial order',
+      'Procurement teams running a formal supplier qualification process',
+      'Buyers who have been burned by a mismatch between sample and bulk before',
+      'Hotel groups switching suppliers and wanting to avoid repeating a past mistake',
+    ],
+    faqs: [
+      {
+        q: 'How do I know if a supplier actually owns or controls the factory?',
+        a: "Ask them to name the mill directly and describe their relationship to it plainly — a direct manufacturing partner will answer this without hesitation. Kiran Global Exports works with manufacturing partners in India, principally V P Mundada in Solapur, and quotes and ships directly from that relationship rather than through an intermediary trading company.",
+      },
+      {
+        q: 'What certifications should I actually ask to see, not just read about?',
+        a: 'Ask for the current certificate, not a logo on a webpage — OEKO-TEX Standard 100 for the finished product is the baseline most hospitality buyers check first, alongside ISO 9001 for quality management and BSCI or an equivalent for social compliance. A supplier should be able to produce these on request without delay.',
+      },
+      {
+        q: 'What is a reasonable sampling process before a bulk order?',
+        a: 'A physical sample developed to your specification, approved by you before production starts, with colour fixed by lab dip ahead of the bulk dyeing run. If a supplier proposes skipping straight to bulk production to save time on a first order, treat that as a cost saving that usually gets paid back with interest on the reorder.',
+      },
+      {
+        q: 'What is a warning sign in early conversations with a supplier?',
+        a: "Vagueness on the things that should have a direct answer — which mill, what the sampling sequence looks like, which certifications are current — is a more useful signal than price. A supplier confident in their own process answers these directly; one relaying between you and someone else tends to answer around them.",
+      },
+      MOQ_FAQ,
+      SAMPLE_FAQ,
+    ],
+  },
+
+  'solutions/hotel-pool-towels': {
+    section: 'solutions',
+    eyebrow: 'Pool & Resort',
+    seoTitle: 'Hotel Pool Towels: A Practical Buyer’s Guide',
+    seoDescription:
+      'What makes a hotel pool towel hold up — colourway, weight and branding that survive chlorine and sun, supplied from our partner mill in Solapur.',
+    heading: 'Hotel pool towels: built for chlorine, sun and daily turnover.',
+    lead: "A pool towel fails differently to every other towel in a hotel — usually by looking worn out long before it actually is. That gap between how it looks and how it performs is mostly a colour decision, not a fabric one, and it's the first thing worth getting right.",
+    intro: [
+      "Solid white is the default most first-time buyers reach for, and it's usually the wrong one for a pool programme specifically. Chlorine bleaches unevenly rather than all at once, so a white pool towel develops patchy, faded areas that read as dirty well before the fabric has actually worn out. Sunscreen and tanning oil leave marks that don't fully launder out of white cotton either. Striped and patterned colourways hide all three problems, which is why almost every established resort pool programme has moved away from solid white — the ones still using it are usually the newest programmes, not the most experienced ones.",
+      'Cotton terry remains the right base fabric for the absorbency guests expect straight out of a pool, at a weight chosen for reasonable dry time rather than maximum plushness — pool towel turnover is higher than an in-room programme, since a towel is typically used once per lounger session rather than reused across a stay, which puts more pressure on laundry throughput than a standard guest-room order does. Sizing also differs from a bath towel: a pool towel is used lying on a lounger as much as for drying, so buyers tend to specify larger than an equivalent bath towel while keeping the weight moderate.',
+      "Branding — resort logos, property names — needs to survive the same sun and chlorine exposure the towel does. Woven labels and jacquard borders hold up best in this specific environment; heat-transfer branding is usually the first element to crack or fade poolside, faster than it would on an indoor towel that never sees direct sun.",
+    ],
+    buyers: [
+      'Resorts and hotels with pool or beach-club facilities',
+      'Property groups replacing a pool towel programme that faded or bleached faster than expected',
+      'Leisure and wellness operators buying pool towels alongside spa or gym linen',
+      'Distributors supplying pool towel programmes to multiple resort clients',
+    ],
+    faqs: [
+      {
+        q: 'Why do most resort pool towels use stripes instead of solid white?',
+        a: "Chlorine, sunscreen and sun exposure all show up faster and more visibly on solid white than on a striped or patterned colourway. The fabric underneath often still has plenty of service life left when a white towel starts looking tired — the colour choice, not the cotton, is usually what's actually failing.",
+      },
+      {
+        q: 'Should a pool towel be the same weight as a bath towel?',
+        a: "Not necessarily. Pool towels are laundered more often — typically once per lounger session — so a moderate weight that dries faster between uses often works better than a heavier bath-towel-grade fabric, even though pool towels are usually sized larger than an equivalent bath towel.",
+      },
+      {
+        q: 'What branding method holds up best on a poolside towel?',
+        a: 'Woven labels and jacquard borders survive sun and chlorine exposure better than heat-transfer branding, which tends to crack or fade first in a poolside environment specifically.',
+      },
+      {
+        q: 'Can pool towels be supplied alongside a bath towel programme from the same order?',
+        a: 'Yes — pool and beach towels can be produced to match a property’s existing bath towel programme in border, branding and quality standard, or specified separately if the pool programme needs a different colourway.',
+      },
+      MOQ_FAQ,
+      SAMPLE_FAQ,
+    ],
+    relatedMarket: { href: '/custom', label: 'Custom & Private Label' },
+  },
 };
 
 /* ── Lookups used by the page, prerender and sitemap ── */
