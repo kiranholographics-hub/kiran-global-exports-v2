@@ -708,6 +708,272 @@ const PAGES = {
     ],
   },
 
+  'export/poland-cotton-towel-supplier': {
+    section: 'export',
+    eyebrow: 'Poland',
+    seoTitle: 'Cotton Towel Supplier for Polish Importers',
+    seoDescription:
+      'Cotton towel supplier for Polish importers, hotel groups and retail buyers — 100% cotton ringspun towels made at our partner mill in Solapur, sample-first, FOB direct, with EU-standard export documentation.',
+    heading: 'Cotton towel supplier for Polish importers.',
+    lead: 'Bath towels, hotel ranges, bathrobes and bath mats in 100% cotton ringspun, made to your specification at our partner mill in Solapur and shipped FOB direct to Polish importers, distributors and hospitality buyers.',
+    intro: [
+      "Poland's hotel and hospitality sector has expanded faster than its neighbours over the last decade, and a fair share of that growth is in mid-market and business hotels rather than five-star flagships — which puts a premium on towels that hold a consistent standard across a large property count rather than a single showpiece property. As an EU member state, Poland sits in the same regulatory framework as our existing German, Dutch and French buyers, so the same certification and documentation set already answers most compliance questions before they're asked.",
+      "Towels are woven at our manufacturing partner V P Mundada in Solapur, weaving since 1972, and quoted FOB direct. Bath towels, hotel and border ranges, bathrobes and bath mats are built to your GSM, size, colour and border, with a physical sample approved and colour fixed by lab dip before anything goes to bulk — the sequence that keeps a hundred-property rollout consistent rather than assembled from whatever shipped closest to on time.",
+    ],
+    buyers: [
+      'Importers and distributors supplying Polish and Central European retail',
+      'Hotel groups and property management companies running multiple sites',
+      'Retail and private-label brands developing own-brand towel lines',
+      'Spa, wellness and healthcare institutional buyers',
+    ],
+    faqs: [
+      {
+        q: 'Does EU membership change anything about how you document a shipment to Poland?',
+        a: 'The compliance documentation is the same set we prepare for our German, Dutch and French shipments — certificate of origin, commercial invoice, packing list and supporting paperwork — since Poland sits in the same EU regulatory framework as those markets.',
+      },
+      {
+        q: 'Can you support a rollout across multiple properties at once?',
+        a: 'Yes — one order can be built to a single specification and shipped as one consignment, with colour fixed by lab dip so every property in the rollout receives the same standard rather than a batch-to-batch drift.',
+      },
+      MOQ_FAQ,
+      MATCH_FAQ,
+      SAMPLE_FAQ,
+    ],
+    relatedMarket: { href: '/poland', label: 'Exporting to Poland' },
+  },
+
+  'export/qatar-cotton-towel-supplier': {
+    section: 'export',
+    eyebrow: 'Qatar',
+    seoTitle: 'Cotton Towel Supplier for Qatar Importers & Hotels',
+    seoDescription:
+      'Cotton towel supplier for Qatar hotel groups, importers and private-label brands — 100% cotton ringspun towels made at our partner mill in Solapur, sample-first, FOB direct to Hamad Port.',
+    heading: 'Cotton towel supplier for Qatar importers and hotels.',
+    lead: 'Bath towels, hotel ranges, bathrobes and bath mats in 100% cotton ringspun, made to your specification at our partner mill in Solapur and shipped FOB direct to Qatar.',
+    intro: [
+      "Qatar has been building hotel capacity faster than almost anywhere else in the Gulf over the past several years, and a lot of that new supply sits at the upper end — five-star and luxury properties where guests notice towel quality specifically, not just whether one was provided. That raises the bar on GSM, hand-feel and colour consistency compared with a budget or mid-market programme, and it's worth specifying accordingly rather than defaulting to a standard hospitality spec.",
+      'Qatar is a member of the Gulf Cooperation Council alongside the UAE and Saudi Arabia, both existing export markets for us, so the certification and compliance documentation we already prepare for those shipments — OEKO-TEX, ISO, BSCI, certificate of origin — covers the same ground here. Production is at our manufacturing partner V P Mundada in Solapur, weaving since 1972, with FOB shipment coordinated to Hamad Port.',
+    ],
+    buyers: [
+      'Luxury and five-star hotel groups and resort operators',
+      'Importers and distributors supplying Qatari hospitality',
+      'Private-label brands developing branded guest amenity ranges',
+      'Spa and wellness operators within hotel and resort properties',
+    ],
+    faqs: [
+      {
+        q: 'Can you meet the specification expected at a five-star property?',
+        a: "Yes — GSM, yarn and finish are built to your brief rather than a fixed standard hospitality spec, and a physical sample is approved before bulk so you can confirm hand-feel and weight match what a luxury property expects before committing.",
+      },
+      {
+        q: 'Which port do you ship to for Qatar?',
+        a: 'FOB shipment is coordinated to Hamad Port; your freight forwarder confirms routing and the onward leg to your warehouse or property.',
+      },
+      MOQ_FAQ,
+      MATCH_FAQ,
+      SAMPLE_FAQ,
+    ],
+  },
+
+  'export/oman-cotton-towel-supplier': {
+    section: 'export',
+    eyebrow: 'Oman',
+    seoTitle: 'Cotton Towel Supplier for Oman Importers & Hotels',
+    seoDescription:
+      'Cotton towel supplier for Oman hotel groups, importers and distributors — 100% cotton ringspun towels made at our partner mill in Solapur, sample-first, FOB direct to Sohar and Salalah.',
+    heading: 'Cotton towel supplier for Oman importers and hotels.',
+    lead: 'Bath towels, hotel ranges, bathrobes and bath mats in 100% cotton ringspun, made to your specification at our partner mill in Solapur and shipped FOB direct to Oman.',
+    intro: [
+      "Oman's tourism sector has been growing more deliberately than its Gulf neighbours — fewer mega-developments, more mid-size resorts and heritage properties — which tends to favour buyers who want a mill relationship they can reorder from consistently over several years rather than a one-off bulk purchase for a single opening. That consistency is largely a colour and batch-tracking question: lab-dip approval before bulk dyeing, and every batch checked against what you approved originally.",
+      "As a member of the Gulf Cooperation Council alongside the UAE, Saudi Arabia and Qatar, Oman sits in a regulatory environment our export documentation already covers. Towels are woven at our manufacturing partner V P Mundada in Solapur, weaving since 1972, and quoted FOB direct with shipment coordinated to Sohar or Salalah depending on your onward routing.",
+    ],
+    buyers: [
+      'Resort, heritage and boutique hotel operators',
+      'Importers and distributors supplying Omani hospitality and retail',
+      'Private-label brands developing own-brand towel ranges',
+      'Spa and wellness operators',
+    ],
+    faqs: [
+      {
+        q: 'Which ports do you ship to for Oman?',
+        a: 'FOB shipment is coordinated to Sohar or Salalah depending on your preferred routing; your freight forwarder confirms which suits your onward leg.',
+      },
+      {
+        q: 'Can we reorder years later and still match the original order?',
+        a: "Yes — colour is fixed by lab dip before bulk dyeing and every batch is checked against the sample you originally approved, which is what keeps a reorder placed years later matching what's already in service.",
+      },
+      MOQ_FAQ,
+      MATCH_FAQ,
+      SAMPLE_FAQ,
+    ],
+  },
+
+  'export/brazil-cotton-towel-supplier': {
+    section: 'export',
+    eyebrow: 'Brazil',
+    seoTitle: 'Cotton Towel Supplier for Brazilian Importers',
+    seoDescription:
+      'Cotton towel supplier for Brazilian importers, hotel groups and retail distributors — 100% cotton ringspun towels made at our partner mill in Solapur, sample-first, FOB direct to Santos.',
+    heading: 'Cotton towel supplier for Brazilian importers.',
+    lead: 'Bath towels, beach and pool ranges, bathrobes and bath mats in 100% cotton ringspun, made to your specification at our partner mill in Solapur and shipped FOB direct to Brazil.',
+    intro: [
+      "Brazil is the largest single hospitality and retail market in South America, and buyers here are as likely to be sourcing beach and pool ranges as bath programmes — Brazil's own coastline drives a genuinely large domestic pool-towel and beach-towel category alongside standard hotel bath ranges, which is worth specifying separately since the colour and weight decisions for each are different (striped or patterned for pool and beach, matched-set consistency for bath).",
+      "Brazil is a founding member of Mercosur, the regional trade bloc it shares with Argentina, Uruguay and Paraguay. Towels are woven at our manufacturing partner V P Mundada in Solapur and quoted FOB direct, with shipment coordinated to Santos — Brazil's principal container port — and certificate of origin, commercial invoice and packing list prepared as standard.",
+    ],
+    buyers: [
+      'Importers and distributors supplying Brazilian retail and hospitality',
+      'Hotel, resort and beach-club operators',
+      'Retail chains and private-label brands',
+      'Spa and wellness operators',
+    ],
+    faqs: [
+      {
+        q: 'Which Brazilian port do you ship to?',
+        a: 'FOB shipment is coordinated to Santos, Brazil’s principal container port; your freight forwarder handles routing and the onward leg from there.',
+      },
+      {
+        q: 'Can you supply beach and pool towels alongside a hotel bath programme?',
+        a: 'Yes — both can be produced to a matched or separately specified colourway in the same order, with striped or patterned colourways generally recommended for pool and beach use since they hide chlorine and sun staining better than solid white.',
+      },
+      MOQ_FAQ,
+      MATCH_FAQ,
+      SAMPLE_FAQ,
+    ],
+    relatedMarket: { href: '/south-america', label: 'Exporting to South America' },
+  },
+
+  'export/mexico-cotton-towel-supplier': {
+    section: 'export',
+    eyebrow: 'Mexico',
+    seoTitle: 'Cotton Towel Supplier for Mexican Importers & Resorts',
+    seoDescription:
+      'Cotton towel supplier for Mexican resorts, hotel groups and importers — 100% cotton ringspun towels made at our partner mill in Solapur, sample-first, FOB direct to Manzanillo.',
+    heading: 'Cotton towel supplier for Mexican importers and resorts.',
+    lead: 'Bath towels, pool and beach ranges, bathrobes and bath mats in 100% cotton ringspun, made to your specification at our partner mill in Solapur and shipped FOB direct to Mexico.',
+    intro: [
+      "Mexico's resort corridor — Cancun, the Riviera Maya, Los Cabos and Puerto Vallarta among others — runs some of the highest towel turnover of any hospitality market we quote for, since pool and beach towels there are used once per lounger session rather than reused across a stay. That volume makes colourway the first decision rather than an afterthought: striped or patterned pool towels visibly outlast solid white against chlorine and sun exposure, which matters more at resort-scale turnover than it does for a standard city hotel.",
+      "Mexico is part of the USMCA trade agreement alongside the United States and Canada, both existing export markets for us. Towels are woven at our manufacturing partner V P Mundada in Solapur, weaving since 1972, and quoted FOB direct, with shipment coordinated to Manzanillo, Mexico's principal Pacific container port.",
+    ],
+    buyers: [
+      'Resort groups and beach-club operators along Mexico’s coastal corridors',
+      'Importers and distributors supplying Mexican retail and hospitality',
+      'Private-label brands developing resort-branded amenity ranges',
+      'Spa and wellness operators within resort properties',
+    ],
+    faqs: [
+      {
+        q: 'Which Mexican port do you ship to?',
+        a: 'FOB shipment is coordinated to Manzanillo, Mexico’s principal Pacific container port; your freight forwarder confirms routing and the onward leg to your destination.',
+      },
+      {
+        q: 'What colourway do you recommend for a resort pool programme?',
+        a: 'Striped or patterned colourways over solid white, since resort-scale turnover means more chlorine and sun exposure per towel than a standard hotel sees, and pattern hides that staining far better than white does.',
+      },
+      MOQ_FAQ,
+      MATCH_FAQ,
+      SAMPLE_FAQ,
+    ],
+  },
+
+  'export/chile-cotton-towel-supplier': {
+    section: 'export',
+    eyebrow: 'Chile',
+    seoTitle: 'Cotton Towel Supplier for Chilean Importers',
+    seoDescription:
+      'Cotton towel supplier for Chilean importers, hotel groups and retail distributors — 100% cotton ringspun towels made at our partner mill in Solapur, sample-first, FOB direct to San Antonio.',
+    heading: 'Cotton towel supplier for Chilean importers.',
+    lead: 'Bath towels, hotel ranges, bathrobes and bath mats in 100% cotton ringspun, made to your specification at our partner mill in Solapur and shipped FOB direct to Chile.',
+    intro: [
+      "Chilean distributors buying towels from India are usually comparing an Indian mill against options from China or Brazil on landed cost first, and on whether quality holds through a second and third order second — which is exactly where a supplier's process, not its price list, ends up mattering. Lab-dip colour approval before bulk dyeing and batch checking against the original sample are what keep a reorder placed a year later matching the one already on the shelf.",
+      'Chile is a member of the Pacific Alliance alongside Mexico, Colombia and Peru — all export markets for us. Towels are woven at our manufacturing partner V P Mundada in Solapur, weaving since 1972, and quoted FOB direct, with shipment coordinated to San Antonio, Chile’s principal container port.',
+    ],
+    buyers: [
+      'Importers and distributors supplying Chilean retail and hospitality',
+      'Hotel groups and resort operators',
+      'Retail chains and private-label brands',
+      'Spa and wellness institutional buyers',
+    ],
+    faqs: [
+      {
+        q: 'Which Chilean port do you ship to?',
+        a: 'FOB shipment is coordinated to San Antonio, Chile’s principal container port; your freight forwarder handles routing and the onward leg from there.',
+      },
+      {
+        q: 'How do you compare on landed cost against a Chinese or Brazilian supplier?',
+        a: 'We quote FOB direct from the mill so you can build the landed cost comparison yourself with your own freight rates — what we can tell you directly is the process behind the price: sample-first, lab-dip colour approval, and batch checking against what you approved.',
+      },
+      MOQ_FAQ,
+      MATCH_FAQ,
+      SAMPLE_FAQ,
+    ],
+  },
+
+  'export/colombia-cotton-towel-supplier': {
+    section: 'export',
+    eyebrow: 'Colombia',
+    seoTitle: 'Cotton Towel Supplier for Colombian Importers',
+    seoDescription:
+      'Cotton towel supplier for Colombian importers, hotel groups and resort operators — 100% cotton ringspun towels made at our partner mill in Solapur, sample-first, FOB direct to Cartagena.',
+    heading: 'Cotton towel supplier for Colombian importers.',
+    lead: 'Bath towels, pool and beach ranges, bathrobes and bath mats in 100% cotton ringspun, made to your specification at our partner mill in Solapur and shipped FOB direct to Colombia.',
+    intro: [
+      "Cartagena's hotel and resort sector has grown into one of the more established hospitality markets on Colombia's coast, and buyers there tend to need both a bath-towel programme for rooms and a separate pool or beach specification for the waterfront side of the property — two different colour and weight decisions under one order rather than one specification stretched to cover both jobs.",
+      'Colombia is a member of the Pacific Alliance alongside Mexico, Chile and Peru. Towels are woven at our manufacturing partner V P Mundada in Solapur, weaving since 1972, and quoted FOB direct, with shipment coordinated to Cartagena, Colombia’s principal Caribbean container port.',
+    ],
+    buyers: [
+      'Hotel and resort operators along Colombia’s Caribbean coast',
+      'Importers and distributors supplying Colombian retail and hospitality',
+      'Retail chains and private-label brands',
+      'Spa and wellness operators',
+    ],
+    faqs: [
+      {
+        q: 'Which Colombian port do you ship to?',
+        a: 'FOB shipment is coordinated to Cartagena, Colombia’s principal Caribbean container port; your freight forwarder confirms routing and the onward leg from there.',
+      },
+      {
+        q: 'Can a bath and pool towel programme be ordered together?',
+        a: 'Yes — they are usually specified separately even within one order, since a bath programme is built for matched-set consistency while a pool or beach range is usually better in a striped or patterned colourway to handle chlorine and sun exposure.',
+      },
+      MOQ_FAQ,
+      MATCH_FAQ,
+      SAMPLE_FAQ,
+    ],
+  },
+
+  'export/peru-cotton-towel-supplier': {
+    section: 'export',
+    eyebrow: 'Peru',
+    seoTitle: 'Cotton Towel Supplier for Peruvian Importers',
+    seoDescription:
+      'Cotton towel supplier for Peruvian importers, hotel groups and retail distributors — 100% cotton ringspun towels made at our partner mill in Solapur, sample-first, FOB direct to Callao.',
+    heading: 'Cotton towel supplier for Peruvian importers.',
+    lead: 'Bath towels, hotel ranges, bathrobes and bath mats in 100% cotton ringspun, made to your specification at our partner mill in Solapur and shipped FOB direct to Peru.',
+    intro: [
+      "Peru's hospitality demand runs across two quite different property types — city hotels in Lima serving business travel, and the tourism circuit around Cusco and the Sacred Valley serving a completely different guest — and a specification that works for one doesn't automatically suit the other. Altitude properties around Cusco run smaller, more boutique operations where a consistent matched set across a modest room count matters more than volume pricing.",
+      'Peru is a member of the Pacific Alliance alongside Mexico, Chile and Colombia. Towels are woven at our manufacturing partner V P Mundada in Solapur, weaving since 1972, and quoted FOB direct, with shipment coordinated to Callao, Peru’s principal container port near Lima.',
+    ],
+    buyers: [
+      'City hotels and business-travel properties in Lima',
+      'Boutique hotels and lodges on the Cusco and Sacred Valley tourism circuit',
+      'Importers and distributors supplying Peruvian retail and hospitality',
+      'Private-label brands and spa operators',
+    ],
+    faqs: [
+      {
+        q: 'Which Peruvian port do you ship to?',
+        a: 'FOB shipment is coordinated to Callao, Peru’s principal container port near Lima; your freight forwarder handles routing and the onward leg from there.',
+      },
+      {
+        q: 'Can a small boutique property still get a matched specification?',
+        a: "Yes — order size doesn't change the process. A physical sample is approved before bulk regardless of quantity, so even a modest room count gets the same matched-set consistency a larger property would.",
+      },
+      MOQ_FAQ,
+      MATCH_FAQ,
+      SAMPLE_FAQ,
+    ],
+  },
+
   'solutions/cotton-towel-manufacturer-india': {
     section: 'solutions',
     eyebrow: 'Sourcing from India',
@@ -740,7 +1006,7 @@ const PAGES = {
       },
       {
         q: 'Which countries do you currently export to?',
-        a: 'North America (the USA and Canada), Europe (the UK, Germany, the Netherlands, France, Spain, Italy, Sweden, Norway and Denmark), the Middle East (the UAE and Saudi Arabia), Asia-Pacific (Japan, South Korea, New Zealand and Australia), South Africa and South America. Container-load FOB shipping from Nhava Sheva or Mundra reaches all of these on standard commercial routes — see the sourcing guide for your own country for the specifics that differ by destination, like labelling and customs documentation.',
+        a: 'North America (the USA, Canada and Mexico), Europe (the UK, Germany, the Netherlands, France, Spain, Italy, Sweden, Norway, Denmark and Poland), the Middle East (the UAE, Saudi Arabia, Qatar and Oman), Asia-Pacific (Japan, South Korea, New Zealand and Australia), South Africa, and South America (including Brazil, Chile, Colombia and Peru). Container-load FOB shipping from Nhava Sheva or Mundra reaches all of these on standard commercial routes — see the sourcing guide for your own country for the specifics that differ by destination, like labelling and customs documentation.',
       },
       {
         q: 'Do we deal with the mill directly, or through a trading company?',
