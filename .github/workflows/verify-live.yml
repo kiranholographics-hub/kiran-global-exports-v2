@@ -329,6 +329,28 @@ jobs:
             failed=1
           fi
 
+          echo "── Hero video supports Range requests (iOS Safari needs this to play at all) ──"
+          # Desktop/Android browsers will often still play a video served
+          # without Range support by downloading it whole, which is why this
+          # class of bug survives testing on a laptop — iOS Safari refuses
+          # to play a <video> at all unless the server answers a Range
+          # request with 206 and advertises Accept-Ranges: bytes.
+          for video in kiran-hero-desktop kiran-hero-mobile; do
+            headers=$(curl -sI -H "Range: bytes=0-1023" --max-time 20 "$SITE/videos/$video.mp4" 2>/dev/null || true)
+            status_line=$(printf '%s' "$headers" | head -1 | tr -d '\r')
+            if printf '%s' "$status_line" | grep -q "206"; then
+              if printf '%s' "$headers" | grep -qi "^Accept-Ranges: *bytes"; then
+                echo "  ok       $video.mp4 answers Range requests (206 + Accept-Ranges)"
+              else
+                echo "  BAD      $video.mp4 returned 206 but no 'Accept-Ranges: bytes' header — iOS may still refuse it"
+                failed=1
+              fi
+            else
+              echo "  BAD      $video.mp4 does not support Range requests ($status_line) — will not play on iOS Safari"
+              failed=1
+            fi
+          done
+
           echo "── Bundle points at the real API ──"
           bundle=$(curl -sL --max-time 30 "$SITE/$BUST" \
             | grep -oE '/assets/index-[A-Za-z0-9_-]+\.js' | head -1)
