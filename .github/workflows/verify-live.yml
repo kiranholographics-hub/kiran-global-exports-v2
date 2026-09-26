@@ -338,13 +338,15 @@ jobs:
           for video in kiran-hero-desktop kiran-hero-mobile; do
             headers=$(curl -sI -H "Range: bytes=0-1023" --max-time 20 "$SITE/videos/$video.mp4" 2>/dev/null || true)
             status_line=$(printf '%s' "$headers" | head -1 | tr -d '\r')
-            if printf '%s' "$status_line" | grep -q "206"; then
-              if printf '%s' "$headers" | grep -qi "^Accept-Ranges: *bytes"; then
-                echo "  ok       $video.mp4 answers Range requests (206 + Accept-Ranges)"
-              else
-                echo "  BAD      $video.mp4 returned 206 but no 'Accept-Ranges: bytes' header — iOS may still refuse it"
-                failed=1
-              fi
+            echo "  info     $video.mp4 headers:"
+            printf '%s' "$headers" | sed 's/^/    /'
+            # Accept-Ranges is only mandated on a 200 response advertising
+            # support in advance; a 206 to an actual Range request is the
+            # real proof it works, regardless of whether that header is
+            # echoed on this specific response — Content-Range is what's
+            # mandatory on a 206 and proves a genuine partial response.
+            if printf '%s' "$status_line" | grep -q "206" && printf '%s' "$headers" | grep -qi "^Content-Range:"; then
+              echo "  ok       $video.mp4 answers Range requests (206 + Content-Range)"
             else
               echo "  BAD      $video.mp4 does not support Range requests ($status_line) — will not play on iOS Safari"
               failed=1
