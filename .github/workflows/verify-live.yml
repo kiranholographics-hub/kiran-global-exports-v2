@@ -351,6 +351,26 @@ jobs:
               echo "  BAD      $video.mp4 does not support Range requests ($status_line) — will not play on iOS Safari"
               failed=1
             fi
+            total_size=$(printf '%s' "$headers" | grep -oiE '^content-range: bytes [0-9]+-[0-9]+/[0-9]+' | grep -oE '[0-9]+$')
+            echo "  info     $video.mp4 total size: ${total_size:-unknown} bytes"
+            # This is the file actually live on Hostinger, uploaded by hand
+            # through File Manager (see the Cache-Control note above) — not
+            # what's committed in frontend/public/videos/, so it has to be
+            # checked directly rather than assumed from the repo copy.
+            # "moov" (the index a player needs before it can start playing
+            # anything) has to sit near the front of the file — an encoder
+            # that didn't enable faststart puts it at the end instead,
+            # which means nothing plays until the whole file — several MB
+            # here — has downloaded. Grabbing the first 512KB and looking
+            # for the atom is a cheap way to tell without downloading the
+            # whole video.
+            head_bytes=$(curl -s -H "Range: bytes=0-524287" --max-time 20 "$SITE/videos/$video.mp4" 2>/dev/null | tr -d '\0')
+            if printf '%s' "$head_bytes" | grep -qa "moov"; then
+              echo "  ok       $video.mp4 is faststart (moov atom near the front — plays without downloading the whole file)"
+            else
+              echo "  BAD      $video.mp4 has no moov atom in its first 512KB — likely not faststart, so a player has to fetch most/all of it (${total_size:-several MB}) before it can start, which stalls or silently fails on a slow connection"
+              failed=1
+            fi
           done
 
           echo "── Bundle points at the real API ──"
