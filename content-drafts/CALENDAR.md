@@ -21,6 +21,7 @@ note in SEO-ROUTINE.md on doorway pages).
 - Lab dip and colour matching, explained
 - Reading a pre-shipment sample properly
 - Private label vs white label
+- Container loading for towels
 
 Note: "what makes a good hotel pool towel" was drafted as an article,
 then retired and rebuilt as a landing page instead
@@ -30,8 +31,6 @@ site duplicating its own content on the same topic.
 
 ## Queued
 
-5. Container loading for towels — how quantity, packing and carton
-   size decide what actually fits in a 20ft vs a 40ft container
 6. What "sample-first" actually protects a buyer from, and what it
    cannot
 7. Keeping a reorder consistent — batch tracking, and what to ask any

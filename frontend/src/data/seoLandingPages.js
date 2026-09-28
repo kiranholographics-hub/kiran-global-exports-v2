@@ -77,7 +77,7 @@ const PAGES = {
     eyebrow: 'United States',
     seoTitle: 'Cotton Towel Supplier for US Importers',
     seoDescription:
-      'Cotton towel supplier for US importers, hotel groups and private-label brands — 100% cotton ringspun towels made at our partner mill in Solapur, sample-first, FOB direct, with FTC-compliant fibre and origin labelling.',
+      'Cotton towel supplier for US importers and hotels — ringspun towels made at our partner mill in Solapur, sample-first, FOB, FTC-compliant labelling.',
     heading: 'Cotton towel supplier for United States importers.',
     lead: 'Bath towels, hotel towels, bathrobes and bath mats in 100% cotton ringspun, made to your approved specification at our partner mill in Solapur and shipped FOB direct — with fibre-content and country-of-origin labelling prepared to FTC standards.',
     intro: [
@@ -111,7 +111,7 @@ const PAGES = {
     eyebrow: 'Canada',
     seoTitle: 'Cotton Towel Supplier for Canadian Importers',
     seoDescription:
-      'Cotton towel supplier for Canadian importers, hospitality buyers and private-label brands — towels made at our partner mill in Solapur, sample-first, FOB direct, with bilingual English/French fibre labelling.',
+      'Cotton towel supplier for Canadian importers and hotels — towels made at our partner mill in Solapur, sample-first, FOB, bilingual EN/FR labelling.',
     heading: 'Cotton towel supplier for Canadian importers.',
     lead: 'Terry bath towels, hotel ranges, bathrobes and bath mats in 100% cotton ringspun, produced against an approved sample at our partner mill in Solapur and shipped FOB direct — with bilingual English/French fibre labelling prepared for the Canadian market.',
     intro: [
@@ -145,7 +145,7 @@ const PAGES = {
     eyebrow: 'Australia',
     seoTitle: 'Cotton Towel Supplier for Australian Importers',
     seoDescription:
-      'Cotton towel supplier for Australian importers, hotels and private-label brands — 100% cotton towels made at our partner mill in Solapur, sample-first and FOB direct, with most Indian terry textiles entering Australia duty-free under ECTA.',
+      'Cotton towel supplier for Australian importers and hotels — towels made at our partner mill in Solapur, sample-first, FOB, duty-free under ECTA.',
     heading: 'Cotton towel supplier for Australian importers.',
     lead: 'Bath towels, pool and beach ranges, bathrobes and bath mats in 100% cotton ringspun, made to an approved sample at our partner mill in Solapur — with most Indian-made terry textiles now entering Australia duty-free under the India-Australia Economic Cooperation and Trade Agreement.',
     intro: [
@@ -179,7 +179,7 @@ const PAGES = {
     eyebrow: 'South Africa',
     seoTitle: 'Cotton Towel Supplier for South African Importers',
     seoDescription:
-      'Cotton towel supplier for South African importers, hotel groups and retail buyers — 100% cotton ringspun towels made at our partner mill in Solapur, sample-first, FOB direct, with export documentation prepared for clearance.',
+      'Cotton towel supplier for South African importers and hotels — ringspun towels made at our partner mill in Solapur, FOB, documentation prepared.',
     heading: 'Cotton towel supplier for South African importers.',
     lead: 'Bath towels, hotel ranges, bathrobes and bath mats in 100% cotton ringspun, made against an approved sample at our partner mill in Solapur and shipped FOB direct to South African importers, retail groups and hospitality buyers.',
     intro: [
@@ -212,7 +212,7 @@ const PAGES = {
     eyebrow: 'South America',
     seoTitle: 'Cotton Towel Supplier for South American Importers',
     seoDescription:
-      'Cotton towel supplier for importers and distributors across South America — 100% cotton ringspun towels made at our partner mill in Solapur, sample-first, FOB direct, with full export documentation.',
+      'Cotton towel supplier for importers and distributors across South America — ringspun towels made at our partner mill in Solapur, sample-first, FOB direct.',
     heading: 'Cotton towel supplier for South American importers.',
     lead: 'Bath towels, beach and pool ranges, bathrobes and bath mats in 100% cotton ringspun, produced to an approved specification at our partner mill in Solapur and shipped FOB direct to importers and distributors across South America.',
     intro: [
@@ -246,7 +246,7 @@ const PAGES = {
     eyebrow: 'United Arab Emirates',
     seoTitle: 'Cotton Towel Supplier for UAE Importers & Hotels',
     seoDescription:
-      'Cotton towel supplier for UAE importers, hotel groups and private-label brands — 100% cotton ringspun towels made at our partner mill in Solapur, sample-first and FOB direct to Jebel Ali and other UAE ports.',
+      'Cotton towel supplier for UAE importers and hotel groups — ringspun towels made at our partner mill in Solapur, sample-first, FOB direct to Jebel Ali.',
     heading: 'Cotton towel supplier for the United Arab Emirates.',
     lead: 'Hotel towels, bath ranges, pool towels and bathrobes in 100% cotton ringspun, made to an approved sample at our partner mill in Solapur — built for UAE hospitality groups, importers and private-label brands, shipped FOB direct.',
     intro: [
@@ -279,7 +279,7 @@ const PAGES = {
     eyebrow: 'Saudi Arabia',
     seoTitle: 'Cotton Towel Supplier for Saudi Arabia Importers',
     seoDescription:
-      'Cotton towel supplier for Saudi importers, hotel groups and retail buyers — 100% cotton ringspun towels made at our partner mill in Solapur, sample-first, FOB direct to Jeddah and Dammam, with export documentation prepared.',
+      'Cotton towel supplier for Saudi importers and hotels — ringspun towels made at our partner mill in Solapur, sample-first, FOB to Jeddah and Dammam.',
     heading: 'Cotton towel supplier for Saudi Arabia.',
     lead: 'Hotel towels, bath ranges, bathrobes and bath mats in 100% cotton ringspun, produced against an approved sample at our partner mill in Solapur and shipped FOB direct to Saudi importers, hospitality groups and retail buyers.',
     intro: [
@@ -313,7 +313,7 @@ const PAGES = {
     eyebrow: 'United Kingdom',
     seoTitle: 'Cotton Towel Supplier for UK Importers',
     seoDescription:
-      'Cotton towel supplier for UK importers, hotel groups and private-label brands — towels made to your specification at our partner mill in Solapur, sample-first, FOB direct, with UK fibre and care labelling prepared.',
+      'Cotton towel supplier for UK importers and hotels — towels made to spec at our partner mill in Solapur, sample-first, FOB, UK fibre labelling prepared.',
     heading: 'Cotton towel supplier for United Kingdom importers.',
     lead: 'Bath towels, hotel ranges, bathrobes and bath mats built to your specification at our partner mill in Solapur and shipped FOB direct — with fibre-content and care labelling prepared for the UK market.',
     intro: [
@@ -346,7 +346,7 @@ const PAGES = {
     eyebrow: 'Germany',
     seoTitle: 'Cotton Towel Supplier for German Importers',
     seoDescription:
-      'Cotton towel supplier for German importers, hotel groups and private-label brands — OEKO-TEX, BSCI and ISO 9001 certified production, sample-first, FOB direct to Hamburg and Bremerhaven.',
+      'Cotton towel supplier for German importers and hotels — OEKO-TEX, BSCI, ISO 9001 certified production, sample-first, FOB to Hamburg and Bremerhaven.',
     heading: 'Cotton towel supplier for German importers.',
     lead: 'Bath towels, hotel ranges, bathrobes and bath mats made to your specification at our partner mill in Solapur — produced under OEKO-TEX, BSCI and ISO 9001:2015 certification and shipped FOB direct.',
     intro: [
@@ -379,7 +379,7 @@ const PAGES = {
     eyebrow: 'Netherlands',
     seoTitle: 'Cotton Towel Supplier for Dutch Importers',
     seoDescription:
-      'Cotton towel supplier for Dutch importers and EU distributors — towels made to your specification at our partner mill in Solapur, sample-first, FOB direct to Rotterdam, REACH and GPSR compliant.',
+      'Cotton towel supplier for Dutch importers and EU distributors — towels made to spec at our Solapur partner mill, FOB to Rotterdam, REACH/GPSR compliant.',
     heading: 'Cotton towel supplier for Netherlands importers.',
     lead: 'Bath towels, hotel ranges, bathrobes and bath mats built to your specification at our partner mill in Solapur and shipped FOB direct to Rotterdam — for importers and distributors supplying the Netherlands and the wider EU.',
     intro: [
@@ -412,7 +412,7 @@ const PAGES = {
     eyebrow: 'France',
     seoTitle: 'Cotton Towel Supplier for French Importers',
     seoDescription:
-      'Cotton towel supplier for French importers, hotel groups and retail brands — towels made to your specification at our partner mill in Solapur, sample-first, FOB direct to Le Havre and Marseille.',
+      'Cotton towel supplier for French importers and hotels — towels made to spec at our partner mill in Solapur, sample-first, FOB to Le Havre and Marseille.',
     heading: 'Cotton towel supplier for French importers.',
     lead: 'Bath towels, hotel ranges, bathrobes and bath mats made to your specification at our partner mill in Solapur and shipped FOB direct — with French fibre-content and care labelling prepared for the order.',
     intro: [
@@ -446,7 +446,7 @@ const PAGES = {
     eyebrow: 'Spain',
     seoTitle: 'Cotton Towel Supplier for Spanish Importers & Hotels',
     seoDescription:
-      'Cotton towel supplier for Spanish hotel groups, importers and retail brands — pool, beach and bath ranges made to your specification at our partner mill in Solapur, FOB direct to Valencia and Barcelona.',
+      'Cotton towel supplier for Spanish hotel groups and importers — pool, beach and bath ranges made to spec in Solapur, FOB to Valencia and Barcelona.',
     heading: 'Cotton towel supplier for Spain.',
     lead: 'Pool and beach towels, hotel bath ranges, bathrobes and bath mats made to your specification at our partner mill in Solapur and shipped FOB direct — built for Spanish resort and hospitality volumes.',
     intro: [
@@ -479,7 +479,7 @@ const PAGES = {
     eyebrow: 'Italy',
     seoTitle: 'Cotton Towel Supplier for Italian Importers',
     seoDescription:
-      'Cotton towel supplier for Italian importers, hotel groups and private-label brands — jacquard, waffle and bordered towels made to your design at our partner mill in Solapur, FOB direct to Genoa and La Spezia.',
+      'Cotton towel supplier for Italian importers and hotels — jacquard, waffle and bordered towels made to design in Solapur, FOB to Genoa and La Spezia.',
     heading: 'Cotton towel supplier for Italian importers.',
     lead: 'Jacquard, waffle, bordered and plain cotton towels developed to your design at our partner mill in Solapur — for Italian retail brands, hotel groups and distributors, shipped FOB direct.',
     intro: [
@@ -512,7 +512,7 @@ const PAGES = {
     eyebrow: 'Sweden',
     seoTitle: 'Cotton Towel Supplier for Swedish Importers',
     seoDescription:
-      'Cotton towel supplier for Swedish importers, hotel groups and retail brands — OEKO-TEX and GOTS certified production, sample-first, FOB direct to Gothenburg.',
+      'Cotton towel supplier for Swedish importers and hotels — OEKO-TEX certified towels made at our partner mill in Solapur, FOB direct to Gothenburg.',
     heading: 'Cotton towel supplier for Swedish importers.',
     lead: 'Bath towels, hotel ranges, bathrobes and bath mats made to your specification at our partner mill in Solapur — produced under OEKO-TEX and BSCI certification and shipped FOB direct to Gothenburg.',
     intro: [
@@ -546,7 +546,7 @@ const PAGES = {
     eyebrow: 'Norway',
     seoTitle: 'Cotton Towel Supplier for Norwegian Importers',
     seoDescription:
-      'Cotton towel supplier for Norwegian importers, hotel groups and retail brands — towels made to your specification at our partner mill in Solapur, sample-first, FOB direct to Oslo, with full clearance documentation.',
+      'Cotton towel supplier for Norwegian importers and hotel groups — towels made to spec at our partner mill in Solapur, sample-first, FOB direct to Oslo.',
     heading: 'Cotton towel supplier for Norwegian importers.',
     lead: 'Bath towels, hotel ranges, bathrobes and bath mats made to your specification at our partner mill in Solapur and shipped FOB direct to Norway, with the documentation your customs agent needs prepared for each shipment.',
     intro: [
@@ -580,7 +580,7 @@ const PAGES = {
     eyebrow: 'Denmark',
     seoTitle: 'Cotton Towel Supplier for Danish Importers',
     seoDescription:
-      'Cotton towel supplier for Danish importers, hotel groups and design-led retail brands — OEKO-TEX certified towels made to your specification at our partner mill in Solapur, FOB direct to Aarhus and Copenhagen.',
+      'Cotton towel supplier for Danish importers and design-led retail brands — OEKO-TEX certified towels made in Solapur, FOB direct to Aarhus and Copenhagen.',
     heading: 'Cotton towel supplier for Danish importers.',
     lead: 'Bath towels, waffle and bordered ranges, bathrobes and bath mats developed to your specification at our partner mill in Solapur — under OEKO-TEX certification, shipped FOB direct.',
     intro: [
@@ -614,7 +614,7 @@ const PAGES = {
     eyebrow: 'Japan',
     seoTitle: 'Cotton Towel Supplier for Japanese Importers',
     seoDescription:
-      'Cotton towel supplier for Japanese importers, hotel groups and retail brands — towels made to an approved sample at our partner mill in Solapur, OEKO-TEX certified, FOB direct to Tokyo, Yokohama and Kobe.',
+      'Cotton towel supplier for Japanese importers and hotels — OEKO-TEX certified towels made to approved sample in Solapur, FOB to Tokyo and Yokohama.',
     heading: 'Cotton towel supplier for Japanese importers.',
     lead: 'Bath towels, hotel ranges, bathrobes and bath mats produced against an approved sample at our partner mill in Solapur and shipped FOB direct — for Japanese importers, hospitality groups and retail brands.',
     intro: [
@@ -647,7 +647,7 @@ const PAGES = {
     eyebrow: 'South Korea',
     seoTitle: 'Cotton Towel Supplier for South Korean Importers',
     seoDescription:
-      'Cotton towel supplier for Korean importers, hotel groups and private-label brands — OEKO-TEX certified towels made to your specification at our partner mill in Solapur, FOB direct to Busan and Incheon.',
+      'Cotton towel supplier for Korean importers and hotels — OEKO-TEX certified towels made to spec at our Solapur partner mill, FOB to Busan and Incheon.',
     heading: 'Cotton towel supplier for South Korean importers.',
     lead: 'Bath towels, hotel ranges, bathrobes and bath mats made to your specification at our partner mill in Solapur and shipped FOB direct to Busan and Incheon — for Korean importers, hospitality groups and retail brands.',
     intro: [
@@ -680,7 +680,7 @@ const PAGES = {
     eyebrow: 'New Zealand',
     seoTitle: 'Cotton Towel Supplier for New Zealand Importers',
     seoDescription:
-      'Cotton towel supplier for New Zealand importers, hotels and retail brands — bath, pool and beach ranges made to your specification at our partner mill in Solapur, FOB direct to Auckland and Tauranga.',
+      'Cotton towel supplier for New Zealand importers and hotels — bath, pool and beach ranges made to spec in Solapur, FOB direct to Auckland and Tauranga.',
     heading: 'Cotton towel supplier for New Zealand importers.',
     lead: 'Bath towels, pool and beach ranges, bathrobes and bath mats made to your specification at our partner mill in Solapur and shipped FOB direct to New Zealand.',
     intro: [
@@ -713,7 +713,7 @@ const PAGES = {
     eyebrow: 'Poland',
     seoTitle: 'Cotton Towel Supplier for Polish Importers',
     seoDescription:
-      'Cotton towel supplier for Polish importers, hotel groups and retail buyers — 100% cotton ringspun towels made at our partner mill in Solapur, sample-first, FOB direct, with EU-standard export documentation.',
+      'Cotton towel supplier for Polish importers and hotels — ringspun towels made at our partner mill in Solapur, sample-first, FOB, EU-standard documentation.',
     heading: 'Cotton towel supplier for Polish importers.',
     lead: 'Bath towels, hotel ranges, bathrobes and bath mats in 100% cotton ringspun, made to your specification at our partner mill in Solapur and shipped FOB direct to Polish importers, distributors and hospitality buyers.',
     intro: [
@@ -747,7 +747,7 @@ const PAGES = {
     eyebrow: 'Qatar',
     seoTitle: 'Cotton Towel Supplier for Qatar Importers & Hotels',
     seoDescription:
-      'Cotton towel supplier for Qatar hotel groups, importers and private-label brands — 100% cotton ringspun towels made at our partner mill in Solapur, sample-first, FOB direct to Hamad Port.',
+      'Cotton towel supplier for Qatar hotel groups and importers — ringspun towels made at our partner mill in Solapur, sample-first, FOB direct to Hamad Port.',
     heading: 'Cotton towel supplier for Qatar importers and hotels.',
     lead: 'Bath towels, hotel ranges, bathrobes and bath mats in 100% cotton ringspun, made to your specification at our partner mill in Solapur and shipped FOB direct to Qatar.',
     intro: [
@@ -780,7 +780,7 @@ const PAGES = {
     eyebrow: 'Oman',
     seoTitle: 'Cotton Towel Supplier for Oman Importers & Hotels',
     seoDescription:
-      'Cotton towel supplier for Oman hotel groups, importers and distributors — 100% cotton ringspun towels made at our partner mill in Solapur, sample-first, FOB direct to Sohar and Salalah.',
+      'Cotton towel supplier for Oman hotel groups and importers — ringspun towels made at our partner mill in Solapur, sample-first, FOB to Sohar and Salalah.',
     heading: 'Cotton towel supplier for Oman importers and hotels.',
     lead: 'Bath towels, hotel ranges, bathrobes and bath mats in 100% cotton ringspun, made to your specification at our partner mill in Solapur and shipped FOB direct to Oman.',
     intro: [
@@ -813,7 +813,7 @@ const PAGES = {
     eyebrow: 'Brazil',
     seoTitle: 'Cotton Towel Supplier for Brazilian Importers',
     seoDescription:
-      'Cotton towel supplier for Brazilian importers, hotel groups and retail distributors — 100% cotton ringspun towels made at our partner mill in Solapur, sample-first, FOB direct to Santos.',
+      'Cotton towel supplier for Brazilian importers and hotel groups — ringspun towels made at our partner mill in Solapur, sample-first, FOB direct to Santos.',
     heading: 'Cotton towel supplier for Brazilian importers.',
     lead: 'Bath towels, beach and pool ranges, bathrobes and bath mats in 100% cotton ringspun, made to your specification at our partner mill in Solapur and shipped FOB direct to Brazil.',
     intro: [
@@ -847,7 +847,7 @@ const PAGES = {
     eyebrow: 'Mexico',
     seoTitle: 'Cotton Towel Supplier for Mexican Importers & Resorts',
     seoDescription:
-      'Cotton towel supplier for Mexican resorts, hotel groups and importers — 100% cotton ringspun towels made at our partner mill in Solapur, sample-first, FOB direct to Manzanillo.',
+      'Cotton towel supplier for Mexican resorts and hotel groups — ringspun towels made at our partner mill in Solapur, sample-first, FOB direct to Manzanillo.',
     heading: 'Cotton towel supplier for Mexican importers and resorts.',
     lead: 'Bath towels, pool and beach ranges, bathrobes and bath mats in 100% cotton ringspun, made to your specification at our partner mill in Solapur and shipped FOB direct to Mexico.',
     intro: [
@@ -880,7 +880,7 @@ const PAGES = {
     eyebrow: 'Chile',
     seoTitle: 'Cotton Towel Supplier for Chilean Importers',
     seoDescription:
-      'Cotton towel supplier for Chilean importers, hotel groups and retail distributors — 100% cotton ringspun towels made at our partner mill in Solapur, sample-first, FOB direct to San Antonio.',
+      'Cotton towel supplier for Chilean importers and hotels — ringspun towels made at our partner mill in Solapur, sample-first, FOB direct to San Antonio.',
     heading: 'Cotton towel supplier for Chilean importers.',
     lead: 'Bath towels, hotel ranges, bathrobes and bath mats in 100% cotton ringspun, made to your specification at our partner mill in Solapur and shipped FOB direct to Chile.',
     intro: [
@@ -913,7 +913,7 @@ const PAGES = {
     eyebrow: 'Colombia',
     seoTitle: 'Cotton Towel Supplier for Colombian Importers',
     seoDescription:
-      'Cotton towel supplier for Colombian importers, hotel groups and resort operators — 100% cotton ringspun towels made at our partner mill in Solapur, sample-first, FOB direct to Cartagena.',
+      'Cotton towel supplier for Colombian importers and hotels — ringspun towels made at our partner mill in Solapur, sample-first, FOB to Cartagena.',
     heading: 'Cotton towel supplier for Colombian importers.',
     lead: 'Bath towels, pool and beach ranges, bathrobes and bath mats in 100% cotton ringspun, made to your specification at our partner mill in Solapur and shipped FOB direct to Colombia.',
     intro: [
@@ -946,7 +946,7 @@ const PAGES = {
     eyebrow: 'Peru',
     seoTitle: 'Cotton Towel Supplier for Peruvian Importers',
     seoDescription:
-      'Cotton towel supplier for Peruvian importers, hotel groups and retail distributors — 100% cotton ringspun towels made at our partner mill in Solapur, sample-first, FOB direct to Callao.',
+      'Cotton towel supplier for Peruvian importers and hotel groups — ringspun towels made at our partner mill in Solapur, sample-first, FOB direct to Callao.',
     heading: 'Cotton towel supplier for Peruvian importers.',
     lead: 'Bath towels, hotel ranges, bathrobes and bath mats in 100% cotton ringspun, made to your specification at our partner mill in Solapur and shipped FOB direct to Peru.',
     intro: [
@@ -981,7 +981,7 @@ const PAGES = {
     // covering both here, rather than picking one, is why both appear.
     seoTitle: 'Cotton Towel Manufacturer & Exporter in India',
     seoDescription:
-      'Cotton towel manufacturer and exporter in Solapur, India, since 1972 — OEKO-TEX, ISO and BSCI certified, plus GOTS-certified organic cotton linen via our partner in Karur. Sample-first, FOB direct from Nhava Sheva and Mundra.',
+      'Cotton towel manufacturer and exporter in Solapur since 1972 — OEKO-TEX, ISO, BSCI certified, plus GOTS organic linen via our Karur partner.',
     heading: 'Cotton towel manufacturer in India.',
     lead: 'Bath towels, hotel ranges, bathrobes and bath mats made to your specification at our partner mill in Solapur — one of India\'s oldest towel-weaving centres — and shipped FOB direct from Nhava Sheva or Mundra to importers worldwide.',
     intro: [
@@ -1031,7 +1031,7 @@ const PAGES = {
     eyebrow: 'Hospitality',
     seoTitle: 'Hotel Towel Manufacturer & Supplier',
     seoDescription:
-      'Hotel towel manufacturer supplying resorts, hotel groups and hospitality distributors — zero-twist and vat-dyed cotton towels built for commercial laundering, consistent GSM, made at our partner mill in Solapur.',
+      'Hotel towel manufacturer supplying resorts and hospitality distributors — zero-twist, vat-dyed towels for commercial laundering, made in Solapur.',
     heading: 'Hotel towel manufacturer for hospitality buyers.',
     lead: 'Towels that survive a commercial laundry. For hotels and resorts we build zero-twist and vat-dyed cotton ranges for absorbency and colour retention through repeated industrial washing — made to a consistent GSM at our partner mill in Solapur and supplied in bulk.',
     intro: [
@@ -1067,7 +1067,7 @@ const PAGES = {
     eyebrow: 'Private Label',
     seoTitle: 'Private Label Towel Manufacturer',
     seoDescription:
-      'Private label towel manufacturer for retail brands and distributors — your specification, woven labels and branded packaging, produced sample-first at our partner mill in Solapur and shipped FOB direct.',
+      'Private label towel manufacturer for retail brands — your specification, woven labels and branded packaging, made at our Solapur partner mill.',
     heading: 'Private label towel manufacturer.',
     lead: 'Your brand, your specification, made at the mill. GSM, size, colour, border, weave and packaging are built to your brief, finished with your woven labels and branded packaging, and confirmed by a physical sample before anything goes to bulk.',
     intro: [
@@ -1140,7 +1140,7 @@ const PAGES = {
     eyebrow: 'Buyer Checklist',
     seoTitle: 'Hotel Towels Supplier for Bulk Orders: What Buyers Should Check',
     seoDescription:
-      'What to verify before committing to a hotel towels supplier — sampling process, certification proof and mill transparency, from our partner mill in Solapur.',
+      'What to verify before committing to a hotel towels supplier — sampling process, certification proof and mill transparency.',
     heading: 'Choosing a hotel towels supplier: what to check before you commit.',
     lead: "Most hotel towel disappointments trace back to a question that was never asked before the first order, not a defect in the product itself. This is the checklist worth running through with any supplier — including us — before committing to a bulk order.",
     intro: [
