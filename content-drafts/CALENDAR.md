@@ -22,6 +22,8 @@ note in SEO-ROUTINE.md on doorway pages).
 - Reading a pre-shipment sample properly
 - Private label vs white label
 - Container loading for towels
+- What changes in a quotation when a buyer asks for organic cotton
+  instead of conventional
 
 Note: "what makes a good hotel pool towel" was drafted as an article,
 then retired and rebuilt as a landing page instead
@@ -48,8 +50,6 @@ site duplicating its own content on the same topic.
     rebought, and why that number matters when you specify durability
 14. Reading a towel spec sheet — GSM, size, construction and
     colourfastness, and what each line is actually promising
-15. What changes in a quotation when a buyer asks for organic cotton
-    instead of conventional
 
 ## Publishing note
 
