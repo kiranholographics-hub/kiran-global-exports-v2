@@ -307,6 +307,38 @@ const PAGES = {
     ],
   },
 
+  'export/israel-cotton-towel-supplier': {
+    section: 'export',
+    eyebrow: 'Israel',
+    seoTitle: 'Cotton Towel Supplier for Israeli Importers',
+    seoDescription:
+      'Cotton towel supplier for Israeli importers and hotels — ringspun towels made at our partner mill in Solapur, sample-first, FOB to Haifa and Ashdod.',
+    heading: 'Cotton towel supplier for Israeli importers.',
+    lead: 'Bath towels, hotel ranges, bathrobes and bath mats made to your specification at our partner mill in Solapur and shipped FOB direct to Haifa and Ashdod — for Israeli importers, hotel groups and retail buyers.',
+    intro: [
+      'Israel\'s hotel sector runs from business properties in Tel Aviv to resort hotels along the Red Sea in Eilat, and both buy on the same basis: a specification that holds up to repeated commercial laundering, not just a good first impression. Colour is approved by lab dip before bulk dyeing and every batch is checked against the sample you approved, so a reorder a year later still matches what is already in service.',
+      'Towels are woven at our manufacturing partner V P Mundada in Solapur, under OEKO-TEX STANDARD 100, MADE IN GREEN and STeP, ISO 9001:2015, GRS and amfori BSCI certification, and quoted FOB direct — not through a trading chain. A physical sample is approved before anything goes to bulk production.',
+    ],
+    buyers: [
+      'Hotel groups and resort operators',
+      'Importers and distributors supplying Israeli retail',
+      'Spa and wellness operators',
+      'Private-label and retail brands',
+    ],
+    faqs: [
+      {
+        q: 'Which Israeli ports do you ship to?',
+        a: 'We coordinate FOB shipment to Haifa and Ashdod, Israel\'s two main container ports; your freight forwarder handles routing and the onward leg from origin.',
+      },
+      {
+        q: 'Can you match a towel we already buy from another supplier?',
+        a: 'Yes — send a photograph or a physical reference and we will develop a matching specification (GSM, construction, border, colour) and quote against it before you commit to anything.',
+      },
+      MOQ_FAQ,
+      MATCH_FAQ,
+      SAMPLE_FAQ,
+    ],
+  },
 
   'export/uk-cotton-towel-supplier': {
     section: 'export',

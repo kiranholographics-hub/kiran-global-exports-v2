@@ -110,7 +110,8 @@ jobs:
           # which their own breadcrumbs name as their parent.
           for slug in usa canada australia south-africa south-america uae saudi-arabia \
                       uk germany netherlands france spain italy sweden norway \
-                      denmark japan south-korea new-zealand; do
+                      denmark japan south-korea new-zealand israel \
+                      poland qatar oman brazil mexico chile colombia peru; do
             has /export/ "/export links to $slug" "/export/$slug-cotton-towel-supplier"
           done
           has /export/ "/export links to the hospitality guide" "/solutions/hotel-towel-manufacturer"
@@ -158,7 +159,8 @@ jobs:
           # every check so far.
           for slug in usa canada australia south-africa south-america uae saudi-arabia \
                       uk germany netherlands france spain italy sweden norway \
-                      denmark japan south-korea new-zealand; do
+                      denmark japan south-korea new-zealand israel \
+                      poland qatar oman brazil mexico chile colombia peru; do
             page="/export/$slug-cotton-towel-supplier/"
             has "$page" "$slug has an h1" "<h1"
             has "$page" "$slug has FAQ markup" '"@type":"FAQPage"'

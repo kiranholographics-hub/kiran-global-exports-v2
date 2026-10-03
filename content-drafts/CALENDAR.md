@@ -24,6 +24,8 @@ note in SEO-ROUTINE.md on doorway pages).
 - Container loading for towels
 - What changes in a quotation when a buyer asks for organic cotton
   instead of conventional
+- What "sample-first" actually protects a buyer from, and what it
+  cannot
 
 Note: "what makes a good hotel pool towel" was drafted as an article,
 then retired and rebuilt as a landing page instead
@@ -33,8 +35,6 @@ site duplicating its own content on the same topic.
 
 ## Queued
 
-6. What "sample-first" actually protects a buyer from, and what it
-   cannot
 7. Keeping a reorder consistent — batch tracking, and what to ask any
    supplier for before a second order
 8. Terry vs woven towels — what the construction difference actually
