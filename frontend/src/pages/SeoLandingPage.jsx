@@ -152,6 +152,18 @@ export default function SeoLandingPage({ section }) {
             >
               Download our product catalogue (PDF)
             </a>
+            {/* Our own retail/general-catalogue site — a genuinely different
+                destination for a visitor who wants to browse the full range
+                online rather than the export-specific brief this page is
+                about, not a reciprocal-link scheme. */}
+            <a
+              href="https://www.kiranglobalexports.com"
+              target="_blank"
+              rel="noopener"
+              className={styles.rangeLink}
+            >
+              Browse our full catalogue online
+            </a>
             {page.relatedMarket && (
               <Link to={page.relatedMarket.href} className={styles.rangeLink}>
                 {page.relatedMarket.label}
