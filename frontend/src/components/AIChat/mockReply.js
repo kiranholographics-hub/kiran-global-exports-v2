@@ -11,7 +11,7 @@ const RULES = [
   {
     test: /hotel|hospitality|resort/i,
     reply:
-      'For hotels and resorts we recommend our zero-twist and vat-dyed cotton towels — high absorbency, durable through commercial laundering, and available in bulk with consistent GSM. Would you like a quotation for a specific quantity?',
+      'For hotels and resorts it depends on how the towels will be washed — ringspun terry for high-volume commercial laundering, zero-twist for suites and spas where softness leads, and vat-dyed for coloured ranges, all in bulk with consistent GSM. Would you like a quotation for a specific quantity?',
   },
   {
     test: /custom|private label|logo|branding/i,

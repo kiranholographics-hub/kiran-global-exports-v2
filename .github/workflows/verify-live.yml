@@ -166,7 +166,8 @@ jobs:
             has "$page" "$slug has FAQ markup" '"@type":"FAQPage"'
             has "$page" "$slug has its own buyer list" "Who we supply"
           done
-          for slug in hotel-towel-manufacturer private-label-towel-manufacturer cotton-towel-manufacturer-india bulk-hotel-towels; do
+          for slug in hotel-towel-manufacturer private-label-towel-manufacturer cotton-towel-manufacturer-india bulk-hotel-towels \
+                      zero-twist-towel-manufacturer bathrobe-manufacturer; do
             has "/solutions/$slug/" "$slug has an h1" "<h1"
             has "/solutions/$slug/" "$slug has FAQ markup" '"@type":"FAQPage"'
           done
@@ -193,6 +194,26 @@ jobs:
             "organic linen page does not list towels in its range" "Zero-twist towels"
           has /about/ "About links to the organic linen guide" "/solutions/organic-cotton-linen-manufacturer"
           has /export/ "/export links to the organic linen guide" "/solutions/organic-cotton-linen-manufacturer"
+          has /export/ "/export links to the zero twist guide" "/solutions/zero-twist-towel-manufacturer"
+          has /export/ "/export links to the bathrobe guide" "/solutions/bathrobe-manufacturer"
+          # The catalogue says zero twist is not built for tunnel washing;
+          # the hotel and UAE pages once recommended it for exactly that.
+          has /solutions/zero-twist-towel-manufacturer/ \
+            "zero twist page steers high-volume laundry to ringspun" "we recommend ringspun terry instead"
+          lacks /solutions/hotel-towel-manufacturer/ \
+            "hotel page no longer sells zero twist for commercial laundering" "durable through commercial laundering"
+          lacks /export/uae-cotton-towel-supplier/ \
+            "UAE page no longer sells zero twist for commercial laundering" "build zero-twist and vat-dyed cotton ranges"
+
+          echo "── Buyer guides and landing pages link to each other ──"
+          has /solutions/bulk-hotel-towels/ "landing page lists its buyer guides" "Further reading"
+          has /solutions/bulk-hotel-towels/ "landing page links to the GSM guide" "/updates/hotel-towel-gsm-guide"
+          has /solutions/organic-cotton-linen-manufacturer/ \
+            "organic linen page links to the organic quotation guide" "/updates/organic-cotton-vs-conventional-quotation"
+          has /updates/hotel-towel-gsm-guide/ "article lists related sourcing guides" "Related sourcing guides"
+          has /updates/hotel-towel-gsm-guide/ "article links to the bulk hotel towels page" "/solutions/bulk-hotel-towels"
+          lacks /updates/oeko-tex-gots-bsci-iso-what-each-certification-actually-means/ \
+            "certifications guide title no longer puts GOTS on the towels" "certification on our towels"
 
           echo "── The structured data actually parses ──"
           # Presence of the string proves nothing: malformed JSON-LD is

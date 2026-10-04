@@ -1,5 +1,5 @@
 ---
-title: OEKO-TEX, GOTS, BSCI, ISO: what each certification on our towels actually means for you
+title: OEKO-TEX, GOTS, BSCI, ISO: what each certification actually means for you
 slug: oeko-tex-gots-bsci-iso-what-each-certification-actually-means
 excerpt: Four certification names appear on almost every serious towel supplier's website. Here is what each one actually verifies, and what it does not.
 published: true

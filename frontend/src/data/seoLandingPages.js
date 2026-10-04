@@ -250,7 +250,7 @@ const PAGES = {
     heading: 'Cotton towel supplier for the United Arab Emirates.',
     lead: 'Hotel towels, bath ranges, pool towels and bathrobes in 100% cotton ringspun, made to an approved sample at our partner mill in Solapur — built for UAE hospitality groups, importers and private-label brands, shipped FOB direct.',
     intro: [
-      'The UAE buys towels at hospitality volumes, and the specification that matters is the one that survives an industrial laundry — not the one that feels best in a showroom. For hotel groups in Dubai and Abu Dhabi we usually build zero-twist and vat-dyed cotton ranges: high absorbency, and colour that holds through repeated commercial washing rather than greying out over a season.',
+      'The UAE buys towels at hospitality volumes, and the specification that matters is the one that survives an industrial laundry — not the one that feels best in a showroom. For hotel groups in Dubai and Abu Dhabi we usually build ringspun terry for the volume programme, with vat-dyed colour that holds through repeated commercial washing rather than greying out over a season — and keep zero-twist for suites and spas, where softness matters more than wash count.',
       'Production is at our manufacturing partner V P Mundada in Solapur, weaving since 1972, and quotations are FOB direct to Jebel Ali, Khalifa Port or Sharjah. The India-UAE Comprehensive Economic Partnership Agreement, in force since May 2022, lowered duty on a large share of Indian textile exports — we confirm the applicable tariff line for your product before you order. Hotel towels, bath ranges, pool towels and bathrobes can be produced to one matched specification across a property.',
     ],
     buyers: [
@@ -1063,11 +1063,11 @@ const PAGES = {
     eyebrow: 'Hospitality',
     seoTitle: 'Hotel Towel Manufacturer & Supplier',
     seoDescription:
-      'Hotel towel manufacturer supplying resorts and hospitality distributors — zero-twist, vat-dyed towels for commercial laundering, made in Solapur.',
+      'Hotel towel manufacturer for resorts and hospitality distributors — ringspun, zero-twist and vat-dyed ranges matched to your laundry, made in Solapur.',
     heading: 'Hotel towel manufacturer for hospitality buyers.',
-    lead: 'Towels that survive a commercial laundry. For hotels and resorts we build zero-twist and vat-dyed cotton ranges for absorbency and colour retention through repeated industrial washing — made to a consistent GSM at our partner mill in Solapur and supplied in bulk.',
+    lead: 'Towels specified around how they will be washed. For hotels and resorts we build ringspun terry for high-volume commercial laundering, zero-twist for suites and spas where softness leads, and vat-dyed colour that holds through repeated washing — made to a consistent GSM at our partner mill in Solapur and supplied in bulk.',
     intro: [
-      'A hotel towel fails in one of three ways: the pile mats down, the white goes grey, or the colour drifts so the third order no longer matches the first two. All three are decided at the mill, not in the linen room. We build hospitality ranges around that — zero-twist cotton for absorbency and a hand-feel that survives the wash cycle, vat-dyed colour for retention through industrial laundering, and a dobby border woven in rather than printed, so housekeeping can tell a hand towel from a bath towel from a bath mat at a glance in a stack.',
+      'A hotel towel fails in one of three ways: the pile mats down, the white goes grey, or the colour drifts so the third order no longer matches the first two. All three are decided at the mill, not in the linen room. We build hospitality ranges around that — ringspun terry where the pile has to survive high-volume commercial laundering, zero-twist where softness on first touch matters more than wash count, vat-dyed colour for retention through industrial laundering, and a dobby border woven in rather than printed, so housekeeping can tell a hand towel from a bath towel from a bath mat at a glance in a stack.',
       'Everything is produced at our manufacturing partner V P Mundada in Solapur, weaving since 1972, to one consistent GSM across repeat orders. A full property set — bath towels and bath sheets, hand and face towels, pool and beach towels, bath mats and bathrobes — can be made to a single matched specification, and lab-dip colour approval before bulk dyeing is what keeps a reorder matching what is already in service.',
     ],
     buyers: [
@@ -1079,7 +1079,7 @@ const PAGES = {
     faqs: [
       {
         q: 'Which towels do you recommend for hotel use?',
-        a: 'Zero-twist and vat-dyed cotton towels are our usual recommendation for hospitality — high absorbency, durable through commercial laundering, and available in bulk at a consistent GSM across repeat orders.',
+        a: 'It depends on how they will be washed. Ringspun terry is the workhorse for high-volume commercial laundering; zero-twist is softer and more absorbent but rewards gentler handling, so it suits suites, spas and boutique properties; vat-dyed colour is the choice for anything coloured. Tell us your laundry set-up and we will recommend against it.',
       },
       {
         q: 'Can you supply a full hospitality set, not just bath towels?',
@@ -1343,6 +1343,101 @@ const PAGES = {
       SAMPLE_FAQ,
     ],
     relatedMarket: { href: '/linen', label: 'Browse our linen collection' },
+  },
+
+  'solutions/zero-twist-towel-manufacturer': {
+    section: 'solutions',
+    eyebrow: 'Zero Twist',
+    seoTitle: 'Zero Twist Towel Manufacturer in India',
+    seoDescription:
+      'Zero twist cotton towels for premium retail, spas and boutique hotels — a softer, faster-absorbing pile on a ring spun ground, made at our Solapur mill.',
+    heading: 'Zero twist towel manufacturer.',
+    lead: 'Zero twist cotton pile on a ring spun ground — noticeably softer and faster-absorbing than conventionally spun terry of the same weight, made to your specification at our partner mill in Solapur for premium retail, spa and boutique hospitality buyers.',
+    meta: [
+      { label: 'Mill Direct, FOB' },
+      { label: 'Zero Twist Pile' },
+      { label: 'Sample First' },
+    ],
+    intro: [
+      'In zero twist yarn the cotton fibres are held together without the usual spinning twist, so more of the fibre surface meets the skin. The difference is felt immediately: the towel is softer in the hand than a conventionally spun towel of the same weight, it absorbs faster, and it dries quicker because the pile holds less water in the yarn core. Ours is built with a zero twist pile on a ring spun ground — the ground gives the towel its structure, and the pile is where the softness comes from.',
+      'It is not the right towel for every programme, and it is worth saying so before anyone quotes. Untwisted pile is softer precisely because it is less tightly bound, which means it rewards gentler handling. For high-volume hotel laundry and industrial tunnel washing, ringspun terry is the better choice, and we will recommend it over zero twist for that use. Where zero twist earns its price is the first three seconds: premium retail, spas and wellness, boutique hotels and suites, gifting, and private-label ranges judged on hand-feel.',
+      'Everything else is built to your brief at our manufacturing partner V P Mundada in Solapur, weaving since 1972: weight and size, piece-dyed colour with Pantone matching, woven or satin labels, heat transfer or embroidery, and packing from bulk cartons to individual polybags, belly bands or gift boxes. A physical sample is approved before bulk on every order.',
+    ],
+    buyers: [
+      'Premium retail and e-commerce towel brands',
+      'Spa and wellness operators',
+      'Boutique hotels and suite programmes',
+      'Private-label and gifting programmes',
+    ],
+    faqs: [
+      {
+        q: 'What is the difference between zero twist and ringspun towels?',
+        a: 'Ringspun yarn is combed and twisted tightly before weaving, which helps the pile survive repeated washing. Zero twist pile skips that twist, so it is softer and absorbs faster at the same weight — but it is less tightly bound, and it rewards gentler handling.',
+      },
+      {
+        q: 'Are zero twist towels suitable for hotel laundry?',
+        a: 'For suites, spas and boutique properties with careful laundering, yes. For high-volume commercial laundry and tunnel washing, we recommend ringspun terry instead — it is built for wash count, and we would rather say so than sell the wrong towel.',
+      },
+      {
+        q: 'Can zero twist towels be dyed to our colour?',
+        a: 'Yes — they are piece dyed, with Pantone matching available. Colour is approved by lab dip before bulk dyeing, so a reorder matches the first shipment.',
+      },
+      {
+        q: 'What branding and packaging options are available?',
+        a: 'Woven or satin labels, heat transfer or embroidery for branding; bulk carton, individual polybag, belly band or gift box for packing. Tell us how the towel will be sold and we will propose the finish.',
+      },
+      MOQ_FAQ,
+      MATCH_FAQ,
+      SAMPLE_FAQ,
+    ],
+    relatedMarket: { href: '/towels/zero-twist', label: 'See our zero twist towels' },
+  },
+
+  'solutions/bathrobe-manufacturer': {
+    section: 'solutions',
+    eyebrow: 'Bathrobes',
+    seoTitle: 'Cotton Bathrobe Manufacturer for Hotels & Spas',
+    seoDescription:
+      'Cotton bathrobe manufacturer for hotels, spas and retail — shawl or kimono collar, terry or waffle, custom sizing and embroidery, made in Solapur.',
+    heading: 'Cotton bathrobe manufacturer.',
+    lead: 'Terry and waffle cotton bathrobes for hotels, spas and retail brands — collar, construction, sizing and embroidery built to your brief at our partner mill in Solapur, and approved as a physical sample before bulk.',
+    meta: [
+      { label: 'Mill Direct, FOB' },
+      { label: '100% Cotton' },
+      { label: 'Sample First' },
+    ],
+    intro: [
+      'Two decisions shape a bathrobe order more than anything else, and both are worth settling before price: collar style and base construction. A shawl collar sits flatter and reads as classic hotel; a kimono collar is lower-cost to produce and has become the standard for boutique and spa-positioned properties. The collar is also the part a guest notices first, so it is a positioning decision as much as a cost one.',
+      'Construction decides how the robe actually performs. Terry gives more absorbency and more weight — the right choice for a genuine post-bath robe in a guest room. Waffle is lighter, dries faster and packs smaller, which is why spa and wellness programmes usually choose it: a robe worn between treatments and laundered constantly benefits more from dry time than from bulk. We walk through both trade-offs against your guest profile before you commit to a specification.',
+      'Sizes run S to XL as standard with custom sizing available, in white, ivory or a custom colourway, finished with your embroidery and packaging. Bathrobes are produced at our manufacturing partner V P Mundada in Solapur alongside the towel range, so a property can specify robes, bath towels, hand towels and bath mats as one matched programme rather than sourcing robes separately.',
+    ],
+    buyers: [
+      'Hotels and resorts supplying in-room robes',
+      'Spa, wellness and gym operators',
+      'Retail and e-commerce home brands',
+      'Hospitality distributors supplying several properties',
+    ],
+    faqs: [
+      {
+        q: 'Should we choose a shawl collar or a kimono collar?',
+        a: 'A shawl collar sits flatter and reads more classic-hotel; a kimono collar costs less to produce and is now the standard for boutique and spa properties. Tell us how the robe is positioned and we will recommend one.',
+      },
+      {
+        q: 'Terry or waffle — which is better for a bathrobe?',
+        a: 'Terry for absorbency and weight, as a genuine post-bath robe. Waffle for lighter weight, faster drying and smaller packing, which suits spas and wellness programmes with constant turnover.',
+      },
+      {
+        q: 'What sizes and colours are available?',
+        a: 'S to XL as standard, with custom sizing available, in white, ivory or a custom colourway on request.',
+      },
+      {
+        q: 'Can bathrobes match our towel programme?',
+        a: 'Yes — robes are made at the same mill as our towels, so collar, colour and embroidery can be specified alongside bath towels, hand towels and bath mats as one matched order.',
+      },
+      MOQ_FAQ,
+      SAMPLE_FAQ,
+    ],
+    relatedMarket: { href: '/towels/bathrobe-spa', label: 'See our bathrobes & spa range' },
   },
 };
 

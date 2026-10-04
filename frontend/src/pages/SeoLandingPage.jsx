@@ -13,6 +13,7 @@ import {
   getSeoLandingPage,
   getRelatedLandingPages,
 } from '@/data/seoLandingPages';
+import { getArticlesForLandingPage } from '@/data/articleGuides';
 import styles from './SeoLandingPage.module.css';
 
 const DEFAULT_META = [
@@ -47,6 +48,7 @@ export default function SeoLandingPage({ section }) {
   );
 
   const related = getRelatedLandingPages(section, slug);
+  const guides = getArticlesForLandingPage(section, slug);
 
   if (!page) {
     return (
@@ -195,6 +197,30 @@ export default function SeoLandingPage({ section }) {
           </div>
         </div>
       </section>
+
+      {/* ══ Buyer guides ══════════════════════════ */}
+      {guides.length > 0 && (
+        <section className={`section ${styles.relatedSection}`}>
+          <div className="container">
+            <ScrollReveal>
+              <SectionHeading
+                eyebrow="Further reading"
+                title="Buyer guides on this topic."
+              />
+            </ScrollReveal>
+
+            <ScrollReveal>
+              <ul className={styles.relatedList}>
+                {guides.map((g) => (
+                  <li key={g.href}>
+                    <Link to={g.href} className={styles.relatedLink}>{g.label}</Link>
+                  </li>
+                ))}
+              </ul>
+            </ScrollReveal>
+          </div>
+        </section>
+      )}
 
       {/* ══ Related pages ═════════════════════════ */}
       <section className={`section ${styles.relatedSection}`}>

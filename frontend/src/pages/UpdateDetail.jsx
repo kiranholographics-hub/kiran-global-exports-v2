@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import SEO from '@/components/SEO/SEO';
 import NotFoundContent from '@/components/NotFoundContent/NotFoundContent';
 import { fetchUpdateBySlug } from '@/lib/updates';
+import { getLandingPagesForArticle } from '@/data/articleGuides';
 import styles from './UpdateDetail.module.css';
 
 /**
@@ -45,6 +46,7 @@ export default function UpdateDetail() {
   const { slug } = useParams();
   const [update, setUpdate] = useState(undefined); // undefined = loading, null = not found
   const [error, setError] = useState('');
+  const guides = getLandingPagesForArticle(slug);
 
   useEffect(() => {
     setUpdate(undefined);
@@ -102,6 +104,19 @@ export default function UpdateDetail() {
               <div className={styles.body}>
                 {renderBody(update.body)}
               </div>
+
+              {guides.length > 0 && (
+                <aside className={styles.guides}>
+                  <h2>Related sourcing guides</h2>
+                  <ul>
+                    {guides.map((g) => (
+                      <li key={g.href}>
+                        <Link to={g.href}>{g.label}</Link>
+                      </li>
+                    ))}
+                  </ul>
+                </aside>
+              )}
 
               <Link to="/updates" className={styles.backLink}>
                 ← Back to Updates
