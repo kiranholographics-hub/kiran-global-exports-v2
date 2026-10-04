@@ -1249,6 +1249,101 @@ const PAGES = {
     ],
     relatedMarket: { href: '/custom', label: 'Custom & Private Label' },
   },
+
+  // The only page about the Cotonex line rather than the towel mill, so it
+  // replaces the shared towel CAPABILITIES/PRODUCT_RANGE/meta with its own:
+  // rendering "Towels are made at V P Mundada" under a GOTS heading would
+  // be exactly the towel/organic blur this page exists to rule out.
+  'solutions/organic-cotton-linen-manufacturer': {
+    section: 'solutions',
+    eyebrow: 'Organic Linen',
+    seoTitle: 'Organic Cotton Linen Manufacturer, GOTS Certified',
+    seoDescription:
+      'GOTS Version 7.0 certified organic cotton linen from India — bed, table and home linen made by our partner Cotonex in Karur, certified by Bureau Veritas.',
+    heading: 'Organic cotton linen, GOTS certified.',
+    lead: 'Bed, table and home linen in 100% organic cotton, made by our partner Cotonex in Karur, Tamil Nadu, and certified to GOTS Version 7.0 by Bureau Veritas — a separate line from our towel range, with its own mill and its own certificate.',
+    meta: [
+      { label: 'GOTS Version 7.0' },
+      { label: '100% Organic Cotton' },
+      { label: 'Sample First' },
+    ],
+    intro: [
+      '"Organic" is one of the most loosely used words in textile sourcing, and GOTS exists because of that. A GOTS-certified product is tracked from certified organic fibre through spinning, weaving, dyeing and finishing, with restricted chemical inputs at each stage and an independent auditor checking the chain — which is why a serious compliance team asks for the certificate itself, not a line on a website. Our organic linen is made by Cotonex in Karur, Tamil Nadu, certified to GOTS Version 7.0 by Bureau Veritas under licence GOTS-BVIN0317. The licence number is published here so it can be checked independently before you ask us anything.',
+      'It is worth being exact about what that certificate covers. Cotonex\'s GOTS scope is home textiles, carried and worn accessories, outdoor and dyed fabrics — for our buyers, that means bed linen, table and dining linen, cushions, blankets and quilts, kitchen textiles and bags. It does not cover our towels. Towels are woven at a different mill, V P Mundada in Solapur, under OEKO-TEX, ISO, GRS and BSCI certification, and we do not describe them as organic. A buyer who needs both can source them through one enquiry, but they are quoted as two products with two sets of documentation, because that is what they are.',
+      'Ordering follows the same sequence as everything else we supply: a specification agreed first, then a physical sample approved by you before bulk production starts. What can differ is timing. Certified organic fibre runs on its own supply calendar, so depending on the season and the quantity an organic order can take longer than a conventional one of the same size — we confirm a real timeline at quotation rather than assume it matches the towel line.',
+    ],
+    buyers: [
+      'Retailers and brands building a certified organic home range',
+      'Importers whose compliance team needs a GOTS certificate, not a claim',
+      'Hotels and spas specifying organic bed or table linen',
+      'Towel buyers adding organic linen through the same export team',
+    ],
+    capabilities: [
+      {
+        title: 'A named, certified partner',
+        body: 'Organic linen is made by Cotonex in Karur, Tamil Nadu — named here, with its address on our About page, rather than hidden behind "our manufacturing partners".',
+      },
+      {
+        title: 'A certificate you can check',
+        body: 'GOTS Version 7.0, certified by Bureau Veritas under licence GOTS-BVIN0317. The licence number is public so your compliance team can verify it independently.',
+      },
+      {
+        title: 'Scope stated, not stretched',
+        body: 'The certificate covers home textiles, carried and worn accessories, outdoor and dyed fabrics. We quote organic only on products inside that scope — never on our towels, which are certified separately.',
+      },
+      {
+        title: 'Sample before bulk',
+        body: 'A physical sample is developed to your specification and approved by you before bulk production, exactly as on every other order we supply.',
+      },
+      {
+        title: 'Towels and linen, one enquiry',
+        body: 'Buyers sourcing towels from our Solapur mill can add organic linen through the same export team, quoted and documented as the separate product it is.',
+      },
+    ],
+    rangeTitle: 'What the certified range covers.',
+    range: [
+      'Bed linen',
+      'Table & dining linen',
+      'Cushions & pillows',
+      'Blankets & quilts',
+      'Kitchen linen',
+      'Aprons & gloves',
+      'Woven fabrics',
+      'Bags & totes',
+    ],
+    faqs: [
+      {
+        q: 'Who actually makes the organic linen?',
+        a: 'Our partner Cotonex, in Karur, Tamil Nadu. Cotonex holds the GOTS Version 7.0 certificate (licence GOTS-BVIN0317, issued by Bureau Veritas); Kiran Global Exports works in partnership with them to quote, develop and supply the line to international buyers.',
+      },
+      {
+        q: 'Are your towels organic or GOTS certified?',
+        a: 'No. Our towels are made at a different mill, V P Mundada in Solapur, certified to OEKO-TEX STANDARD 100, MADE IN GREEN and STeP, ISO 9001:2015, GRS and amfori BSCI — not GOTS. If an organic-cotton towel is a requirement, that is currently outside our range, and we would rather say so than let the two certifications blur together.',
+      },
+      {
+        q: 'Which products does the GOTS certificate cover?',
+        a: 'Cotonex\'s certified scope is home textiles, carried accessories, worn accessories, outdoor and dyed fabrics. In practice that means bed linen, table and dining linen, cushions and pillows, blankets and quilts, kitchen textiles and bags. Tell us the product and we will confirm it sits inside the certified scope before quoting.',
+      },
+      {
+        q: 'What documentation comes with an organic order?',
+        a: 'Ask for what your compliance team needs — usually the GOTS scope certificate and a transaction certificate for the specific shipment. We confirm exactly what accompanies your order at quotation stage, so the paperwork is agreed before production rather than chased afterwards.',
+      },
+      {
+        q: 'Does organic linen take longer than a conventional order?',
+        a: 'It can. Certified organic fibre has its own supply calendar, and depending on the season and quantity that may lengthen the lead time. Tell us the product and volume and we will give you a realistic date rather than a general estimate.',
+      },
+      {
+        q: 'Can organic linen ship with a towel order?',
+        a: 'Yes — it can ship alongside a towel order or on its own. It is quoted and documented separately, since it comes from a different mill under a different certificate.',
+      },
+      {
+        q: 'What is the minimum order quantity?',
+        a: 'It depends on the product and the level of customisation. Tell us what you need and the destination, and our export team will confirm the figure for that specification.',
+      },
+      SAMPLE_FAQ,
+    ],
+    relatedMarket: { href: '/linen', label: 'Browse our linen collection' },
+  },
 };
 
 /* ── Lookups used by the page, prerender and sitemap ── */

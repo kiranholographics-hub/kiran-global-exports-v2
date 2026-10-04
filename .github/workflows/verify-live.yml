@@ -178,6 +178,21 @@ jobs:
             "India page answers how to request a quotation" "How do I actually request a quotation"
           has /solutions/bulk-hotel-towels/ \
             "bulk hotel towels page covers packing" "How is a bulk order packed"
+          has /solutions/organic-cotton-linen-manufacturer/ "organic linen page has an h1" "<h1"
+          has /solutions/organic-cotton-linen-manufacturer/ "organic linen page has FAQ markup" '"@type":"FAQPage"'
+          has /solutions/organic-cotton-linen-manufacturer/ \
+            "organic linen page names the GOTS licence" "GOTS-BVIN0317"
+          has /solutions/organic-cotton-linen-manufacturer/ \
+            "organic linen page says towels are not GOTS" "Are your towels organic or GOTS certified"
+          # The shared towel blocks must not render here: "Towels are made at
+          # our manufacturing partner V P Mundada" under a GOTS page is the
+          # towel/organic blur the page exists to rule out.
+          lacks /solutions/organic-cotton-linen-manufacturer/ \
+            "organic linen page does not render the towel capability block" "One mill, not a broker chain"
+          lacks /solutions/organic-cotton-linen-manufacturer/ \
+            "organic linen page does not list towels in its range" "Zero-twist towels"
+          has /about/ "About links to the organic linen guide" "/solutions/organic-cotton-linen-manufacturer"
+          has /export/ "/export links to the organic linen guide" "/solutions/organic-cotton-linen-manufacturer"
 
           echo "── The structured data actually parses ──"
           # Presence of the string proves nothing: malformed JSON-LD is

@@ -15,6 +15,12 @@ import {
 } from '@/data/seoLandingPages';
 import styles from './SeoLandingPage.module.css';
 
+const DEFAULT_META = [
+  { label: 'Mill Direct, FOB' },
+  { label: '100% Cotton Ringspun' },
+  { label: 'Sample First' },
+];
+
 const SECTION_LABELS = {
   export: { label: 'Export', href: '/export' },
   solutions: { label: 'Solutions', href: '/export' },
@@ -68,11 +74,7 @@ export default function SeoLandingPage({ section }) {
         title={page.heading}
         lead={page.lead}
         breadcrumbs={breadcrumbs}
-        meta={[
-          { label: 'Mill Direct, FOB' },
-          { label: '100% Cotton Ringspun' },
-          { label: 'Sample First' },
-        ]}
+        meta={page.meta || DEFAULT_META}
       />
 
       {/* ══ Unique body copy ══════════════════════
@@ -112,7 +114,7 @@ export default function SeoLandingPage({ section }) {
           </ScrollReveal>
 
           <div className={styles.capabilityGrid}>
-            {CAPABILITIES.map((c, i) => (
+            {(page.capabilities || CAPABILITIES).map((c, i) => (
               <ScrollReveal key={c.title} delay={i * 0.07} className={styles.capability}>
                 <span className={styles.capabilityNumber} aria-hidden="true">
                   {String(i + 1).padStart(2, '0')}
@@ -131,13 +133,13 @@ export default function SeoLandingPage({ section }) {
           <ScrollReveal>
             <SectionHeading
               eyebrow="Product range"
-              title="What we manufacture."
+              title={page.rangeTitle || 'What we manufacture.'}
             />
           </ScrollReveal>
 
           <ScrollReveal>
             <ul className={styles.rangeList}>
-              {PRODUCT_RANGE.map((item) => (
+              {(page.range || PRODUCT_RANGE).map((item) => (
                 <li key={item} className={styles.rangeItem}>{item}</li>
               ))}
             </ul>
