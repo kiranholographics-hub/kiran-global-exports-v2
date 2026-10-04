@@ -193,6 +193,7 @@ jobs:
           lacks /solutions/organic-cotton-linen-manufacturer/ \
             "organic linen page does not list towels in its range" "Zero-twist towels"
           has /about/ "About links to the organic linen guide" "/solutions/organic-cotton-linen-manufacturer"
+          has /about/ "About lists organic table linen, as the linen pages claim" "Table &amp; Dining Linen"
           has /export/ "/export links to the organic linen guide" "/solutions/organic-cotton-linen-manufacturer"
           has /export/ "/export links to the zero twist guide" "/solutions/zero-twist-towel-manufacturer"
           has /export/ "/export links to the bathrobe guide" "/solutions/bathrobe-manufacturer"
