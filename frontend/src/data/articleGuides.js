@@ -114,6 +114,16 @@ const ARTICLE_GUIDES = [
       'solutions/private-label-towel-manufacturer',
     ],
   },
+  {
+    slug: 'keeping-a-towel-reorder-consistent',
+    title: 'Keeping a reorder consistent — what to keep on file, and what to ask before a second order',
+    pages: [
+      'solutions/hotel-towel-manufacturer',
+      'solutions/bulk-hotel-towels',
+      'solutions/private-label-towel-manufacturer',
+      'solutions/hotel-towels-supplier-what-to-check',
+    ],
+  },
 ];
 
 export function getLandingPagesForArticle(articleSlug) {

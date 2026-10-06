@@ -212,6 +212,8 @@ jobs:
           has /solutions/organic-cotton-linen-manufacturer/ \
             "organic linen page links to the organic quotation guide" "/updates/organic-cotton-vs-conventional-quotation"
           has /updates/hotel-towel-gsm-guide/ "article lists related sourcing guides" "Related sourcing guides"
+          has /updates/keeping-a-towel-reorder-consistent/ \
+            "the reorder guide is rendered" "only works if both sides are holding the same reference"
           has /updates/hotel-towel-gsm-guide/ "article links to the bulk hotel towels page" "/solutions/bulk-hotel-towels"
           lacks /updates/oeko-tex-gots-bsci-iso-what-each-certification-actually-means/ \
             "certifications guide title no longer puts GOTS on the towels" "certification on our towels"

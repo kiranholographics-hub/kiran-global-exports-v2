@@ -1,7 +1,7 @@
 ---
 title: What FOB actually means when you're buying towels from India
 slug: what-fob-actually-means-when-buying-towels-from-india
-excerpt: FOB is the term on almost every towel quotation from India, and also the one most often assumed rather than checked. What it covers, what it does not, and where the confusion usually starts.
+excerpt: FOB is on almost every towel quotation from India, and more often assumed than checked. What it covers, what it doesn't, and where the confusion starts.
 published: true
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: What changes in a quotation when a buyer asks for organic cotton
 slug: organic-cotton-vs-conventional-quotation
-excerpt: "Organic cotton" changes more than the raw material — certification, traceability and which of our two manufacturing lines it can actually come from all move at the same time.
+excerpt: "Organic cotton" changes more than the raw material — certification, traceability and which of our two manufacturing lines can supply it all move together.
 published: true
 ---
 

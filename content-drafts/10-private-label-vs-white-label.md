@@ -1,7 +1,7 @@
 ---
 title: Private label vs white label — what is actually being customised
 slug: private-label-vs-white-label
-excerpt: The two terms get used interchangeably, but they describe different things being customised — and knowing which one you actually need changes what you should ask a supplier for.
+excerpt: Two terms used interchangeably for different things being customised — and knowing which one you need changes what you should ask a supplier for.
 published: true
 ---
 

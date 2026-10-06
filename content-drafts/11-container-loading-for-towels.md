@@ -1,7 +1,7 @@
 ---
 title: Container loading for towels — what actually decides what fits
 slug: container-loading-for-towels
-excerpt: A 40ft container isn't simply "twice a 20ft" once real towels in real cartons are involved — carton size, packing method and GSM all move the number more than most first-time buyers expect.
+excerpt: A 40ft container isn't simply "twice a 20ft" once real towels are packed — carton size, packing method and GSM move the number more than buyers expect.
 published: true
 ---
 

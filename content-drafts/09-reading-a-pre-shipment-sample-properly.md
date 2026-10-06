@@ -1,7 +1,7 @@
 ---
 title: Reading a pre-shipment sample properly
 slug: reading-a-pre-shipment-sample-properly
-excerpt: A pre-shipment sample is cut from the actual bulk run, not the original development sample — and what a serious buyer checks it for is different from whether it "looks right."
+excerpt: A pre-shipment sample is cut from the real bulk run, not the development sample — and a serious buyer checks it for more than whether it "looks right."
 published: true
 ---
 

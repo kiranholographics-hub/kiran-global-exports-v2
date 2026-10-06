@@ -26,6 +26,8 @@ note in SEO-ROUTINE.md on doorway pages).
   instead of conventional
 - What "sample-first" actually protects a buyer from, and what it
   cannot
+- Keeping a reorder consistent — what to keep on file, and what to ask
+  before a second order
 
 Note: "what makes a good hotel pool towel" was drafted as an article,
 then retired and rebuilt as a landing page instead
@@ -35,8 +37,6 @@ site duplicating its own content on the same topic.
 
 ## Queued
 
-7. Keeping a reorder consistent — batch tracking, and what to ask any
-   supplier for before a second order
 8. Terry vs woven towels — what the construction difference actually
    changes about the product
 9. Bath towel vs bath sheet vs beach towel — the sizing conventions
