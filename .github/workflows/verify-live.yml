@@ -218,6 +218,10 @@ jobs:
             "the US import guide is rendered" "Importer Security Filing"
           has /updates/importing-cotton-towels-from-india-into-the-us/ \
             "the US import guide links to the USA page" "/export/usa-cotton-towel-supplier"
+          has /updates/terry-vs-woven-towels/ \
+            "the terry vs woven guide is rendered" "What separates the two is the loop"
+          has /updates/what-a-certificate-of-origin-proves/ \
+            "the certificate of origin guide is rendered" "What it does not prove"
           has /export/usa-cotton-towel-supplier/ "USA page answers the ISF question" "Who files the ISF"
           has /export/usa-cotton-towel-supplier/ "USA page links to the US import guide" \
             "/updates/importing-cotton-towels-from-india-into-the-us"

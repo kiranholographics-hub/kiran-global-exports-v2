@@ -133,6 +133,26 @@ const ARTICLE_GUIDES = [
       'solutions/private-label-towel-manufacturer',
     ],
   },
+  {
+    slug: 'terry-vs-woven-towels',
+    title: 'Terry vs woven towels — what the construction difference actually changes',
+    pages: [
+      'solutions/hotel-towel-manufacturer',
+      'solutions/hotel-pool-towels',
+      'solutions/bathrobe-manufacturer',
+      'solutions/zero-twist-towel-manufacturer',
+    ],
+  },
+  {
+    slug: 'what-a-certificate-of-origin-proves',
+    title: 'What a certificate of origin does and does not prove',
+    pages: [
+      'solutions/cotton-towel-manufacturer-india',
+      'export/australia-cotton-towel-supplier',
+      'export/norway-cotton-towel-supplier',
+      'export/usa-cotton-towel-supplier',
+    ],
+  },
 ];
 
 export function getLandingPagesForArticle(articleSlug) {

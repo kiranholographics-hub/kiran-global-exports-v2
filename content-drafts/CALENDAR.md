@@ -30,6 +30,9 @@ note in SEO-ROUTINE.md on doorway pages).
   before a second order
 - Importing cotton towels from India into the US — what the importer of
   record handles (written for the USA market push; not from the queue)
+- Terry vs woven towels — what the construction difference actually
+  changes
+- What a certificate of origin does and does not prove
 
 Note: "what makes a good hotel pool towel" was drafted as an article,
 then retired and rebuilt as a landing page instead
@@ -39,11 +42,11 @@ site duplicating its own content on the same topic.
 
 ## Queued
 
-8. Terry vs woven towels — what the construction difference actually
-   changes about the product
 9. Bath towel vs bath sheet vs beach towel — the sizing conventions
-   buyers most often get wrong
-10. What a certificate of origin does and does not prove
+   buyers most often get wrong. ON HOLD: the catalogue sells a 60 × 120 cm
+   piece as a "bath sheet" and says it is larger than a standard bath
+   towel, which is the reverse of the usual convention. Settle the
+   catalogue entry with the mill first, or the article contradicts it.
 11. Why towel lead times shift by season — raw cotton, the festival
     calendar, monsoon logistics
 12. Briefing packaging and retail-ready presentation for a private
