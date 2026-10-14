@@ -246,6 +246,8 @@ jobs:
             "the US import guide links to the USA page" "/export/usa-cotton-towel-supplier"
           has /updates/terry-vs-woven-towels/ \
             "the terry vs woven guide is rendered" "What separates the two is the loop"
+          has /updates/reading-a-towel-spec-sheet/ \
+            "the spec sheet guide is rendered" "measured how, and when"
           has /updates/what-a-certificate-of-origin-proves/ \
             "the certificate of origin guide is rendered" "What it does not prove"
           has /export/usa-cotton-towel-supplier/ "USA page answers the ISF question" "Who files the ISF"

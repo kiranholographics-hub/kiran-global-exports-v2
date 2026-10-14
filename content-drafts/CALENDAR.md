@@ -33,6 +33,7 @@ note in SEO-ROUTINE.md on doorway pages).
 - Terry vs woven towels — what the construction difference actually
   changes
 - What a certificate of origin does and does not prove
+- Reading a towel spec sheet — what each line is actually promising
 
 Note: "what makes a good hotel pool towel" was drafted as an article,
 then retired and rebuilt as a landing page instead
@@ -53,8 +54,6 @@ site duplicating its own content on the same topic.
     label order
 13. Hotel linen replacement cycles — how often towels are actually
     rebought, and why that number matters when you specify durability
-14. Reading a towel spec sheet — GSM, size, construction and
-    colourfastness, and what each line is actually promising
 
 ## Publishing note
 

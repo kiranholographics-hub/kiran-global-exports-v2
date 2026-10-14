@@ -144,6 +144,16 @@ const ARTICLE_GUIDES = [
     ],
   },
   {
+    slug: 'reading-a-towel-spec-sheet',
+    title: 'Reading a towel spec sheet — what each line is actually promising',
+    pages: [
+      'solutions/hotel-towel-manufacturer',
+      'solutions/bulk-hotel-towels',
+      'solutions/private-label-towel-manufacturer',
+      'solutions/hotel-towels-supplier-what-to-check',
+    ],
+  },
+  {
     slug: 'what-a-certificate-of-origin-proves',
     title: 'What a certificate of origin does and does not prove',
     pages: [
