@@ -91,6 +91,24 @@ jobs:
           has  /solutions/bulk-hotel-towels/ "breadcrumb schema names the trailing-slash URL" \
             '"item":"https://www.kiranglobal-exports.com/export/"'
 
+          echo "── A slashless URL settles on its page without a redirect error ──"
+          # Search Console listed the first three under "Redirect error" (last crawled 25 Sep).
+          for p in /export/mexico-cotton-towel-supplier /export/oman-cotton-towel-supplier \
+                   /solutions/cotton-towel-manufacturer-india /towels/zero-twist; do
+            out=$(curl -s -L --max-redirs 5 -o /dev/null \
+              -w '%{http_code} %{num_redirects} %{url_effective}' --max-time 30 "$SITE$p" 2>/dev/null || true)
+            set -- $out
+            code=${1:-000}; hops=${2:-0}; final=${3:--}
+            curl -sIL --max-redirs 5 --max-time 30 "$SITE$p" 2>/dev/null | tr -d '\r' \
+              | grep -iE '^(HTTP/|location:)' | sed 's/^/           /' || true
+            if [ "$code" = "200" ] && [ "$final" = "$SITE$p/" ] && [ "$hops" -le 3 ] 2>/dev/null; then
+              echo "  ok       $p settles on $p/ (HTTP $code, $hops redirect(s))"
+            else
+              echo "  BAD      $p: HTTP $code after $hops redirect(s), ended at $final"
+              failed=1
+            fi
+          done
+
           echo "── Structured data ──"
           has /export/usa-cotton-towel-supplier/ "FAQPage schema" '"@type":"FAQPage"'
           has /export/usa-cotton-towel-supplier/ "BreadcrumbList schema" '"@type":"BreadcrumbList"'
