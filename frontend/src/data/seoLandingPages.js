@@ -99,6 +99,22 @@ const PAGES = {
         q: 'Will the labelling meet US requirements?',
         a: 'Fibre content, country of origin and care labelling are prepared to FTC standards as part of the order. Send us your own label artwork and we will apply it to the approved specification.',
       },
+      {
+        q: 'Can our RN number go on the label instead of yours?',
+        a: 'Yes — FTC rules let the label identify a US company by name or RN number rather than the manufacturer. Send it with your label artwork; labels are sewn in during production, so it needs to be agreed with the specification.',
+      },
+      {
+        q: 'Which HTS code do cotton towels come under?',
+        a: 'Cotton terry towels are classified under HTS heading 6302.60; bathrobes are apparel and fall under a different chapter. Your customs broker confirms the full ten-digit codes, and we describe each product plainly on the invoice to make that straightforward.',
+      },
+      {
+        q: 'Who files the ISF, and what do you provide for it?',
+        a: 'The Importer Security Filing is made by you or your customs broker at least 24 hours before the container is loaded in India. We send the details that come from our side — manufacturer name and address, container stuffing location and country of origin — once the order is confirmed.',
+      },
+      {
+        q: 'What import duty applies?',
+        a: 'Duty depends on the classification and on the tariff measures in force when the goods enter the US, which have changed several times recently — your customs broker confirms the current rate. Under FOB, duty is paid by the importer; our price covers the goods loaded at the Indian port.',
+      },
       MOQ_FAQ,
       MATCH_FAQ,
       SAMPLE_FAQ,

@@ -124,6 +124,15 @@ const ARTICLE_GUIDES = [
       'solutions/hotel-towels-supplier-what-to-check',
     ],
   },
+  {
+    slug: 'importing-cotton-towels-from-india-into-the-us',
+    title: 'Importing cotton towels from India into the US — what the importer of record handles',
+    pages: [
+      'export/usa-cotton-towel-supplier',
+      'solutions/cotton-towel-manufacturer-india',
+      'solutions/private-label-towel-manufacturer',
+    ],
+  },
 ];
 
 export function getLandingPagesForArticle(articleSlug) {

@@ -214,6 +214,13 @@ jobs:
           has /updates/hotel-towel-gsm-guide/ "article lists related sourcing guides" "Related sourcing guides"
           has /updates/keeping-a-towel-reorder-consistent/ \
             "the reorder guide is rendered" "only works if both sides are holding the same reference"
+          has /updates/importing-cotton-towels-from-india-into-the-us/ \
+            "the US import guide is rendered" "Importer Security Filing"
+          has /updates/importing-cotton-towels-from-india-into-the-us/ \
+            "the US import guide links to the USA page" "/export/usa-cotton-towel-supplier"
+          has /export/usa-cotton-towel-supplier/ "USA page answers the ISF question" "Who files the ISF"
+          has /export/usa-cotton-towel-supplier/ "USA page links to the US import guide" \
+            "/updates/importing-cotton-towels-from-india-into-the-us"
           has /updates/hotel-towel-gsm-guide/ "article links to the bulk hotel towels page" "/solutions/bulk-hotel-towels"
           lacks /updates/oeko-tex-gots-bsci-iso-what-each-certification-actually-means/ \
             "certifications guide title no longer puts GOTS on the towels" "certification on our towels"

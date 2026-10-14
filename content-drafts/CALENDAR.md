@@ -28,6 +28,8 @@ note in SEO-ROUTINE.md on doorway pages).
   cannot
 - Keeping a reorder consistent — what to keep on file, and what to ask
   before a second order
+- Importing cotton towels from India into the US — what the importer of
+  record handles (written for the USA market push; not from the queue)
 
 Note: "what makes a good hotel pool towel" was drafted as an article,
 then retired and rebuilt as a landing page instead
