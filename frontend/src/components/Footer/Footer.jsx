@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import Link from '@/components/Link/Link';
 import { useTranslation } from 'react-i18next';
 import { siteConfig, waLink, mailtoLink, telLink, formatPhoneDisplay } from '@/data/config';
 import { getStaticMarketLinks } from '@/data/marketContent';

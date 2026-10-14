@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import Link from '@/components/Link/Link';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { siteConfig } from '@/data/config';
+import { stripTrailingSlash } from '@/lib/paths';
 import MobileNav from '@/components/MobileNav/MobileNav';
 import LanguageSwitcher from '@/components/LanguageSwitcher/LanguageSwitcher';
 import styles from './Header.module.css';
@@ -12,7 +14,8 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const { pathname } = useLocation();
-  const isHeroPage = pathname === '/' || pathname === '/collections' || pathname === '/towels' || pathname === '/linen';
+  const currentPath = stripTrailingSlash(pathname);
+  const isHeroPage = currentPath === '/' || currentPath === '/collections' || currentPath === '/towels' || currentPath === '/linen';
   const [previousPathname, setPreviousPathname] = useState(pathname);
 
   if (pathname !== previousPathname) {
@@ -43,10 +46,10 @@ export default function Header() {
                   <Link
                     to={item.href}
                     className={styles.navLink}
-                    aria-current={pathname === item.href ? 'page' : undefined}
+                    aria-current={currentPath === item.href ? 'page' : undefined}
                   >
                     {t(item.labelKey)}
-                    <span className={styles.navUnderline} data-active={pathname === item.href} />
+                    <span className={styles.navUnderline} data-active={currentPath === item.href} />
                   </Link>
                 </li>
               ))}

@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { siteConfig } from '@/data/config';
+import { withTrailingSlash } from '@/lib/paths';
 
 /* ═══════════════════════════════════════════════
    SEO — Client-side Meta Tag Manager
@@ -312,7 +313,7 @@ export default function SEO({
           // carries no item — that is what the spec expects, not the
           // canonical URL repeated.
           ...(crumb.href
-            ? { item: new URL(crumb.href, siteConfig.siteUrl).toString() }
+            ? { item: new URL(withTrailingSlash(crumb.href), siteConfig.siteUrl).toString() }
             : {}),
         })),
       });

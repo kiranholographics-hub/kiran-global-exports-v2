@@ -83,6 +83,14 @@ jobs:
           has /solutions/hotel-towel-manufacturer/ \
             "Hotel page unique intro" "A hotel towel fails in one of three ways"
 
+          echo "── Internal links name the final URL, not a redirecting one ──"
+          has  /export/ "hub links to a landing page with a trailing slash" 'href="/export/usa-cotton-towel-supplier/"'
+          lacks /export/ "hub has no slashless landing-page link" 'href="/export/usa-cotton-towel-supplier"'
+          has  / "homepage nav links with a trailing slash" 'href="/about/"'
+          lacks / "homepage has no slashless nav link" 'href="/about"'
+          has  /solutions/bulk-hotel-towels/ "breadcrumb schema names the trailing-slash URL" \
+            '"item":"https://www.kiranglobal-exports.com/export/"'
+
           echo "── Structured data ──"
           has /export/usa-cotton-towel-supplier/ "FAQPage schema" '"@type":"FAQPage"'
           has /export/usa-cotton-towel-supplier/ "BreadcrumbList schema" '"@type":"BreadcrumbList"'
@@ -122,7 +130,7 @@ jobs:
           # The footer renders on every page, so one check per market on
           # one page covers the whole site.
           for m in usa canada australia south-america poland finland sweden norway; do
-            has /about/ "footer links to /$m" "\"/$m\""
+            has /about/ "footer links to /$m" "\"/$m/\""
           done
           has /usa/ "USA market page links to its sourcing guide" "/export/usa-cotton-towel-supplier"
 
@@ -274,7 +282,10 @@ jobs:
             total=0
             for link in $links; do
               total=$((total + 1))
-              code=$(curl -sL -o /dev/null -w '%{http_code}' --max-time 20 \
+              # No -L: an internal link that answers 301 is a link naming a
+              # URL that is not the final one, which Search Console reports
+              # as "Page with redirect" and crawlers pay two requests for.
+              code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 \
                 "$SITE$link" 2>/dev/null || echo 000)
               if [ "$code" != "200" ]; then
                 echo "  BROKEN   $page -> $link  (HTTP $code)"
