@@ -23,6 +23,7 @@ const ARTICLE_GUIDES = [
     slug: 'how-to-specify-a-hotel-towel',
     title: 'How to specify a hotel towel',
     pages: [
+      'solutions/dobby-border-towel-manufacturer',
       'solutions/hotel-towel-manufacturer',
       'solutions/bulk-hotel-towels',
       'solutions/hotel-towels-supplier-what-to-check',
@@ -33,6 +34,7 @@ const ARTICLE_GUIDES = [
     title: 'Zero twist, ringspun, waffle: which towel construction suits which buyer',
     pages: [
       'solutions/zero-twist-towel-manufacturer',
+      'solutions/dobby-border-towel-manufacturer',
       'solutions/hotel-towel-manufacturer',
       'solutions/hotel-pool-towels',
     ],
@@ -73,7 +75,7 @@ const ARTICLE_GUIDES = [
   },
   {
     slug: 'lab-dip-and-colour-matching-explained',
-    title: 'Lab dip and colour matching, explained',
+    title: 'What is a lab dip? Colour matching explained',
     pages: [
       'solutions/hotel-towel-manufacturer',
       'solutions/private-label-towel-manufacturer',

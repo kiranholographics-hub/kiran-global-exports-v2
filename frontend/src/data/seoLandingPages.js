@@ -1057,6 +1057,14 @@ const PAGES = {
         a: 'North America (the USA, Canada and Mexico), Europe (the UK, Germany, the Netherlands, France, Spain, Italy, Sweden, Norway, Denmark and Poland), the Middle East (the UAE, Saudi Arabia, Qatar and Oman), Asia-Pacific (Japan, South Korea, New Zealand and Australia), South Africa, and South America (including Brazil, Chile, Colombia and Peru). Container-load FOB shipping from Nhava Sheva or Mundra reaches all of these on standard commercial routes — see the sourcing guide for your own country for the specifics that differ by destination, like labelling and customs documentation.',
       },
       {
+        q: 'What is the difference between a towel manufacturer and a towel exporter?',
+        a: 'The manufacturer weaves the towel; the exporter handles everything around the shipment — quotation, documentation, freight coordination and communication with you. Kiran Global Exports exports towels woven at our manufacturing partner V P Mundada in Solapur, and quotes and ships FOB direct from that mill, so the mill is named and not hidden behind a chain of traders.',
+      },
+      {
+        q: 'Where in India are towels made?',
+        a: 'Textile production in India is concentrated in a few clusters — Solapur in Maharashtra, where our partner mill has been weaving since 1972, is one of the oldest towel-weaving centres, and other home-textile centres include Karur in Tamil Nadu and Panipat in Haryana. Which one suits your order depends on the product; tell us what you need and we will say plainly whether it is something our mill makes.',
+      },
+      {
         q: 'Do we deal with the mill directly, or through a trading company?',
         a: 'Directly. Kiran Global Exports quotes and ships FOB from our manufacturing partner V P Mundada in Solapur, so a specification question is answered by the people running the production floor, not relayed through an intermediary.',
       },
@@ -1454,6 +1462,53 @@ const PAGES = {
       SAMPLE_FAQ,
     ],
     relatedMarket: { href: '/towels/bathrobe-spa', label: 'See our bathrobes & spa range' },
+  },
+
+  'solutions/dobby-border-towel-manufacturer': {
+    section: 'solutions',
+    eyebrow: 'Dobby Border',
+    seoTitle: 'Dobby Border Towel Manufacturer & Exporter',
+    seoDescription:
+      'Dobby border cotton towels for hotels and retail — a border woven into the towel, not printed, made at our partner mill in Solapur and shipped FOB.',
+    heading: 'Dobby border towel manufacturer and exporter.',
+    lead: 'Bath towels, bath sheets and hotel towels with a dobby border woven into the cloth — made to your specification at our partner mill in Solapur and shipped FOB direct to importers and hotel groups.',
+    intro: [
+      'A dobby border is a band woven into the towel itself — usually plain or lightly patterned — rather than printed or sewn on afterwards. That is what makes it useful: it is part of the cloth, so it does not fade, peel or drift out of step with the rest of the towel through commercial laundering. In a hotel it also does a job: it is the reference line housekeeping staff and guests use to tell a hand towel from a bath towel from a bath mat at a glance when several sizes are stacked together, which is why almost every hotel programme specifies a bordered towel rather than a plain one.',
+      'We weave bordered towels at our manufacturing partner V P Mundada in Solapur, weaving since 1972 — bath towels in ringspun cotton terry, bath sheets, hotel border towels, pure white towels with a reinforced hem, and a Greek-key border towel in a 50 × 100 cm hand-to-small-bath-towel format. Border design, colour and size are built to your brief, and because a woven pattern is set up at the loom, it suits a design you intend to keep across seasons and reorders rather than one that changes every year.',
+      'Dobby and jacquard are often confused. A dobby border is a woven band; jacquard weaves a fuller pattern into the fabric itself, and suits a retail brand that wants its own design in the cloth rather than on it. Tell us which you need and we will propose a construction. A physical sample is approved before bulk on every order, with colour fixed by lab dip before dyeing, so a reorder matches the first shipment.',
+    ],
+    buyers: [
+      'Hotel groups and resorts specifying bordered towels for a full property set',
+      'Importers and distributors of hospitality towels',
+      'Retail and private-label brands wanting a woven border design of their own',
+      'Contract linen suppliers sourcing matching bordered ranges for several properties',
+    ],
+    faqs: [
+      {
+        q: 'What is a dobby border on a towel?',
+        a: 'A band woven into the towel, usually plain or lightly patterned, rather than printed or sewn on. Because it is part of the cloth, it does not fade or lift in commercial laundering, and in hotels it helps staff tell towel sizes apart at a glance.',
+      },
+      {
+        q: 'What is the difference between a dobby border and a jacquard border?',
+        a: 'A dobby border is a woven band, typically plain or lightly patterned. Jacquard weaves a fuller pattern into the fabric itself. Dobby suits hotel programmes that need towels distinguishable by size; jacquard suits brands that want their own design in the cloth.',
+      },
+      {
+        q: 'Can the border design be customised?',
+        a: 'Yes — border artwork, colours and size can be developed to your brief, or matched to a towel you already buy. Because the pattern is set up at the loom, it suits a design you plan to keep rather than one that changes every season.',
+      },
+      {
+        q: 'Which of your towels carry a dobby border?',
+        a: 'Our bath towels, bath sheets, hotel border towels and the Greek-key border towel (50 × 100 cm) all carry one. Other sizes in a matched set can be developed to your specification — tell us the products in your programme and we will quote them together.',
+      },
+      {
+        q: 'Will a reorder match the first order?',
+        a: 'The border pattern is set in the weave, colour is approved by lab dip before bulk dyeing, and every batch is checked against the approved sample, so a later shipment matches what is already in service.',
+      },
+      MOQ_FAQ,
+      MATCH_FAQ,
+      SAMPLE_FAQ,
+    ],
+    relatedMarket: { href: '/towels/dobby-border', label: 'See our dobby border towels' },
   },
 };
 

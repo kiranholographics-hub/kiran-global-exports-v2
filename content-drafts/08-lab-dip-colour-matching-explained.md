@@ -1,5 +1,5 @@
 ---
-title: Lab dip and colour matching, explained
+title: What is a lab dip? Colour matching explained
 slug: lab-dip-and-colour-matching-explained
 excerpt: What actually happens between "we approved a shade" and the bulk dyeing running — and why a photo on a screen is not the same thing as an approved lab dip.
 published: true

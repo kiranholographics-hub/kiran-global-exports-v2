@@ -193,7 +193,7 @@ jobs:
             has "$page" "$slug has its own buyer list" "Who we supply"
           done
           for slug in hotel-towel-manufacturer private-label-towel-manufacturer cotton-towel-manufacturer-india bulk-hotel-towels \
-                      zero-twist-towel-manufacturer bathrobe-manufacturer; do
+                      zero-twist-towel-manufacturer bathrobe-manufacturer dobby-border-towel-manufacturer; do
             has "/solutions/$slug/" "$slug has an h1" "<h1"
             has "/solutions/$slug/" "$slug has FAQ markup" '"@type":"FAQPage"'
           done
@@ -223,6 +223,11 @@ jobs:
           has /export/ "/export links to the organic linen guide" "/solutions/organic-cotton-linen-manufacturer"
           has /export/ "/export links to the zero twist guide" "/solutions/zero-twist-towel-manufacturer"
           has /export/ "/export links to the bathrobe guide" "/solutions/bathrobe-manufacturer"
+          has /export/ "/export links to the dobby border guide" "/solutions/dobby-border-towel-manufacturer"
+          has /solutions/dobby-border-towel-manufacturer/ \
+            "dobby page explains dobby vs jacquard" "What is the difference between a dobby border and a jacquard border"
+          has /solutions/cotton-towel-manufacturer-india/ \
+            "India page answers manufacturer vs exporter" "difference between a towel manufacturer and a towel exporter"
           # The catalogue says zero twist is not built for tunnel washing;
           # the hotel and UAE pages once recommended it for exactly that.
           has /solutions/zero-twist-towel-manufacturer/ \
