@@ -259,6 +259,10 @@ jobs:
             "the US import guide links to the USA page" "/export/usa-cotton-towel-supplier"
           has /updates/terry-vs-woven-towels/ \
             "the terry vs woven guide is rendered" "What separates the two is the loop"
+          has /updates/briefing-private-label-packaging/ \
+            "the packaging briefing guide is rendered" "Approve a packaged sample"
+          has /updates/briefing-private-label-packaging/ \
+            "the packaging briefing guide links to the private label page" "/solutions/private-label-towel-manufacturer"
           has /updates/reading-a-towel-spec-sheet/ \
             "the spec sheet guide is rendered" "measured how, and when"
           has /updates/what-a-certificate-of-origin-proves/ \
