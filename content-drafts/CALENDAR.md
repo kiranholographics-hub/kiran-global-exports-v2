@@ -34,6 +34,8 @@ note in SEO-ROUTINE.md on doorway pages).
   changes
 - What a certificate of origin does and does not prove
 - Reading a towel spec sheet — what each line is actually promising
+- Briefing packaging for a private label towel order — what to decide
+  before the sample
 
 Note: "what makes a good hotel pool towel" was drafted as an article,
 then retired and rebuilt as a landing page instead
@@ -50,8 +52,6 @@ site duplicating its own content on the same topic.
    catalogue entry with the mill first, or the article contradicts it.
 11. Why towel lead times shift by season — raw cotton, the festival
     calendar, monsoon logistics
-12. Briefing packaging and retail-ready presentation for a private
-    label order
 13. Hotel linen replacement cycles — how often towels are actually
     rebought, and why that number matters when you specify durability
 

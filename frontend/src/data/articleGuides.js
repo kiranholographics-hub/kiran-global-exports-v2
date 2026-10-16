@@ -210,6 +210,17 @@ const ARTICLE_GUIDES = [
       'export/uk-cotton-towel-supplier',
     ],
   },
+  {
+    slug: 'briefing-private-label-packaging',
+    title: 'Briefing packaging for a private label towel order — what to decide before the sample',
+    pages: [
+      'solutions/private-label-towel-manufacturer',
+      'solutions/cotton-towel-manufacturer-india',
+      'export/usa-cotton-towel-supplier',
+      'export/uk-cotton-towel-supplier',
+      'export/canada-cotton-towel-supplier',
+    ],
+  },
 ];
 
 export function getLandingPagesForArticle(articleSlug) {
