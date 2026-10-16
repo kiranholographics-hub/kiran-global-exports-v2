@@ -17,6 +17,8 @@ const ARTICLE_GUIDES = [
       'solutions/cotton-towel-manufacturer-india',
       'solutions/private-label-towel-manufacturer',
       'solutions/bulk-hotel-towels',
+      'export/canada-cotton-towel-supplier',
+      'export/south-korea-cotton-towel-supplier',
     ],
   },
   {
@@ -27,6 +29,10 @@ const ARTICLE_GUIDES = [
       'solutions/hotel-towel-manufacturer',
       'solutions/bulk-hotel-towels',
       'solutions/hotel-towels-supplier-what-to-check',
+      'export/uae-cotton-towel-supplier',
+      'export/saudi-arabia-cotton-towel-supplier',
+      'export/qatar-cotton-towel-supplier',
+      'export/france-cotton-towel-supplier',
     ],
   },
   {
@@ -37,6 +43,9 @@ const ARTICLE_GUIDES = [
       'solutions/dobby-border-towel-manufacturer',
       'solutions/hotel-towel-manufacturer',
       'solutions/hotel-pool-towels',
+      'export/denmark-cotton-towel-supplier',
+      'export/italy-cotton-towel-supplier',
+      'export/israel-cotton-towel-supplier',
     ],
   },
   {
@@ -45,6 +54,9 @@ const ARTICLE_GUIDES = [
     pages: [
       'solutions/cotton-towel-manufacturer-india',
       'solutions/bulk-hotel-towels',
+      'export/south-africa-cotton-towel-supplier',
+      'export/chile-cotton-towel-supplier',
+      'export/south-america-cotton-towel-supplier',
     ],
   },
   {
@@ -54,6 +66,8 @@ const ARTICLE_GUIDES = [
       'solutions/hotel-towels-supplier-what-to-check',
       'solutions/organic-cotton-linen-manufacturer',
       'solutions/cotton-towel-manufacturer-india',
+      'export/germany-cotton-towel-supplier',
+      'export/sweden-cotton-towel-supplier',
     ],
   },
   {
@@ -62,6 +76,10 @@ const ARTICLE_GUIDES = [
     pages: [
       'solutions/bulk-hotel-towels',
       'solutions/hotel-towel-manufacturer',
+      'export/uae-cotton-towel-supplier',
+      'export/qatar-cotton-towel-supplier',
+      'export/poland-cotton-towel-supplier',
+      'export/peru-cotton-towel-supplier',
     ],
   },
   {
@@ -71,6 +89,9 @@ const ARTICLE_GUIDES = [
       'solutions/hotel-towel-manufacturer',
       'solutions/bathrobe-manufacturer',
       'solutions/hotel-pool-towels',
+      'export/spain-cotton-towel-supplier',
+      'export/mexico-cotton-towel-supplier',
+      'export/colombia-cotton-towel-supplier',
     ],
   },
   {
@@ -80,6 +101,9 @@ const ARTICLE_GUIDES = [
       'solutions/hotel-towel-manufacturer',
       'solutions/private-label-towel-manufacturer',
       'solutions/bulk-hotel-towels',
+      'export/japan-cotton-towel-supplier',
+      'export/saudi-arabia-cotton-towel-supplier',
+      'export/france-cotton-towel-supplier',
     ],
   },
   {
@@ -93,7 +117,12 @@ const ARTICLE_GUIDES = [
   {
     slug: 'private-label-vs-white-label',
     title: 'Private label vs white label — what is actually being customised',
-    pages: ['solutions/private-label-towel-manufacturer'],
+    pages: [
+      'solutions/private-label-towel-manufacturer',
+      'export/denmark-cotton-towel-supplier',
+      'export/italy-cotton-towel-supplier',
+      'export/south-korea-cotton-towel-supplier',
+    ],
   },
   {
     slug: 'container-loading-for-towels',
@@ -101,12 +130,19 @@ const ARTICLE_GUIDES = [
     pages: [
       'solutions/bulk-hotel-towels',
       'solutions/cotton-towel-manufacturer-india',
+      'export/new-zealand-cotton-towel-supplier',
+      'export/netherlands-cotton-towel-supplier',
+      'export/south-america-cotton-towel-supplier',
     ],
   },
   {
     slug: 'organic-cotton-vs-conventional-quotation',
     title: 'What changes in a quotation when a buyer asks for organic cotton',
-    pages: ['solutions/organic-cotton-linen-manufacturer'],
+    pages: [
+      'solutions/organic-cotton-linen-manufacturer',
+      'export/sweden-cotton-towel-supplier',
+      'export/germany-cotton-towel-supplier',
+    ],
   },
   {
     slug: 'what-sample-first-actually-protects-against',
@@ -124,6 +160,10 @@ const ARTICLE_GUIDES = [
       'solutions/bulk-hotel-towels',
       'solutions/private-label-towel-manufacturer',
       'solutions/hotel-towels-supplier-what-to-check',
+      'export/japan-cotton-towel-supplier',
+      'export/oman-cotton-towel-supplier',
+      'export/netherlands-cotton-towel-supplier',
+      'export/canada-cotton-towel-supplier',
     ],
   },
   {
@@ -143,6 +183,8 @@ const ARTICLE_GUIDES = [
       'solutions/hotel-pool-towels',
       'solutions/bathrobe-manufacturer',
       'solutions/zero-twist-towel-manufacturer',
+      'export/spain-cotton-towel-supplier',
+      'export/brazil-cotton-towel-supplier',
     ],
   },
   {
@@ -153,6 +195,8 @@ const ARTICLE_GUIDES = [
       'solutions/bulk-hotel-towels',
       'solutions/private-label-towel-manufacturer',
       'solutions/hotel-towels-supplier-what-to-check',
+      'export/japan-cotton-towel-supplier',
+      'export/south-korea-cotton-towel-supplier',
     ],
   },
   {
@@ -163,6 +207,7 @@ const ARTICLE_GUIDES = [
       'export/australia-cotton-towel-supplier',
       'export/norway-cotton-towel-supplier',
       'export/usa-cotton-towel-supplier',
+      'export/uk-cotton-towel-supplier',
     ],
   },
 ];

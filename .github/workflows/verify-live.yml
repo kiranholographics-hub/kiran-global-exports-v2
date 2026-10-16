@@ -240,6 +240,14 @@ jobs:
           echo "── Buyer guides and landing pages link to each other ──"
           has /solutions/bulk-hotel-towels/ "landing page lists its buyer guides" "Further reading"
           has /solutions/bulk-hotel-towels/ "landing page links to the GSM guide" "/updates/hotel-towel-gsm-guide"
+          has /export/japan-cotton-towel-supplier/ \
+            "Japan page links to the lab dip guide" "/updates/lab-dip-and-colour-matching-explained"
+          has /export/germany-cotton-towel-supplier/ \
+            "Germany page links to the certifications guide" "/updates/oeko-tex-gots-bsci-iso-what-each-certification-actually-means"
+          has /export/new-zealand-cotton-towel-supplier/ \
+            "New Zealand page links to the container loading guide" "/updates/container-loading-for-towels"
+          has /updates/lab-dip-and-colour-matching-explained/ \
+            "lab dip guide links to the Japan page" "/export/japan-cotton-towel-supplier"
           has /solutions/organic-cotton-linen-manufacturer/ \
             "organic linen page links to the organic quotation guide" "/updates/organic-cotton-vs-conventional-quotation"
           has /updates/hotel-towel-gsm-guide/ "article lists related sourcing guides" "Related sourcing guides"
