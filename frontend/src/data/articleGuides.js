@@ -221,6 +221,16 @@ const ARTICLE_GUIDES = [
       'export/canada-cotton-towel-supplier',
     ],
   },
+  {
+    slug: 'payment-terms-importing-towels-from-india',
+    title: 'Payment terms for importing towels from India — T/T, letter of credit and collection compared',
+    pages: [
+      'solutions/cotton-towel-manufacturer-india',
+      'solutions/bulk-hotel-towels',
+      'solutions/private-label-towel-manufacturer',
+      'export/usa-cotton-towel-supplier',
+    ],
+  },
 ];
 
 export function getLandingPagesForArticle(articleSlug) {

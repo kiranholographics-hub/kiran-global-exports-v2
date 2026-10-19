@@ -36,6 +36,8 @@ note in SEO-ROUTINE.md on doorway pages).
 - Reading a towel spec sheet — what each line is actually promising
 - Briefing packaging for a private label towel order — what to decide
   before the sample
+- Payment terms for importing towels from India — T/T, letter of credit
+  and collection compared
 
 Note: "what makes a good hotel pool towel" was drafted as an article,
 then retired and rebuilt as a landing page instead

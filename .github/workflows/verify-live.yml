@@ -263,6 +263,10 @@ jobs:
             "the packaging briefing guide is rendered" "Approve a packaged sample"
           has /updates/briefing-private-label-packaging/ \
             "the packaging briefing guide links to the private label page" "/solutions/private-label-towel-manufacturer"
+          has /updates/payment-terms-importing-towels-from-india/ \
+            "the payment terms guide is rendered" "Documents against payment"
+          has /updates/payment-terms-importing-towels-from-india/ \
+            "the payment terms guide links to the India sourcing page" "/solutions/cotton-towel-manufacturer-india"
           has /updates/reading-a-towel-spec-sheet/ \
             "the spec sheet guide is rendered" "measured how, and when"
           has /updates/what-a-certificate-of-origin-proves/ \
