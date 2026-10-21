@@ -101,9 +101,26 @@ async function fetchUpdateRoutes() {
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const updates = await res.json();
     if (!updates.length) return [];
+    // lastmod is only ever a date the article really changed on: the
+    // record's own updatedAt (falling back to publishedAt). Google ignores
+    // a lastmod it finds to be unreliable, so static pages — which have no
+    // such date — are left without one rather than stamped with build day.
+    const toDate = (value) => {
+      const d = new Date(value);
+      return Number.isNaN(d.getTime()) ? null : d.toISOString().slice(0, 10);
+    };
+    const dated = updates.map((u) => ({
+      slug: u.slug,
+      lastmod: toDate(u.updatedAt) || toDate(u.publishedAt),
+    }));
+    const newest = dated.map((u) => u.lastmod).filter(Boolean).sort().pop() || null;
     return [
-      { path: '/updates', priority: '0.6' },
-      ...updates.map((u) => ({ path: `/updates/${u.slug}`, priority: '0.6' })),
+      { path: '/updates', priority: '0.6', lastmod: newest },
+      ...dated.map((u) => ({
+        path: `/updates/${u.slug}`,
+        priority: '0.6',
+        lastmod: u.lastmod,
+      })),
     ];
   } catch (err) {
     console.warn(`[generate-seo-files] could not fetch updates (${err.message}) — sitemap will omit them this build.`);
@@ -138,8 +155,10 @@ async function main() {
 
   const urls = routes
     .map(
-      ({ path: route, priority }) =>
-        `  <url>\n    <loc>${siteConfig.siteUrl}${withTrailingSlash(route)}</loc>\n    <priority>${priority}</priority>\n  </url>`
+      ({ path: route, priority, lastmod }) =>
+        `  <url>\n    <loc>${siteConfig.siteUrl}${withTrailingSlash(route)}</loc>${
+          lastmod ? `\n    <lastmod>${lastmod}</lastmod>` : ''
+        }\n    <priority>${priority}</priority>\n  </url>`
     )
     .join('\n');
 

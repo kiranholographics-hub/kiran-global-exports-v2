@@ -227,6 +227,9 @@ export default function SEO({
     setJsonLd('organization', {
       '@context': 'https://schema.org',
       '@type':    'Organization',
+      // Same @id as the static block in index.html, so Google reads the two
+      // as one organisation instead of two competing ones.
+      '@id':      `${siteConfig.siteUrl}/#organization`,
       name:       siteConfig.brandName,
       url:        siteConfig.siteUrl,
       logo: {
