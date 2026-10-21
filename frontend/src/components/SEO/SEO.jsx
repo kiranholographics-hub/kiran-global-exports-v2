@@ -376,6 +376,15 @@ export default function SEO({
             url:     `${siteConfig.siteUrl}/favicon.svg`,
           },
         },
+        // The person who answers for the guide. 'accountablePerson' rather
+        // than 'author': the guide is published under the company's name and
+        // this says who is responsible for it, which is what is true.
+        accountablePerson: {
+          '@type':  'Person',
+          name:     siteConfig.contact.person,
+          jobTitle: siteConfig.contact.personTitle,
+          worksFor: { '@id': `${siteConfig.siteUrl}/#organization` },
+        },
         datePublished: article.datePublished,
         dateModified:  article.dateModified || article.datePublished,
         mainEntityOfPage: {

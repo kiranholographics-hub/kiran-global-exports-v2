@@ -42,6 +42,17 @@
   margin-bottom: var(--space-xs);
 }
 
+.byline {
+  margin: var(--space-xs) 0 var(--space-md);
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.byline strong {
+  color: var(--color-charcoal);
+  font-weight: 600;
+}
+
 .title {
   font-family: var(--font-serif);
   font-size: clamp(2rem, 4vw, 3rem);

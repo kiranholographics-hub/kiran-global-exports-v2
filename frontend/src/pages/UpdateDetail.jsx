@@ -5,6 +5,7 @@ import SEO from '@/components/SEO/SEO';
 import NotFoundContent from '@/components/NotFoundContent/NotFoundContent';
 import { fetchUpdateBySlug } from '@/lib/updates';
 import { getLandingPagesForArticle } from '@/data/articleGuides';
+import { siteConfig } from '@/data/config';
 import styles from './UpdateDetail.module.css';
 
 /**
@@ -95,6 +96,14 @@ export default function UpdateDetail() {
                 })}
               </time>
               <h1 className={styles.title}>{update.title}</h1>
+
+              {/* Who stands behind the guide. Taken from the same config
+                  the contact page uses, so the name and title cannot drift
+                  apart between pages. */}
+              <p className={styles.byline}>
+                Published by <strong>{siteConfig.contact.person}</strong>,{' '}
+                {siteConfig.contact.personTitle}, {siteConfig.brandName}
+              </p>
 
               {update.coverImage && (
                 <div className={styles.cover}>

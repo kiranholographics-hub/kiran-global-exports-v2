@@ -274,6 +274,8 @@ jobs:
           has /updates/towel-minimum-order-quantity-explained/ \
             "the MOQ guide links to the private label page" "/solutions/private-label-towel-manufacturer"
           has /updates/reading-a-towel-spec-sheet/ \
+            "articles name the person who publishes them" "Published by"
+          has /updates/reading-a-towel-spec-sheet/ \
             "the spec sheet guide is rendered" "measured how, and when"
           has /updates/what-a-certificate-of-origin-proves/ \
             "the certificate of origin guide is rendered" "What it does not prove"
