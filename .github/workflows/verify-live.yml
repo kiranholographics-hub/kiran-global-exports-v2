@@ -267,6 +267,10 @@ jobs:
             "the payment terms guide is rendered" "Documents against payment"
           has /updates/payment-terms-importing-towels-from-india/ \
             "the payment terms guide links to the India sourcing page" "/solutions/cotton-towel-manufacturer-india"
+          has /updates/towel-minimum-order-quantity-explained/ \
+            "the MOQ guide is rendered" "Levers a buyer can ask about"
+          has /updates/towel-minimum-order-quantity-explained/ \
+            "the MOQ guide links to the private label page" "/solutions/private-label-towel-manufacturer"
           has /updates/reading-a-towel-spec-sheet/ \
             "the spec sheet guide is rendered" "measured how, and when"
           has /updates/what-a-certificate-of-origin-proves/ \

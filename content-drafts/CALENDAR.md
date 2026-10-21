@@ -38,6 +38,7 @@ note in SEO-ROUTINE.md on doorway pages).
   before the sample
 - Payment terms for importing towels from India — T/T, letter of credit
   and collection compared
+- Towel MOQ explained — what sets a minimum order and what can lower it
 
 Note: "what makes a good hotel pool towel" was drafted as an article,
 then retired and rebuilt as a landing page instead

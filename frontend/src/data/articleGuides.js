@@ -231,6 +231,17 @@ const ARTICLE_GUIDES = [
       'export/usa-cotton-towel-supplier',
     ],
   },
+  {
+    slug: 'towel-minimum-order-quantity-explained',
+    title: 'Towel MOQ explained — what sets a minimum order and what can lower it',
+    pages: [
+      'solutions/private-label-towel-manufacturer',
+      'solutions/cotton-towel-manufacturer-india',
+      'solutions/bulk-hotel-towels',
+      'solutions/dobby-border-towel-manufacturer',
+      'export/usa-cotton-towel-supplier',
+    ],
+  },
 ];
 
 export function getLandingPagesForArticle(articleSlug) {
