@@ -38,3 +38,8 @@ export function updateMarket(token, id, update) {
 export function deleteMarket(token, id) {
   return request(`/api/markets/${id}`, token, { method: 'DELETE' });
 }
+
+// Per-market activity (enquiries, page views, visitors) for the /hq cards.
+export function fetchMarketStats(token) {
+  return request('/api/markets/stats', token);
+}

@@ -13,6 +13,8 @@ import {
   getSeoLandingPage,
   getRelatedLandingPages,
 } from '@/data/seoLandingPages';
+import { usePageOverride } from '@/lib/usePageOverride';
+import { applyPageOverride } from '@/lib/pageOverrides';
 import styles from './SeoLandingPage.module.css';
 
 const SECTION_LABELS = {
@@ -23,7 +25,11 @@ const SECTION_LABELS = {
 /* ═══════════════════════════════════════════════ */
 export default function SeoLandingPage({ section }) {
   const { slug } = useParams();
-  const page = getSeoLandingPage(section, slug);
+  const basePage = getSeoLandingPage(section, slug);
+  // Text edited in /hq replaces the built-in copy field by field; until it
+  // loads (or if the API is unreachable, as in CI) the built-in copy shows.
+  const override = usePageOverride(section, slug);
+  const page = useMemo(() => applyPageOverride(basePage, override), [basePage, override]);
   const parent = SECTION_LABELS[section] || SECTION_LABELS.export;
 
   // One array for the rendered trail and its BreadcrumbList markup, so the
