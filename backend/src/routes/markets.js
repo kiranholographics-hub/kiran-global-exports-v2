@@ -1,7 +1,10 @@
 import { Router } from 'express';
 import cors from 'cors';
 import Market from '../models/Market.js';
+import Enquiry from '../models/Enquiry.js';
+import Visit from '../models/Visit.js';
 import { requireAuth, requireRole } from '../auth.js';
+import { buildMarketStats, cleanFaqs, cleanText } from '../marketStats.js';
 
 // The app's own global CORS policy (app.js) only allows the real site's
 // origins — correct for everything else, but it blocks the prerender
@@ -29,7 +32,7 @@ const STATUSES = ['draft', 'active', 'paused', 'archived'];
 // reachable by the live market pages and the build scripts that
 // prerender them, while everything else in this router stays
 // admin-only. Never exposes the internal `notes` field.
-const PUBLIC_FIELDS = 'slug countryName countryCode seoTitle seoDescription';
+const PUBLIC_FIELDS = 'slug countryName countryCode seoTitle seoDescription content';
 
 router.get('/public', allowAnyOrigin, async (_req, res) => {
   try {
@@ -64,6 +67,52 @@ router.get('/', async (_req, res) => {
   }
 });
 
+// Per-market activity for the /hq cards: enquiries from that country,
+// views of its two public pages, and visitors geolocated to it. Counts are
+// all-time and the last 30 days. Admin-only, computed on request.
+router.get('/stats', async (_req, res) => {
+  try {
+    const since = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
+    const recent = (field = '$createdAt') => ({ $sum: { $cond: [{ $gte: [field, since] }, 1, 0] } });
+
+    const [markets, enquiryGroups, pathGroups, countryGroups] = await Promise.all([
+      Market.find({}, 'slug countryName countryCode'),
+      Enquiry.aggregate([
+        {
+          $group: {
+            _id: { $toLower: { $trim: { input: '$country' } } },
+            total: { $sum: 1 },
+            last30: recent(),
+            lastAt: { $max: '$createdAt' },
+          },
+        },
+        { $project: { _id: 0, country: '$_id', total: 1, last30: 1, lastAt: 1 } },
+      ]),
+      Visit.aggregate([
+        { $group: { _id: '$path', total: { $sum: 1 }, last30: recent() } },
+        { $project: { _id: 0, path: '$_id', total: 1, last30: 1 } },
+      ]),
+      Visit.aggregate([
+        { $match: { countryCode: { $ne: '' } } },
+        { $group: { _id: '$countryCode', total: { $sum: 1 }, last30: recent() } },
+        { $project: { _id: 0, countryCode: '$_id', total: 1, last30: 1 } },
+      ]),
+    ]);
+
+    res.json(
+      buildMarketStats(
+        markets.map((m) => ({ id: m._id.toString(), slug: m.slug, countryName: m.countryName, countryCode: m.countryCode })),
+        enquiryGroups,
+        pathGroups,
+        countryGroups
+      )
+    );
+  } catch (err) {
+    console.error('[markets] stats error:', err.message);
+    res.status(500).json({ error: 'Could not load market activity.' });
+  }
+});
+
 router.post('/', async (req, res) => {
   try {
     const body = req.body || {};
@@ -91,6 +140,14 @@ router.patch('/:id', async (req, res) => {
     if (body.seoTitle !== undefined) update.seoTitle = clean(body.seoTitle, 200);
     if (body.seoDescription !== undefined) update.seoDescription = clean(body.seoDescription, 300);
     if (body.notes !== undefined) update.notes = clean(body.notes, 2000);
+    if (body.content !== undefined) {
+      const c = body.content || {};
+      update.content = {
+        heading: cleanText(c.heading, 200),
+        lead: cleanText(c.lead, 800),
+        faqs: cleanFaqs(c.faqs),
+      };
+    }
     if (body.status !== undefined) {
       if (!STATUSES.includes(body.status)) {
         return res.status(400).json({ error: `status must be one of: ${STATUSES.join(', ')}` });

@@ -156,3 +156,22 @@ none requiring a rearchitecture:
   reusable `ScrollReveal` (fade/slide) and `ImageReveal` (clip-path
   unveil) components; a pinned horizontal scroll for the manufacturing
   journey section. Everything respects `prefers-reduced-motion`.
+
+## Editing market and landing-page text from /hq
+
+`/hq` → **Global Markets** lists every market as an expandable card with its
+activity (enquiries from that country, views of its pages, visitors) and
+editors for the page's SEO title, description, heading, lead and FAQs. The
+**Export & solution pages** tab does the same for the `/export/*` and
+`/solutions/*` guides.
+
+- The copy that ships in `frontend/src/data/marketContent.js` and
+  `seoLandingPages.js` stays the default. Saved text is stored as an override
+  (`Market.content` and the `PageOverride` collection) and replaces only the
+  fields that were actually edited; **Reset to default** removes it.
+- Edits show on the live site straight away. Google sees them after the next
+  deploy, because the deploy workflow prerenders the pages with the API
+  reachable and bakes the edited text into the HTML.
+- If the API is down at build time the pages still prerender, using the
+  built-in copy.
+- Backend tests: `cd backend && npm test`.

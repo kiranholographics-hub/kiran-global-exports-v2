@@ -7,7 +7,7 @@ import SectionHeading from '@/components/SectionHeading/SectionHeading';
 import CTASection from '@/components/CTASection/CTASection';
 import NotFoundContent from '@/components/NotFoundContent/NotFoundContent';
 import { fetchMarketBySlug } from '@/lib/publicMarkets';
-import { REASONS, getMarketContent, getStaticMarket } from '@/data/marketContent';
+import { REASONS, getMarketContent, getStaticMarket, applyMarketOverrides } from '@/data/marketContent';
 import { getLandingPageForMarket } from '@/data/seoLandingPages';
 import styles from './MarketPage.module.css';
 
@@ -40,7 +40,7 @@ export default function MarketPage() {
     );
   }
 
-  const content = getMarketContent(market.slug, market.countryName);
+  const content = applyMarketOverrides(getMarketContent(market.slug, market.countryName), market);
   // The sourcing guide for this market already links here; this is the
   // same pair read the other way, so neither page is a dead end.
   const guide = getLandingPageForMarket(market.slug);

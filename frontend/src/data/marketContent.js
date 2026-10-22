@@ -227,3 +227,17 @@ export function getMarketContent(slug, countryName) {
     faqs: [base.portsFaq, base.tradeFaq, MOQ_FAQ, MATCH_FAQ, PRIVATE_LABEL_FAQ].filter(Boolean),
   };
 }
+
+// Text edited in /hq (the Market record) replaces the built-in copy field
+// by field; anything left empty there keeps the default above.
+export function applyMarketOverrides(content, market) {
+  const edited = market?.content || {};
+  return {
+    ...content,
+    seoTitle: market?.seoTitle || content.seoTitle,
+    seoDescription: market?.seoDescription || content.seoDescription,
+    heading: edited.heading || content.heading,
+    lead: edited.lead || content.lead,
+    faqs: edited.faqs?.length ? edited.faqs : content.faqs,
+  };
+}
