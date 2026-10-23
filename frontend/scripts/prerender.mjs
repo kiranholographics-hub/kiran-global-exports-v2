@@ -32,6 +32,7 @@ import http from 'node:http';
 import os from 'node:os';
 import puppeteer from 'puppeteer';
 import { SEO_LANDING_ROUTES } from '../src/data/seoLandingPages.js';
+import { LOCALIZED_ROUTES } from '../src/data/localeRoutes.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DIST_DIR = path.join(__dirname, '..', 'dist');
@@ -79,6 +80,8 @@ const STATIC_ROUTES = [
   // market routes below, their copy is static, so they prerender fully
   // even when no API is reachable (as in CI).
   ...SEO_LANDING_ROUTES,
+  // The same pages in every other language (/de, /es/about, ...).
+  ...LOCALIZED_ROUTES,
 ];
 
 // process.env, not import.meta.env — see the matching note in

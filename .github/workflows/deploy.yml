@@ -391,6 +391,9 @@ jobs:
           }
           check "/export/usa-cotton-towel-supplier/" "Cotton towel supplier for United States importers."
           check "/solutions/hotel-towel-manufacturer/" "Hotel towel manufacturer for hospitality buyers."
+          # A language version, served as its own prerendered page — see
+          # frontend/src/data/localeRoutes.js.
+          check "/de/about/" 'hreflang="de"'
 
           # A bundle built without VITE_API_URL points every API call at the
           # visitor's own machine, which breaks the catalogue and the contact

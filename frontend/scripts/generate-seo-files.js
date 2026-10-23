@@ -43,6 +43,13 @@ import { siteConfig } from '../src/data/config.js';
 import { SEO_LANDING_ROUTES } from '../src/data/seoLandingPages.js';
 import { TOWEL_CATEGORY_ROUTES, TOWEL_PRODUCT_ROUTES } from '../src/data/deployRoutes.js';
 import { linenProducts } from '../src/data/linenCatalog.js';
+import {
+  ALL_LOCALES,
+  DEFAULT_LOCALE,
+  HREFLANG,
+  isLocalizedPage,
+  localizedPageUrl,
+} from '../src/data/localeRoutes.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const outPath = path.join(__dirname, '../public/sitemap.xml');
@@ -119,6 +126,30 @@ async function fetchActiveMarketRoutes() {
   }
 }
 
+// A translated page is listed once per language, each entry naming every
+// language version (the same set its <link rel="alternate" hreflang> tags
+// carry — see SEO.jsx), at the slashed URL the server actually answers on.
+function localizedEntries(route, priority) {
+  const path = route || '/';
+  const alternates = [
+    ...ALL_LOCALES.map((code) => ({
+      hreflang: HREFLANG[code],
+      href: localizedPageUrl(siteConfig.siteUrl, path, code),
+    })),
+    {
+      hreflang: 'x-default',
+      href: localizedPageUrl(siteConfig.siteUrl, path, DEFAULT_LOCALE),
+    },
+  ];
+  const links = alternates
+    .map((a) => `    <xhtml:link rel="alternate" hreflang="${a.hreflang}" href="${a.href}"/>`)
+    .join('\n');
+  return ALL_LOCALES.map(
+    (code) =>
+      `  <url>\n    <loc>${localizedPageUrl(siteConfig.siteUrl, path, code)}</loc>\n${links}\n    <priority>${priority}</priority>\n  </url>`
+  );
+}
+
 async function main() {
   const [marketRoutes, updateRoutes] = await Promise.all([
     fetchActiveMarketRoutes(),
@@ -126,17 +157,16 @@ async function main() {
   ]);
   const routes = [...STATIC_ROUTES, ...marketRoutes, ...updateRoutes];
 
-  const urls = routes
-    .map(
-      ({ path: route, priority }) =>
-        `  <url>\n    <loc>${siteConfig.siteUrl}${route}</loc>\n    <priority>${priority}</priority>\n  </url>`
-    )
-    .join('\n');
+  const entries = routes.flatMap(({ path: route, priority }) =>
+    isLocalizedPage(route || '/')
+      ? localizedEntries(route, priority)
+      : [`  <url>\n    <loc>${siteConfig.siteUrl}${route}</loc>\n    <priority>${priority}</priority>\n  </url>`]
+  );
 
-  const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`;
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${entries.join('\n')}\n</urlset>\n`;
 
   writeFileSync(outPath, xml, 'utf-8');
-  console.log(`[generate-seo-files] wrote ${routes.length} indexable routes to public/sitemap.xml`);
+  console.log(`[generate-seo-files] wrote ${entries.length} indexable URLs to public/sitemap.xml`);
 }
 
 main();

@@ -97,6 +97,27 @@ Bring either to Claude and it gets built.
   earn a page on the same terms a country does. "All major world
   cities" cannot.
 
+## Languages
+
+Every language has its own URL: `/de/about`, `/es/towels`, `/ar`. English
+stays unprefixed. Only the pages listed in `LOCALIZED_PAGES`
+(`frontend/src/data/localeRoutes.js`) are indexed in other languages —
+home, about, custom, contact, towels and linen — each with
+hreflang tags and a sitemap entry per language. The /export and
+/solutions landing pages are still English-only, so under a language
+prefix they point their canonical back at the English page. So does
+/collections, whose product descriptions come from the API in English.
+
+- **Changing English copy means changing every locale file.** When the
+  English text in `en.json` changes and the others do not, the other
+  languages keep publishing the old claim to Google. That happened once
+  already (German said "trusted exporter since 2005" long after English
+  said "weaving since 1972").
+- A landing page joins `LOCALIZED_PAGES` only once its copy really is
+  translated — never with English text in a translated frame.
+- In Search Console, check **International targeting / hreflang** errors
+  after each deploy that touches languages.
+
 ## Where things are
 
 - Live check, deploy, article publishing, catalogue seeding — all in
@@ -105,6 +126,7 @@ Bring either to Claude and it gets built.
 - Landing page copy — `frontend/src/data/seoLandingPages.js`.
 - What gets rendered and shipped — `frontend/src/data/deployRoutes.js`.
 - What is in the sitemap — `frontend/scripts/generate-seo-files.js`.
+- Which pages exist in which languages — `frontend/src/data/localeRoutes.js`.
 
 ## What is already done
 

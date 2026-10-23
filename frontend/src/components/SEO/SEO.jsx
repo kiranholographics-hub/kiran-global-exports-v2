@@ -2,6 +2,13 @@ import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { siteConfig } from '@/data/config';
+import {
+  ALL_LOCALES,
+  DEFAULT_LOCALE,
+  HREFLANG,
+  isLocalizedPage,
+  localizedPageUrl,
+} from '@/data/localeRoutes';
 
 /* ═══════════════════════════════════════════════
    SEO — Client-side Meta Tag Manager
@@ -41,6 +48,24 @@ function setLink(rel, href) {
     document.head.appendChild(el);
   }
   el.setAttribute('href', href);
+}
+
+/**
+ * Replace the page's hreflang alternates. Removed first on every route
+ * change, so a page that is not translated never keeps the set left by the
+ * last one that was.
+ */
+function setAlternates(alternates) {
+  document.head
+    .querySelectorAll('link[rel="alternate"][hreflang]')
+    .forEach((el) => el.remove());
+  alternates.forEach(({ hreflang, href }) => {
+    const el = document.createElement('link');
+    el.setAttribute('rel', 'alternate');
+    el.setAttribute('hreflang', hreflang);
+    el.setAttribute('href', href);
+    document.head.appendChild(el);
+  });
 }
 
 /** Set or update a JSON-LD <script> block */
@@ -151,10 +176,10 @@ export default function SEO({
   const { i18n } = useTranslation();
 
   const OG_LOCALES = {
-    en: 'en_US', hi: 'hi_IN', ar: 'ar_AR', de: 'de_DE', ko: 'ko_KR', pt: 'pt_BR', ja: 'ja_JP',
+    en: 'en_US', es: 'es_ES', hi: 'hi_IN', ar: 'ar_AR', de: 'de_DE', ko: 'ko_KR', pt: 'pt_BR', ja: 'ja_JP',
   };
   const ogLocale = OG_LOCALES[i18n.language] || 'en_US';
-  const htmlLang = i18n.language || 'en';
+  const htmlLang = i18n.language || DEFAULT_LOCALE;
 
   useEffect(() => {
     /* ── Core values ─────────────────────────── */
@@ -165,7 +190,15 @@ export default function SEO({
       : `${siteConfig.brandName} — Premium Towels & Linen`;
 
     const metaDesc     = truncate(description);
-    const canonicalUrl = `${siteConfig.siteUrl}${location.pathname}`;
+    // location.pathname is without the language prefix (the router runs
+    // under it as basename). A translated page is canonical in its own
+    // language; any other page under a prefix is English copy in a
+    // translated frame, so it points back at the English URL instead of
+    // competing with it.
+    const translated = isLocalizedPage(location.pathname);
+    const canonicalUrl = translated
+      ? localizedPageUrl(siteConfig.siteUrl, location.pathname, htmlLang)
+      : `${siteConfig.siteUrl}${location.pathname}`;
     const absoluteImg  = resolveImage(image);
 
     /* ── Title ───────────────────────────────── */
@@ -180,6 +213,24 @@ export default function SEO({
 
     /* ── Canonical ───────────────────────────── */
     setLink('canonical', canonicalUrl);
+
+    /* ── hreflang ────────────────────────────── */
+    // Every language version of a translated page names all of them,
+    // itself included, plus x-default for searchers in any other language.
+    setAlternates(
+      translated && !noindex
+        ? [
+            ...ALL_LOCALES.map((code) => ({
+              hreflang: HREFLANG[code],
+              href: localizedPageUrl(siteConfig.siteUrl, location.pathname, code),
+            })),
+            {
+              hreflang: 'x-default',
+              href: localizedPageUrl(siteConfig.siteUrl, location.pathname, DEFAULT_LOCALE),
+            },
+          ]
+        : []
+    );
 
     /* ── Robots ──────────────────────────────── */
     setMeta(
@@ -229,7 +280,7 @@ export default function SEO({
         telephone:     siteConfig.contact.phone,
         email:         siteConfig.contact.email,
         contactType:   'Sales',
-        availableLanguage: ['English', 'Hindi', 'Arabic', 'German', 'Korean', 'Portuguese', 'Japanese'],
+        availableLanguage: ['English', 'Spanish', 'Hindi', 'Arabic', 'German', 'Korean', 'Portuguese', 'Japanese'],
         areaServed:    'Worldwide',
       },
       address: {

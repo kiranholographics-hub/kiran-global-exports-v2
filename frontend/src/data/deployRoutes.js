@@ -23,6 +23,7 @@
 import { SEO_LANDING_ROUTES } from './seoLandingPages.js';
 import { towelProducts } from './towelCatalog.js';
 import { linenProducts } from './linenCatalog.js';
+import { LOCALIZED_ROUTES } from './localeRoutes.js';
 
 // Mirrors getTowelProductPath() in towelHierarchy.js, which can't be
 // imported here: it pulls in products.js, and that module calls React's
@@ -77,4 +78,8 @@ export const DEPLOY_ROUTES = [
   ...TOWEL_PRODUCT_ROUTES,
   ...LINEN_CATEGORY_ROUTES,
   ...LINEN_PRODUCT_ROUTES,
+  // /de, /es/about, /ar/towels ... — see localeRoutes.js. They read the
+  // same API as their English pages, and a language a crawler is never
+  // served as real HTML is a language that cannot rank.
+  ...LOCALIZED_ROUTES,
 ];

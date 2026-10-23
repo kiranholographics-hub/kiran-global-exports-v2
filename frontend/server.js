@@ -13,6 +13,7 @@ import compression from 'compression';
 import path from 'node:path';
 import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
+import { splitLocale } from './src/data/localeRoutes.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DIST_DIR = path.join(__dirname, 'dist');
@@ -62,7 +63,8 @@ setInterval(refreshMarketSlugs, 10 * 60 * 1000).unref();
 // specific file when it exists so crawlers get real content immediately;
 // fall back to the plain SPA shell for every other route.
 app.use((req, res) => {
-  const segments = req.path.split('/').filter(Boolean);
+  // /de/about is /about in German — judge the path without its language.
+  const segments = splitLocale(req.path).path.split('/').filter(Boolean);
   const isKnownRoute =
     segments.length === 0 ||
     KNOWN_TOP_LEVEL_ROUTES.has(segments[0]) ||
