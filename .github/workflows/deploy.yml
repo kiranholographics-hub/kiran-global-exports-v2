@@ -408,6 +408,8 @@ jobs:
           # A language version, served as its own prerendered page — see
           # frontend/src/data/localeRoutes.js.
           check "/de/about/" 'hreflang="de"'
+          # A country page served in its market's language.
+          check "/es/export/mexico-cotton-towel-supplier/" 'Proveedor de toallas de algodón'
           # An untranslated page under a language prefix must send crawlers to
           # the English URL, not answer with the home page's HTML.
           loc=$(curl -s -o /dev/null -w '%{http_code} %{redirect_url}' \

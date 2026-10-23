@@ -17,6 +17,8 @@
 // limited to public geography (major ports) and publicly documented trade
 // facts, always phrased so the export team confirms specifics per order.
 
+import { LANDING_TRANSLATIONS } from './landingTranslations/index.js';
+
 /* ── Shared blocks ─────────────────────────────── */
 
 export const CAPABILITIES = [
@@ -1519,8 +1521,36 @@ const PAGES = {
 // plain value with no build-tool aliases in this file.
 export const SEO_LANDING_ROUTES = Object.keys(PAGES).map((key) => `/${key}`);
 
-export function getSeoLandingPage(section, slug) {
-  return PAGES[`${section}/${slug}`] || null;
+// The English page, or — when it has been translated into `locale` (see
+// LOCALIZED_LANDING_PAGES in localeRoutes.js) — the same page with that
+// language's copy laid over it, `translated: true` marking which. The
+// shared blocks and FAQs are translated once per language; each page's own
+// FAQs fill the places its English FAQs hold, in the same order.
+export function getSeoLandingPage(section, slug, locale = 'en') {
+  const key = `${section}/${slug}`;
+  const page = PAGES[key];
+  if (!page) return null;
+  const translation = LANDING_TRANSLATIONS[locale];
+  const copy = translation?.pages[key];
+  if (!copy) return page;
+
+  const { shared } = translation;
+  const sharedFaqs = new Map([
+    [MOQ_FAQ, shared.faqs.moq],
+    [MATCH_FAQ, shared.faqs.match],
+    [SAMPLE_FAQ, shared.faqs.sample],
+  ]);
+  const ownFaqs = [...copy.faqs];
+  const faqs = page.faqs.map((faq) => sharedFaqs.get(faq) || ownFaqs.shift());
+
+  return {
+    ...page,
+    ...copy,
+    faqs,
+    capabilities: shared.capabilities,
+    range: shared.range,
+    translated: true,
+  };
 }
 
 // The whole set, grouped, for the hub section on /export. Nothing on the
@@ -1561,8 +1591,17 @@ export function getLandingPageForMarket(marketSlug) {
 // other nine the moment it is added above — a page nothing links to is
 // one Google finds late and treats as peripheral, which is most of why
 // these sat in "Discovered - currently not indexed".
-export function getRelatedLandingPages(section, slug) {
+export function getRelatedLandingPages(section, slug, locale = 'en') {
   const current = `${section}/${slug}`;
+  // A translated page links to the other pages in its own language — a
+  // German or Arabic page ending in a list of English titles reads as two
+  // pages stitched together.
+  const translated = LANDING_TRANSLATIONS[locale]?.pages;
+  if (translated?.[current]) {
+    return Object.entries(translated)
+      .filter(([key]) => key !== current)
+      .map(([key, copy]) => ({ href: `/${key}`, label: copy.seoTitle }));
+  }
   return Object.entries(PAGES)
     .filter(([key]) => key !== current)
     // Same section first: a country page's closest neighbours are the

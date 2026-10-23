@@ -44,14 +44,16 @@ import { SEO_LANDING_ROUTES } from '../src/data/seoLandingPages.js';
 import { TOWEL_CATEGORY_ROUTES, TOWEL_PRODUCT_ROUTES } from '../src/data/deployRoutes.js';
 import { linenProducts } from '../src/data/linenCatalog.js';
 import {
-  ALL_LOCALES,
   DEFAULT_LOCALE,
   HREFLANG,
   isLocalizedPage,
+  LOCALIZED_LANDING_PAGES,
   LOCALIZED_PAGES,
   localizedPageUrl,
+  pageLocales,
   PREFIXED_LOCALES,
 } from '../src/data/localeRoutes.js';
+import { LANDING_TRANSLATIONS } from '../src/data/landingTranslations/index.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const outPath = path.join(__dirname, '../public/sitemap.xml');
@@ -154,8 +156,9 @@ async function fetchActiveMarketRoutes() {
 // carry — see SEO.jsx), at the slashed URL the server actually answers on.
 function localizedEntries(route, priority, lastmod) {
   const path = route || '/';
+  const locales = pageLocales(path);
   const alternates = [
-    ...ALL_LOCALES.map((code) => ({
+    ...locales.map((code) => ({
       hreflang: HREFLANG[code],
       href: localizedPageUrl(siteConfig.siteUrl, path, code),
     })),
@@ -167,7 +170,7 @@ function localizedEntries(route, priority, lastmod) {
   const links = alternates
     .map((a) => `    <xhtml:link rel="alternate" hreflang="${a.hreflang}" href="${a.href}"/>`)
     .join('\n');
-  return ALL_LOCALES.map(
+  return locales.map(
     (code) =>
       `  <url>\n    <loc>${localizedPageUrl(siteConfig.siteUrl, path, code)}</loc>\n${links}${
         lastmod ? `\n    <lastmod>${lastmod}</lastmod>` : ''
@@ -186,11 +189,32 @@ function checkHtaccessLocales() {
   const prefixes = /RewriteRule \^\(([a-z|]+)\)\/\(\.\+\)\$/.exec(htaccess)?.[1].split('|').sort();
   const wantPages = LOCALIZED_PAGES.filter((p) => p !== '/').map((p) => p.slice(1)).sort();
   const wantPrefixes = [...PREFIXED_LOCALES].sort();
-  if (String(pages) !== String(wantPages) || String(prefixes) !== String(wantPrefixes)) {
+  const landing = /RewriteCond \$1\/\$2 !\^\(([^)]+)\)/.exec(htaccess)?.[1].split('|').sort();
+  const wantLanding = Object.entries(LOCALIZED_LANDING_PAGES)
+    .flatMap(([page, locales]) => locales.map((locale) => `${locale}${page}`))
+    .sort();
+  if (
+    String(pages) !== String(wantPages) ||
+    String(prefixes) !== String(wantPrefixes) ||
+    String(landing) !== String(wantLanding)
+  ) {
     throw new Error(
       `public/.htaccess language redirect is out of step with src/data/localeRoutes.js:\n` +
         `  pages    .htaccess [${pages}] vs localeRoutes [${wantPages}]\n` +
-        `  prefixes .htaccess [${prefixes}] vs localeRoutes [${wantPrefixes}]`
+        `  prefixes .htaccess [${prefixes}] vs localeRoutes [${wantPrefixes}]\n` +
+        `  landing  .htaccess [${landing}] vs localeRoutes [${wantLanding}]`
+    );
+  }
+
+  // And every translated landing page needs its copy, and no copy may sit
+  // there unlisted (it would never be served).
+  const haveCopy = Object.entries(LANDING_TRANSLATIONS)
+    .flatMap(([locale, { pages: copy }]) => Object.keys(copy).map((key) => `${locale}/${key}`))
+    .sort();
+  if (String(haveCopy) !== String(wantLanding)) {
+    throw new Error(
+      `src/data/landingTranslations is out of step with LOCALIZED_LANDING_PAGES:\n` +
+        `  copy   [${haveCopy}]\n  listed [${wantLanding}]`
     );
   }
 }
