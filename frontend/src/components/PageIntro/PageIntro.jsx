@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import Link from '@/components/Link/Link';
 import ScrollReveal from '@/components/ScrollReveal/ScrollReveal';
 import styles from './PageIntro.module.css';
 

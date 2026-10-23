@@ -18,7 +18,7 @@ export const siteConfig = {
     phone: '+919983911181',
     address: 'Plot No. 15, Ram Krishna Marg, New Sanganer Road, Sodala, Jaipur, Rajasthan – 302019',
     person: 'Rajneesh Sharma',
-    personTitle: 'Business Consultant, Exports',
+    personTitle: 'Export Head',
     iecCode: '1305018427',
   },
 

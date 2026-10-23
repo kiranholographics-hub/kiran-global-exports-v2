@@ -20,6 +20,27 @@ note in SEO-ROUTINE.md on doorway pages).
 - How to choose cotton towels for hotels, spas and salons
 - Lab dip and colour matching, explained
 - Reading a pre-shipment sample properly
+- Private label vs white label
+- Container loading for towels
+- What changes in a quotation when a buyer asks for organic cotton
+  instead of conventional
+- What "sample-first" actually protects a buyer from, and what it
+  cannot
+- Keeping a reorder consistent — what to keep on file, and what to ask
+  before a second order
+- Importing cotton towels from India into the US — what the importer of
+  record handles (written for the USA market push; not from the queue)
+- Terry vs woven towels — what the construction difference actually
+  changes
+- What a certificate of origin does and does not prove
+- Reading a towel spec sheet — what each line is actually promising
+- Briefing packaging for a private label towel order — what to decide
+  before the sample
+- Payment terms for importing towels from India — T/T, letter of credit
+  and collection compared
+- Towel MOQ explained — what sets a minimum order and what can lower it
+- Export documents for a towel shipment from India — what each one is for
+  and what must match
 
 Note: "what makes a good hotel pool towel" was drafted as an article,
 then retired and rebuilt as a landing page instead
@@ -29,29 +50,15 @@ site duplicating its own content on the same topic.
 
 ## Queued
 
-4. Private label vs white label — what is actually being customised
-   in each, and what stays the same
-5. Container loading for towels — how quantity, packing and carton
-   size decide what actually fits in a 20ft vs a 40ft container
-6. What "sample-first" actually protects a buyer from, and what it
-   cannot
-7. Keeping a reorder consistent — batch tracking, and what to ask any
-   supplier for before a second order
-8. Terry vs woven towels — what the construction difference actually
-   changes about the product
 9. Bath towel vs bath sheet vs beach towel — the sizing conventions
-   buyers most often get wrong
-10. What a certificate of origin does and does not prove
+   buyers most often get wrong. ON HOLD: the catalogue sells a 60 × 120 cm
+   piece as a "bath sheet" and says it is larger than a standard bath
+   towel, which is the reverse of the usual convention. Settle the
+   catalogue entry with the mill first, or the article contradicts it.
 11. Why towel lead times shift by season — raw cotton, the festival
     calendar, monsoon logistics
-12. Briefing packaging and retail-ready presentation for a private
-    label order
 13. Hotel linen replacement cycles — how often towels are actually
     rebought, and why that number matters when you specify durability
-14. Reading a towel spec sheet — GSM, size, construction and
-    colourfastness, and what each line is actually promising
-15. What changes in a quotation when a buyer asks for organic cotton
-    instead of conventional
 
 ## Publishing note
 

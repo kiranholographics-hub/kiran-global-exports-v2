@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import Link from '@/components/Link/Link';
 import PageIntro from '@/components/PageIntro/PageIntro';
 import ProductCard from '@/components/ProductCard/ProductCard';
 import SectionHeading from '@/components/SectionHeading/SectionHeading';

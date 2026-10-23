@@ -28,6 +28,14 @@ export default function CinematicHeroVideo({
   const [isMobile, setIsMobile] = useState(getIsMobile);
   const [isReady, setIsReady] = useState(false);
   const [hasError, setHasError] = useState(false);
+  // The film is 5-9 MB. Starting that download during first paint competes
+  // with the poster, the fonts and the page's own scripts, and the poster is
+  // what the visitor (and Google's speed measurement) actually waits for.
+  // So the video starts only once the page has finished loading and the
+  // browser is idle, and not at all for a visitor who has asked for less
+  // data or is on a very slow connection — they keep the poster.
+  const [canLoad, setCanLoad] = useState(false);
+  const [lowData, setLowData] = useState(false);
 
   const source = getSource(
     isMobile,
@@ -54,11 +62,54 @@ export default function CinematicHeroVideo({
     };
   }, []);
 
+  /* ── Defer the download until the page is idle ── */
+  useEffect(() => {
+    if (prefersReduced) return undefined;
+
+    const connection = navigator.connection;
+    if (
+      connection &&
+      (connection.saveData || /(^|-)2g$/.test(connection.effectiveType || ''))
+    ) {
+      setLowData(true);
+      return undefined;
+    }
+
+    let cancelled = false;
+    let idleHandle;
+    let timeoutHandle;
+
+    const start = () => {
+      if (!cancelled) setCanLoad(true);
+    };
+
+    const whenIdle = () => {
+      if (typeof window.requestIdleCallback === 'function') {
+        idleHandle = window.requestIdleCallback(start, { timeout: 2500 });
+      } else {
+        timeoutHandle = window.setTimeout(start, 400);
+      }
+    };
+
+    if (document.readyState === 'complete') {
+      whenIdle();
+    } else {
+      window.addEventListener('load', whenIdle, { once: true });
+    }
+
+    return () => {
+      cancelled = true;
+      window.removeEventListener('load', whenIdle);
+      if (idleHandle !== undefined) window.cancelIdleCallback?.(idleHandle);
+      if (timeoutHandle !== undefined) window.clearTimeout(timeoutHandle);
+    };
+  }, [prefersReduced]);
+
   /* ── Load & autoplay video ─────────────────── */
   useEffect(() => {
     const video = videoRef.current;
 
-    if (!video || prefersReduced) return;
+    if (!video || prefersReduced || !canLoad) return undefined;
 
     setIsReady(false);
     setHasError(false);
@@ -110,9 +161,9 @@ export default function CinematicHeroVideo({
       video.removeEventListener('canplay', handleLoaded);
       video.removeEventListener('error', handleError);
     };
-  }, [source, prefersReduced]);
+  }, [source, prefersReduced, canLoad]);
 
-  const showPoster = prefersReduced || hasError;
+  const showPoster = prefersReduced || hasError || lowData;
 
   return (
     <div
@@ -125,13 +176,13 @@ export default function CinematicHeroVideo({
       }}
       aria-hidden="true"
     >
-      {!prefersReduced && (
+      {!prefersReduced && !lowData && (
         <video
           ref={videoRef}
           className={`${styles.video} ${
             isReady && !hasError ? styles.ready : ''
           }`}
-          src={source}
+          src={canLoad ? source : undefined}
           poster={poster}
           autoPlay
           muted

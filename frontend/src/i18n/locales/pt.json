@@ -174,11 +174,6 @@
           "title": "Amostras antes do compromisso",
           "body": "Prazo das amostras confirmado por pedido. Sem pedido mínimo para amostras.",
           "tag": "Amostras sem Mínimo"
-        },
-        {
-          "title": "Comunicação",
-          "body": "Comunicação direta com nossa equipe de exportação, da consulta ao embarque.",
-          "tag": "Acesso direto à equipe"
         }
       ]
     },
@@ -495,11 +490,13 @@
       "certLabel": "Licença GOTS-BVIN0317",
       "location": "Karur, Tamil Nadu",
       "copy1": "A Cotonex é certificada pelo Global Organic Textile Standard (GOTS, Versão 7.0) para têxteis para o lar, acessórios transportados e vestíveis, tecidos para uso externo e tingidos — auditada e certificada pela Bureau Veritas sob a Licença GOTS-BVIN0317.",
-      "copy2": "A linha certificada inclui roupa de cama, roupa de banho e cozinha, cobertores e edredons, tapetes, almofadas e travesseiros e tecidos planos, todos em 100% algodão orgânico.",
-      "copy3": "Essa certificação permite que a Kiran Global Exports ofereça um programa de enxoval genuinamente orgânico ao lado da nossa linha de toalhas, apoiado por conformidade independente e auditada, e não por uma autodeclaração."
+      "copy2": "A linha certificada inclui roupa de cama, roupa de mesa, roupa de banho e cozinha, cobertores e edredons, tapetes, almofadas e travesseiros e tecidos planos, todos em 100% algodão orgânico.",
+      "copy3": "Essa certificação permite que a Kiran Global Exports ofereça um programa de enxoval genuinamente orgânico ao lado da nossa linha de toalhas, apoiado por conformidade independente e auditada, e não por uma autodeclaração.",
+      "guideLink": "Comprando enxoval orgânico? Leia o guia do comprador (em inglês) →"
     },
     "cotonexProducts": [
       "Roupa de Cama",
+      "Roupa de Mesa",
       "Roupa de Banho e Cozinha",
       "Cobertores e Edredons",
       "Tapetes",
@@ -521,8 +518,7 @@
     "registration": {
       "eyebrow": "Registrado e Conforme",
       "title": "Reconhecido pelas autoridades de exportação indianas.",
-      "body": "A Kiran Global Exports é membro da FIEO (Federation of Indian Export Organisations) e registrada como MSME. A documentação de exportação e o embarque são feitos sob o IEC do nosso parceiro fabricante.",
-      "iecLabel": "Código IEC"
+      "body": "A Kiran Global Exports é membro da FIEO (Federation of Indian Export Organisations) e registrada como MSME. A documentação de exportação e o embarque são feitos sob o IEC do nosso parceiro fabricante."
     },
     "structure": {
       "eyebrow": "Nossa Estrutura",

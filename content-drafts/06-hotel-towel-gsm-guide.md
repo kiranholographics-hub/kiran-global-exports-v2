@@ -1,7 +1,7 @@
 ---
 title: 400 GSM vs 500 GSM vs 600 GSM towels — which is right for a hotel?
 slug: hotel-towel-gsm-guide
-excerpt: GSM is the number every towel quotation leads with, and the one most buyers pick by feel rather than by what it actually changes about laundry cost, dry time and guest experience.
+excerpt: GSM leads every towel quotation, yet most buyers pick it by feel. What it actually changes about laundry cost, dry time and the guest experience.
 published: true
 ---
 

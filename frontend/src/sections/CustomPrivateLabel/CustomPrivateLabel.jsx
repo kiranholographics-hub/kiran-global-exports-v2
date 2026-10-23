@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import Link from '@/components/Link/Link';
 import { useTranslation } from 'react-i18next';
 import ScrollReveal from '@/components/ScrollReveal/ScrollReveal';
 import ImageReveal from '@/components/ImageReveal/ImageReveal';

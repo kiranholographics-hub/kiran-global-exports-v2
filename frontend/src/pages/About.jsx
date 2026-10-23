@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import Link from '@/components/Link/Link';
 import SEO from '@/components/SEO/SEO';
 import PageIntro from '@/components/PageIntro/PageIntro';
 import ScrollReveal from '@/components/ScrollReveal/ScrollReveal';
@@ -248,6 +249,15 @@ export default function AboutPage() {
                 {COTONEX_PRODUCTS.map((product) => (
                   <span key={product}>{product}</span>
                 ))}
+              </div>
+
+              <div>
+                <Link
+                  to="/solutions/organic-cotton-linen-manufacturer"
+                  className={styles.mapLink}
+                >
+                  {t('about.linenPartner.guideLink')}
+                </Link>
               </div>
             </ScrollReveal>
 

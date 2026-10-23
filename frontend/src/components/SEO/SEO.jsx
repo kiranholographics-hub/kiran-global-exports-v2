@@ -9,6 +9,7 @@ import {
   isLocalizedPage,
   localizedPageUrl,
 } from '@/data/localeRoutes';
+import { withTrailingSlash } from '@/lib/paths';
 
 /* ═══════════════════════════════════════════════
    SEO — Client-side Meta Tag Manager
@@ -190,6 +191,14 @@ export default function SEO({
       : `${siteConfig.brandName} — Premium Towels & Linen`;
 
     const metaDesc     = truncate(description);
+    // .htaccess 301-redirects every prerendered route to its trailing-slash
+    // form (e.g. /export/usa-cotton-towel-supplier -> .../supplier/) to
+    // keep one canonical URL per page — so the canonical tag has to match
+    // that same form, or it names a URL that immediately redirects away
+    // from itself.
+    const pathWithSlash = location.pathname === '/'
+      ? '/'
+      : `${location.pathname.replace(/\/+$/, '')}/`;
     // location.pathname is without the language prefix (the router runs
     // under it as basename). A translated page is canonical in its own
     // language; any other page under a prefix is English copy in a
@@ -198,7 +207,7 @@ export default function SEO({
     const translated = isLocalizedPage(location.pathname);
     const canonicalUrl = translated
       ? localizedPageUrl(siteConfig.siteUrl, location.pathname, htmlLang)
-      : `${siteConfig.siteUrl}${location.pathname}`;
+      : `${siteConfig.siteUrl}${pathWithSlash}`;
     const absoluteImg  = resolveImage(image);
 
     /* ── Title ───────────────────────────────── */
@@ -269,6 +278,9 @@ export default function SEO({
     setJsonLd('organization', {
       '@context': 'https://schema.org',
       '@type':    'Organization',
+      // Same @id as the static block in index.html, so Google reads the two
+      // as one organisation instead of two competing ones.
+      '@id':      `${siteConfig.siteUrl}/#organization`,
       name:       siteConfig.brandName,
       url:        siteConfig.siteUrl,
       logo: {
@@ -355,7 +367,7 @@ export default function SEO({
           // carries no item — that is what the spec expects, not the
           // canonical URL repeated.
           ...(crumb.href
-            ? { item: new URL(crumb.href, siteConfig.siteUrl).toString() }
+            ? { item: new URL(withTrailingSlash(crumb.href), siteConfig.siteUrl).toString() }
             : {}),
         })),
       });
@@ -414,6 +426,15 @@ export default function SEO({
             '@type': 'ImageObject',
             url:     `${siteConfig.siteUrl}/favicon.svg`,
           },
+        },
+        // The person who answers for the guide. 'accountablePerson' rather
+        // than 'author': the guide is published under the company's name and
+        // this says who is responsible for it, which is what is true.
+        accountablePerson: {
+          '@type':  'Person',
+          name:     siteConfig.contact.person,
+          jobTitle: siteConfig.contact.personTitle,
+          worksFor: { '@id': `${siteConfig.siteUrl}/#organization` },
         },
         datePublished: article.datePublished,
         dateModified:  article.dateModified || article.datePublished,
