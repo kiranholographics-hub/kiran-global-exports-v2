@@ -6,8 +6,8 @@
     "contactExportTeam": "Fale com nossa equipe de exportação",
     "responseNote": "Resposta normalmente em até 24 horas",
     "exportRegions": {
-      "southAmerica": "América do Sul",
       "northAmerica": "América do Norte",
+      "southAmerica": "América do Sul",
       "europe": "Europa",
       "middleEast": "Oriente Médio",
       "australia": "Austrália",
@@ -64,13 +64,13 @@
     "navigate": "Navegar",
     "contact": "Contato",
     "whatsappLink": "WhatsApp para nossa equipe de exportação ↗",
-    "exportRegions": "Regiões de exportação",
+    "exportRegions": "Mercados de Exportação",
     "rightsReserved": "Todos os direitos reservados.",
     "privacyPolicy": "Política de Privacidade",
     "termsConditions": "Termos e Condições",
     "bottomTagline": "Toalhas & Enxoval Premium — Exportador Internacional",
     "iecLabel": "IEC",
-    "structureLine": "A Kiran Global Exports é a divisão de marketing e exportação da Kiran Holographics — Parceira de Marketing oficial da V P Mundada (Mundada Towels)."
+    "structureLine": "Parceira Oficial de Marketing da V P Mundada (Mundada Towels) — tecelagem de felpudo em Solapur, Maharashtra, desde 1972."
   },
   "notFound": {
     "seoTitle": "Página não encontrada",
@@ -89,31 +89,31 @@
   },
   "home": {
     "seo": {
-      "title": "Exportador Premium de Toalhas & Enxoval",
-      "description": "A Kiran Global Exports é uma fornecedora e exportadora internacional de toalhas e enxoval premium da Índia para compradores globais, hotelaria, varejo e necessidades de marca própria."
+      "title": "Fabricante e Exportador de Toalhas e Roupões de Algodão",
+      "description": "Toalhas, roupões e enxoval hoteleiro de algodão exportados de Solapur, Índia, para o mundo todo — certificações OEKO-TEX, ISO e BSCI, tecendo desde 1972. Amostra primeiro, FOB direto."
     },
     "hero": {
       "eyebrow": "Kiran Global Exports",
-      "headline": "TÊXTEIS FEITOS PARA O MUNDO.",
-      "subtitle": "Toalhas premium feitas à mão — tecidas na Índia, confiáveis no mundo todo.",
+      "headline": "Toalhas, Roupões e Enxoval Hoteleiro de Algodão para Importadores do Mundo Todo",
+      "subtitle": "Atendemos importadores, distribuidores e marcas próprias — não consumidores finais. Sua especificação, aprovada em uma amostra física antes da produção, embarcada FOB com documentação completa.",
       "primaryCta": "Explorar coleção",
       "secondaryCta": "Fale com nossa equipe de exportação",
       "scroll": "Role para baixo",
-      "badge": "Exportador confiável desde 2005"
+      "badge": "Tecendo em Solapur desde 1972"
     },
     "brandIntro": {
       "eyebrow": "Quem somos",
-      "heading": "Criamos têxteis que viajam pelo mundo.",
-      "copy1": "A Kiran Global Exports conecta o artesanato têxtil indiano a compradores em todo o mundo, desenvolvendo coleções premium de toalhas para empresas que valorizam qualidade, consistência e apresentação.",
-      "copy2": "Da especificação ao embarque, cada coleção é construída em torno da necessidade do comprador — e não o contrário.",
+      "heading": "Cinquenta e quatro anos de tecelagem por trás de cada pedido",
+      "copy1": "A Kiran Global Exports é a parceira designada de marketing e exportação da V P Mundada, uma tecelagem de felpudo que tece em Solapur, Maharashtra, desde 1972. Conectamos importadores e distribuidores do mundo todo às toalhas, roupões, tapetes de banheiro e enxoval hoteleiro de algodão da tecelagem.",
+      "copy2": "Isso importa por um motivo prático. Tecer, tingir e acabar felpudo com consistência não é algo que uma fábrica aprende rápido, e a diferença aparece no seu segundo pedido, não no primeiro. Quando você repete o pedido conosco, está repetindo nos mesmos teares.",
       "stats": {
-        "years": "Anos de exportação",
-        "countries": "Países atendidos",
-        "clients": "Clientes atacadistas"
+        "years": "Anos como Parceira de Exportação",
+        "countries": "Países Atendidos",
+        "clients": "Fundação da Tecelagem"
       },
       "premiumCotton": "Algodão premium",
       "handcrafted": "Feito à mão",
-      "copy3": "Cuidamos do lado da exportação a partir de Jaipur — especificação, amostragem, documentação e envio. Um único ponto de contato, um único conjunto de documentos, com uma fábrica de cinquenta anos por trás."
+      "copy3": "Trabalhamos de Jaipur e cuidamos da sua especificação, da amostragem e da coordenação do pedido. Seu contrato e seu embarque são diretos com a tecelagem — você lida com as pessoas que realmente tecem suas toalhas, e com um tecelão de cinquenta e quatro anos de experiência do outro lado da mesa."
     },
     "productWorld": {
       "collectionSuffix": "Coleção",
@@ -148,32 +148,32 @@
     },
     "whyKiran": {
       "eyebrow": "Por que a Kiran",
-      "title": "Feito para compradores que pensam a longo prazo.",
+      "title": "Por que os compradores trabalham conosco",
       "points": [
         {
-          "title": "Qualidade",
-          "body": "Qualidade têxtil consistente em cada lote de produção.",
-          "tag": "Certificado ISO"
+          "title": "Sua especificação, não o nosso catálogo",
+          "body": "Gramatura (GSM), tamanho, cor, barra, bainha, etiqueta e embalagem são definidos por você. Nada vai para a produção até você ter uma amostra física em mãos e aprová-la.",
+          "tag": "Amostra Primeiro"
         },
         {
-          "title": "Personalização",
-          "body": "Produtos desenvolvidos conforme as necessidades do comprador — tamanho, GSM, cor, marca.",
-          "tag": "Pronto para marca própria"
+          "title": "Documentação de rastreabilidade do algodão",
+          "body": "Mantemos a documentação de que os importadores precisam para a due diligence sobre trabalho forçado. Para embarques aos Estados Unidos, isso é uma questão aduaneira, não uma preferência.",
+          "tag": "Pronto para a Alfândega"
         },
         {
-          "title": "Pronto para exportação",
-          "body": "Capacidade de fornecimento B2B internacional, construída com coordenação confiável.",
-          "tag": "Pronto para Exportação FOB"
+          "title": "Repetição de produção que confere",
+          "body": "A cor é aprovada por lab dip antes do tingimento em produção, e cada lote é conferido com a amostra aprovada — para que o seu segundo pedido fique igual ao primeiro.",
+          "tag": "Lotes Iguais"
         },
         {
-          "title": "Consistência",
-          "body": "Especificações confiáveis e produção recorrente com a qual os compradores podem planejar.",
-          "tag": "Lotes compatíveis"
+          "title": "Condições diretas da tecelagem",
+          "body": "Cotações e embarques vêm diretamente da tecelagem em condições FOB. Você mantém o controle do frete e do seu próprio custo de internação, e sua relação comercial é com o próprio fabricante.",
+          "tag": "FOB"
         },
         {
-          "title": "Embalagem",
-          "body": "Embalagem e apresentação voltadas ao comprador, tanto para hotelaria quanto varejo.",
-          "tag": "Embalagem varejo e hotel"
+          "title": "Amostras antes do compromisso",
+          "body": "Prazo das amostras confirmado por pedido. Sem pedido mínimo para amostras.",
+          "tag": "Amostras sem Mínimo"
         },
         {
           "title": "Comunicação",
@@ -278,13 +278,13 @@
         "Construção personalizada"
       ],
       "cta": "Converse sobre suas necessidades",
-      "trustNote": "Consultoria gratuita · Sem pedido mínimo para amostras",
+      "trustNote": "Revisão da especificação · Sem pedido mínimo para amostras",
       "badge": "Pronto para marca própria"
     },
     "cta": {
-      "eyebrow": "Entre em contato",
-      "title": "Vamos criar algo para o seu mercado.",
-      "lead": "Conte-nos o que você está procurando e nossa equipe de exportação entrará em contato.",
+      "eyebrow": "Envie-nos Sua Especificação",
+      "title": "Envie-nos sua especificação",
+      "lead": "Informe o produto, tamanho, gramatura, cor, quantidade e a marca que precisa — ou simplesmente envie uma foto do que você compra hoje e partimos dela. Respondemos em 24 horas com uma cotação FOB e o prazo de entrega, confirmados com a tecelagem.",
       "primary": "Enviar consulta",
       "secondary": "Ver coleções",
       "note": "Resposta normalmente em até 24 horas"
@@ -355,7 +355,7 @@
       "collectionsCount": "{{count}} categorias para escolher",
       "ctaEyebrow": "Desenvolvido conforme seu briefing",
       "ctaTitle": "Precisa de uma coleção de toalhas que combine com seu mercado?",
-      "seoTitle": "Toalhas — Coleções Têxteis Reais para Compradores Globais",
+      "seoTitle": "Coleções de Toalhas para Compradores Globais",
       "seoDescription": "Explore as coleções de toalhas da Kiran Global Exports em linhas de banho, hotel, jacquard, waffle, zero-twist, borda, piscina, personalizadas e especiais."
     },
     "requestProductDetails": "Solicitar detalhes do produto",
@@ -458,13 +458,13 @@
     },
     "partner": {
       "eyebrow": "Nosso Parceiro de Toalhas",
-      "title": "Mundada Towels — cinco décadas de expertise têxtil.",
+      "title": "Mundada Towels — cinquenta e quatro anos de expertise têxtil.",
       "lead": "A Kiran Global Exports trabalha em parceria com a Mundada Towels, uma fabricante e exportadora confiável de toalhas de felpo premium, estabelecida em 1972 em Solapur, Maharashtra. Juntas, atendemos compradores B2B internacionais com soluções de toalhas confiáveis, construídas conforme suas especificações, requisitos de qualidade e necessidades de mercado.",
       "tagline": "Toalhas mais leves e melhores!",
       "established": "Fundada em 1972",
       "location": "Solapur, Maharashtra",
       "visitLink": "Visitar Mundada Towels ↗",
-      "copy1": "Com mais de cinco décadas de expertise têxtil, a Mundada Towels combina artesanato tradicional com manufatura moderna, controle de qualidade rigoroso e desenvolvimento contínuo de produtos. Essa força de fabricação apoia a Kiran Global Exports na entrega de programas de toalhas consistentes e orientados por especificação para compradores globais.",
+      "copy1": "Com cinquenta e quatro anos de expertise têxtil, a Mundada Towels combina artesanato tradicional com fabricação moderna, rigoroso controle de qualidade e desenvolvimento contínuo de produtos. Essa força produtiva apoia a Kiran Global Exports na entrega de programas de toalhas consistentes e baseados em especificações para compradores globais.",
       "copy2": "A linha inclui toalhas de banho, mão, rosto, piscina, praia, cozinha e institucionais, além de programas de toalhas jacquard, zero-twist, tingidas em tina, de bambu, de fio reciclado e personalizadas.",
       "copy3": "Certificações incluindo OEKO-TEX®, GRS, ISO 9001, MADE IN GREEN e BSCI apoiam um forte foco em qualidade, sustentabilidade e manufatura responsável."
     },
@@ -487,6 +487,32 @@
       "title": "Solapur, Maharashtra",
       "mapLink": "Abrir no Google Maps ↗"
     },
+    "linenPartner": {
+      "eyebrow": "Nosso Parceiro de Enxoval",
+      "title": "Cotonex — fabricação de algodão orgânico com certificação GOTS.",
+      "lead": "A Kiran Global Exports trabalha em parceria com a Cotonex, fabricante de algodão orgânico certificada GOTS, sediada em Karur, Tamil Nadu. Juntos, atendemos compradores internacionais com enxoval orgânico certificado, desenvolvido conforme suas especificações e exigências de conformidade.",
+      "tagline": "Certificação GOTS · Algodão Orgânico",
+      "certLabel": "Licença GOTS-BVIN0317",
+      "location": "Karur, Tamil Nadu",
+      "copy1": "A Cotonex é certificada pelo Global Organic Textile Standard (GOTS, Versão 7.0) para têxteis para o lar, acessórios transportados e vestíveis, tecidos para uso externo e tingidos — auditada e certificada pela Bureau Veritas sob a Licença GOTS-BVIN0317.",
+      "copy2": "A linha certificada inclui roupa de cama, roupa de banho e cozinha, cobertores e edredons, tapetes, almofadas e travesseiros e tecidos planos, todos em 100% algodão orgânico.",
+      "copy3": "Essa certificação permite que a Kiran Global Exports ofereça um programa de enxoval genuinamente orgânico ao lado da nossa linha de toalhas, apoiado por conformidade independente e auditada, e não por uma autodeclaração."
+    },
+    "cotonexProducts": [
+      "Roupa de Cama",
+      "Roupa de Banho e Cozinha",
+      "Cobertores e Edredons",
+      "Tapetes",
+      "Almofadas e Travesseiros",
+      "Tecidos Planos",
+      "Bolsas e Sacolas",
+      "Aventais e Luvas"
+    ],
+    "linenLocationCard": {
+      "eyebrow": "Localização do Parceiro",
+      "title": "Karur, Tamil Nadu",
+      "mapLink": "Abrir no Google Maps ↗"
+    },
     "cta": {
       "eyebrow": "Trabalhe Conosco",
       "title": "Vamos falar sobre o seu mercado.",
@@ -495,6 +521,7 @@
     "registration": {
       "eyebrow": "Registrado e Conforme",
       "title": "Reconhecido pelas autoridades de exportação indianas.",
+      "body": "A Kiran Global Exports é membro da FIEO (Federation of Indian Export Organisations) e registrada como MSME. A documentação de exportação e o embarque são feitos sob o IEC do nosso parceiro fabricante.",
       "iecLabel": "Código IEC"
     },
     "structure": {
@@ -682,8 +709,8 @@
     },
     "hero": {
       "eyebrow": "A Coleção de Enxoval",
-      "title": "Enxoval para cada ambiente, cada mesa.",
-      "lead": "Do banho ao quarto e à mesa de jantar — enxoval premium desenvolvido para compradores de hotelaria, varejo e marca própria em todo o mundo.",
+      "title": "Enxoval",
+      "lead": "Coleções premium de enxoval para os mercados de hotelaria, varejo e marca própria.",
       "exploreCta": "Explorar a Linha"
     },
     "categoriesEyebrow": "Nossas Linhas",

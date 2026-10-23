@@ -1,0 +1,742 @@
+{
+  "common": {
+    "tagline": "Toallas y Lencería Premium — Exportador Internacional",
+    "madeInIndia": "Hecho en India. Exportado al mundo.",
+    "madeInIndiaShort": "Hecho en India · Exportado al mundo",
+    "contactExportTeam": "Contacte a Nuestro Equipo de Exportación",
+    "responseNote": "Respuesta habitual en 24 horas",
+    "exportRegions": {
+      "northAmerica": "Norteamérica",
+      "southAmerica": "Sudamérica",
+      "europe": "Europa",
+      "middleEast": "Oriente Medio",
+      "australia": "Australia",
+      "asiaPacific": "Asia-Pacífico"
+    },
+    "productInterestOptions": {
+      "towels": "Toallas",
+      "linen": "Lencería",
+      "both": "Ambos",
+      "custom": "Personalizado / Marca Propia"
+    }
+  },
+  "nav": {
+    "home": "Inicio",
+    "about": "Nosotros",
+    "towels": "Toallas",
+    "collections": "Colecciones",
+    "export": "Exportación",
+    "contact": "Contacto",
+    "startInquiry": "Enviar una Consulta",
+    "linen": "Lencería",
+    "updates": "Novedades"
+  },
+  "header": {
+    "logoAria": "Kiran Global Exports — inicio",
+    "languageAria": "Seleccionar idioma",
+    "languageLabel": "Idioma",
+    "menuOpen": "Abrir menú",
+    "menuClose": "Cerrar menú"
+  },
+  "mobileNav": {
+    "srLabel": "Navegación del sitio",
+    "primaryAria": "Navegación principal móvil"
+  },
+  "loader": {
+    "tagline": "Textiles Premium · Hecho en India",
+    "loading": "Cargando",
+    "ariaLabel": "Cargando Kiran Global Exports"
+  },
+  "floatingInquire": {
+    "getInTouch": "Contáctenos",
+    "sendInquiry": "Enviar una Consulta",
+    "whatsapp": "WhatsApp",
+    "email": "Correo",
+    "call": "Llamar",
+    "responseNote": "Respuesta habitual en 24 horas",
+    "openAria": "Abrir opciones de contacto",
+    "closeAria": "Cerrar menú de contacto",
+    "inquireLabel": "Consultar",
+    "closeLabel": "Cerrar"
+  },
+  "footer": {
+    "madeInIndia": "Hecho en India. Exportado al mundo.",
+    "navigate": "Navegación",
+    "contact": "Contacto",
+    "whatsappLink": "Escriba por WhatsApp a nuestro equipo de exportación ↗",
+    "exportRegions": "Mercados de Exportación",
+    "rightsReserved": "Todos los derechos reservados.",
+    "privacyPolicy": "Política de Privacidad",
+    "termsConditions": "Términos y Condiciones",
+    "bottomTagline": "Toallas y Lencería Premium — Exportador Internacional",
+    "iecLabel": "IEC",
+    "structureLine": "Socio Oficial de Marketing de V P Mundada (Mundada Towels) — tejiendo rizo en Solapur, Maharashtra, desde 1972."
+  },
+  "notFound": {
+    "seoTitle": "Página No Encontrada",
+    "eyebrow": "Página No Encontrada",
+    "title": "No pudimos encontrar esa página.",
+    "copy": "Es posible que se haya movido, renombrado o eliminado. Explore las colecciones o vuelva al inicio — nuestro equipo de exportación está siempre disponible si necesita ayuda.",
+    "returnHome": "Volver al Inicio",
+    "browseCollections": "Ver Colecciones",
+    "quickLinks": {
+      "towels": "Toallas",
+      "linen": "Lencería",
+      "collections": "Colecciones",
+      "custom": "Personalizado",
+      "about": "Nosotros"
+    }
+  },
+  "home": {
+    "seo": {
+      "title": "Fabricante y Exportador de Toallas y Albornoces de Algodón",
+      "description": "Toallas, albornoces y lencería hotelera de algodón exportados desde Solapur, India — certificaciones OEKO-TEX, ISO y BSCI, tejiendo desde 1972. Muestra primero, FOB directo."
+    },
+    "hero": {
+      "eyebrow": "Kiran Global Exports",
+      "headline": "Toallas, Albornoces y Lencería Hotelera de Algodón para Importadores de Todo el Mundo",
+      "subtitle": "Abastecemos a importadores, distribuidores y marcas propias — no a consumidores finales. Su especificación, aprobada en una muestra física antes de la producción, enviada FOB con toda la documentación.",
+      "primaryCta": "Ver la Colección",
+      "secondaryCta": "Contacte a Nuestro Equipo de Exportación",
+      "scroll": "Desplazar",
+      "badge": "Tejiendo en Solapur desde 1972"
+    },
+    "brandIntro": {
+      "eyebrow": "Quiénes Somos",
+      "heading": "Cincuenta y cuatro años de tejeduría detrás de cada pedido",
+      "copy1": "Kiran Global Exports es el socio designado de marketing y exportación de V P Mundada, una tejeduría de rizo que teje en Solapur, Maharashtra, desde 1972. Conectamos a importadores y distribuidores de todo el mundo con las toallas, albornoces, alfombras de baño y lencería hotelera de algodón de la fábrica.",
+      "copy2": "Esto importa por una razón práctica. Tejer, teñir y acabar rizo de forma constante no es algo que una fábrica aprenda rápido, y la diferencia se nota en su segundo pedido, no en el primero. Cuando vuelve a pedirnos, vuelve a pedir a los mismos telares.",
+      "stats": {
+        "years": "Años como Socio Exportador",
+        "countries": "Países Abastecidos",
+        "clients": "Fundación de la Fábrica"
+      },
+      "premiumCotton": "Algodón Premium",
+      "handcrafted": "Artesanal",
+      "copy3": "Trabajamos desde Jaipur y gestionamos su especificación, el muestreo y la coordinación del pedido. Su contrato y su envío son directos con la fábrica — trata con las personas que realmente tejen sus toallas, y con un tejedor de cincuenta y cuatro años de experiencia al otro lado de la mesa."
+    },
+    "productWorld": {
+      "collectionSuffix": "Colección",
+      "exploreAria": "Explorar nuestra colección de {{name}}",
+      "exploreCta": "Explorar {{name}}",
+      "towels": {
+        "name": "Toallas",
+        "items": [
+          "Toallas de Baño",
+          "Toallas de Hotel",
+          "Toallas para Spa y Salón",
+          "Toallas de Mano y Cara",
+          "Toallas Personalizadas"
+        ]
+      },
+      "linen": {
+        "items": [
+          "Ropa de Cama",
+          "Mantelería",
+          "Textiles para el Hogar",
+          "Personalizado y Marca Propia"
+        ]
+      }
+    },
+    "featuredProducts": {
+      "eyebrow": "Toallas Destacadas",
+      "title": "Toallas Destacadas",
+      "lead": "Una selección de nuestra gama de toallas, elegida para compradores de hostelería, retail, spa y marca propia.",
+      "viewDetails": "Ver Detalles",
+      "showing": "Mostrando {{shown}} de {{total}} toallas",
+      "exploreAll": "Ver Todas las Toallas"
+    },
+    "whyKiran": {
+      "eyebrow": "Por Qué Kiran",
+      "title": "Por qué los compradores trabajan con nosotros",
+      "points": [
+        {
+          "title": "Su especificación, no nuestro catálogo",
+          "body": "Usted define el gramaje (GSM), la medida, el color, la cenefa, el dobladillo, la etiqueta y el embalaje. Nada pasa a producción hasta que haya tenido en sus manos una muestra física y la haya aprobado.",
+          "tag": "Muestra Primero"
+        },
+        {
+          "title": "Documentación de trazabilidad del algodón",
+          "body": "Disponemos de la documentación que los importadores necesitan para la diligencia debida sobre trabajo forzoso. Para envíos a Estados Unidos es un requisito aduanero, no una preferencia.",
+          "tag": "Listo para Aduanas"
+        },
+        {
+          "title": "Producción repetida que coincide",
+          "body": "El color se aprueba mediante lab dip antes del teñido en producción, y cada lote se revisa contra la muestra aprobada — para que su segundo pedido sea igual al primero.",
+          "tag": "Lotes Igualados"
+        },
+        {
+          "title": "Condiciones directas de fábrica",
+          "body": "Las cotizaciones y el envío vienen directamente de la fábrica en condiciones FOB. Usted mantiene el control del flete y de su propio costo puesto en destino, y su relación comercial es con el propio fabricante.",
+          "tag": "FOB"
+        },
+        {
+          "title": "Muestras antes del compromiso",
+          "body": "Plazo de muestras confirmado por pedido. Sin pedido mínimo para muestras.",
+          "tag": "Sin Mínimo en Muestras"
+        }
+      ]
+    },
+    "manufacturing": {
+      "eyebrow": "Oficio y Proceso",
+      "heading": "De la fibra al textil terminado.",
+      "start": "Inicio",
+      "stepsSuffix": "Pasos",
+      "steps": [
+        {
+          "title": "Hilo",
+          "body": "Fibra seleccionada e hilada para una resistencia y suavidad constantes.",
+          "tag": "Materia Prima"
+        },
+        {
+          "title": "Tejido",
+          "body": "Construcciones de rizo y pelo fabricadas según especificaciones exactas de bucle y densidad.",
+          "tag": "Proceso de Telar"
+        },
+        {
+          "title": "Teñido",
+          "body": "Color desarrollado e igualado para que se repita de un pedido a otro.",
+          "tag": "Igualación de Color"
+        },
+        {
+          "title": "Acabado",
+          "body": "Lavado, suavizado y tundido para el tacto final.",
+          "tag": "Tacto"
+        },
+        {
+          "title": "Control de Calidad",
+          "body": "Cada lote se revisa según especificaciones de gramaje, medida y construcción.",
+          "tag": "Lote Verificado"
+        },
+        {
+          "title": "Embalaje",
+          "body": "Embalaje según el comprador — listo para retail o en cajas de exportación a granel.",
+          "tag": "Listo para Exportar"
+        },
+        {
+          "title": "Entrega Global",
+          "body": "Envíos coordinados a socios de hostelería, retail y distribución.",
+          "tag": "Envío FOB"
+        }
+      ]
+    },
+    "globalExport": {
+      "eyebrow": "Alcance",
+      "heading": "De India a los mercados globales.",
+      "copy": "Basado en un abastecimiento fiable, control de calidad y una coordinación de exportación centrada en el comprador — no en afirmaciones exageradas.",
+      "stats": {
+        "countries": "Países",
+        "years": "Años de Actividad"
+      },
+      "panelTag": "Mercados de Exportación",
+      "panelTitle": "Regiones Activas"
+    },
+    "collectionsShowcase": {
+      "eyebrow": "Explore Nuestro Mundo",
+      "title": "La Colección",
+      "worlds": {
+        "hotel": {
+          "name": "Hotel",
+          "tag": "Calidad Hotelera"
+        },
+        "spa": {
+          "name": "Spa",
+          "tag": "Ultra Suave"
+        },
+        "home": {
+          "name": "Hogar",
+          "tag": "Lujo Cotidiano"
+        },
+        "hospitality": {
+          "name": "Hostelería",
+          "tag": "Tejido Jacquard"
+        },
+        "retail": {
+          "name": "Retail",
+          "tag": "Listo para Retail"
+        },
+        "custom": {
+          "name": "Personalizado",
+          "tag": "Marca Propia"
+        }
+      }
+    },
+    "customPrivateLabel": {
+      "eyebrow": "Personalizado y Marca Propia",
+      "heading": "Su especificación. Nuestra experiencia textil.",
+      "copy": "Hable con nuestro equipo de exportación sobre medidas, gramajes, colores, diseños, etiquetas y embalajes a medida — desarrollados según su requerimiento, desde una sola especificación hasta un programa completo de marca propia.",
+      "points": [
+        "Medidas y gramajes a medida",
+        "Desarrollo de color",
+        "Etiquetas tejidas y marca",
+        "Embalaje de marca propia",
+        "Construcción a medida"
+      ],
+      "cta": "Hable de Sus Requisitos",
+      "trustNote": "Revisión de especificaciones · Sin pedido mínimo para muestras",
+      "badge": "Listo para Marca Propia"
+    },
+    "cta": {
+      "eyebrow": "Envíenos Su Especificación",
+      "title": "Envíenos su especificación",
+      "lead": "Indíquenos el producto, la medida, el gramaje, el color, la cantidad y la marca que necesita — o simplemente envíe una foto de lo que compra hoy y partiremos de ahí. Respondemos en 24 horas con una cotización FOB y el plazo de entrega, confirmados con la fábrica.",
+      "primary": "Enviar una Consulta",
+      "secondary": "Ver Colecciones",
+      "note": "Respuesta habitual en 24 horas"
+    }
+  },
+  "contact": {
+    "seo": {
+      "title": "Contacto",
+      "description": "Contacte al equipo de Kiran Global Exports para hablar de especificaciones de toallas y lencería, desarrollo de marca propia o consultas de exportación."
+    },
+    "intro": {
+      "eyebrow": "Contáctenos",
+      "title": "Creemos algo para su mercado.",
+      "lead": "Cuéntenos qué busca y nuestro equipo de exportación le responderá.",
+      "breadcrumbHome": "Inicio",
+      "breadcrumbContact": "Contacto",
+      "metaResponse": "Respuesta en 24 h",
+      "metaNoCommitment": "Sin compromiso"
+    },
+    "side": {
+      "eyebrow": "Contacto Directo",
+      "heading": "Hable con nuestro equipo de exportación",
+      "email": "Correo",
+      "whatsapp": "WhatsApp",
+      "call": "Llamar",
+      "address": "Dirección",
+      "responseBadge": "Respuesta habitual en 24 horas",
+      "contactPerson": "Persona de Contacto"
+    },
+    "form": {
+      "ariaLabel": "Formulario de consulta de exportación",
+      "name": "Nombre",
+      "namePlaceholder": "Su nombre completo",
+      "company": "Empresa",
+      "companyPlaceholder": "Nombre de la empresa o marca",
+      "country": "País",
+      "countryPlaceholder": "p. ej. España",
+      "email": "Correo",
+      "emailPlaceholder": "export@suempresa.com",
+      "phone": "WhatsApp / Teléfono",
+      "phonePlaceholder": "+34 600 000 000",
+      "productInterest": "Producto de Interés",
+      "selectOption": "Seleccione una opción",
+      "quantity": "Cantidad Estimada",
+      "quantityPlaceholder": "p. ej. 5.000 uds / 1 contenedor",
+      "quantityHint": "Una cantidad aproximada nos ayuda a preparar precios precisos",
+      "message": "Mensaje",
+      "messagePlaceholder": "Comparta especificaciones, requisitos o preguntas…",
+      "sending": "Enviando…",
+      "submit": "Enviar Consulta",
+      "submitNote": "Respuesta habitual en 1–2 días hábiles · Sin compromiso",
+      "genericError": "Algo salió mal. Por favor, inténtelo de nuevo.",
+      "successEyebrow": "Consulta Enviada",
+      "successTitle": "Gracias — nos pondremos en contacto pronto.",
+      "successBody": "Nuestro equipo de exportación suele responder en uno o dos días hábiles. Para algo urgente, escríbanos directamente a",
+      "sendAnother": "Enviar otra consulta",
+      "productInterestNote": "Me interesa saber más sobre \"{{product}}\". Por favor, compartan las especificaciones completas y las condiciones de precio."
+    }
+  },
+  "catalogue": {
+    "towels": {
+      "heroEyebrow": "Kiran Global Exports",
+      "heroTitle": "Toallas",
+      "heroLead": "Colecciones textiles premium para los mercados de hostelería, retail, spa y marca propia.",
+      "exploreCta": "Ver Toallas",
+      "categoriesEyebrow": "Explore el mundo de las toallas",
+      "categoriesTitle": "Categorías principales",
+      "collectionsCount": "{{count}} categorías para elegir",
+      "ctaEyebrow": "Desarrollado según su briefing",
+      "ctaTitle": "¿Necesita una colección de toallas pensada para su mercado?",
+      "seoTitle": "Colecciones de Toallas para Compradores Internacionales",
+      "seoDescription": "Explore las colecciones de toallas de Kiran Global Exports: baño, hotel, jacquard, waffle, zero twist, con cenefa, piscina, personalizadas y especiales."
+    },
+    "requestProductDetails": "Solicitar detalles del producto",
+    "reference_one": "{{count}} referencia",
+    "reference_other": "{{count}} referencias",
+    "viewCollection": "Ver colección",
+    "customDevelopment": "Desarrollo a medida"
+  },
+  "categoryPage": {
+    "backTo": "← Volver a {{name}}",
+    "subcategoriesEyebrow": "Explore las subcategorías de {{name}}",
+    "chooseConstruction": "Elija una construcción.",
+    "productCollection": "Colección de productos",
+    "allReferences": "Todos los productos de esta categoría.",
+    "realReferences": "Nuestra gama completa en esta categoría.",
+    "viewDetails": "Ver detalles",
+    "b2bDevelopment": "Desarrollo B2B",
+    "requestProductDetails": "Solicite detalles del producto.",
+    "contactExportTeamArrow": "Contacte a nuestro equipo de exportación",
+    "collectionSubcategoryProducts": "{{category}} / Colección de productos",
+    "reference_one": "{{count}} referencia",
+    "reference_other": "{{count}} referencias",
+    "availableReference_one": "{{count}} referencia disponible",
+    "availableReference_other": "{{count}} referencias disponibles",
+    "realReference_one": "{{count}} producto",
+    "realReference_other": "{{count}} productos"
+  },
+  "productDetail": {
+    "notFoundTitle": "Producto No Encontrado",
+    "notFoundHeading": "No pudimos encontrar ese producto.",
+    "notFoundCopy": "Es posible que se haya renombrado o retirado de la gama actual. Explore la colección completa o contacte directamente a nuestro equipo de exportación.",
+    "interestedHeading": "¿Le interesa este producto?",
+    "interestedSubtext": "Contacte a nuestro equipo de exportación para obtener especificaciones completas y precios.",
+    "youMayAlsoLike": "También Le Puede Interesar",
+    "moreFrom": "Más de {{name}}",
+    "viewAll": "Ver Todo",
+    "specs": {
+      "material": "Material",
+      "gsm": "Gramaje (GSM)",
+      "size": "Medida",
+      "construction": "Construcción",
+      "colors": "Colores",
+      "applications": "Aplicaciones",
+      "customization": "Personalización",
+      "moq": "Pedido Mínimo",
+      "packing": "Embalaje"
+    },
+    "bestForLabel": "Ideal para"
+  },
+  "productCard": {
+    "viewDetails": "Ver Detalles",
+    "requestDetails": "Solicitar Detalles"
+  },
+  "certifications": {
+    "eyebrow": "Calidad · Cumplimiento · Responsabilidad",
+    "heading": "Estándares detrás de cada envío.",
+    "copy": "Las certificaciones de producto y de proceso las tiene nuestro socio de producción, V P Mundada (Solapur). Kiran Global Exports tiene sus propios registros de exportación — FIEO, MSME e IEC. Certificados disponibles bajo solicitud.",
+    "chips": {
+      "quality": "Calidad Garantizada",
+      "ethical": "Abastecimiento Ético",
+      "compliant": "Cumplimiento de Exportación"
+    }
+  },
+  "about": {
+    "seo": {
+      "title": "Nosotros",
+      "description": "Kiran Global Exports desarrolla en India colecciones premium de toallas y lencería para compradores de hostelería, retail y marca propia de todo el mundo."
+    },
+    "intro": {
+      "eyebrow": "Sobre Nosotros",
+      "title": "Donde el oficio se une al confort.",
+      "lead": "Kiran Global Exports conecta la artesanía textil india con compradores de todo el mundo, desarrollando colecciones premium de toallas y lencería basadas en la calidad, la constancia y la presentación."
+    },
+    "brandStory": {
+      "heading": "Desarrollado para el comprador, no para el estante.",
+      "copy1": "Cada colección empieza con una especificación, no con una página de catálogo. Trabajamos directamente con grupos hoteleros, distribuidores, minoristas y compradores de marca propia para desarrollar toallas adecuadas a su mercado — desde la selección de la fibra hasta el embalaje final.",
+      "copy2": "Nuestro enfoque prioriza la constancia sobre el volumen: especificaciones fiables, producción repetible y comunicación directa con un equipo de exportación que entiende los requisitos de los compradores internacionales."
+    },
+    "approach": {
+      "eyebrow": "Nuestro Enfoque",
+      "title": "De la especificación al envío.",
+      "pillars": [
+        {
+          "title": "Entender el mercado",
+          "body": "Empezamos por el mercado del comprador — hostelería, spa, retail o marca propia — y los estándares que exige."
+        },
+        {
+          "title": "Desarrollar según especificación",
+          "body": "Material, gramaje, medida, color y construcción se desarrollan para coincidir, no se adaptan después."
+        },
+        {
+          "title": "Producir con constancia",
+          "body": "El control de calidad en cada etapa mantiene los pedidos repetidos iguales a la aprobación original."
+        },
+        {
+          "title": "Coordinar el envío",
+          "body": "Embalaje, documentación y logística coordinados según el mercado de destino del comprador."
+        }
+      ]
+    },
+    "partner": {
+      "eyebrow": "Nuestro Socio en Toallas",
+      "title": "Mundada Towels — cincuenta y cuatro años de experiencia textil.",
+      "lead": "Kiran Global Exports trabaja en asociación con Mundada Towels, un fabricante y exportador de confianza de toallas de rizo premium fundado en 1972 en Solapur, Maharashtra. Juntos atendemos a compradores B2B internacionales con soluciones de toallas fiables, basadas en sus especificaciones, requisitos de calidad y necesidades de mercado.",
+      "tagline": "Leaner, Meaner Towels!",
+      "established": "Fundada en 1972",
+      "location": "Solapur, Maharashtra",
+      "visitLink": "Visitar Mundada Towels ↗",
+      "copy1": "Con cincuenta y cuatro años de experiencia textil, Mundada Towels combina la artesanía tradicional con la fabricación moderna, un estricto control de calidad y un desarrollo de producto continuo. Esta fortaleza productiva respalda a Kiran Global Exports en la entrega de programas de toallas constantes y basados en especificaciones para compradores de todo el mundo.",
+      "copy2": "La gama incluye toallas de baño, de mano, de cara, de piscina, de playa, de cocina e institucionales, además de programas de toallas jacquard, zero twist, teñidas a la tina (vat-dyed), de bambú, de hilo reciclado y personalizadas.",
+      "copy3": "Certificaciones como OEKO-TEX®, GRS, ISO 9001, MADE IN GREEN y BSCI respaldan un fuerte enfoque en la calidad, la sostenibilidad y la fabricación responsable."
+    },
+    "mundadaProducts": [
+      "Toallas de Baño",
+      "Toallas de Mano",
+      "Toallas de Cara",
+      "Toallas de Piscina y Playa",
+      "Paños de Cocina",
+      "Toallas Institucionales",
+      "Toallas Jacquard",
+      "Toallas Zero Twist",
+      "Toallas Teñidas a la Tina",
+      "Toallas de Bambú",
+      "Toallas de Hilo Reciclado",
+      "Toallas Personalizadas"
+    ],
+    "locationCard": {
+      "eyebrow": "Ubicación del Socio",
+      "title": "Solapur, Maharashtra",
+      "mapLink": "Abrir en Google Maps ↗"
+    },
+    "linenPartner": {
+      "eyebrow": "Nuestro Socio en Lencería",
+      "title": "Cotonex — fabricación de algodón orgánico con certificación GOTS.",
+      "lead": "Kiran Global Exports trabaja en asociación con Cotonex, un fabricante de algodón orgánico con certificación GOTS ubicado en Karur, Tamil Nadu. Juntos atendemos a compradores internacionales con lencería orgánica certificada, desarrollada según sus especificaciones y requisitos de cumplimiento.",
+      "tagline": "Certificación GOTS · Algodón Orgánico",
+      "certLabel": "Licencia GOTS-BVIN0317",
+      "location": "Karur, Tamil Nadu",
+      "copy1": "Cotonex está certificada según el Global Organic Textile Standard (GOTS, versión 7.0) para textiles para el hogar, accesorios de transporte y de uso personal, y tejidos para exterior y teñidos — auditada y certificada por Bureau Veritas con la licencia GOTS-BVIN0317.",
+      "copy2": "La gama certificada abarca ropa de cama, lencería de baño y cocina, mantas y edredones, alfombras, cojines y almohadas, y tejidos planos, todo en algodón 100% orgánico.",
+      "copy3": "Esta certificación permite a Kiran Global Exports ofrecer un programa de lencería genuinamente orgánico junto a nuestra gama de toallas, respaldado por un cumplimiento independiente y auditado, no por una declaración propia."
+    },
+    "cotonexProducts": [
+      "Ropa de Cama",
+      "Lencería de Baño y Cocina",
+      "Mantas y Edredones",
+      "Alfombras",
+      "Cojines y Almohadas",
+      "Tejidos Planos",
+      "Bolsas y Tote Bags",
+      "Delantales y Guantes"
+    ],
+    "linenLocationCard": {
+      "eyebrow": "Ubicación del Socio",
+      "title": "Karur, Tamil Nadu",
+      "mapLink": "Abrir en Google Maps ↗"
+    },
+    "cta": {
+      "eyebrow": "Trabaje con Nosotros",
+      "title": "Hablemos de su mercado.",
+      "lead": "Nuestro equipo de exportación está listo para revisar su especificación, ya sea que busque toallas, desarrolle un programa de lencería o cree una colección de marca propia."
+    },
+    "registration": {
+      "eyebrow": "Registrados y en Cumplimiento",
+      "title": "Reconocidos por las autoridades de exportación de India.",
+      "body": "Kiran Global Exports es miembro de FIEO (Federation of Indian Export Organisations) y está registrada como MSME. La documentación de exportación y el envío se gestionan con el IEC propio de nuestro socio fabricante."
+    },
+    "structure": {
+      "eyebrow": "Nuestra Estructura",
+      "title": "Parte de Kiran Holographics.",
+      "body1": "Kiran Global Exports es la división internacional de marketing y exportación de Kiran Holographics.",
+      "body2": "Somos el Socio de Marketing designado oficialmente por V P Mundada (Mundada Towels), según un acuerdo de asociación firmado y vigente desde enero de 2025."
+    }
+  },
+  "collections": {
+    "seo": {
+      "title": "Nuestra Colección — Hotel, Spa, Hogar, Hostelería y Retail",
+      "description": "Explore las colecciones de toallas y lencería de Kiran Global Exports según el tipo de comprador."
+    },
+    "hero": {
+      "eyebrow": "Explore nuestro mundo",
+      "title": "Nuestra Colección",
+      "lead": "Colecciones textiles desarrolladas para compradores de hostelería, retail, spa y marca propia de todo el mundo.",
+      "exploreLink": "Ver colecciones"
+    },
+    "worldLabel": "Mundo",
+    "worlds": {
+      "hotel": {
+        "copy": "Rizo de mayor peso, fabricado para resistir los ciclos de lavandería hotelera y lucir bien."
+      },
+      "spa": {
+        "copy": "Toallas ligeras y de secado rápido para el uso intensivo en cabinas de tratamiento."
+      },
+      "home": {
+        "copy": "Piezas de confort diario desarrolladas para gamas de hogar en retail y comercio electrónico."
+      },
+      "hospitality": {
+        "copy": "Especificaciones constantes y listas para pedidos repetidos, para hoteles y grupos de hostelería."
+      },
+      "retail": {
+        "copy": "Presentación y embalaje listos para retail, para compradores de estilo de vida y artículos para el hogar."
+      }
+    },
+    "viewMore": "Ver todos los productos de {{name}}",
+    "custom": {
+      "eyebrow": "Personalizado",
+      "title": "¿Tiene una especificación propia?",
+      "copy": "Cada colección puede adaptarse, o desarrollarse desde cero, como programa de marca propia.",
+      "link": "Ver Personalizado y Marca Propia →"
+    },
+    "cta": {
+      "eyebrow": "¿Listo para Avanzar?",
+      "title": "Consulte sobre esta colección.",
+      "lead": "Díganos qué mundo encaja mejor con sus compradores y le enviaremos las especificaciones completas.",
+      "secondary": "Ver Personalizado"
+    }
+  },
+  "custom": {
+    "seo": {
+      "title": "Personalizado y Marca Propia",
+      "description": "Desarrolle un programa de toallas y lencería personalizado o de marca propia con Kiran Global Exports — medidas, gramajes, colores, marca y embalaje a medida."
+    },
+    "intro": {
+      "eyebrow": "Personalizado y Marca Propia",
+      "title": "Su especificación. Nuestra experiencia textil.",
+      "lead": "Desde una sola solicitud de medida especial hasta un programa completo de marca propia, nuestro equipo de exportación trabaja a partir de su especificación, no de un catálogo fijo.",
+      "meta": [
+        "Listo para Marca Propia",
+        "Gramajes y Medidas a Medida",
+        "Embalaje con Marca"
+      ]
+    },
+    "capabilities": {
+      "eyebrow": "Lo Que Desarrollamos",
+      "title": "Construido por completo según su briefing.",
+      "points": [
+        {
+          "title": "Medidas y Gramaje",
+          "body": "Cada dimensión y peso desarrollados según su especificación."
+        },
+        {
+          "title": "Colores y Diseño",
+          "body": "Desarrollo de color y diseños jacquard o tejidos a medida."
+        },
+        {
+          "title": "Etiquetas y Marca",
+          "body": "Etiquetas tejidas, bordado y embalaje con marca."
+        },
+        {
+          "title": "Embalaje",
+          "body": "Embalaje listo para retail o de exportación a granel, pensado para su mercado."
+        }
+      ]
+    },
+    "imageBadge": "Desarrollo a Medida",
+    "processNoteStrong": "Sin catálogos mínimos.",
+    "processNoteRest": "Cada programa empieza con su especificación — ya sea una sola referencia o una gama completa. Muestras disponibles antes de comprometer la producción.",
+    "howItWorks": {
+      "eyebrow": "Cómo Funciona",
+      "title": "Del briefing a la producción.",
+      "lead": "Un proceso sencillo — construido según sus plazos y requisitos.",
+      "steps": [
+        {
+          "title": "Comparta su briefing",
+          "body": "Indíquenos su mercado objetivo, el tipo de producto, las cantidades y cualquier referencia existente."
+        },
+        {
+          "title": "Desarrollamos opciones",
+          "body": "Nuestro equipo propone especificaciones, materiales y opciones de construcción."
+        },
+        {
+          "title": "Aprobación de muestras",
+          "body": "Se producen y aprueban muestras físicas antes de iniciar la producción."
+        },
+        {
+          "title": "Producción y entrega",
+          "body": "Producción constante según la especificación aprobada, coordinada hasta su destino."
+        }
+      ]
+    },
+    "cta": {
+      "eyebrow": "Inicie un Programa",
+      "title": "Hable de sus requisitos.",
+      "lead": "Comparta su especificación, mercado objetivo y cantidad estimada — nuestro equipo de exportación le contactará directamente.",
+      "note": "Muestras gratuitas para programas aprobados"
+    }
+  },
+  "legal": {
+    "noticeBanner": "Esta página requiere la confirmación del propietario y una revisión legal antes de considerarse el texto legal definitivo.",
+    "lastUpdated": "Última revisión: pendiente de confirmación del propietario y revisión legal",
+    "contactNotePrefix": "Para preguntas sobre esta",
+    "contactNoteMiddle": "contáctenos en",
+    "contactNoteOr": "o visite nuestra",
+    "contactPageLink": "página de contacto",
+    "privacy": {
+      "title": "Política de Privacidad",
+      "description": "Marco de política de privacidad de Kiran Global Exports.",
+      "eyebrow": "Legal",
+      "intro": "Esta página es un marco inicial profesional. El propietario de la empresa y su asesor legal deben confirmar la política definitiva antes de su publicación.",
+      "shortName": "política de privacidad",
+      "sections": [
+        {
+          "heading": "Información recibida a través de consultas",
+          "body": "El sitio web puede recibir información enviada mediante el formulario de consulta, como nombre, empresa, país, correo, teléfono o WhatsApp, producto de interés, cantidad y mensaje. Confirme el proceso definitivo de recopilación, conservación y acceso antes del lanzamiento."
+        },
+        {
+          "heading": "Cómo puede usarse la información",
+          "body": "La información de las consultas puede usarse para responder a las solicitudes de los compradores, preparar conversaciones sobre productos y coordinar el seguimiento. Confirme cualquier uso adicional, encargado del tratamiento o servicio de notificación antes del lanzamiento."
+        },
+        {
+          "heading": "Almacenamiento y proveedores de servicios",
+          "body": "Confirme la base de datos de producción, el proveedor de alojamiento, el proveedor de notificaciones por correo y cualquier transferencia internacional de datos antes de publicar esta política."
+        },
+        {
+          "heading": "Contacto y derechos",
+          "body": "Añada el contacto definitivo de privacidad, el periodo de conservación, el proceso de acceso y rectificación y la jurisdicción aplicable tras la revisión legal."
+        }
+      ]
+    },
+    "terms": {
+      "title": "Términos y Condiciones",
+      "description": "Marco de términos y condiciones de Kiran Global Exports.",
+      "eyebrow": "Legal",
+      "intro": "Esta página es un marco inicial profesional para un sitio web internacional de consultas B2B. No sustituye el asesoramiento legal.",
+      "shortName": "términos y condiciones",
+      "sections": [
+        {
+          "heading": "Información del sitio web",
+          "body": "La información, las imágenes y las descripciones de productos se presentan para la conversación B2B y el desarrollo de especificaciones. Confirme la posición definitiva sobre disponibilidad, cotizaciones, muestras y pedidos vinculantes."
+        },
+        {
+          "heading": "Consultas de compradores",
+          "body": "Una consulta o el envío del formulario de contacto no es un pedido confirmado. Confirme el proceso de cotización, muestreo, aprobación, pago, producción, envío y cancelación antes del lanzamiento."
+        },
+        {
+          "heading": "Especificaciones e imágenes",
+          "body": "Los detalles finales de material, color, medida, gramaje, construcción, embalaje y marca deben confirmarse por escrito para cada requerimiento del comprador."
+        },
+        {
+          "heading": "Condiciones aplicables",
+          "body": "Añada la razón social, la ley aplicable, la jurisdicción, las condiciones de pago, las condiciones de envío, la posición sobre propiedad intelectual y el proceso de resolución de disputas tras la revisión del propietario y legal."
+        }
+      ]
+    }
+  },
+  "linen": {
+    "seo": {
+      "title": "Colección de Lencería — Baño, Cama, Mesa, Cocina y Hogar",
+      "description": "Explore la gama completa de lencería de Kiran Global Exports: toallas y lencería de baño, ropa de cama, mantelería, lencería de cocina, textiles para el hogar y programas de marca propia."
+    },
+    "hero": {
+      "eyebrow": "La Colección de Lencería",
+      "title": "Lencería",
+      "lead": "Colecciones premium de lencería para los mercados de hostelería, retail y marca propia.",
+      "exploreCta": "Ver la Gama"
+    },
+    "categoriesEyebrow": "Nuestras Líneas",
+    "categoriesTitle": "Cinco categorías de lencería.",
+    "categoriesLead": "Díganos qué línea encaja con su mercado y nuestro equipo de exportación le enviará las especificaciones completas.",
+    "enquireCta": "Consultar",
+    "categories": {
+      "bed": {
+        "name": "Ropa de Cama",
+        "description": "Sábanas, fundas nórdicas y fundas de almohada en algodón suave y transpirable — desarrolladas para programas de ropa de cama de hostelería y retail."
+      },
+      "table-dining": {
+        "name": "Mantelería",
+        "description": "Manteles, caminos de mesa, servilletas de tela e individuales para hoteles, restaurantes y gamas de retail para la mesa."
+      },
+      "kitchen-linen": {
+        "name": "Lencería de Cocina",
+        "description": "Delantales, agarraderas y guantes de horno desarrollados para cocinas de hostelería y gamas de menaje en retail."
+      },
+      "home-textile": {
+        "name": "Textiles para el Hogar",
+        "description": "Fundas de cojín, mantas decorativas y otros textiles de decoración desarrollados para retail de hogar y estilo de vida."
+      },
+      "custom-private-label": {
+        "name": "Productos Personalizados y de Marca Propia",
+        "description": "Cualquiera de las líneas anteriores desarrollada según su especificación — medidas, colores, marca y embalaje a medida, bajo su propia etiqueta."
+      }
+    },
+    "cta": {
+      "eyebrow": "Contáctenos",
+      "title": "Encontremos la lencería adecuada para su mercado.",
+      "lead": "Díganos qué categoría necesita y nuestro equipo de exportación le enviará especificaciones y precios."
+    }
+  }
+}

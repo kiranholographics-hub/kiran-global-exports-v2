@@ -6,8 +6,8 @@
     "contactExportTeam": "Unser Export-Team kontaktieren",
     "responseNote": "Antwort in der Regel innerhalb von 24 Stunden",
     "exportRegions": {
-      "southAmerica": "Südamerika",
       "northAmerica": "Nordamerika",
+      "southAmerica": "Südamerika",
       "europe": "Europa",
       "middleEast": "Naher Osten",
       "australia": "Australien",
@@ -64,13 +64,13 @@
     "navigate": "Navigation",
     "contact": "Kontakt",
     "whatsappLink": "WhatsApp an unser Export-Team ↗",
-    "exportRegions": "Exportregionen",
+    "exportRegions": "Exportmärkte",
     "rightsReserved": "Alle Rechte vorbehalten.",
     "privacyPolicy": "Datenschutzrichtlinie",
     "termsConditions": "Allgemeine Geschäftsbedingungen",
     "bottomTagline": "Premium-Handtücher & Wäsche — Internationaler Exporteur",
     "iecLabel": "IEC",
-    "structureLine": "Kiran Global Exports ist die Marketing- und Exportabteilung von Kiran Holographics — offizieller Marketingpartner von V P Mundada (Mundada Towels)."
+    "structureLine": "Offizieller Marketingpartner von V P Mundada (Mundada Towels) — Frottierweberei in Solapur, Maharashtra, seit 1972."
   },
   "notFound": {
     "seoTitle": "Seite nicht gefunden",
@@ -89,31 +89,31 @@
   },
   "home": {
     "seo": {
-      "title": "Premium-Exporteur für Handtücher & Wäsche",
-      "description": "Kiran Global Exports ist ein internationaler Lieferant und Exporteur von Premium-Handtüchern und -Wäsche aus Indien für globale Käufer, Hotellerie, Einzelhandel und Private-Label-Anforderungen."
+      "title": "Hersteller & Exporteur von Baumwollhandtüchern & Bademänteln",
+      "description": "Baumwollhandtücher, Bademäntel und Hotelwäsche aus Solapur, Indien, weltweit exportiert — OEKO-TEX-, ISO- und BSCI-zertifiziert, Weberei seit 1972. Muster zuerst, FOB direkt."
     },
     "hero": {
       "eyebrow": "Kiran Global Exports",
-      "headline": "TEXTILIEN FÜR DIE WELT GEMACHT.",
-      "subtitle": "Handgefertigte Premium-Handtücher — in Indien gewebt, weltweit vertrauenswürdig.",
+      "headline": "Baumwollhandtücher, Bademäntel & Hotelwäsche für Importeure weltweit",
+      "subtitle": "Wir beliefern Importeure, Distributoren und Private-Label-Marken — keine Endverbraucher. Ihre Spezifikation, vor der Serienproduktion an einem physischen Muster freigegeben, FOB versandt mit vollständiger Dokumentation.",
       "primaryCta": "Kollektion entdecken",
       "secondaryCta": "Unser Export-Team kontaktieren",
       "scroll": "Scrollen",
-      "badge": "Vertrauenswürdiger Exporteur seit 2005"
+      "badge": "Weberei in Solapur seit 1972"
     },
     "brandIntro": {
       "eyebrow": "Wer wir sind",
-      "heading": "Wir schaffen Textilien, die um die Welt reisen.",
-      "copy1": "Kiran Global Exports verbindet indische Textilhandwerkskunst mit Käufern auf der ganzen Welt und entwickelt Premium-Handtuchkollektionen für Unternehmen, die Qualität, Konsistenz und Präsentation schätzen.",
-      "copy2": "Von der Spezifikation bis zum Versand wird jede Kollektion um die Anforderungen des Käufers herum aufgebaut — nicht umgekehrt.",
+      "heading": "Vierundfünfzig Jahre Webkunst hinter jeder Bestellung",
+      "copy1": "Kiran Global Exports ist der ernannte Marketing- und Exportpartner von V P Mundada, einer Frottierweberei, die seit 1972 in Solapur, Maharashtra, webt. Wir verbinden Importeure und Distributoren weltweit mit den Baumwollhandtüchern, Bademänteln, Badematten und der Hotelwäsche der Weberei.",
+      "copy2": "Das ist aus einem praktischen Grund wichtig. Frottier gleichbleibend zu weben, zu färben und zu veredeln lernt eine Fabrik nicht schnell — und der Unterschied zeigt sich bei Ihrer zweiten Bestellung, nicht bei der ersten. Wenn Sie bei uns nachbestellen, bestellen Sie von denselben Webstühlen nach.",
       "stats": {
-        "years": "Jahre Exporterfahrung",
+        "years": "Jahre als Exportpartner",
         "countries": "Belieferte Länder",
-        "clients": "Großhandelskunden"
+        "clients": "Gründung der Weberei"
       },
       "premiumCotton": "Premium-Baumwolle",
       "handcrafted": "Handgefertigt",
-      "copy3": "Wir übernehmen die Exportabwicklung von Jaipur aus — Spezifikation, Musterung, Dokumentation und Versand. Ein Ansprechpartner, ein Satz Unterlagen, dahinter eine fünfzig Jahre alte Weberei."
+      "copy3": "Wir arbeiten von Jaipur aus und betreuen Ihre Spezifikation, die Bemusterung und die Auftragskoordination. Vertrag und Versand laufen direkt mit der Weberei — Sie haben es mit den Menschen zu tun, die Ihre Handtücher tatsächlich weben, und mit einer Weberei, die seit vierundfünfzig Jahren besteht."
     },
     "productWorld": {
       "collectionSuffix": "Kollektion",
@@ -148,32 +148,32 @@
     },
     "whyKiran": {
       "eyebrow": "Warum Kiran",
-      "title": "Gemacht für Käufer, die langfristig denken.",
+      "title": "Warum Einkäufer mit uns arbeiten",
       "points": [
         {
-          "title": "Qualität",
-          "body": "Gleichbleibende Textilqualität bei jeder Produktion, Charge für Charge.",
-          "tag": "ISO-zertifiziert"
+          "title": "Ihre Spezifikation, nicht unser Katalog",
+          "body": "GSM, Größe, Farbe, Bordüre, Saum, Etikett und Verpackung legen Sie fest. Nichts geht in die Serienproduktion, bevor Sie ein physisches Muster in der Hand hatten und es freigegeben haben.",
+          "tag": "Muster zuerst"
         },
         {
-          "title": "Anpassung",
-          "body": "Produkte nach Käuferanforderungen entwickelt — Größe, GSM, Farbe, Branding.",
-          "tag": "Private-Label-bereit"
+          "title": "Nachweise zur Rückverfolgbarkeit der Baumwolle",
+          "body": "Wir halten die Unterlagen bereit, die Importeure für die Sorgfaltsprüfung zu Zwangsarbeit benötigen. Für Lieferungen in die Vereinigten Staaten ist das eine Zollfrage, keine Präferenz.",
+          "tag": "Zollbereit"
         },
         {
-          "title": "Exportbereit",
-          "body": "Internationale B2B-Lieferfähigkeit, aufgebaut auf zuverlässiger Koordination.",
-          "tag": "FOB-Export bereit"
+          "title": "Nachproduktion, die übereinstimmt",
+          "body": "Die Farbe wird vor dem Serienfärben per Labdip freigegeben, und jede Charge wird mit dem freigegebenen Muster abgeglichen — damit Ihre zweite Bestellung aussieht wie die erste.",
+          "tag": "Chargengleich"
         },
         {
-          "title": "Konsistenz",
-          "body": "Zuverlässige Spezifikationen und wiederholbare Produktion, mit der Käufer planen können.",
-          "tag": "Chargenabgleich"
+          "title": "Direkte Konditionen der Weberei",
+          "body": "Angebote und Versand kommen direkt von der Weberei zu FOB-Konditionen. Sie behalten die Kontrolle über Fracht und Ihre eigenen Einstandskosten, und Ihre Geschäftsbeziehung besteht mit dem Hersteller selbst.",
+          "tag": "FOB"
         },
         {
-          "title": "Verpackung",
-          "body": "Käuferorientierte Verpackung und Präsentation für Hotellerie und Einzelhandel gleichermaßen.",
-          "tag": "Einzelhandels- & Hotelverpackung"
+          "title": "Muster vor der Verpflichtung",
+          "body": "Lieferzeit für Muster wird je Bestellung bestätigt. Keine Mindestbestellmenge für Muster.",
+          "tag": "Muster ohne MOQ"
         },
         {
           "title": "Kommunikation",
@@ -278,13 +278,13 @@
         "Individuelle Konstruktion"
       ],
       "cta": "Ihre Anforderungen besprechen",
-      "trustNote": "Kostenlose Beratung · Keine Mindestbestellmenge für Muster",
+      "trustNote": "Prüfung der Spezifikation · Keine Mindestbestellmenge für Muster",
       "badge": "Private-Label-bereit"
     },
     "cta": {
-      "eyebrow": "Kontakt aufnehmen",
-      "title": "Lassen Sie uns etwas für Ihren Markt schaffen.",
-      "lead": "Teilen Sie uns mit, wonach Sie suchen, und unser Export-Team meldet sich bei Ihnen.",
+      "eyebrow": "Senden Sie uns Ihre Spezifikation",
+      "title": "Senden Sie uns Ihre Spezifikation",
+      "lead": "Nennen Sie uns Produkt, Größe, GSM, Farbe, Menge und gewünschtes Branding — oder senden Sie einfach ein Foto dessen, was Sie heute kaufen, und wir arbeiten davon ausgehend. Wir antworten innerhalb von 24 Stunden mit einem FOB-Angebot und der Lieferzeit, bestätigt durch die Weberei.",
       "primary": "Anfrage senden",
       "secondary": "Kollektionen ansehen",
       "note": "Antwort in der Regel innerhalb von 24 Stunden"
@@ -355,7 +355,7 @@
       "collectionsCount": "{{count}} Kategorien zur Auswahl",
       "ctaEyebrow": "Nach Ihrem Briefing entwickelt",
       "ctaTitle": "Brauchen Sie eine Handtuchkollektion, die zu Ihrem Markt passt?",
-      "seoTitle": "Handtücher — Echte Textilkollektionen für globale Käufer",
+      "seoTitle": "Handtuchkollektionen für internationale Einkäufer",
       "seoDescription": "Entdecken Sie die Handtuchkollektionen von Kiran Global Exports über Bad-, Hotel-, Jacquard-, Waffel-, Zero-Twist-, Bordüren-, Pool-, Custom- und Spezialhandtuchserien."
     },
     "requestProductDetails": "Produktdetails anfragen",
@@ -458,13 +458,13 @@
     },
     "partner": {
       "eyebrow": "Unser Handtuchpartner",
-      "title": "Mundada Towels — fünf Jahrzehnte Textilexpertise.",
+      "title": "Mundada Towels — vierundfünfzig Jahre Textilexpertise.",
       "lead": "Kiran Global Exports arbeitet in Partnerschaft mit Mundada Towels, einem vertrauenswürdigen Hersteller und Exporteur von Premium-Frottierhandtüchern, gegründet 1972 in Solapur, Maharashtra. Gemeinsam versorgen wir internationale B2B-Käufer mit verlässlichen Handtuchlösungen nach ihren Spezifikationen, Qualitätsanforderungen und Marktbedürfnissen.",
       "tagline": "Schlankere, bessere Handtücher!",
       "established": "Gegründet 1972",
       "location": "Solapur, Maharashtra",
       "visitLink": "Mundada Towels besuchen ↗",
-      "copy1": "Mit über fünf Jahrzehnten Textilexpertise verbindet Mundada Towels traditionelles Handwerk mit moderner Fertigung, strenger Qualitätskontrolle und kontinuierlicher Produktentwicklung. Diese Fertigungsstärke unterstützt Kiran Global Exports dabei, konsistente, spezifikationsgetreue Handtuchprogramme für globale Käufer zu liefern.",
+      "copy1": "Mit vierundfünfzig Jahren Textilexpertise verbindet Mundada Towels traditionelles Handwerk mit moderner Fertigung, strenger Qualitätskontrolle und kontinuierlicher Produktentwicklung. Diese Fertigungsstärke unterstützt Kiran Global Exports dabei, konsistente, spezifikationsgetreue Handtuchprogramme für globale Käufer zu liefern.",
       "copy2": "Das Sortiment umfasst Bade-, Hand-, Gesichts-, Pool-, Strand-, Küchen- und Institutionshandtücher sowie Jacquard-, Zero-Twist-, kesselgefärbte, Bambus-, Recyclinggarn- und individualisierte Handtuchprogramme.",
       "copy3": "Zertifizierungen wie OEKO-TEX®, GRS, ISO 9001, MADE IN GREEN und BSCI unterstützen einen starken Fokus auf Qualität, Nachhaltigkeit und verantwortungsvolle Fertigung."
     },
@@ -487,6 +487,32 @@
       "title": "Solapur, Maharashtra",
       "mapLink": "In Google Maps öffnen ↗"
     },
+    "linenPartner": {
+      "eyebrow": "Unser Wäsche-Partner",
+      "title": "Cotonex — GOTS-zertifizierte Fertigung aus Bio-Baumwolle.",
+      "lead": "Kiran Global Exports arbeitet partnerschaftlich mit Cotonex zusammen, einem GOTS-zertifizierten Hersteller von Bio-Baumwolle mit Sitz in Karur, Tamil Nadu. Gemeinsam beliefern wir internationale Einkäufer mit zertifizierter Bio-Wäsche, entwickelt nach ihren Spezifikationen und Compliance-Anforderungen.",
+      "tagline": "GOTS-zertifiziert · Bio-Baumwolle",
+      "certLabel": "Lizenz GOTS-BVIN0317",
+      "location": "Karur, Tamil Nadu",
+      "copy1": "Cotonex ist nach dem Global Organic Textile Standard (GOTS, Version 7.0) für Heimtextilien, getragene und mitgeführte Accessoires sowie Outdoor- und gefärbte Stoffe zertifiziert — auditiert und zertifiziert von Bureau Veritas unter der Lizenz GOTS-BVIN0317.",
+      "copy2": "Das zertifizierte Sortiment umfasst Bettwäsche, Bad- und Küchenwäsche, Decken und Steppdecken, Teppiche, Kissen und Kissenbezüge sowie Webstoffe — alles aus 100 % Bio-Baumwolle.",
+      "copy3": "Diese Zertifizierung ermöglicht Kiran Global Exports, neben unserem Handtuchsortiment ein echtes Bio-Wäscheprogramm anzubieten — gestützt auf unabhängige, auditierte Compliance statt auf eine Selbstauskunft."
+    },
+    "cotonexProducts": [
+      "Bettwäsche",
+      "Bad- & Küchenwäsche",
+      "Decken & Steppdecken",
+      "Teppiche",
+      "Kissen & Kissenbezüge",
+      "Webstoffe",
+      "Taschen & Tragetaschen",
+      "Schürzen & Handschuhe"
+    ],
+    "linenLocationCard": {
+      "eyebrow": "Partnerstandort",
+      "title": "Karur, Tamil Nadu",
+      "mapLink": "In Google Maps öffnen ↗"
+    },
     "cta": {
       "eyebrow": "Arbeiten Sie mit uns",
       "title": "Lassen Sie uns über Ihren Markt sprechen.",
@@ -495,6 +521,7 @@
     "registration": {
       "eyebrow": "Registriert & Konform",
       "title": "Anerkannt von indischen Exportbehörden.",
+      "body": "Kiran Global Exports ist Mitglied der FIEO (Federation of Indian Export Organisations) und als MSME registriert. Exportdokumente und Versand werden über die eigene IEC unseres Produktionspartners abgewickelt.",
       "iecLabel": "IEC-Code"
     },
     "structure": {
@@ -682,8 +709,8 @@
     },
     "hero": {
       "eyebrow": "Die Heimtextilien-Kollektion",
-      "title": "Textilien für jeden Raum, jeden Tisch.",
-      "lead": "Vom Bad über das Schlafzimmer bis zum Esstisch — Premium-Heimtextilien, entwickelt für Hotellerie-, Einzelhandels- und Private-Label-Käufer weltweit.",
+      "title": "Wäsche",
+      "lead": "Premium-Wäschekollektionen für Hotellerie-, Einzelhandels- und Private-Label-Märkte.",
       "exploreCta": "Sortiment entdecken"
     },
     "categoriesEyebrow": "Unsere Linien",

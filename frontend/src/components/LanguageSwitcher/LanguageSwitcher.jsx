@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import { useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { SUPPORTED_LANGUAGES } from '@/i18n';
+import { SUPPORTED_LANGUAGES, rememberLanguage } from '@/i18n';
+import { localizePath } from '@/data/localeRoutes';
 import styles from './LanguageSwitcher.module.css';
 
 const panelVariants = {
@@ -15,6 +17,7 @@ const panelVariants = {
 
 export default function LanguageSwitcher() {
   const { t, i18n } = useTranslation();
+  const location = useLocation();
   const [open, setOpen] = useState(false);
   const wrapRef = useRef(null);
 
@@ -36,9 +39,17 @@ export default function LanguageSwitcher() {
     };
   }, [open]);
 
+  // Each language has its own URL (/de/about), so switching is a page load
+  // of the same page under the new prefix — the router's basename is fixed
+  // for the life of the page. location.pathname here is already without
+  // the current prefix.
   function selectLanguage(code) {
-    i18n.changeLanguage(code);
     setOpen(false);
+    rememberLanguage(code);
+    if (code === current.code) return;
+    window.location.assign(
+      localizePath(location.pathname, code) + location.search + location.hash
+    );
   }
 
   return (

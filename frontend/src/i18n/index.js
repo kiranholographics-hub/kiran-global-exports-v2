@@ -8,12 +8,15 @@ import de from './locales/de.json';
 import ko from './locales/ko.json';
 import pt from './locales/pt.json';
 import ja from './locales/ja.json';
+import es from './locales/es.json';
+import { DEFAULT_LOCALE, splitLocale } from '@/data/localeRoutes';
 
 // Single source of truth for supported languages — Header's language
 // selector reads this list directly, so adding a new language only ever
 // means: add its locale JSON here, add one entry to this array.
 export const SUPPORTED_LANGUAGES = [
   { code: 'en', label: 'English', nativeLabel: 'English', shortLabel: 'EN', dir: 'ltr' },
+  { code: 'es', label: 'Spanish', nativeLabel: 'Español', shortLabel: 'ES', dir: 'ltr' },
   { code: 'hi', label: 'Hindi', nativeLabel: 'हिन्दी', shortLabel: 'HI', dir: 'ltr' },
   { code: 'ar', label: 'Arabic', nativeLabel: 'العربية', shortLabel: 'AR', dir: 'rtl' },
   { code: 'de', label: 'German', nativeLabel: 'Deutsch', shortLabel: 'DE', dir: 'ltr' },
@@ -24,14 +27,29 @@ export const SUPPORTED_LANGUAGES = [
 
 const STORAGE_KEY = 'kge-language';
 
-function getStoredLanguage() {
+/**
+ * The language a visitor last picked in the switcher, or null. Only read to
+ * send a returning visitor from an English URL to their language's URL (see
+ * main.jsx) — the page itself always renders in the language its URL names,
+ * so a crawler, which has no storage, sees exactly what the URL promises.
+ */
+export function getStoredLanguage() {
   try {
     const stored = localStorage.getItem(STORAGE_KEY);
     if (stored && SUPPORTED_LANGUAGES.some((l) => l.code === stored)) return stored;
   } catch {
     // private browsing / storage unavailable
   }
-  return 'en';
+  return null;
+}
+
+/** Records an explicit choice from the language switcher. */
+export function rememberLanguage(code) {
+  try {
+    localStorage.setItem(STORAGE_KEY, code);
+  } catch {
+    // ignore
+  }
 }
 
 /** Applies <html lang> + <html dir> for the given language code. RTL (Arabic)
@@ -53,20 +71,17 @@ i18n.use(initReactI18next).init({
     ko: { translation: ko },
     pt: { translation: pt },
     ja: { translation: ja },
+    es: { translation: es },
   },
-  lng: getStoredLanguage(),
-  fallbackLng: 'en', // any key/page not yet translated silently falls back to English
+  // The URL decides: /de/... is German, an unprefixed path is English.
+  lng: splitLocale(window.location.pathname).locale,
+  fallbackLng: DEFAULT_LOCALE, // any key/page not yet translated silently falls back to English
   interpolation: { escapeValue: false }, // React already escapes
   returnObjects: true,
 });
 
 i18n.on('languageChanged', (code) => {
   applyDocumentLanguage(code);
-  try {
-    localStorage.setItem(STORAGE_KEY, code);
-  } catch {
-    // ignore
-  }
 });
 
 // Apply once on load for the initially-resolved language.
