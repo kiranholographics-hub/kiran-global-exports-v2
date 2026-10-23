@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { useParams } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import Link from '@/components/Link/Link';
 import SEO from '@/components/SEO/SEO';
 import PageIntro from '@/components/PageIntro/PageIntro';
 import ScrollReveal from '@/components/ScrollReveal/ScrollReveal';
@@ -13,7 +13,14 @@ import {
   getSeoLandingPage,
   getRelatedLandingPages,
 } from '@/data/seoLandingPages';
+import { getArticlesForLandingPage } from '@/data/articleGuides';
 import styles from './SeoLandingPage.module.css';
+
+const DEFAULT_META = [
+  { label: 'Mill Direct, FOB' },
+  { label: '100% Cotton Ringspun' },
+  { label: 'Sample First' },
+];
 
 const SECTION_LABELS = {
   export: { label: 'Export', href: '/export' },
@@ -41,6 +48,7 @@ export default function SeoLandingPage({ section }) {
   );
 
   const related = getRelatedLandingPages(section, slug);
+  const guides = getArticlesForLandingPage(section, slug);
 
   if (!page) {
     return (
@@ -68,11 +76,7 @@ export default function SeoLandingPage({ section }) {
         title={page.heading}
         lead={page.lead}
         breadcrumbs={breadcrumbs}
-        meta={[
-          { label: 'Mill Direct, FOB' },
-          { label: '100% Cotton Ringspun' },
-          { label: 'Sample First' },
-        ]}
+        meta={page.meta || DEFAULT_META}
       />
 
       {/* ══ Unique body copy ══════════════════════
@@ -112,7 +116,7 @@ export default function SeoLandingPage({ section }) {
           </ScrollReveal>
 
           <div className={styles.capabilityGrid}>
-            {CAPABILITIES.map((c, i) => (
+            {(page.capabilities || CAPABILITIES).map((c, i) => (
               <ScrollReveal key={c.title} delay={i * 0.07} className={styles.capability}>
                 <span className={styles.capabilityNumber} aria-hidden="true">
                   {String(i + 1).padStart(2, '0')}
@@ -131,13 +135,13 @@ export default function SeoLandingPage({ section }) {
           <ScrollReveal>
             <SectionHeading
               eyebrow="Product range"
-              title="What we manufacture."
+              title={page.rangeTitle || 'What we manufacture.'}
             />
           </ScrollReveal>
 
           <ScrollReveal>
             <ul className={styles.rangeList}>
-              {PRODUCT_RANGE.map((item) => (
+              {(page.range || PRODUCT_RANGE).map((item) => (
                 <li key={item} className={styles.rangeItem}>{item}</li>
               ))}
             </ul>
@@ -151,6 +155,18 @@ export default function SeoLandingPage({ section }) {
               className={styles.rangeLink}
             >
               Download our product catalogue (PDF)
+            </a>
+            {/* Our own retail/general-catalogue site — a genuinely different
+                destination for a visitor who wants to browse the full range
+                online rather than the export-specific brief this page is
+                about, not a reciprocal-link scheme. */}
+            <a
+              href="https://www.kiranglobalexports.com"
+              target="_blank"
+              rel="noopener"
+              className={styles.rangeLink}
+            >
+              Browse our full catalogue online
             </a>
             {page.relatedMarket && (
               <Link to={page.relatedMarket.href} className={styles.rangeLink}>
@@ -181,6 +197,30 @@ export default function SeoLandingPage({ section }) {
           </div>
         </div>
       </section>
+
+      {/* ══ Buyer guides ══════════════════════════ */}
+      {guides.length > 0 && (
+        <section className={`section ${styles.relatedSection}`}>
+          <div className="container">
+            <ScrollReveal>
+              <SectionHeading
+                eyebrow="Further reading"
+                title="Buyer guides on this topic."
+              />
+            </ScrollReveal>
+
+            <ScrollReveal>
+              <ul className={styles.relatedList}>
+                {guides.map((g) => (
+                  <li key={g.href}>
+                    <Link to={g.href} className={styles.relatedLink}>{g.label}</Link>
+                  </li>
+                ))}
+              </ul>
+            </ScrollReveal>
+          </div>
+        </section>
+      )}
 
       {/* ══ Related pages ═════════════════════════ */}
       <section className={`section ${styles.relatedSection}`}>

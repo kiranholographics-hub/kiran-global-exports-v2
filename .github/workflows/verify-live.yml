@@ -83,9 +83,54 @@ jobs:
           has /solutions/hotel-towel-manufacturer/ \
             "Hotel page unique intro" "A hotel towel fails in one of three ways"
 
+          echo "── Internal links name the final URL, not a redirecting one ──"
+          has  /export/ "hub links to a landing page with a trailing slash" 'href="/export/usa-cotton-towel-supplier/"'
+          lacks /export/ "hub has no slashless landing-page link" 'href="/export/usa-cotton-towel-supplier"'
+          has  / "homepage nav links with a trailing slash" 'href="/about/"'
+          lacks / "homepage has no slashless nav link" 'href="/about"'
+          has  /solutions/bulk-hotel-towels/ "breadcrumb schema names the trailing-slash URL" \
+            '"item":"https://www.kiranglobal-exports.com/export/"'
+
+          echo "── A slashless URL settles on its page without a redirect error ──"
+          # Search Console listed the first three under "Redirect error" (last crawled 25 Sep).
+          for p in /export/mexico-cotton-towel-supplier /export/oman-cotton-towel-supplier \
+                   /solutions/cotton-towel-manufacturer-india /towels/zero-twist; do
+            out=$(curl -s -L --max-redirs 5 -o /dev/null \
+              -w '%{http_code} %{num_redirects} %{url_effective}' --max-time 30 "$SITE$p" 2>/dev/null || true)
+            set -- $out
+            code=${1:-000}; hops=${2:-0}; final=${3:--}
+            curl -sIL --max-redirs 5 --max-time 30 "$SITE$p" 2>/dev/null | tr -d '\r' \
+              | grep -iE '^(HTTP/|location:)' | sed 's/^/           /' || true
+            if [ "$code" = "200" ] && [ "$final" = "$SITE$p/" ] && [ "$hops" -le 3 ] 2>/dev/null; then
+              echo "  ok       $p settles on $p/ (HTTP $code, $hops redirect(s))"
+            else
+              echo "  BAD      $p: HTTP $code after $hops redirect(s), ended at $final"
+              failed=1
+            fi
+          done
+
           echo "── Structured data ──"
           has /export/usa-cotton-towel-supplier/ "FAQPage schema" '"@type":"FAQPage"'
           has /export/usa-cotton-towel-supplier/ "BreadcrumbList schema" '"@type":"BreadcrumbList"'
+
+          echo "── Canonical tag matches the URL actually served ──"
+          # .htaccess 301-redirects every prerendered route to its
+          # trailing-slash form, so a canonical tag naming the slashless
+          # version points at a URL that immediately redirects away from
+          # itself instead of at the page it's on. Caught this exact way
+          # once already (SEO.jsx and generate-seo-files.js both built the
+          # URL from the router path with no normalisation) — this check
+          # is what would have caught it before it shipped.
+          has / "homepage canonical is self-referencing" \
+            'rel="canonical" href="https://www.kiranglobal-exports.com/"'
+          has / "homepage Organization schema has the shared @id" \
+            'https://www.kiranglobal-exports.com/#organization'
+          has /export/poland-cotton-towel-supplier/ "export page canonical has trailing slash" \
+            'rel="canonical" href="https://www.kiranglobal-exports.com/export/poland-cotton-towel-supplier/"'
+          has /solutions/bulk-hotel-towels/ "solutions page canonical has trailing slash" \
+            'rel="canonical" href="https://www.kiranglobal-exports.com/solutions/bulk-hotel-towels/"'
+          has /updates/hotel-towel-gsm-guide/ "article canonical has trailing slash" \
+            'rel="canonical" href="https://www.kiranglobal-exports.com/updates/hotel-towel-gsm-guide/"'
 
           echo "── The landing pages are reachable from the site ──"
           # They were orphans: in the sitemap, linked to each other, and
@@ -93,7 +138,8 @@ jobs:
           # which their own breadcrumbs name as their parent.
           for slug in usa canada australia south-africa south-america uae saudi-arabia \
                       uk germany netherlands france spain italy sweden norway \
-                      denmark japan south-korea new-zealand; do
+                      denmark japan south-korea new-zealand israel \
+                      poland qatar oman brazil mexico chile colombia peru; do
             has /export/ "/export links to $slug" "/export/$slug-cotton-towel-supplier"
           done
           has /export/ "/export links to the hospitality guide" "/solutions/hotel-towel-manufacturer"
@@ -104,7 +150,7 @@ jobs:
           # The footer renders on every page, so one check per market on
           # one page covers the whole site.
           for m in usa canada australia south-america poland finland sweden norway; do
-            has /about/ "footer links to /$m" "\"/$m\""
+            has /about/ "footer links to /$m" "\"/$m/\""
           done
           has /usa/ "USA market page links to its sourcing guide" "/export/usa-cotton-towel-supplier"
 
@@ -141,13 +187,15 @@ jobs:
           # every check so far.
           for slug in usa canada australia south-africa south-america uae saudi-arabia \
                       uk germany netherlands france spain italy sweden norway \
-                      denmark japan south-korea new-zealand; do
+                      denmark japan south-korea new-zealand israel \
+                      poland qatar oman brazil mexico chile colombia peru; do
             page="/export/$slug-cotton-towel-supplier/"
             has "$page" "$slug has an h1" "<h1"
             has "$page" "$slug has FAQ markup" '"@type":"FAQPage"'
             has "$page" "$slug has its own buyer list" "Who we supply"
           done
-          for slug in hotel-towel-manufacturer private-label-towel-manufacturer cotton-towel-manufacturer-india bulk-hotel-towels; do
+          for slug in hotel-towel-manufacturer private-label-towel-manufacturer cotton-towel-manufacturer-india bulk-hotel-towels \
+                      zero-twist-towel-manufacturer bathrobe-manufacturer dobby-border-towel-manufacturer; do
             has "/solutions/$slug/" "$slug has an h1" "<h1"
             has "/solutions/$slug/" "$slug has FAQ markup" '"@type":"FAQPage"'
           done
@@ -159,6 +207,88 @@ jobs:
             "India page answers how to request a quotation" "How do I actually request a quotation"
           has /solutions/bulk-hotel-towels/ \
             "bulk hotel towels page covers packing" "How is a bulk order packed"
+          has /solutions/organic-cotton-linen-manufacturer/ "organic linen page has an h1" "<h1"
+          has /solutions/organic-cotton-linen-manufacturer/ "organic linen page has FAQ markup" '"@type":"FAQPage"'
+          has /solutions/organic-cotton-linen-manufacturer/ \
+            "organic linen page names the GOTS licence" "GOTS-BVIN0317"
+          has /solutions/organic-cotton-linen-manufacturer/ \
+            "organic linen page says towels are not GOTS" "Are your towels organic or GOTS certified"
+          # The shared towel blocks must not render here: "Towels are made at
+          # our manufacturing partner V P Mundada" under a GOTS page is the
+          # towel/organic blur the page exists to rule out.
+          lacks /solutions/organic-cotton-linen-manufacturer/ \
+            "organic linen page does not render the towel capability block" "One mill, not a broker chain"
+          lacks /solutions/organic-cotton-linen-manufacturer/ \
+            "organic linen page does not list towels in its range" "Zero-twist towels"
+          has /about/ "About links to the organic linen guide" "/solutions/organic-cotton-linen-manufacturer"
+          has /about/ "About lists organic table linen, as the linen pages claim" "Table &amp; Dining Linen"
+          has /export/ "/export links to the organic linen guide" "/solutions/organic-cotton-linen-manufacturer"
+          has /export/ "/export links to the zero twist guide" "/solutions/zero-twist-towel-manufacturer"
+          has /export/ "/export links to the bathrobe guide" "/solutions/bathrobe-manufacturer"
+          has /export/ "/export links to the dobby border guide" "/solutions/dobby-border-towel-manufacturer"
+          has /solutions/dobby-border-towel-manufacturer/ \
+            "dobby page explains dobby vs jacquard" "What is the difference between a dobby border and a jacquard border"
+          has /solutions/cotton-towel-manufacturer-india/ \
+            "India page answers manufacturer vs exporter" "difference between a towel manufacturer and a towel exporter"
+          # The catalogue says zero twist is not built for tunnel washing;
+          # the hotel and UAE pages once recommended it for exactly that.
+          has /solutions/zero-twist-towel-manufacturer/ \
+            "zero twist page steers high-volume laundry to ringspun" "we recommend ringspun terry instead"
+          lacks /solutions/hotel-towel-manufacturer/ \
+            "hotel page no longer sells zero twist for commercial laundering" "durable through commercial laundering"
+          lacks /export/uae-cotton-towel-supplier/ \
+            "UAE page no longer sells zero twist for commercial laundering" "build zero-twist and vat-dyed cotton ranges"
+
+          echo "── Buyer guides and landing pages link to each other ──"
+          has /solutions/bulk-hotel-towels/ "landing page lists its buyer guides" "Further reading"
+          has /solutions/bulk-hotel-towels/ "landing page links to the GSM guide" "/updates/hotel-towel-gsm-guide"
+          has /export/japan-cotton-towel-supplier/ \
+            "Japan page links to the lab dip guide" "/updates/lab-dip-and-colour-matching-explained"
+          has /export/germany-cotton-towel-supplier/ \
+            "Germany page links to the certifications guide" "/updates/oeko-tex-gots-bsci-iso-what-each-certification-actually-means"
+          has /export/new-zealand-cotton-towel-supplier/ \
+            "New Zealand page links to the container loading guide" "/updates/container-loading-for-towels"
+          has /updates/lab-dip-and-colour-matching-explained/ \
+            "lab dip guide links to the Japan page" "/export/japan-cotton-towel-supplier"
+          has /solutions/organic-cotton-linen-manufacturer/ \
+            "organic linen page links to the organic quotation guide" "/updates/organic-cotton-vs-conventional-quotation"
+          has /updates/hotel-towel-gsm-guide/ "article lists related sourcing guides" "Related sourcing guides"
+          has /updates/keeping-a-towel-reorder-consistent/ \
+            "the reorder guide is rendered" "only works if both sides are holding the same reference"
+          has /updates/importing-cotton-towels-from-india-into-the-us/ \
+            "the US import guide is rendered" "Importer Security Filing"
+          has /updates/importing-cotton-towels-from-india-into-the-us/ \
+            "the US import guide links to the USA page" "/export/usa-cotton-towel-supplier"
+          has /updates/terry-vs-woven-towels/ \
+            "the terry vs woven guide is rendered" "What separates the two is the loop"
+          has /updates/briefing-private-label-packaging/ \
+            "the packaging briefing guide is rendered" "Approve a packaged sample"
+          has /updates/briefing-private-label-packaging/ \
+            "the packaging briefing guide links to the private label page" "/solutions/private-label-towel-manufacturer"
+          has /updates/export-documents-for-a-towel-shipment-from-india/ \
+            "the export documents guide is rendered" "What must match across them"
+          has /updates/export-documents-for-a-towel-shipment-from-india/ \
+            "the export documents guide links to the India sourcing page" "/solutions/cotton-towel-manufacturer-india"
+          has /updates/payment-terms-importing-towels-from-india/ \
+            "the payment terms guide is rendered" "Documents against payment"
+          has /updates/payment-terms-importing-towels-from-india/ \
+            "the payment terms guide links to the India sourcing page" "/solutions/cotton-towel-manufacturer-india"
+          has /updates/towel-minimum-order-quantity-explained/ \
+            "the MOQ guide is rendered" "Levers a buyer can ask about"
+          has /updates/towel-minimum-order-quantity-explained/ \
+            "the MOQ guide links to the private label page" "/solutions/private-label-towel-manufacturer"
+          has /updates/reading-a-towel-spec-sheet/ \
+            "articles name the person who publishes them" "Published by"
+          has /updates/reading-a-towel-spec-sheet/ \
+            "the spec sheet guide is rendered" "measured how, and when"
+          has /updates/what-a-certificate-of-origin-proves/ \
+            "the certificate of origin guide is rendered" "What it does not prove"
+          has /export/usa-cotton-towel-supplier/ "USA page answers the ISF question" "Who files the ISF"
+          has /export/usa-cotton-towel-supplier/ "USA page links to the US import guide" \
+            "/updates/importing-cotton-towels-from-india-into-the-us"
+          has /updates/hotel-towel-gsm-guide/ "article links to the bulk hotel towels page" "/solutions/bulk-hotel-towels"
+          lacks /updates/oeko-tex-gots-bsci-iso-what-each-certification-actually-means/ \
+            "certifications guide title no longer puts GOTS on the towels" "certification on our towels"
 
           echo "── The structured data actually parses ──"
           # Presence of the string proves nothing: malformed JSON-LD is
@@ -205,7 +335,10 @@ jobs:
             total=0
             for link in $links; do
               total=$((total + 1))
-              code=$(curl -sL -o /dev/null -w '%{http_code}' --max-time 20 \
+              # No -L: an internal link that answers 301 is a link naming a
+              # URL that is not the final one, which Search Console reports
+              # as "Page with redirect" and crawlers pay two requests for.
+              code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 \
                 "$SITE$link" 2>/dev/null || echo 000)
               if [ "$code" != "200" ]; then
                 echo "  BROKEN   $page -> $link  (HTTP $code)"
@@ -263,7 +396,25 @@ jobs:
           else
             echo "  ok       sitemap leaves the noindex legal pages out"
           fi
+          # Every listed URL redirects to its own trailing-slash form (see
+          # the canonical check above) — a sitemap entry without one just
+          # makes Google follow that redirect on every crawl instead of
+          # requesting the final URL directly.
+          if printf '%s' "$sitemap" | grep -qF "<loc>https://www.kiranglobal-exports.com/export/poland-cotton-towel-supplier</loc>"; then
+            echo "  BAD      sitemap lists a page URL without its trailing slash"
+            failed=1
+          else
+            echo "  ok       sitemap URLs carry the trailing slash they actually resolve to"
+          fi
 
+          # Articles carry the date they really changed on; a sitemap with no
+          # <lastmod> at all means the build lost that data.
+          if printf '%s' "$sitemap" | grep -qE "<lastmod>[0-9]{4}-[0-9]{2}-[0-9]{2}</lastmod>"; then
+            echo "  ok       sitemap carries lastmod dates for the articles"
+          else
+            echo "  BAD      sitemap has no <lastmod> dates for the articles"
+            failed=1
+          fi
           echo "── Standalone static pages ──"
           # frontend/public/oshibori/index.html — not a React route, so none
           # of the checks above touch it; verify it shipped and is not the
@@ -301,6 +452,50 @@ jobs:
             echo "  MISSING  catalogue PDF  (HTTP $code)"
             failed=1
           fi
+
+          echo "── Hero video supports Range requests (iOS Safari needs this to play at all) ──"
+          # Desktop/Android browsers will often still play a video served
+          # without Range support by downloading it whole, which is why this
+          # class of bug survives testing on a laptop — iOS Safari refuses
+          # to play a <video> at all unless the server answers a Range
+          # request with 206 and advertises Accept-Ranges: bytes.
+          for video in kiran-hero-desktop kiran-hero-mobile; do
+            headers=$(curl -sI -H "Range: bytes=0-1023" --max-time 20 "$SITE/videos/$video.mp4" 2>/dev/null || true)
+            status_line=$(printf '%s' "$headers" | head -1 | tr -d '\r')
+            echo "  info     $video.mp4 headers:"
+            printf '%s' "$headers" | sed 's/^/    /'
+            # Accept-Ranges is only mandated on a 200 response advertising
+            # support in advance; a 206 to an actual Range request is the
+            # real proof it works, regardless of whether that header is
+            # echoed on this specific response — Content-Range is what's
+            # mandatory on a 206 and proves a genuine partial response.
+            if printf '%s' "$status_line" | grep -q "206" && printf '%s' "$headers" | grep -qi "^Content-Range:"; then
+              echo "  ok       $video.mp4 answers Range requests (206 + Content-Range)"
+            else
+              echo "  BAD      $video.mp4 does not support Range requests ($status_line) — will not play on iOS Safari"
+              failed=1
+            fi
+            total_size=$(printf '%s' "$headers" | grep -oiE '^content-range: bytes [0-9]+-[0-9]+/[0-9]+' | grep -oE '[0-9]+$')
+            echo "  info     $video.mp4 total size: ${total_size:-unknown} bytes"
+            # This is the file actually live on Hostinger, uploaded by hand
+            # through File Manager (see the Cache-Control note above) — not
+            # what's committed in frontend/public/videos/, so it has to be
+            # checked directly rather than assumed from the repo copy.
+            # "moov" (the index a player needs before it can start playing
+            # anything) has to sit near the front of the file — an encoder
+            # that didn't enable faststart puts it at the end instead,
+            # which means nothing plays until the whole file — several MB
+            # here — has downloaded. Grabbing the first 512KB and looking
+            # for the atom is a cheap way to tell without downloading the
+            # whole video.
+            head_bytes=$(curl -s -H "Range: bytes=0-524287" --max-time 20 "$SITE/videos/$video.mp4" 2>/dev/null | tr -d '\0')
+            if printf '%s' "$head_bytes" | grep -qa "moov"; then
+              echo "  ok       $video.mp4 is faststart (moov atom near the front — plays without downloading the whole file)"
+            else
+              echo "  BAD      $video.mp4 has no moov atom in its first 512KB — likely not faststart, so a player has to fetch most/all of it (${total_size:-several MB}) before it can start, which stalls or silently fails on a slow connection"
+              failed=1
+            fi
+          done
 
           echo "── Bundle points at the real API ──"
           bundle=$(curl -sL --max-time 30 "$SITE/$BUST" \

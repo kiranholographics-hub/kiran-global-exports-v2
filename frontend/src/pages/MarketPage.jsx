@@ -1,5 +1,6 @@
 import { use, useMemo } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import Link from '@/components/Link/Link';
 import SEO from '@/components/SEO/SEO';
 import PageIntro from '@/components/PageIntro/PageIntro';
 import ScrollReveal from '@/components/ScrollReveal/ScrollReveal';

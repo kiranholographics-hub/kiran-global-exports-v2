@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { Link } from 'react-router-dom';
+import Link from '@/components/Link/Link';
 import { useTranslation } from 'react-i18next';
 import SEO from '@/components/SEO/SEO';
 import NotFoundContent from '@/components/NotFoundContent/NotFoundContent';

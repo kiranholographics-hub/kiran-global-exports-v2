@@ -490,11 +490,13 @@
       "certLabel": "Licencia GOTS-BVIN0317",
       "location": "Karur, Tamil Nadu",
       "copy1": "Cotonex está certificada según el Global Organic Textile Standard (GOTS, versión 7.0) para textiles para el hogar, accesorios de transporte y de uso personal, y tejidos para exterior y teñidos — auditada y certificada por Bureau Veritas con la licencia GOTS-BVIN0317.",
-      "copy2": "La gama certificada abarca ropa de cama, lencería de baño y cocina, mantas y edredones, alfombras, cojines y almohadas, y tejidos planos, todo en algodón 100% orgánico.",
-      "copy3": "Esta certificación permite a Kiran Global Exports ofrecer un programa de lencería genuinamente orgánico junto a nuestra gama de toallas, respaldado por un cumplimiento independiente y auditado, no por una declaración propia."
+      "copy2": "La gama certificada abarca ropa de cama, mantelería, lencería de baño y cocina, mantas y edredones, alfombras, cojines y almohadas, y tejidos planos, todo en algodón 100% orgánico.",
+      "copy3": "Esta certificación permite a Kiran Global Exports ofrecer un programa de lencería genuinamente orgánico junto a nuestra gama de toallas, respaldado por un cumplimiento independiente y auditado, no por una declaración propia.",
+      "guideLink": "¿Busca lencería orgánica? Lea la guía para compradores (en inglés) →"
     },
     "cotonexProducts": [
       "Ropa de Cama",
+      "Mantelería",
       "Lencería de Baño y Cocina",
       "Mantas y Edredones",
       "Alfombras",

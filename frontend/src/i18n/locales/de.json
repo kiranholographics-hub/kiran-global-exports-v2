@@ -174,11 +174,6 @@
           "title": "Muster vor der Verpflichtung",
           "body": "Lieferzeit für Muster wird je Bestellung bestätigt. Keine Mindestbestellmenge für Muster.",
           "tag": "Muster ohne MOQ"
-        },
-        {
-          "title": "Kommunikation",
-          "body": "Direkte Kommunikation mit unserem Export-Team, von der Anfrage bis zum Versand.",
-          "tag": "Direkter Team-Zugang"
         }
       ]
     },
@@ -495,11 +490,13 @@
       "certLabel": "Lizenz GOTS-BVIN0317",
       "location": "Karur, Tamil Nadu",
       "copy1": "Cotonex ist nach dem Global Organic Textile Standard (GOTS, Version 7.0) für Heimtextilien, getragene und mitgeführte Accessoires sowie Outdoor- und gefärbte Stoffe zertifiziert — auditiert und zertifiziert von Bureau Veritas unter der Lizenz GOTS-BVIN0317.",
-      "copy2": "Das zertifizierte Sortiment umfasst Bettwäsche, Bad- und Küchenwäsche, Decken und Steppdecken, Teppiche, Kissen und Kissenbezüge sowie Webstoffe — alles aus 100 % Bio-Baumwolle.",
-      "copy3": "Diese Zertifizierung ermöglicht Kiran Global Exports, neben unserem Handtuchsortiment ein echtes Bio-Wäscheprogramm anzubieten — gestützt auf unabhängige, auditierte Compliance statt auf eine Selbstauskunft."
+      "copy2": "Das zertifizierte Sortiment umfasst Bettwäsche, Tisch- und Tafelwäsche, Bad- und Küchenwäsche, Decken und Steppdecken, Teppiche, Kissen und Kissenbezüge sowie Webstoffe — alles aus 100 % Bio-Baumwolle.",
+      "copy3": "Diese Zertifizierung ermöglicht Kiran Global Exports, neben unserem Handtuchsortiment ein echtes Bio-Wäscheprogramm anzubieten — gestützt auf unabhängige, auditierte Compliance statt auf eine Selbstauskunft.",
+      "guideLink": "Sie beschaffen Bio-Wäsche? Lesen Sie den Einkaufsleitfaden (auf Englisch) →"
     },
     "cotonexProducts": [
       "Bettwäsche",
+      "Tisch- & Tafelwäsche",
       "Bad- & Küchenwäsche",
       "Decken & Steppdecken",
       "Teppiche",
@@ -521,8 +518,7 @@
     "registration": {
       "eyebrow": "Registriert & Konform",
       "title": "Anerkannt von indischen Exportbehörden.",
-      "body": "Kiran Global Exports ist Mitglied der FIEO (Federation of Indian Export Organisations) und als MSME registriert. Exportdokumente und Versand werden über die eigene IEC unseres Produktionspartners abgewickelt.",
-      "iecLabel": "IEC-Code"
+      "body": "Kiran Global Exports ist Mitglied der FIEO (Federation of Indian Export Organisations) und als MSME registriert. Exportdokumente und Versand werden über die eigene IEC unseres Produktionspartners abgewickelt."
     },
     "structure": {
       "eyebrow": "Unsere Struktur",

@@ -13,7 +13,7 @@ function getClient() {
 // knowledge lives. Keep it factual; the model is told to defer to a human
 // for anything it's not sure of rather than guess at pricing or specs.
 const SYSTEM_PROMPT = `
-You are the AI assistant on the Kiran Global Exports website (kiranglobalexports.com), a
+You are the AI assistant on the Kiran Global Exports website (kiranglobal-exports.com), a
 textile export company based in Jaipur, Rajasthan, India, manufacturing at the V P Mundada
 plant in Solapur, Maharashtra.
 

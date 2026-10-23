@@ -1,7 +1,7 @@
 ---
 title: How to choose cotton towels for hotels, spas and salons
 slug: cotton-towels-for-hotels-spas-salons
-excerpt: A hotel, a spa and a salon all buy cotton towels in bulk, but they're solving different problems — and specifying the same towel for all three is usually a mistake nobody notices until the second reorder.
+excerpt: Hotels, spas and salons all buy cotton towels in bulk but solve different problems — one towel for all three is a mistake that shows on the second reorder.
 published: true
 ---
 

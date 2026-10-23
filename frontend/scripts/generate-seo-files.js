@@ -98,15 +98,36 @@ const API_BASE = process.env.VITE_API_URL || 'https://api.kiranglobal-exports.co
 // Published updates, the same way: /hq is where they are written, so the
 // list only exists in the database. Without this an article could be
 // published and sit there with nothing telling Google it exists.
+// AbortSignal.timeout on both calls below: a slow/unresponsive API (as
+// opposed to one that refuses the connection outright) would otherwise
+// hang this fetch — and the build step calling it — indefinitely, since
+// plain fetch has no default timeout of its own.
 async function fetchUpdateRoutes() {
   try {
-    const res = await fetch(`${API_BASE}/api/updates`);
+    const res = await fetch(`${API_BASE}/api/updates`, { signal: AbortSignal.timeout(10_000) });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const updates = await res.json();
     if (!updates.length) return [];
+    // lastmod is only ever a date the article really changed on: the
+    // record's own updatedAt (falling back to publishedAt). Google ignores
+    // a lastmod it finds to be unreliable, so static pages — which have no
+    // such date — are left without one rather than stamped with build day.
+    const toDate = (value) => {
+      const d = new Date(value);
+      return Number.isNaN(d.getTime()) ? null : d.toISOString().slice(0, 10);
+    };
+    const dated = updates.map((u) => ({
+      slug: u.slug,
+      lastmod: toDate(u.updatedAt) || toDate(u.publishedAt),
+    }));
+    const newest = dated.map((u) => u.lastmod).filter(Boolean).sort().pop() || null;
     return [
-      { path: '/updates', priority: '0.6' },
-      ...updates.map((u) => ({ path: `/updates/${u.slug}`, priority: '0.6' })),
+      { path: '/updates', priority: '0.6', lastmod: newest },
+      ...dated.map((u) => ({
+        path: `/updates/${u.slug}`,
+        priority: '0.6',
+        lastmod: u.lastmod,
+      })),
     ];
   } catch (err) {
     console.warn(`[generate-seo-files] could not fetch updates (${err.message}) — sitemap will omit them this build.`);
@@ -116,7 +137,7 @@ async function fetchUpdateRoutes() {
 
 async function fetchActiveMarketRoutes() {
   try {
-    const res = await fetch(`${API_BASE}/api/markets/public`);
+    const res = await fetch(`${API_BASE}/api/markets/public`, { signal: AbortSignal.timeout(10_000) });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const markets = await res.json();
     return markets.map((m) => ({ path: `/${m.slug}`, priority: '0.7' }));
@@ -129,7 +150,7 @@ async function fetchActiveMarketRoutes() {
 // A translated page is listed once per language, each entry naming every
 // language version (the same set its <link rel="alternate" hreflang> tags
 // carry — see SEO.jsx), at the slashed URL the server actually answers on.
-function localizedEntries(route, priority) {
+function localizedEntries(route, priority, lastmod) {
   const path = route || '/';
   const alternates = [
     ...ALL_LOCALES.map((code) => ({
@@ -146,7 +167,9 @@ function localizedEntries(route, priority) {
     .join('\n');
   return ALL_LOCALES.map(
     (code) =>
-      `  <url>\n    <loc>${localizedPageUrl(siteConfig.siteUrl, path, code)}</loc>\n${links}\n    <priority>${priority}</priority>\n  </url>`
+      `  <url>\n    <loc>${localizedPageUrl(siteConfig.siteUrl, path, code)}</loc>\n${links}${
+        lastmod ? `\n    <lastmod>${lastmod}</lastmod>` : ''
+      }\n    <priority>${priority}</priority>\n  </url>`
   );
 }
 
@@ -157,10 +180,20 @@ async function main() {
   ]);
   const routes = [...STATIC_ROUTES, ...marketRoutes, ...updateRoutes];
 
-  const entries = routes.flatMap(({ path: route, priority }) =>
+  // .htaccess 301-redirects every prerendered route to its trailing-slash
+  // form to keep one canonical URL per page (see the matching note in
+  // SEO.jsx) — a sitemap entry without the slash would just send Google
+  // through that redirect on every crawl instead of naming the final URL.
+  const withTrailingSlash = (route) => (!route || route === '/' ? '/' : `${route.replace(/\/+$/, '')}/`);
+
+  const entries = routes.flatMap(({ path: route, priority, lastmod }) =>
     isLocalizedPage(route || '/')
-      ? localizedEntries(route, priority)
-      : [`  <url>\n    <loc>${siteConfig.siteUrl}${route}</loc>\n    <priority>${priority}</priority>\n  </url>`]
+      ? localizedEntries(route, priority, lastmod)
+      : [
+          `  <url>\n    <loc>${siteConfig.siteUrl}${withTrailingSlash(route)}</loc>${
+            lastmod ? `\n    <lastmod>${lastmod}</lastmod>` : ''
+          }\n    <priority>${priority}</priority>\n  </url>`,
+        ]
   );
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${entries.join('\n')}\n</urlset>\n`;
