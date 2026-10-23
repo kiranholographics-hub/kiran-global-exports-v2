@@ -17,6 +17,15 @@ Options -MultiViews
   RewriteCond %{HTTP_HOST} ^kiranglobal-exports\.com$ [NC]
   RewriteRule ^ https://www.kiranglobal-exports.com%{REQUEST_URI} [L,R=301]
 
+  # A language prefix only has pages of its own for the translated pages
+  # (LOCALIZED_PAGES in src/data/localeRoutes.js — keep the two lists in
+  # step). Anything else under a prefix, /de/export/... or /es/towels/x, is
+  # the English page, which has no prerendered copy there: without this a
+  # crawler got the home page's HTML, canonical and all. Send it to the
+  # English URL instead. The query string rides along.
+  RewriteCond $2 !^(about|custom|contact|towels|linen)/?$
+  RewriteRule ^(es|de|ar|pt|ja|ko|hi)/(.+)$ /$2 [L,R=301]
+
   # Settle a prerendered route on one URL: /export/usa-cotton-towel-supplier
   # and .../supplier/ are the same page, so send the slashless form to the
   # canonical one rather than letting both answer and split the ranking.

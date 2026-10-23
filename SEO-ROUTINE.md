@@ -107,6 +107,10 @@ hreflang tags and a sitemap entry per language. The /export and
 /solutions landing pages are still English-only, so under a language
 prefix they point their canonical back at the English page. So does
 /collections, whose product descriptions come from the API in English.
+Any untranslated page requested under a prefix (/de/export/...) is
+301-redirected to its English URL by `frontend/public/.htaccess`, whose
+copy of the translated-page list must match `LOCALIZED_PAGES` — the build
+fails if it does not.
 
 - **Changing English copy means changing every locale file.** When the
   English text in `en.json` changes and the others do not, the other
