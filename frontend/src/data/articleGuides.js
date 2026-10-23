@@ -242,6 +242,17 @@ const ARTICLE_GUIDES = [
       'export/usa-cotton-towel-supplier',
     ],
   },
+  {
+    slug: 'export-documents-for-a-towel-shipment-from-india',
+    title: 'Export documents for a towel shipment from India — what each one is for and what must match',
+    pages: [
+      'solutions/cotton-towel-manufacturer-india',
+      'solutions/bulk-hotel-towels',
+      'export/norway-cotton-towel-supplier',
+      'export/uk-cotton-towel-supplier',
+      'export/usa-cotton-towel-supplier',
+    ],
+  },
 ];
 
 export function getLandingPagesForArticle(articleSlug) {
