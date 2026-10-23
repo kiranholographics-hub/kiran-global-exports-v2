@@ -1,7 +1,7 @@
 ---
 title: Export documents for a towel shipment from India — what each one is for and what must match
 slug: export-documents-for-a-towel-shipment-from-india
-excerpt: The documents on a sea shipment of towels from India, who prepares each, and the fields that must agree across them so that clearance and payment don't stall.
+excerpt: The documents on a sea shipment of towels from India, who prepares each, and the details that must agree across them so clearance and payment don't stall.
 published: true
 ---
 
