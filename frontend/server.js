@@ -13,7 +13,7 @@ import compression from 'compression';
 import path from 'node:path';
 import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import { DEFAULT_LOCALE, isLocalizedPage, splitLocale } from './src/data/localeRoutes.js';
+import { DEFAULT_LOCALE, isTranslatedIn, splitLocale } from './src/data/localeRoutes.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DIST_DIR = path.join(__dirname, 'dist');
@@ -29,7 +29,7 @@ app.use(compression());
 // URL rather than a shell whose head belongs to some other page.
 app.use((req, res, next) => {
   const { locale, path: rest } = splitLocale(req.path);
-  if (locale === DEFAULT_LOCALE || isLocalizedPage(rest)) return next();
+  if (locale === DEFAULT_LOCALE || isTranslatedIn(rest, locale)) return next();
   const query = req.originalUrl.slice(req.path.length);
   return res.redirect(301, rest + query);
 });

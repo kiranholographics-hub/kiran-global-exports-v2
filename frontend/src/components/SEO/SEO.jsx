@@ -3,11 +3,10 @@ import { useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { siteConfig } from '@/data/config';
 import {
-  ALL_LOCALES,
   DEFAULT_LOCALE,
   HREFLANG,
-  isLocalizedPage,
   localizedPageUrl,
+  pageLocales,
 } from '@/data/localeRoutes';
 import { withTrailingSlash } from '@/lib/paths';
 
@@ -204,7 +203,8 @@ export default function SEO({
     // language; any other page under a prefix is English copy in a
     // translated frame, so it points back at the English URL instead of
     // competing with it.
-    const translated = isLocalizedPage(location.pathname);
+    const locales = pageLocales(location.pathname);
+    const translated = locales.length > 1 && locales.includes(htmlLang);
     const canonicalUrl = translated
       ? localizedPageUrl(siteConfig.siteUrl, location.pathname, htmlLang)
       : `${siteConfig.siteUrl}${pathWithSlash}`;
@@ -229,7 +229,7 @@ export default function SEO({
     setAlternates(
       translated && !noindex
         ? [
-            ...ALL_LOCALES.map((code) => ({
+            ...locales.map((code) => ({
               hreflang: HREFLANG[code],
               href: localizedPageUrl(siteConfig.siteUrl, location.pathname, code),
             })),
