@@ -30,9 +30,10 @@ export const LOCALIZED_PAGES = [
   '/about',
   '/custom',
   '/contact',
-  '/collections',
   '/towels',
   '/linen',
+  // Not /collections: most of that page is product cards whose
+  // descriptions come from the API in English only.
 ];
 
 /** Drops one trailing slash, keeping the root as "/". */

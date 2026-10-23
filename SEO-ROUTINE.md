@@ -102,10 +102,11 @@ Bring either to Claude and it gets built.
 Every language has its own URL: `/de/about`, `/es/towels`, `/ar`. English
 stays unprefixed. Only the pages listed in `LOCALIZED_PAGES`
 (`frontend/src/data/localeRoutes.js`) are indexed in other languages —
-home, about, custom, contact, collections, towels and linen — each with
+home, about, custom, contact, towels and linen — each with
 hreflang tags and a sitemap entry per language. The /export and
 /solutions landing pages are still English-only, so under a language
-prefix they point their canonical back at the English page.
+prefix they point their canonical back at the English page. So does
+/collections, whose product descriptions come from the API in English.
 
 - **Changing English copy means changing every locale file.** When the
   English text in `en.json` changes and the others do not, the other
