@@ -36,7 +36,7 @@
 // the next successful deploy, whereas hard-failing every build over one
 // bad network call would block unrelated fixes too.
 
-import { writeFileSync } from 'node:fs';
+import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { siteConfig } from '../src/data/config.js';
@@ -48,7 +48,9 @@ import {
   DEFAULT_LOCALE,
   HREFLANG,
   isLocalizedPage,
+  LOCALIZED_PAGES,
   localizedPageUrl,
+  PREFIXED_LOCALES,
 } from '../src/data/localeRoutes.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -173,7 +175,28 @@ function localizedEntries(route, priority, lastmod) {
   );
 }
 
+// public/.htaccess redirects every untranslated page under a language
+// prefix to its English URL, and it cannot import localeRoutes.js, so it
+// carries its own copy of both lists. A page translated here but not added
+// there would be redirected away from its own sitemap entry; fail the build
+// instead of shipping that.
+function checkHtaccessLocales() {
+  const htaccess = readFileSync(path.join(__dirname, '../public/.htaccess'), 'utf-8');
+  const pages = /RewriteCond \$2 !\^\(([^)]+)\)/.exec(htaccess)?.[1].split('|').sort();
+  const prefixes = /RewriteRule \^\(([a-z|]+)\)\/\(\.\+\)\$/.exec(htaccess)?.[1].split('|').sort();
+  const wantPages = LOCALIZED_PAGES.filter((p) => p !== '/').map((p) => p.slice(1)).sort();
+  const wantPrefixes = [...PREFIXED_LOCALES].sort();
+  if (String(pages) !== String(wantPages) || String(prefixes) !== String(wantPrefixes)) {
+    throw new Error(
+      `public/.htaccess language redirect is out of step with src/data/localeRoutes.js:\n` +
+        `  pages    .htaccess [${pages}] vs localeRoutes [${wantPages}]\n` +
+        `  prefixes .htaccess [${prefixes}] vs localeRoutes [${wantPrefixes}]`
+    );
+  }
+}
+
 async function main() {
+  checkHtaccessLocales();
   const [marketRoutes, updateRoutes] = await Promise.all([
     fetchActiveMarketRoutes(),
     fetchUpdateRoutes(),

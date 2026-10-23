@@ -13,7 +13,7 @@ import compression from 'compression';
 import path from 'node:path';
 import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import { splitLocale } from './src/data/localeRoutes.js';
+import { DEFAULT_LOCALE, isLocalizedPage, splitLocale } from './src/data/localeRoutes.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DIST_DIR = path.join(__dirname, 'dist');
@@ -23,6 +23,16 @@ const API_BASE = process.env.VITE_API_URL || 'https://api.kiranglobal-exports.co
 const app = express();
 
 app.use(compression());
+
+// Same rule as public/.htaccess: under a language prefix only the
+// translated pages exist, so /de/export/... answers with the English page's
+// URL rather than a shell whose head belongs to some other page.
+app.use((req, res, next) => {
+  const { locale, path: rest } = splitLocale(req.path);
+  if (locale === DEFAULT_LOCALE || isLocalizedPage(rest)) return next();
+  const query = req.originalUrl.slice(req.path.length);
+  return res.redirect(301, rest + query);
+});
 app.use(express.static(DIST_DIR, { index: false }));
 
 // Known top-level SPA routes (see App.jsx) — anything under one of these

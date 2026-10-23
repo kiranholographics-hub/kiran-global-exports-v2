@@ -408,6 +408,14 @@ jobs:
           # A language version, served as its own prerendered page — see
           # frontend/src/data/localeRoutes.js.
           check "/de/about/" 'hreflang="de"'
+          # An untranslated page under a language prefix must send crawlers to
+          # the English URL, not answer with the home page's HTML.
+          loc=$(curl -s -o /dev/null -w '%{http_code} %{redirect_url}' \
+            "https://www.kiranglobal-exports.com/de/export/usa-cotton-towel-supplier/?cachebust=${GITHUB_RUN_ID}")
+          case "$loc" in
+            "301 https://www.kiranglobal-exports.com/export/usa-cotton-towel-supplier/"*) echo "  ok       /de/export/... redirects to the English page" ;;
+            *) echo "  MISSING  /de/export/... should 301 to the English page, got: $loc"; failed=1 ;;
+          esac
 
           # A bundle built without VITE_API_URL points every API call at the
           # visitor's own machine, which breaks the catalogue and the contact
