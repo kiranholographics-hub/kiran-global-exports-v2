@@ -136,7 +136,21 @@ jobs:
 
               for (const r of routes) {
                 const url = 'http://127.0.0.1:4173' + r;
-                const res = await page.goto(url, { waitUntil: 'networkidle0', timeout: 30000 });
+                // Three tries per route, ten seconds apart: a slow answer from
+                // the live API is the usual cause of a timeout here, and it
+                // should not cost a whole 15-minute rebuild. The error names
+                // the route, which it never did.
+                let res;
+                for (let attempt = 1; ; attempt++) {
+                  try {
+                    res = await page.goto(url, { waitUntil: 'networkidle0', timeout: 30000 });
+                    break;
+                  } catch (err) {
+                    if (attempt >= 3) throw new Error(r + ': ' + err.message);
+                    console.log('  ! ' + r + ' attempt ' + attempt + ' failed (' + err.message + ') - retrying in 10s');
+                    await new Promise(resolve => setTimeout(resolve, 10000));
+                  }
+                }
                 await page.evaluate(() => new Promise(resolve => setTimeout(resolve, 1000)));
 
                 const html = await page.content();

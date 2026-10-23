@@ -260,16 +260,32 @@ async function main() {
     ],
   });
 
+  // A route can time out for reasons that have nothing to do with the code:
+  // the catalogue and market pages read the live API, which now and then
+  // answers slowly (or not at all) to a GitHub runner for a minute or two.
+  // Each failure used to fail the whole deploy and cost a 15-minute rebuild,
+  // so a route gets three tries, ten seconds apart, before it counts as
+  // broken. A route that is genuinely broken fails all three and still fails
+  // the build.
+  const MAX_ATTEMPTS = 3;
   let failed = 0;
   for (const route of routesToPrerender) {
-    try {
-      console.log(`Prerendering ${route} ...`);
-      const html = await prerenderRoute(browser, route);
-      await writeRouteHtml(route, html);
-      console.log(`  ✓ saved dist${route === '/' ? '/index.html' : `${route}/index.html`}`);
-    } catch (err) {
-      failed += 1;
-      console.error(`  ✗ failed to prerender ${route}:`, err.message);
+    console.log(`Prerendering ${route} ...`);
+    for (let attempt = 1; ; attempt += 1) {
+      try {
+        const html = await prerenderRoute(browser, route);
+        await writeRouteHtml(route, html);
+        console.log(`  ✓ saved dist${route === '/' ? '/index.html' : `${route}/index.html`}`);
+        break;
+      } catch (err) {
+        if (attempt >= MAX_ATTEMPTS) {
+          failed += 1;
+          console.error(`  ✗ failed to prerender ${route} after ${attempt} attempts:`, err.message);
+          break;
+        }
+        console.warn(`  ! attempt ${attempt} for ${route} failed (${err.message}) — retrying in 10s`);
+        await new Promise((resolve) => setTimeout(resolve, 10000));
+      }
     }
   }
 
