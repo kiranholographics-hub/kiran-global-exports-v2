@@ -1,0 +1,29 @@
+# Every night at 03:17 India time: is there a guide or market page in /hq
+# that the live site does not have yet? Reports only — the run's summary
+# lists what is waiting, and the deploy is started by hand after approval.
+name: Check for undeployed content
+
+on:
+  schedule:
+    - cron: '47 21 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: Compare /hq with the live sitemap
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Compare the API with the live sitemap
+        working-directory: ./frontend
+        run: node scripts/check-new-content.mjs
