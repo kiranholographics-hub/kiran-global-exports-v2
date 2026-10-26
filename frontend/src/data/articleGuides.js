@@ -253,6 +253,17 @@ const ARTICLE_GUIDES = [
       'export/usa-cotton-towel-supplier',
     ],
   },
+  {
+    slug: 'receiving-a-container-of-towels-what-to-check-on-arrival',
+    title: 'Receiving a container of towels from India — what to check on arrival and how to raise a problem',
+    pages: [
+      'solutions/cotton-towel-manufacturer-india',
+      'solutions/bulk-hotel-towels',
+      'solutions/hotel-towels-supplier-what-to-check',
+      'export/usa-cotton-towel-supplier',
+      'export/uk-cotton-towel-supplier',
+    ],
+  },
 ];
 
 export function getLandingPagesForArticle(articleSlug) {

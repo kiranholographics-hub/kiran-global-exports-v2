@@ -41,6 +41,8 @@ note in SEO-ROUTINE.md on doorway pages).
 - Towel MOQ explained — what sets a minimum order and what can lower it
 - Export documents for a towel shipment from India — what each one is for
   and what must match
+- Receiving a container of towels from India — what to check on arrival and
+  how to raise a problem
 
 Note: "what makes a good hotel pool towel" was drafted as an article,
 then retired and rebuilt as a landing page instead

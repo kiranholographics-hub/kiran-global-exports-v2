@@ -265,6 +265,10 @@ jobs:
             "the packaging briefing guide is rendered" "Approve a packaged sample"
           has /updates/briefing-private-label-packaging/ \
             "the packaging briefing guide links to the private label page" "/solutions/private-label-towel-manufacturer"
+          has /updates/receiving-a-container-of-towels-what-to-check-on-arrival/ \
+            "the arrival inspection guide is rendered" "Which problem goes where"
+          has /updates/receiving-a-container-of-towels-what-to-check-on-arrival/ \
+            "the arrival inspection guide links to the India sourcing page" "/solutions/cotton-towel-manufacturer-india"
           has /updates/export-documents-for-a-towel-shipment-from-india/ \
             "the export documents guide is rendered" "What must match across them"
           has /updates/export-documents-for-a-towel-shipment-from-india/ \
