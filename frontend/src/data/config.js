@@ -17,6 +17,17 @@ export const siteConfig = {
     whatsapp: '+919983911181', // E.164 format, no spaces — used to build wa.me links
     phone: '+919983911181',
     address: 'Plot No. 15, Ram Krishna Marg, New Sanganer Road, Sodala, Jaipur, Rajasthan – 302019',
+    // The same address split into its parts, for the structured data in
+    // SEO.jsx. Search engines match a business to a place by the city and
+    // postcode; handed the whole line as one street address, they had
+    // only "India" to go on. Change both together.
+    postalAddress: {
+      streetAddress: 'Plot No. 15, Ram Krishna Marg, New Sanganer Road, Sodala',
+      addressLocality: 'Jaipur',
+      addressRegion: 'Rajasthan',
+      postalCode: '302019',
+      addressCountry: 'IN',
+    },
     person: 'Rajneesh Sharma',
     personTitle: 'Export Head',
     iecCode: '1305018427',

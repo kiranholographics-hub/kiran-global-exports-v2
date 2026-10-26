@@ -7,17 +7,65 @@ on:
         description: 'Dry Run mode (lists uploads/deletions without changing files on server)'
         type: boolean
         default: true
+  # Every night at 03:17 India time. Guides and market pages are written in
+  # /hq and only reach the site as prerendered pages through this workflow,
+  # so without it a guide published in /hq waited for someone to run a
+  # deploy by hand. The changes job below decides whether there is anything
+  # to deploy; a night with nothing new stops there.
+  schedule:
+    - cron: '47 21 * * *'
+
+# A scheduled run and a manual one must never upload at the same time.
+concurrency:
+  group: deploy-hostinger
+  cancel-in-progress: false
 
 jobs:
+  changes:
+    name: Check /hq for new or changed pages
+    if: github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    outputs:
+      deploy: ${{ steps.compare.outputs.deploy }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # Fails if the API or the site cannot be read, and a failed check
+      # skips the deploy: deploying without the API is what loses pages.
+      - name: Compare the API with the live sitemap
+        id: compare
+        working-directory: ./frontend
+        run: node scripts/check-new-content.mjs
+
   build-and-deploy-add-only:
     name: Build & sync ADD-ONLY files to Hostinger
+    needs: changes
+    # Manual runs always go ahead; scheduled ones only when the check above
+    # found something. !cancelled() because a manual run skips that job,
+    # and a job whose need was skipped is otherwise skipped too.
+    if: ${{ !cancelled() && (github.event_name == 'workflow_dispatch' || needs.changes.outputs.deploy == 'true') }}
     runs-on: ubuntu-latest
 
     # Vite bakes this into the bundle at build time and falls back to
     # http://localhost:4000 when it is unset, so a build without it ships a
     # site whose every API call points at the visitor's own machine.
+    #
+    # REQUIRE_API turns a failed API call into a failed build (see
+    # generate-seo-files.js): without the API, the guides and market pages
+    # would be left out of the upload, and the upload removes what the
+    # build no longer has.
+    #
+    # DRY_RUN: a scheduled run has no inputs, and it is a real deploy.
     env:
       VITE_API_URL: https://api.kiranglobal-exports.com
+      REQUIRE_API: '1'
+      DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run }}
 
     steps:
       - name: Checkout repository
@@ -65,31 +113,35 @@ jobs:
           // scripts/prerender.mjs does. A failure here is not fatal: the
           // rest of the site still deploys, and the market pages already
           // live stay as they are.
-          async function marketRoutes() {
-            try {
-              const res = await fetch(process.env.VITE_API_URL + '/api/markets/public');
-              if (!res.ok) throw new Error('HTTP ' + res.status);
-              return (await res.json()).map(m => '/' + m.slug);
-            } catch (err) {
-              console.warn('  ! could not fetch active markets (' + err.message + ') — deploying without them');
-              return [];
+          // Three tries, then fail the deploy: leaving them out would
+          // remove them from the live site, since the upload deletes what
+          // this build does not have. The API has refused this runner with
+          // a 403 before and answered a few minutes later.
+          async function apiJson(apiPath) {
+            for (let attempt = 1; ; attempt++) {
+              try {
+                const res = await fetch(process.env.VITE_API_URL + apiPath);
+                if (!res.ok) throw new Error('HTTP ' + res.status);
+                return await res.json();
+              } catch (err) {
+                if (attempt >= 3) throw new Error('could not fetch ' + apiPath + ' (' + err.message + ')');
+                console.log('  ! ' + apiPath + ' attempt ' + attempt + ' failed (' + err.message + ') - retrying in 10s');
+                await new Promise(resolve => setTimeout(resolve, 10000));
+              }
             }
+          }
+
+          async function marketRoutes() {
+            return (await apiJson('/api/markets/public')).map(m => '/' + m.slug);
           }
 
           // Published guides, same reasoning: /hq is where they are written,
           // so only the API knows which exist. Without rendering them, an
           // article is in the sitemap and serves a crawler an empty shell.
           async function updateRoutes() {
-            try {
-              const res = await fetch(process.env.VITE_API_URL + '/api/updates');
-              if (!res.ok) throw new Error('HTTP ' + res.status);
-              const updates = await res.json();
-              if (!updates.length) return [];
-              return ['/updates', ...updates.map(u => '/updates/' + u.slug)];
-            } catch (err) {
-              console.warn('  ! could not fetch updates (' + err.message + ') — deploying without them');
-              return [];
-            }
+            const updates = await apiJson('/api/updates');
+            if (!updates.length) return [];
+            return ['/updates', ...updates.map(u => '/updates/' + u.slug)];
           }
 
           (async () => {
@@ -307,7 +359,10 @@ jobs:
           // serving whichever sitemap was uploaded by hand last — 15 URLs
           // against the 71 this build generates. robots.txt rides along
           // because it is what points crawlers at the sitemap.
-          ['sitemap.xml', 'robots.txt'].forEach(name => {
+          // The IndexNow key (<32 hex characters>.txt, see
+          // scripts/indexnow.mjs) has to be at the site root too.
+          const keyFile = fs.readdirSync(distDir).find(f => /^[0-9a-f]{32}\.txt$/.test(f));
+          ['sitemap.xml', 'robots.txt', keyFile].forEach(name => {
             const src = path.join(distDir, name);
             if (!fs.existsSync(src)) {
               console.error('ERROR: dist/' + name + ' missing!');
@@ -355,6 +410,13 @@ jobs:
             echo "  ok  copied dist/$dir/ ($(find dist_add_only/$dir -type f | wc -l) files) into ADD-ONLY package"
           done
 
+      # What the live sitemap said before this upload, so the IndexNow step
+      # after it can send only the URLs that are new or changed.
+      - name: Save the live sitemap
+        if: ${{ env.DRY_RUN != 'true' }}
+        working-directory: ./frontend
+        run: curl -sf "https://www.kiranglobal-exports.com/sitemap.xml?cachebust=${GITHUB_RUN_ID}" -o sitemap-before.xml || echo '<urlset></urlset>' > sitemap-before.xml
+
       # NOTE: The .htaccess in this package (built from frontend/public/.htaccess)
       # replaces the server's existing .htaccess. Review the diff before a non-dry-run deploy.
       - name: Deploy ADD-ONLY files to Hostinger over FTPS
@@ -376,7 +438,7 @@ jobs:
           # never checks the server, so it has reported "0 changes" on every
           # run since while the live site served none of them.
           state-name: .ftp-deploy-sync-state-add-only-v4.json
-          dry-run: ${{ inputs.dry_run }}
+          dry-run: ${{ env.DRY_RUN }}
           exclude: |
             **/.git*
             **/.git*/**
@@ -388,7 +450,7 @@ jobs:
       # anyone could see. A deploy is only real once the live site serves
       # it, so ask the live site and fail if it does not.
       - name: Verify the deploy actually reached the live site
-        if: ${{ !inputs.dry_run }}
+        if: ${{ env.DRY_RUN != 'true' }}
         run: |
           # Check the body, not the status: the SPA rewrite answers 200 with
           # the old shell for any known prefix, so a status check passes even
@@ -412,6 +474,9 @@ jobs:
           check "/es/export/mexico-cotton-towel-supplier/" 'Proveedor de toallas de algodón'
           # A buyer guide served in another language.
           check "/de/updates/hotel-towel-gsm-guide/" 'Welches Handtuch passt zu einem Hotel'
+          # The office's own page, and the IndexNow key the engines check.
+          check "/solutions/towel-exporter-jaipur/" 'Towel exporter in Jaipur, Rajasthan.'
+          check "/59f1046ed2a703bf19934492e9888f24.txt" '59f1046ed2a703bf19934492e9888f24'
           # An untranslated page under a language prefix must send crawlers to
           # the English URL, not answer with the home page's HTML.
           loc=$(curl -s -o /dev/null -w '%{http_code} %{redirect_url}' \
@@ -447,3 +512,12 @@ jobs:
             exit 1
           fi
           echo "Live site is serving the new pages."
+
+      # Bing and the other IndexNow engines crawl what this names within
+      # hours. Not fatal: the pages are live either way, and the sitemap
+      # still reaches every engine.
+      - name: Tell search engines about new and changed pages (IndexNow)
+        if: ${{ env.DRY_RUN != 'true' }}
+        continue-on-error: true
+        working-directory: ./frontend
+        run: node scripts/indexnow.mjs sitemap-before.xml dist/sitemap.xml

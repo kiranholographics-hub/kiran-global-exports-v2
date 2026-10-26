@@ -201,6 +201,16 @@
   opacity: 0.75;
 }
 
+/* The address links to the Jaipur page. It wraps over several lines, so
+   the column's one-line hover underline would sit under the last line only. */
+.address a {
+  color: inherit;
+}
+
+.address a::after {
+  display: none;
+}
+
 /* Export region tags */
 .regionTag {
   display: inline-block;

@@ -295,12 +295,14 @@ export default function SEO({
         availableLanguage: ['English', 'Spanish', 'Hindi', 'Arabic', 'German', 'Korean', 'Portuguese', 'Japanese'],
         areaServed:    'Worldwide',
       },
+      telephone:  siteConfig.contact.phone,
+      email:      siteConfig.contact.email,
       address: {
-        '@type':           'PostalAddress',
-        addressLocality:   'India',
-        addressCountry:    'IN',
-        streetAddress:     siteConfig.contact.address,
+        '@type': 'PostalAddress',
+        ...siteConfig.contact.postalAddress,
       },
+      hasMap: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(siteConfig.contact.address)}`,
+      areaServed: 'Worldwide',
       sameAs: siteConfig.socials?.map((s) => s.href) ?? [],
     });
 

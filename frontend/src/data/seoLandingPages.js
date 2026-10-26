@@ -1512,6 +1512,59 @@ const PAGES = {
     ],
     relatedMarket: { href: '/towels/dobby-border', label: 'See our dobby border towels' },
   },
+
+  // The one place page. Not a city page in the sense SEO-ROUTINE.md rules
+  // out: this is where the business actually is, the city its registered
+  // address, its structured data and (once claimed) its Google Business
+  // Profile all name — so a search for a towel exporter in Jaipur has one
+  // true answer on this site. It says plainly that the office is in Jaipur
+  // and the towels are woven in Solapur, rather than letting the city name
+  // imply a factory that is not there.
+  'solutions/towel-exporter-jaipur': {
+    section: 'solutions',
+    eyebrow: 'Jaipur, Rajasthan',
+    seoTitle: 'Towel Exporter in Jaipur, Rajasthan',
+    seoDescription:
+      'Towel and linen exporter based in Jaipur, Rajasthan — export office at Sodala, towels woven at our Solapur partner mill since 1972, shipped FOB worldwide.',
+    heading: 'Towel exporter in Jaipur, Rajasthan.',
+    lead: 'Kiran Global Exports runs its export office from Sodala, Jaipur. Specification, sampling, documentation and order coordination are handled here; the towels are woven at our manufacturing partner V P Mundada in Solapur and shipped FOB direct from the mill to importers worldwide.',
+    intro: [
+      'The office is at Plot No. 15, Ram Krishna Marg, New Sanganer Road, Sodala, Jaipur, Rajasthan 302019. It is where a quotation starts: the export team reads your brief or reference product, proposes a specification, arranges the physical sample, and prepares the commercial invoice, packing list and certificate of origin that go with the shipment. Kiran Global Exports holds its own export registrations — IEC, FIEO and MSME — under this address.',
+      'What the Jaipur office does not do is weave. Towels are made at V P Mundada in Solapur, Maharashtra, a terry mill weaving since 1972 under OEKO-TEX STANDARD 100, MADE IN GREEN and STeP, ISO 9001:2015, GRS and amfori BSCI certification, and organic cotton bed and table linen is made by our partner Cotonex in Karur under GOTS Version 7.0. Your contract and shipment are direct with the mill, so the people answering a specification question are the people running the looms, with the Jaipur team coordinating between you and them.',
+      'Jaipur is better known for block-printed and Sanganeri textiles than for terry towels, and we would rather say that than trade on it. If you are looking for hand block-printed fabric, that is not something we make. If you are looking for cotton towels, bathrobes and bath mats built to a specification and exported with the paperwork done properly, the Jaipur office is where to send the enquiry.',
+    ],
+    buyers: [
+      'Importers and distributors who want one export contact in India for towels and linen',
+      'Hotel, spa and hospitality buyers sourcing a matched towel programme',
+      'Private-label and retail brands developing their own towel line',
+      'Buyers who want to speak to the export team in Hindi or English before committing',
+    ],
+    faqs: [
+      {
+        q: 'Where is your office in Jaipur?',
+        a: 'Plot No. 15, Ram Krishna Marg, New Sanganer Road, Sodala, Jaipur, Rajasthan 302019. Write or call ahead before visiting so the export team can make sure the right person is there — the phone and WhatsApp number is +91 99839 11181.',
+      },
+      {
+        q: 'Are the towels made in Jaipur?',
+        a: 'No. The Jaipur office handles specification, sampling, documentation and order coordination. Towels are woven at our manufacturing partner V P Mundada in Solapur, Maharashtra, weaving since 1972, and organic cotton linen is made by our partner Cotonex in Karur, Tamil Nadu.',
+      },
+      {
+        q: 'Do you make Jaipur block-print or Sanganeri textiles?',
+        a: 'No. Our range is cotton terry — bath towels and bath sheets, hotel and border towels, zero-twist, waffle and jacquard towels, pool and beach towels, bath mats and bathrobes — plus GOTS-certified organic cotton bed and table linen. We would rather tell you that now than quote for something we do not make.',
+      },
+      {
+        q: 'Which port do shipments leave from?',
+        a: 'FOB shipment is coordinated from Nhava Sheva (JNPT) near Mumbai or from Mundra in Gujarat, whichever suits the mill and your destination; your freight forwarder confirms the routing and the onward leg.',
+      },
+      {
+        q: 'Who do I speak to?',
+        a: 'Rajneesh Sharma, Export Head, answers enquiries in English and Hindi by email at exportskiranglobal@gmail.com or on WhatsApp at +91 99839 11181.',
+      },
+      MOQ_FAQ,
+      SAMPLE_FAQ,
+    ],
+    relatedMarket: { href: '/about', label: 'About Kiran Global Exports and our partner mills' },
+  },
 };
 
 /* ── Lookups used by the page, prerender and sitemap ── */
