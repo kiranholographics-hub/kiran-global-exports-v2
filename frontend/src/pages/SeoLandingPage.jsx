@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 import { useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import Link from '@/components/Link/Link';
 import SEO from '@/components/SEO/SEO';
 import PageIntro from '@/components/PageIntro/PageIntro';
@@ -14,24 +15,49 @@ import {
   getRelatedLandingPages,
 } from '@/data/seoLandingPages';
 import { getArticlesForLandingPage } from '@/data/articleGuides';
+import { LANDING_TRANSLATIONS } from '@/data/landingTranslations';
 import styles from './SeoLandingPage.module.css';
 
-const DEFAULT_META = [
-  { label: 'Mill Direct, FOB' },
-  { label: '100% Cotton Ringspun' },
-  { label: 'Sample First' },
-];
-
-const SECTION_LABELS = {
-  export: { label: 'Export', href: '/export' },
-  solutions: { label: 'Solutions', href: '/export' },
+// The page's own interface text. A translated page takes its language's
+// version from src/data/landingTranslations; every other page — including
+// an English-only page reached under a language prefix — keeps this, so its
+// headings never come out in one language over copy in another.
+const EN_UI = {
+  home: 'Home',
+  sections: { export: 'Export', solutions: 'Solutions' },
+  meta: ['Mill Direct, FOB', '100% Cotton Ringspun', 'Sample First'],
+  whoWeSupply: 'Who we supply',
+  howEyebrow: 'How we supply',
+  howTitle: 'Made to your specification, at the mill.',
+  rangeEyebrow: 'Product range',
+  rangeTitle: 'What we manufacture.',
+  cataloguePdf: 'Download our product catalogue (PDF)',
+  catalogueOnline: 'Browse our full catalogue online',
+  faqEyebrow: 'Frequently asked',
+  faqTitle: 'What buyers ask us first.',
+  relatedEyebrow: 'Also supplying',
+  relatedTitle: 'Other markets and solutions.',
+  ctaEyebrow: (name) => `${name} Inquiry`,
+  ctaTitle: 'Send us your specification.',
+  ctaLead: 'Tell us the product, size, GSM and quantity you need — our export team replies within 24 hours with an FOB quotation.',
+  emailSubject: (name) => `${name} inquiry — Kiran Global Exports`,
+  ctaPrimary: 'Contact Our Export Team',
+  ctaSecondary: 'Browse Collections',
+  ctaNote: 'Typical response within 24 hours',
 };
+
+const SECTION_HREFS = { export: '/export', solutions: '/export' };
 
 /* ═══════════════════════════════════════════════ */
 export default function SeoLandingPage({ section }) {
   const { slug } = useParams();
-  const page = getSeoLandingPage(section, slug);
-  const parent = SECTION_LABELS[section] || SECTION_LABELS.export;
+  const { i18n } = useTranslation();
+  const page = getSeoLandingPage(section, slug, i18n.language);
+  const ui = page?.translated ? LANDING_TRANSLATIONS[i18n.language].ui : EN_UI;
+  const parent = {
+    label: ui.sections[section] || ui.sections.export,
+    href: SECTION_HREFS[section] || SECTION_HREFS.export,
+  };
 
   // One array for the rendered trail and its BreadcrumbList markup, so the
   // two can't describe different paths — and memoised, since a fresh array
@@ -40,15 +66,17 @@ export default function SeoLandingPage({ section }) {
   // conditionally.
   const breadcrumbs = useMemo(
     () => [
-      { label: 'Home', href: '/' },
+      { label: ui.home, href: '/' },
       { label: parent.label, href: parent.href },
       { label: page?.eyebrow },
     ],
-    [parent.label, parent.href, page?.eyebrow]
+    [ui.home, parent.label, parent.href, page?.eyebrow]
   );
 
-  const related = getRelatedLandingPages(section, slug);
-  const guides = getArticlesForLandingPage(section, slug);
+  const related = getRelatedLandingPages(section, slug, i18n.language);
+  // The buyer guides are English-only; a translated page leaves them out
+  // rather than ending in a list of English titles.
+  const guides = page?.translated ? [] : getArticlesForLandingPage(section, slug);
 
   if (!page) {
     return (
@@ -76,7 +104,7 @@ export default function SeoLandingPage({ section }) {
         title={page.heading}
         lead={page.lead}
         breadcrumbs={breadcrumbs}
-        meta={page.meta || DEFAULT_META}
+        meta={page.meta || ui.meta.map((label) => ({ label }))}
       />
 
       {/* ══ Unique body copy ══════════════════════
@@ -94,7 +122,7 @@ export default function SeoLandingPage({ section }) {
             </ScrollReveal>
 
             <ScrollReveal delay={0.08} className={styles.buyersCard}>
-              <h2 className={styles.buyersTitle}>Who we supply</h2>
+              <h2 className={styles.buyersTitle}>{ui.whoWeSupply}</h2>
               <ul className={styles.buyersList}>
                 {page.buyers.map((b) => (
                   <li key={b}>{b}</li>
@@ -110,8 +138,8 @@ export default function SeoLandingPage({ section }) {
         <div className="container">
           <ScrollReveal>
             <SectionHeading
-              eyebrow="How we supply"
-              title="Made to your specification, at the mill."
+              eyebrow={ui.howEyebrow}
+              title={ui.howTitle}
             />
           </ScrollReveal>
 
@@ -134,8 +162,8 @@ export default function SeoLandingPage({ section }) {
         <div className="container">
           <ScrollReveal>
             <SectionHeading
-              eyebrow="Product range"
-              title={page.rangeTitle || 'What we manufacture.'}
+              eyebrow={ui.rangeEyebrow}
+              title={page.rangeTitle || ui.rangeTitle}
             />
           </ScrollReveal>
 
@@ -154,7 +182,7 @@ export default function SeoLandingPage({ section }) {
               rel="noopener noreferrer"
               className={styles.rangeLink}
             >
-              Download our product catalogue (PDF)
+              {ui.cataloguePdf}
             </a>
             {/* Our own retail/general-catalogue site — a genuinely different
                 destination for a visitor who wants to browse the full range
@@ -166,7 +194,7 @@ export default function SeoLandingPage({ section }) {
               rel="noopener"
               className={styles.rangeLink}
             >
-              Browse our full catalogue online
+              {ui.catalogueOnline}
             </a>
             {page.relatedMarket && (
               <Link to={page.relatedMarket.href} className={styles.rangeLink}>
@@ -182,8 +210,8 @@ export default function SeoLandingPage({ section }) {
         <div className="container">
           <ScrollReveal>
             <SectionHeading
-              eyebrow="Frequently asked"
-              title="What buyers ask us first."
+              eyebrow={ui.faqEyebrow}
+              title={ui.faqTitle}
             />
           </ScrollReveal>
 
@@ -223,40 +251,42 @@ export default function SeoLandingPage({ section }) {
       )}
 
       {/* ══ Related pages ═════════════════════════ */}
-      <section className={`section ${styles.relatedSection}`}>
-        <div className="container">
-          <ScrollReveal>
-            <SectionHeading
-              eyebrow="Also supplying"
-              title="Other markets and solutions."
-            />
-          </ScrollReveal>
+      {related.length > 0 && (
+        <section className={`section ${styles.relatedSection}`}>
+          <div className="container">
+            <ScrollReveal>
+              <SectionHeading
+                eyebrow={ui.relatedEyebrow}
+                title={ui.relatedTitle}
+              />
+            </ScrollReveal>
 
-          <ScrollReveal>
-            <ul className={styles.relatedList}>
-              {related.map((r) => (
-                <li key={r.href}>
-                  <Link to={r.href} className={styles.relatedLink}>{r.label}</Link>
-                </li>
-              ))}
-            </ul>
-          </ScrollReveal>
-        </div>
-      </section>
+            <ScrollReveal>
+              <ul className={styles.relatedList}>
+                {related.map((r) => (
+                  <li key={r.href}>
+                    <Link to={r.href} className={styles.relatedLink}>{r.label}</Link>
+                  </li>
+                ))}
+              </ul>
+            </ScrollReveal>
+          </div>
+        </section>
+      )}
 
       <CTASection
-        eyebrow={`${page.eyebrow} Inquiry`}
-        title="Send us your specification."
-        lead="Tell us the product, size, GSM and quantity you need — our export team replies within 24 hours with an FOB quotation."
-        emailSubject={`${page.eyebrow} inquiry — Kiran Global Exports`}
+        eyebrow={ui.ctaEyebrow(page.eyebrow)}
+        title={ui.ctaTitle}
+        lead={ui.ctaLead}
+        emailSubject={ui.emailSubject(page.eyebrow)}
         // 'Hospitality' and 'Private Label' are not countries, so only the
         // export pages prefill it.
         emailCountry={page.section === 'export' ? page.eyebrow : undefined}
         primaryHref="/contact"
-        primaryLabel="Contact Our Export Team"
+        primaryLabel={ui.ctaPrimary}
         secondaryHref="/collections"
-        secondaryLabel="Browse Collections"
-        note="Typical response within 24 hours"
+        secondaryLabel={ui.ctaSecondary}
+        note={ui.ctaNote}
       />
     </>
   );

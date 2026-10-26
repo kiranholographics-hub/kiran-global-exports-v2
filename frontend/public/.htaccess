@@ -23,7 +23,10 @@ Options -MultiViews
   # the English page, which has no prerendered copy there: without this a
   # crawler got the home page's HTML, canonical and all. Send it to the
   # English URL instead. The query string rides along.
+  # Country pages translated into their market's language only
+  # (LOCALIZED_LANDING_PAGES) are exempt in that one language.
   RewriteCond $2 !^(about|custom|contact|towels|linen)/?$
+  RewriteCond $1/$2 !^(de/export/germany-cotton-towel-supplier|ar/export/uae-cotton-towel-supplier|ar/export/saudi-arabia-cotton-towel-supplier|ar/export/qatar-cotton-towel-supplier|ar/export/oman-cotton-towel-supplier|ja/export/japan-cotton-towel-supplier|ko/export/south-korea-cotton-towel-supplier|pt/export/brazil-cotton-towel-supplier|es/export/spain-cotton-towel-supplier|es/export/mexico-cotton-towel-supplier|es/export/chile-cotton-towel-supplier|es/export/colombia-cotton-towel-supplier|es/export/peru-cotton-towel-supplier|es/export/south-america-cotton-towel-supplier)/?$
   RewriteRule ^(es|de|ar|pt|ja|ko|hi)/(.+)$ /$2 [L,R=301]
 
   # Settle a prerendered route on one URL: /export/usa-cotton-towel-supplier

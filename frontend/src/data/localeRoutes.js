@@ -18,8 +18,9 @@ export const PREFIXED_LOCALES = ['es', 'de', 'ar', 'pt', 'ja', 'ko', 'hi'];
 
 export const ALL_LOCALES = [DEFAULT_LOCALE, ...PREFIXED_LOCALES];
 
-// Pages whose title, description and body all come from the locale files.
-// Anything else — the /export and /solutions landing pages, product
+// Pages whose title, description and body all come from the locale files,
+// in every language. Anything else — most /export and /solutions landing
+// pages (the exceptions are LOCALIZED_LANDING_PAGES below), product
 // descriptions from the API, guides — is still English-only copy, so under
 // a language prefix it renders with translated navigation around English
 // text. Those pages canonicalise to their English URL and carry no
@@ -60,8 +61,44 @@ export function localizePath(path, locale) {
   return clean === '/' ? `/${locale}` : `/${locale}${clean}`;
 }
 
+// Country landing pages translated into the language their market reads,
+// and only that one: the German buyer's page in German, the Gulf pages in
+// Arabic, the Latin American ones in Spanish. Unlike LOCALIZED_PAGES these
+// are not translated into every language, so each one names its own. The
+// copy lives in src/data/landingTranslations/; public/.htaccess carries the
+// same list for its redirect, and the build checks all three agree.
+export const LOCALIZED_LANDING_PAGES = {
+  '/export/germany-cotton-towel-supplier': ['de'],
+  '/export/uae-cotton-towel-supplier': ['ar'],
+  '/export/saudi-arabia-cotton-towel-supplier': ['ar'],
+  '/export/qatar-cotton-towel-supplier': ['ar'],
+  '/export/oman-cotton-towel-supplier': ['ar'],
+  '/export/japan-cotton-towel-supplier': ['ja'],
+  '/export/south-korea-cotton-towel-supplier': ['ko'],
+  '/export/brazil-cotton-towel-supplier': ['pt'],
+  '/export/spain-cotton-towel-supplier': ['es'],
+  '/export/mexico-cotton-towel-supplier': ['es'],
+  '/export/chile-cotton-towel-supplier': ['es'],
+  '/export/colombia-cotton-towel-supplier': ['es'],
+  '/export/peru-cotton-towel-supplier': ['es'],
+  '/export/south-america-cotton-towel-supplier': ['es'],
+};
+
+/** Every language a page exists in, English first. */
+export function pageLocales(path) {
+  const clean = trimSlash(path || '/');
+  if (LOCALIZED_PAGES.includes(clean)) return ALL_LOCALES;
+  return [DEFAULT_LOCALE, ...(LOCALIZED_LANDING_PAGES[clean] || [])];
+}
+
+/** Whether a page has its own version in this language. */
+export function isTranslatedIn(path, locale) {
+  return pageLocales(path).includes(locale);
+}
+
+/** Whether a page exists in more than one language (so carries hreflang). */
 export function isLocalizedPage(path) {
-  return LOCALIZED_PAGES.includes(trimSlash(path || '/'));
+  return pageLocales(path).length > 1;
 }
 
 /**
@@ -83,7 +120,12 @@ export const HREFLANG = {
 };
 
 // Every non-English URL to prerender and ship: each localized page in each
-// prefixed language.
-export const LOCALIZED_ROUTES = PREFIXED_LOCALES.flatMap((locale) =>
-  LOCALIZED_PAGES.map((path) => localizePath(path, locale))
-);
+// prefixed language, and each landing page in its own languages.
+export const LOCALIZED_ROUTES = [
+  ...PREFIXED_LOCALES.flatMap((locale) =>
+    LOCALIZED_PAGES.map((path) => localizePath(path, locale))
+  ),
+  ...Object.entries(LOCALIZED_LANDING_PAGES).flatMap(([path, locales]) =>
+    locales.map((locale) => localizePath(path, locale))
+  ),
+];

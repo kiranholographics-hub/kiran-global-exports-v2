@@ -107,6 +107,15 @@ hreflang tags and a sitemap entry per language. The /export and
 /solutions landing pages are still English-only, so under a language
 prefix they point their canonical back at the English page. So does
 /collections, whose product descriptions come from the API in English.
+Fourteen country pages also exist in their market's language only —
+Germany in German; UAE, Saudi Arabia, Qatar and Oman in Arabic; Japan;
+South Korea; Brazil in Portuguese; Spain, Mexico, Chile, Colombia, Peru
+and South America in Spanish. They are `LOCALIZED_LANDING_PAGES` in
+`localeRoutes.js`, with the copy in `frontend/src/data/landingTranslations/`.
+**Changing an English country page means changing its translation too.**
+The other country pages stay English because the site has no French,
+Italian, Dutch or Nordic locale.
+
 Any untranslated page requested under a prefix (/de/export/...) is
 301-redirected to its English URL by `frontend/public/.htaccess`, whose
 copy of the translated-page list must match `LOCALIZED_PAGES` — the build
