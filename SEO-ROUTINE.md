@@ -116,6 +116,14 @@ and South America in Spanish. They are `LOCALIZED_LANDING_PAGES` in
 The other country pages stay English because the site has no French,
 Italian, Dutch or Nordic locale.
 
+Six buyer guides are also in Spanish, German and Arabic: what to send
+for a quote, the GSM guide, MOQ, FOB, certifications and payment terms
+(`LOCALIZED_GUIDES` in `localeRoutes.js`, copy in
+`frontend/src/data/guideTranslations/`). The English article still comes
+from the database; only its title, excerpt and body are swapped.
+**Editing one of these six in /hq or in `content-drafts/` means editing
+its three translations too**, or the other languages keep the old text.
+
 Any untranslated page requested under a prefix (/de/export/...) is
 301-redirected to its English URL by `frontend/public/.htaccess`, whose
 copy of the translated-page list must match `LOCALIZED_PAGES` — the build

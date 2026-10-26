@@ -47,13 +47,16 @@ import {
   DEFAULT_LOCALE,
   HREFLANG,
   isLocalizedPage,
+  LOCALIZED_GUIDES,
   LOCALIZED_LANDING_PAGES,
   LOCALIZED_PAGES,
+  PARTLY_LOCALIZED_PAGES,
   localizedPageUrl,
   pageLocales,
   PREFIXED_LOCALES,
 } from '../src/data/localeRoutes.js';
 import { LANDING_TRANSLATIONS } from '../src/data/landingTranslations/index.js';
+import { GUIDE_TRANSLATIONS } from '../src/data/guideTranslations/index.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const outPath = path.join(__dirname, '../public/sitemap.xml');
@@ -190,7 +193,7 @@ function checkHtaccessLocales() {
   const wantPages = LOCALIZED_PAGES.filter((p) => p !== '/').map((p) => p.slice(1)).sort();
   const wantPrefixes = [...PREFIXED_LOCALES].sort();
   const landing = /RewriteCond \$1\/\$2 !\^\(([^)]+)\)/.exec(htaccess)?.[1].split('|').sort();
-  const wantLanding = Object.entries(LOCALIZED_LANDING_PAGES)
+  const wantLanding = Object.entries(PARTLY_LOCALIZED_PAGES)
     .flatMap(([page, locales]) => locales.map((locale) => `${locale}${page}`))
     .sort();
   if (
@@ -206,16 +209,28 @@ function checkHtaccessLocales() {
     );
   }
 
-  // And every translated landing page needs its copy, and no copy may sit
-  // there unlisted (it would never be served).
-  const haveCopy = Object.entries(LANDING_TRANSLATIONS)
+  // And every translated page needs its copy, and no copy may sit there
+  // unlisted (it would never be served).
+  const listed = (pages) =>
+    Object.entries(pages)
+      .flatMap(([page, locales]) => locales.map((locale) => `${locale}${page}`))
+      .sort();
+  const haveLanding = Object.entries(LANDING_TRANSLATIONS)
     .flatMap(([locale, { pages: copy }]) => Object.keys(copy).map((key) => `${locale}/${key}`))
     .sort();
-  if (String(haveCopy) !== String(wantLanding)) {
-    throw new Error(
-      `src/data/landingTranslations is out of step with LOCALIZED_LANDING_PAGES:\n` +
-        `  copy   [${haveCopy}]\n  listed [${wantLanding}]`
-    );
+  const haveGuides = Object.entries(GUIDE_TRANSLATIONS)
+    .flatMap(([locale, { guides }]) => Object.keys(guides).map((slug) => `${locale}/updates/${slug}`))
+    .sort();
+  for (const [name, have, want] of [
+    ['landingTranslations', haveLanding, listed(LOCALIZED_LANDING_PAGES)],
+    ['guideTranslations', haveGuides, listed(LOCALIZED_GUIDES)],
+  ]) {
+    if (String(have) !== String(want)) {
+      throw new Error(
+        `src/data/${name} is out of step with localeRoutes.js:\n` +
+          `  copy   [${have}]\n  listed [${want}]`
+      );
+    }
   }
 }
 
