@@ -50,13 +50,14 @@ The drafts are in `content-drafts/`. Publishing runs from there:
 
 1. MongoDB Atlas → Network Access → add `0.0.0.0/0`, 6-hour temporary.
 2. GitHub Actions → "Publish articles" → dry run first, then for real.
-3. Nothing — the deploy workflow runs every night at 03:17 India time,
-   sees the new article in the database and renders it, adds it to the
-   sitemap and submits it to IndexNow (Bing and others). The same goes
-   for a guide written or edited in /hq. To have it live sooner, run the
-   deploy workflow by hand. A night with nothing new deploys nothing; a
-   night the API cannot be reached deploys nothing either, by design.
-4. Next day: GitHub Actions → "Verify the live site".
+3. Get the deploy approved, then GitHub Actions → deploy workflow, dry
+   run first, then for real. This is what renders the article, puts it in
+   the sitemap and submits it to IndexNow (Bing and others); publishing
+   alone does none of that. Nothing deploys on its own: the nightly
+   "Check for undeployed content" workflow (03:17 India time) only lists,
+   in its run summary, any guide or market page in /hq that the live site
+   does not have yet.
+4. GitHub Actions → "Verify the live site".
 5. Atlas → delete the IP entry.
 
 Ask Claude for a new draft whenever the backlog needs topping up —
@@ -155,7 +156,9 @@ fails if it does not.
 - Landing page copy — `frontend/src/data/seoLandingPages.js`.
 - What gets rendered and shipped — `frontend/src/data/deployRoutes.js`.
 - What is in the sitemap — `frontend/scripts/generate-seo-files.js`.
-- The nightly "is anything new in /hq" check — `frontend/scripts/check-new-content.mjs`.
+- The nightly "is anything in /hq not live yet" report —
+  `.github/workflows/check-undeployed.yml` and
+  `frontend/scripts/check-new-content.mjs`.
 - IndexNow submission — `frontend/scripts/indexnow.mjs`; its key is the
   32-character `.txt` file in `frontend/public/`. Not secret, but do not
   rename or delete it.

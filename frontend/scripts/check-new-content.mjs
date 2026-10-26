@@ -2,16 +2,14 @@
 // published, changed or removed in /hq since the last deploy.
 //
 // Guides and market pages are written in /hq, but only reach the site as
-// prerendered pages when the deploy workflow runs. The scheduled deploy
-// runs this first and only rebuilds when it reports a difference, so a
-// guide published in /hq goes live by the next morning without anyone
-// starting a deploy, and a day with nothing new costs nothing.
+// prerendered pages when someone runs the deploy workflow. The nightly
+// "Check for undeployed content" workflow runs this and only reports: a
+// deploy is always started by hand, after approval.
 //
 // Compares the API with the live sitemap, which the deploy writes from the
-// same API. Prints what differs and writes deploy=true|false to
-// $GITHUB_OUTPUT when that is set. Exits non-zero if the API or the site
-// cannot be read — a deploy then is the one thing not to do (see
-// REQUIRE_API in generate-seo-files.js).
+// same API. Prints what differs, adds it to the run's summary and raises a
+// warning when $GITHUB_STEP_SUMMARY is set. Exits non-zero if the API or
+// the site cannot be read.
 
 import { appendFileSync } from 'node:fs';
 
@@ -83,6 +81,12 @@ if (differences.length) {
   console.log('Nothing new since the last deploy.');
 }
 
-if (process.env.GITHUB_OUTPUT) {
-  appendFileSync(process.env.GITHUB_OUTPUT, `deploy=${differences.length > 0}\n`);
+if (process.env.GITHUB_STEP_SUMMARY) {
+  const summary = differences.length
+    ? `### Not on the live site yet\n\nRun the deploy workflow (dry run first) to publish:\n\n${differences.map((d) => `- ${d}`).join('\n')}\n`
+    : '### Live site is up to date with /hq\n';
+  appendFileSync(process.env.GITHUB_STEP_SUMMARY, summary);
+  if (differences.length) {
+    console.log(`::warning::${differences.length} change(s) in /hq are not on the live site yet — run the deploy workflow.`);
+  }
 }

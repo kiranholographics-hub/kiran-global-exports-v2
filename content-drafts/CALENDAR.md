@@ -50,6 +50,12 @@ then retired and rebuilt as a landing page instead
 prompt asked for it as a page, and keeping both would have been the
 site duplicating its own content on the same topic.
 
+## Drafted, not yet published
+
+- Hotel towel replacement cycles — how often towels are rebought, and why
+  it matters when you specify (24-hotel-towel-replacement-cycles.md,
+  drafted 2026-10-26)
+
 ## Queued
 
 9. Bath towel vs bath sheet vs beach towel — the sizing conventions
@@ -59,8 +65,6 @@ site duplicating its own content on the same topic.
    catalogue entry with the mill first, or the article contradicts it.
 11. Why towel lead times shift by season — raw cotton, the festival
     calendar, monsoon logistics
-13. Hotel linen replacement cycles — how often towels are actually
-    rebought, and why that number matters when you specify durability
 
 ## Publishing note
 
