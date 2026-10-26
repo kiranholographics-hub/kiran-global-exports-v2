@@ -50,9 +50,13 @@ The drafts are in `content-drafts/`. Publishing runs from there:
 
 1. MongoDB Atlas → Network Access → add `0.0.0.0/0`, 6-hour temporary.
 2. GitHub Actions → "Publish articles" → dry run first, then for real.
-3. GitHub Actions → deploy workflow. This is what renders the article
-   and puts it in the sitemap; publishing alone does neither.
-4. GitHub Actions → "Verify the live site".
+3. Nothing — the deploy workflow runs every night at 03:17 India time,
+   sees the new article in the database and renders it, adds it to the
+   sitemap and submits it to IndexNow (Bing and others). The same goes
+   for a guide written or edited in /hq. To have it live sooner, run the
+   deploy workflow by hand. A night with nothing new deploys nothing; a
+   night the API cannot be reached deploys nothing either, by design.
+4. Next day: GitHub Actions → "Verify the live site".
 5. Atlas → delete the IP entry.
 
 Ask Claude for a new draft whenever the backlog needs topping up —
@@ -91,7 +95,11 @@ Bring either to Claude and it gets built.
   one country — Mumbai and Chennai clear customs under the same rules —
   so a page per city either repeats the country page with the city name
   swapped (a doorway-page pattern Google's own policy names directly)
-  or invents city-specific detail that is not true. A genuinely distinct
+  or invents city-specific detail that is not true. The one place page
+  that exists, /solutions/towel-exporter-jaipur, is not an exception:
+  Jaipur is where the business is registered and its office is, the city
+  its structured data and Google Business Profile name — and the page
+  says the towels are woven in Solapur. A genuinely distinct
   hub city — one with a real, checkable reason of its own, the way
   Rotterdam is a re-export hub rather than just a Dutch port — could
   earn a page on the same terms a country does. "All major world
@@ -147,6 +155,13 @@ fails if it does not.
 - Landing page copy — `frontend/src/data/seoLandingPages.js`.
 - What gets rendered and shipped — `frontend/src/data/deployRoutes.js`.
 - What is in the sitemap — `frontend/scripts/generate-seo-files.js`.
+- The nightly "is anything new in /hq" check — `frontend/scripts/check-new-content.mjs`.
+- IndexNow submission — `frontend/scripts/indexnow.mjs`; its key is the
+  32-character `.txt` file in `frontend/public/`. Not secret, but do not
+  rename or delete it.
+- The business address, as structured data reads it —
+  `postalAddress` in `frontend/src/data/config.js`. Keep it identical to
+  the Google Business Profile and any directory listing.
 - Which pages exist in which languages — `frontend/src/data/localeRoutes.js`.
 
 ## What is already done

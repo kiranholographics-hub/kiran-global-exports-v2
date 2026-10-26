@@ -92,8 +92,12 @@ export default function Footer() {
               </a>
             </li>
             <li>
+              {/* Links to the Jaipur page, which says what this address is
+                  (the export office) and what it is not (the mill). */}
               <address className={styles.address}>
-                {siteConfig.contact.address}
+                <Link to="/solutions/towel-exporter-jaipur">
+                  {siteConfig.contact.address}
+                </Link>
               </address>
             </li>
           </ul>

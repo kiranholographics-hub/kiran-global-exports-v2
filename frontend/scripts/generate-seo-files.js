@@ -102,18 +102,37 @@ const STATIC_ROUTES = [
 // injected version.
 const API_BASE = process.env.VITE_API_URL || 'https://api.kiranglobal-exports.com';
 
+// The deploy sets REQUIRE_API. A local build can do without the API and
+// just leave guides and market pages out of the sitemap, but a deploy that
+// did the same would upload a sitemap without them, and the upload removes
+// pages the build no longer has. So for a deploy a missing API is an error.
+
+// Three tries, five seconds apart: the API has refused a deploy runner with
+// a 403 that was gone a few minutes later, and with REQUIRE_API set a
+// single refusal would otherwise fail the whole deploy.
+// AbortSignal.timeout: a slow/unresponsive API (as opposed to one that
+// refuses the connection outright) would otherwise hang this fetch — and
+// the build step calling it — indefinitely, since plain fetch has no
+// default timeout of its own.
+async function fetchJson(apiPath) {
+  for (let attempt = 1; ; attempt++) {
+    try {
+      const res = await fetch(`${API_BASE}${apiPath}`, { signal: AbortSignal.timeout(10_000) });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      return await res.json();
+    } catch (err) {
+      if (attempt >= 3) throw err;
+      await new Promise((resolve) => setTimeout(resolve, 5_000));
+    }
+  }
+}
+
 // Published updates, the same way: /hq is where they are written, so the
 // list only exists in the database. Without this an article could be
 // published and sit there with nothing telling Google it exists.
-// AbortSignal.timeout on both calls below: a slow/unresponsive API (as
-// opposed to one that refuses the connection outright) would otherwise
-// hang this fetch — and the build step calling it — indefinitely, since
-// plain fetch has no default timeout of its own.
 async function fetchUpdateRoutes() {
   try {
-    const res = await fetch(`${API_BASE}/api/updates`, { signal: AbortSignal.timeout(10_000) });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const updates = await res.json();
+    const updates = await fetchJson('/api/updates');
     if (!updates.length) return [];
     // lastmod is only ever a date the article really changed on: the
     // record's own updatedAt (falling back to publishedAt). Google ignores
@@ -137,6 +156,7 @@ async function fetchUpdateRoutes() {
       })),
     ];
   } catch (err) {
+    if (process.env.REQUIRE_API) throw new Error(`could not fetch updates (${err.message})`);
     console.warn(`[generate-seo-files] could not fetch updates (${err.message}) — sitemap will omit them this build.`);
     return [];
   }
@@ -144,11 +164,10 @@ async function fetchUpdateRoutes() {
 
 async function fetchActiveMarketRoutes() {
   try {
-    const res = await fetch(`${API_BASE}/api/markets/public`, { signal: AbortSignal.timeout(10_000) });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const markets = await res.json();
+    const markets = await fetchJson('/api/markets/public');
     return markets.map((m) => ({ path: `/${m.slug}`, priority: '0.7' }));
   } catch (err) {
+    if (process.env.REQUIRE_API) throw new Error(`could not fetch active markets (${err.message})`);
     console.warn(`[generate-seo-files] could not fetch active markets (${err.message}) — sitemap will omit market pages this build.`);
     return [];
   }
