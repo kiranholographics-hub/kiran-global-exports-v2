@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import Link from '@/components/Link/Link';
 import SEO from '@/components/SEO/SEO';
 import NotFoundContent from '@/components/NotFoundContent/NotFoundContent';
 import { fetchUpdateBySlug } from '@/lib/updates';
 import { getLandingPagesForArticle } from '@/data/articleGuides';
+import { GUIDE_TRANSLATIONS } from '@/data/guideTranslations';
+import { LANDING_TRANSLATIONS } from '@/data/landingTranslations';
 import { siteConfig } from '@/data/config';
 import styles from './UpdateDetail.module.css';
 
@@ -21,6 +24,18 @@ import styles from './UpdateDetail.module.css';
  * place; a dependency that handles inline formatting, tables and raw HTML
  * would also hand whoever writes an update the ability to inject it.
  */
+// The page's own interface text. A translated guide takes its language's
+// version from src/data/guideTranslations; every other article keeps this.
+const EN_UI = {
+  home: 'Home',
+  updates: 'Updates',
+  loading: 'Loading…',
+  loadError: 'Could not load this update right now.',
+  publishedBy: 'Published by',
+  related: 'Related sourcing guides',
+  back: '← Back to Updates',
+};
+
 function renderBody(body) {
   return body
     .split(/\n\s*\n/)
@@ -46,20 +61,38 @@ function renderBody(body) {
 
 export default function UpdateDetail() {
   const { slug } = useParams();
-  const [update, setUpdate] = useState(undefined); // undefined = loading, null = not found
+  const { i18n } = useTranslation();
+  const [fetched, setFetched] = useState(undefined); // undefined = loading, null = not found
   const [error, setError] = useState('');
-  const guides = getLandingPagesForArticle(slug);
+
+  // The article itself always comes from the API — its dates, cover and
+  // whether it is published at all. A translated guide lays its language's
+  // title, excerpt and body over it.
+  const translation = GUIDE_TRANSLATIONS[i18n.language];
+  const copy = translation?.guides[slug];
+  const ui = copy ? translation.ui : EN_UI;
+  const update = fetched && copy ? { ...fetched, ...copy } : fetched;
+
+  // On a translated guide, only the landing pages that exist in the same
+  // language, under their translated titles; an English list under a
+  // Spanish article reads as two pages stitched together.
+  const landing = LANDING_TRANSLATIONS[i18n.language]?.pages;
+  const guides = getLandingPagesForArticle(slug).flatMap((g) => {
+    if (!copy) return [g];
+    const translated = landing?.[g.href.replace(/^\//, '')];
+    return translated ? [{ href: g.href, label: translated.seoTitle }] : [];
+  });
 
   useEffect(() => {
-    setUpdate(undefined);
+    setFetched(undefined);
     setError('');
     fetchUpdateBySlug(slug)
-      .then(setUpdate)
+      .then(setFetched)
       .catch((err) => {
-        if (err.status === 404) setUpdate(null);
-        else setError('Could not load this update right now.');
+        if (err.status === 404) setFetched(null);
+        else setError(ui.loadError);
       });
-  }, [slug]);
+  }, [slug, ui.loadError]);
 
   if (update === null) return <NotFoundContent />;
 
@@ -78,18 +111,18 @@ export default function UpdateDetail() {
       <section className={styles.section}>
         <div className={`container ${styles.inner}`}>
           <nav aria-label="Breadcrumb" className={styles.breadcrumbs}>
-            <Link to="/">Home</Link>
+            <Link to="/">{ui.home}</Link>
             <span aria-hidden="true">/</span>
-            <Link to="/updates">Updates</Link>
+            <Link to="/updates">{ui.updates}</Link>
           </nav>
 
           {error && <p className={styles.error}>{error}</p>}
-          {update === undefined && !error && <p className={styles.muted}>Loading…</p>}
+          {update === undefined && !error && <p className={styles.muted}>{ui.loading}</p>}
 
           {update && (
             <article>
               <time className={styles.date} dateTime={update.publishedAt}>
-                {new Date(update.publishedAt).toLocaleDateString(undefined, {
+                {new Date(update.publishedAt).toLocaleDateString(copy ? i18n.language : undefined, {
                   year: 'numeric',
                   month: 'long',
                   day: 'numeric',
@@ -101,7 +134,7 @@ export default function UpdateDetail() {
                   the contact page uses, so the name and title cannot drift
                   apart between pages. */}
               <p className={styles.byline}>
-                Published by <strong>{siteConfig.contact.person}</strong>,{' '}
+                {ui.publishedBy} <strong>{siteConfig.contact.person}</strong>,{' '}
                 {siteConfig.contact.personTitle}, {siteConfig.brandName}
               </p>
 
@@ -117,7 +150,7 @@ export default function UpdateDetail() {
 
               {guides.length > 0 && (
                 <aside className={styles.guides}>
-                  <h2>Related sourcing guides</h2>
+                  <h2>{ui.related}</h2>
                   <ul>
                     {guides.map((g) => (
                       <li key={g.href}>
@@ -129,7 +162,7 @@ export default function UpdateDetail() {
               )}
 
               <Link to="/updates" className={styles.backLink}>
-                ← Back to Updates
+                {ui.back}
               </Link>
             </article>
           )}

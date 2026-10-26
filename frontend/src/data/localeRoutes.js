@@ -84,11 +84,29 @@ export const LOCALIZED_LANDING_PAGES = {
   '/export/south-america-cotton-towel-supplier': ['es'],
 };
 
+// Buyer guides (/updates/:slug) translated for the markets with country
+// pages in that language. The English article lives in the database; the
+// translations live in src/data/guideTranslations/, and like the landing
+// pages above the build checks them against this list and .htaccess.
+export const LOCALIZED_GUIDES = Object.fromEntries(
+  [
+    'what-to-send-a-towel-manufacturer-when-you-ask-for-a-quote',
+    'hotel-towel-gsm-guide',
+    'towel-minimum-order-quantity-explained',
+    'what-fob-actually-means-when-buying-towels-from-india',
+    'oeko-tex-gots-bsci-iso-what-each-certification-actually-means',
+    'payment-terms-importing-towels-from-india',
+  ].map((slug) => [`/updates/${slug}`, ['es', 'de', 'ar']])
+);
+
+// Every page translated into some languages but not all.
+export const PARTLY_LOCALIZED_PAGES = { ...LOCALIZED_LANDING_PAGES, ...LOCALIZED_GUIDES };
+
 /** Every language a page exists in, English first. */
 export function pageLocales(path) {
   const clean = trimSlash(path || '/');
   if (LOCALIZED_PAGES.includes(clean)) return ALL_LOCALES;
-  return [DEFAULT_LOCALE, ...(LOCALIZED_LANDING_PAGES[clean] || [])];
+  return [DEFAULT_LOCALE, ...(PARTLY_LOCALIZED_PAGES[clean] || [])];
 }
 
 /** Whether a page has its own version in this language. */
@@ -120,12 +138,12 @@ export const HREFLANG = {
 };
 
 // Every non-English URL to prerender and ship: each localized page in each
-// prefixed language, and each landing page in its own languages.
+// prefixed language, and each landing page and guide in its own languages.
 export const LOCALIZED_ROUTES = [
   ...PREFIXED_LOCALES.flatMap((locale) =>
     LOCALIZED_PAGES.map((path) => localizePath(path, locale))
   ),
-  ...Object.entries(LOCALIZED_LANDING_PAGES).flatMap(([path, locales]) =>
+  ...Object.entries(PARTLY_LOCALIZED_PAGES).flatMap(([path, locales]) =>
     locales.map((locale) => localizePath(path, locale))
   ),
 ];
