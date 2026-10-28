@@ -35,3 +35,21 @@ export async function fetchMe(token) {
   }
   return data;
 }
+
+export async function changePassword(token, currentPassword, newPassword) {
+  let res;
+  try {
+    res = await fetch(`${API_BASE}/api/auth/change-password`, {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ currentPassword, newPassword }),
+    });
+  } catch {
+    throw new ApiError('Could not reach the server.', 0);
+  }
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) {
+    throw new ApiError(data.error || 'Could not change the password.', res.status);
+  }
+  return data;
+}
