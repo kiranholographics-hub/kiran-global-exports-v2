@@ -3,10 +3,11 @@ import { useAuth } from '@/components/Auth/AuthProvider';
 import HqShell from '@/components/Hq/HqShell';
 import ImagePicker from '@/components/Hq/ImagePicker';
 import { fetchAllUpdates, createUpdate, editUpdate, deleteUpdate, suggestUpdateSeo } from '@/lib/updates';
+import { fetchMarkets } from '@/lib/markets';
 import { ApiError } from '@/lib/api';
 import styles from './HqUpdates.module.css';
 
-const EMPTY_FORM = { title: '', excerpt: '', body: '', coverImage: '', published: true };
+const EMPTY_FORM = { title: '', excerpt: '', body: '', coverImage: '', published: true, markets: [] };
 
 export default function HqUpdates() {
   const { token } = useAuth();
@@ -17,6 +18,9 @@ export default function HqUpdates() {
   const [form, setForm] = useState(EMPTY_FORM);
   const [saving, setSaving] = useState(false);
   const [suggesting, setSuggesting] = useState(false);
+  const [markets, setMarkets] = useState([]);
+  // 'all' = every country page; 'selected' = only the ticked ones.
+  const [audience, setAudience] = useState('all');
 
   const load = useCallback(async () => {
     try {
@@ -31,9 +35,20 @@ export default function HqUpdates() {
     load();
   }, [load]);
 
+  // The country pages that exist, for the "Show on" picker. A failure here
+  // only means the picker is empty; posting to all countries still works.
+  useEffect(() => {
+    fetchMarkets(token)
+      .then((list) => setMarkets(list.filter((m) => m.status !== 'archived')))
+      .catch(() => setMarkets([]));
+  }, [token]);
+
+  const marketName = (slug) => markets.find((m) => m.slug === slug)?.countryName || slug;
+
   const openNewForm = () => {
     setEditingId(null);
     setForm(EMPTY_FORM);
+    setAudience('all');
     setFormOpen(true);
   };
 
@@ -45,7 +60,9 @@ export default function HqUpdates() {
       body: update.body,
       coverImage: update.coverImage || '',
       published: update.published,
+      markets: update.markets || [],
     });
+    setAudience(update.markets?.length ? 'selected' : 'all');
     setFormOpen(true);
   };
 
@@ -55,15 +72,37 @@ export default function HqUpdates() {
     setForm(EMPTY_FORM);
   };
 
+  const toggleMarket = (slug) =>
+    setForm((f) => ({
+      ...f,
+      markets: f.markets.includes(slug) ? f.markets.filter((s) => s !== slug) : [...f.markets, slug],
+    }));
+
   const handleSubmit = async (ev) => {
     ev.preventDefault();
     setError('');
+    if (audience === 'selected' && form.markets.length === 0) {
+      setError('Tick at least one country, or choose All countries.');
+      return;
+    }
     setSaving(true);
     try {
-      if (editingId) {
-        await editUpdate(token, editingId, form);
-      } else {
-        await createUpdate(token, form);
+      const payload = { ...form, markets: audience === 'all' ? [] : form.markets };
+      const saved = editingId
+        ? await editUpdate(token, editingId, payload)
+        : await createUpdate(token, payload);
+      // An API that has not been updated yet saves the post but ignores the
+      // country choice and sends back no `markets` at all — say so rather
+      // than let it look as though the choice was kept.
+      if (!Array.isArray(saved?.markets)) {
+        setError(
+          'Saved — but the server is on an older version and ignored the country choice, so this post shows on every country page. Update the API, then edit this post again.'
+        );
+        setSaving(false);
+        setFormOpen(false);
+        setEditingId(null);
+        await load();
+        return;
       }
       closeForm();
       await load();
@@ -192,6 +231,48 @@ export default function HqUpdates() {
             />
           </label>
 
+          <fieldset className={styles.audience}>
+            <legend>Show on country pages</legend>
+            <label className={styles.checkboxLabel}>
+              <input
+                type="radio"
+                name="audience"
+                checked={audience === 'all'}
+                onChange={() => setAudience('all')}
+              />
+              All countries
+            </label>
+            <label className={styles.checkboxLabel}>
+              <input
+                type="radio"
+                name="audience"
+                checked={audience === 'selected'}
+                onChange={() => setAudience('selected')}
+              />
+              Only the countries I tick
+            </label>
+            {audience === 'selected' && (
+              <div className={styles.marketGrid}>
+                {markets.length === 0 && <p className={styles.hint}>No country pages found.</p>}
+                {markets.map((m) => (
+                  <label key={m.slug} className={styles.checkboxLabel}>
+                    <input
+                      type="checkbox"
+                      checked={form.markets.includes(m.slug)}
+                      onChange={() => toggleMarket(m.slug)}
+                    />
+                    {m.countryName}
+                    {m.status !== 'active' && <span className={styles.hint}> ({m.status})</span>}
+                  </label>
+                ))}
+              </div>
+            )}
+            <p className={styles.hint}>
+              The post always stays at /updates. This only chooses which country pages (for example
+              /usa) show it as a latest update.
+            </p>
+          </fieldset>
+
           <label className={styles.checkboxLabel}>
             <input
               type="checkbox"
@@ -224,6 +305,7 @@ export default function HqUpdates() {
                 <tr>
                   <th>Date</th>
                   <th>Title</th>
+                  <th>Shown on</th>
                   <th>Status</th>
                   <th>Actions</th>
                 </tr>
@@ -235,6 +317,9 @@ export default function HqUpdates() {
                     <td>
                       <div className={styles.title}>{u.title}</div>
                       {u.excerpt && <div className={styles.excerpt}>{u.excerpt}</div>}
+                    </td>
+                    <td className={styles.excerpt}>
+                      {u.markets?.length ? u.markets.map(marketName).join(', ') : 'All countries'}
                     </td>
                     <td>
                       <span className={u.published ? styles.badgePublished : styles.badgeDraft}>

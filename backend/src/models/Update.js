@@ -14,6 +14,12 @@ const UpdateSchema = new mongoose.Schema(
     // Instagram has no text-only post type). Absence just means it wasn't
     // shared yet or sharing failed — never blocks saving the update itself.
     instagramPostId: { type: String, trim: true },
+    // Market slugs (e.g. "usa") whose country page shows this post. Empty
+    // means every country — which is also what every post written before
+    // this field existed means, so nothing old changes. The post itself
+    // always stays at /updates/<slug>; this only decides which country
+    // pages point to it.
+    markets: { type: [String], default: [] },
   },
   { timestamps: true }
 );
