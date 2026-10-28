@@ -8,6 +8,10 @@ const UserSchema = new mongoose.Schema(
     passwordHash: { type: String, required: true, select: false },
     role: { type: String, enum: ['admin'], default: 'admin' },
     lastLoginAt: { type: Date, default: null },
+    // Set when the password is changed. A login token issued before this
+    // moment stops working, so changing the password also signs out every
+    // other device (see requireAuth).
+    passwordChangedAt: { type: Date, default: null },
   },
   { timestamps: true }
 );

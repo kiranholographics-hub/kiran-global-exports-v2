@@ -44,6 +44,7 @@ const HqUpdates = lazy(() => import('@/pages/HqUpdates'));
 const HqPages = lazy(() => import('@/pages/HqPages'));
 const HqTestimonials = lazy(() => import('@/pages/HqTestimonials'));
 const HqTeam = lazy(() => import('@/pages/HqTeam'));
+const HqPassword = lazy(() => import('@/pages/HqPassword'));
 const HqCertifications = lazy(() => import('@/pages/HqCertifications'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
@@ -213,6 +214,7 @@ export default function App() {
                 <Route path="/hq/testimonials" element={<HqTestimonials />} />
                 <Route path="/hq/team" element={<HqTeam />} />
                 <Route path="/hq/certifications" element={<HqCertifications />} />
+                <Route path="/hq/password" element={<HqPassword />} />
               </Route>
 
               {/* Dynamic market pages (e.g. /australia, /usa) — driven by
