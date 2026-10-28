@@ -8,6 +8,7 @@ import SectionHeading from '@/components/SectionHeading/SectionHeading';
 import CTASection from '@/components/CTASection/CTASection';
 import NotFoundContent from '@/components/NotFoundContent/NotFoundContent';
 import { fetchMarketBySlug } from '@/lib/publicMarkets';
+import { fetchUpdatesForMarket } from '@/lib/updates';
 import { REASONS, getMarketContent, getStaticMarket } from '@/data/marketContent';
 import { getLandingPageForMarket } from '@/data/seoLandingPages';
 import styles from './MarketPage.module.css';
@@ -20,6 +21,9 @@ export default function MarketPage() {
   // hand-written market rather than an error page — see the note in
   // lib/publicMarkets.js.
   const market = fetched?.unreachable ? getStaticMarket(marketSlug) : fetched;
+  // Posts written for this country (or for all countries) in /hq. Settles to
+  // an empty list on any failure, so the page never depends on it.
+  const posts = use(fetchUpdatesForMarket(marketSlug));
 
   // Shared by the rendered trail and its BreadcrumbList markup — see the
   // same note in SeoLandingPage.jsx. Above the not-found return because
@@ -111,6 +115,37 @@ export default function MarketPage() {
           </div>
         </div>
       </section>
+
+      {posts.length > 0 && (
+        <section className={`section section--spacious ${styles.postsSection}`}>
+          <div className="container">
+            <ScrollReveal>
+              <SectionHeading
+                eyebrow="Latest updates"
+                title={`News for buyers in ${market.countryName}.`}
+              />
+            </ScrollReveal>
+            <div className={styles.postList}>
+              {posts.map((u, i) => (
+                <ScrollReveal key={u.id} delay={i * 0.06}>
+                  <Link to={`/updates/${u.slug}`} className={styles.postCard}>
+                    <time className={styles.postDate} dateTime={u.publishedAt}>
+                      {new Date(u.publishedAt).toLocaleDateString('en-GB', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                      })}
+                    </time>
+                    <h3 className={styles.postTitle}>{u.title}</h3>
+                    {u.excerpt && <p className={styles.postExcerpt}>{u.excerpt}</p>}
+                    <span className={styles.postLink}>Read more</span>
+                  </Link>
+                </ScrollReveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {guide && (
         <section className={`section ${styles.guideSection}`}>

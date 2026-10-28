@@ -264,6 +264,16 @@ const ARTICLE_GUIDES = [
       'export/uk-cotton-towel-supplier',
     ],
   },
+  {
+    slug: 'hotel-towel-replacement-cycles',
+    title: 'Hotel towel replacement cycles — how often towels are rebought, and why it matters when you specify',
+    pages: [
+      'solutions/hotel-towel-manufacturer',
+      'solutions/bulk-hotel-towels',
+      'solutions/hotel-towels-supplier-what-to-check',
+      'export/uae-cotton-towel-supplier',
+    ],
+  },
 ];
 
 export function getLandingPagesForArticle(articleSlug) {

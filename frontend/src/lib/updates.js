@@ -27,6 +27,24 @@ export function fetchUpdates(limit) {
   return request(`/api/updates${limit ? `?limit=${limit}` : ''}`);
 }
 
+// Posts for one country page. Cached per slug so React's use() sees one
+// stable promise (same reason as lib/publicMarkets.js). A country page is
+// complete without these, so any failure — including an older API that has
+// no such route — resolves to an empty list instead of an error.
+const marketUpdatesCache = new Map();
+
+export function fetchUpdatesForMarket(marketSlug) {
+  if (!marketUpdatesCache.has(marketSlug)) {
+    marketUpdatesCache.set(
+      marketSlug,
+      request(`/api/updates/for-market/${encodeURIComponent(marketSlug)}`)
+        .then((list) => (Array.isArray(list) ? list : []))
+        .catch(() => [])
+    );
+  }
+  return marketUpdatesCache.get(marketSlug);
+}
+
 export function fetchUpdateBySlug(slug) {
   return request(`/api/updates/${slug}`);
 }

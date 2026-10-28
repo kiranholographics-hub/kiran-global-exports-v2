@@ -265,6 +265,10 @@ jobs:
             "the packaging briefing guide is rendered" "Approve a packaged sample"
           has /updates/briefing-private-label-packaging/ \
             "the packaging briefing guide links to the private label page" "/solutions/private-label-towel-manufacturer"
+          has /updates/hotel-towel-replacement-cycles/ \
+            "the replacement cycles guide is rendered" "Par level and why it changes the answer"
+          has /updates/hotel-towel-replacement-cycles/ \
+            "the replacement cycles guide links to the hotel towel page" "/solutions/hotel-towel-manufacturer"
           has /updates/receiving-a-container-of-towels-what-to-check-on-arrival/ \
             "the arrival inspection guide is rendered" "Which problem goes where"
           has /updates/receiving-a-container-of-towels-what-to-check-on-arrival/ \
