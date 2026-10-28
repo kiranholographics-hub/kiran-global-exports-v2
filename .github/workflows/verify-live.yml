@@ -528,6 +528,14 @@ jobs:
             https://api.kiranglobal-exports.com/api/updates/for-market/usa)
           if [ "$api_code" = "200" ] && head -c1 "$api_out" | grep -qF '['; then
             echo "  ok       /api/updates/for-market/usa returns a list"
+            # Only the version that holds back scheduled posts sends this
+            # field with every post, so it shows which backend is running.
+            if grep -qF '"instagramPending"' "$api_out"; then
+              echo "  ok       the API is on the version that schedules posts"
+            else
+              echo "  BAD      the API has not picked up scheduled posts yet (no instagramPending field)"
+              failed=1
+            fi
           else
             echo "  BAD      /api/updates/for-market/usa  — HTTP $api_code, body: $(head -c 120 "$api_out")"
             failed=1
