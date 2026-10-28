@@ -518,6 +518,19 @@ jobs:
             echo "  ok       $bundle points at the real API"
           fi
 
+          echo "── The API serves posts per country page ──"
+          # Hostinger redeploys backend/ from main by itself; a 404 here means
+          # it has not picked up the for-market route yet.
+          api_out=$(mktemp)
+          api_code=$(curl -s -o "$api_out" -w '%{http_code}' --max-time 30 \
+            https://api.kiranglobal-exports.com/api/updates/for-market/usa)
+          if [ "$api_code" = "200" ] && head -c1 "$api_out" | grep -qF '['; then
+            echo "  ok       /api/updates/for-market/usa returns a list"
+          else
+            echo "  BAD      /api/updates/for-market/usa  — HTTP $api_code, body: $(head -c 120 "$api_out")"
+            failed=1
+          fi
+
           echo "── Informational ──"
           echo "  api $(curl -s -o /dev/null -w '%{http_code}' --max-time 30 \
             https://api.kiranglobal-exports.com/api/health)  /api/health"
