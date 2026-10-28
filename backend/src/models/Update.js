@@ -14,6 +14,9 @@ const UpdateSchema = new mongoose.Schema(
     // Instagram has no text-only post type). Absence just means it wasn't
     // shared yet or sharing failed — never blocks saving the update itself.
     instagramPostId: { type: String, trim: true },
+    // A post scheduled for later is not shared to Instagram when it is saved,
+    // only once its time comes. This marks the ones still waiting for that.
+    instagramPending: { type: Boolean, default: false },
     // Market slugs (e.g. "usa") whose country page shows this post. Empty
     // means every country — which is also what every post written before
     // this field existed means, so nothing old changes. The post itself

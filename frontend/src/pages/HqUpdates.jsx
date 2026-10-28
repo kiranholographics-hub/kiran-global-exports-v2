@@ -7,7 +7,18 @@ import { fetchMarkets } from '@/lib/markets';
 import { ApiError } from '@/lib/api';
 import styles from './HqUpdates.module.css';
 
-const EMPTY_FORM = { title: '', excerpt: '', body: '', coverImage: '', published: true, markets: [] };
+const EMPTY_FORM = { title: '', excerpt: '', body: '', coverImage: '', published: true, markets: [], publishedAt: '' };
+
+// <input type="datetime-local"> wants "YYYY-MM-DDTHH:mm" in the viewer's own
+// time zone; the API stores an exact instant.
+function toLocalInput(iso) {
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return '';
+  const pad = (n) => String(n).padStart(2, '0');
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`;
+}
+
+const isScheduled = (u) => u.published && new Date(u.publishedAt) > new Date();
 
 export default function HqUpdates() {
   const { token } = useAuth();
@@ -21,6 +32,9 @@ export default function HqUpdates() {
   const [markets, setMarkets] = useState([]);
   // 'all' = every country page; 'selected' = only the ticked ones.
   const [audience, setAudience] = useState('all');
+  // The date the form opened with, so an edit that never touches the date
+  // field does not rewrite it (the input has no seconds).
+  const [originalPublishedAt, setOriginalPublishedAt] = useState('');
 
   const load = useCallback(async () => {
     try {
@@ -49,6 +63,7 @@ export default function HqUpdates() {
     setEditingId(null);
     setForm(EMPTY_FORM);
     setAudience('all');
+    setOriginalPublishedAt('');
     setFormOpen(true);
   };
 
@@ -61,7 +76,9 @@ export default function HqUpdates() {
       coverImage: update.coverImage || '',
       published: update.published,
       markets: update.markets || [],
+      publishedAt: toLocalInput(update.publishedAt),
     });
+    setOriginalPublishedAt(toLocalInput(update.publishedAt));
     setAudience(update.markets?.length ? 'selected' : 'all');
     setFormOpen(true);
   };
@@ -88,6 +105,11 @@ export default function HqUpdates() {
     setSaving(true);
     try {
       const payload = { ...form, markets: audience === 'all' ? [] : form.markets };
+      if (form.publishedAt && form.publishedAt !== originalPublishedAt) {
+        payload.publishedAt = new Date(form.publishedAt).toISOString();
+      } else {
+        delete payload.publishedAt;
+      }
       const saved = editingId
         ? await editUpdate(token, editingId, payload)
         : await createUpdate(token, payload);
@@ -273,6 +295,19 @@ export default function HqUpdates() {
             </p>
           </fieldset>
 
+          <label>
+            Publish date &amp; time
+            <input
+              type="datetime-local"
+              value={form.publishedAt}
+              onChange={(ev) => setForm({ ...form, publishedAt: ev.target.value })}
+            />
+            <span className={styles.hint}>
+              Leave empty to publish now. Pick a future time to schedule it: the post stays hidden
+              until then, then appears on its own. Search engines see it after the next site deploy.
+            </span>
+          </label>
+
           <label className={styles.checkboxLabel}>
             <input
               type="checkbox"
@@ -284,7 +319,13 @@ export default function HqUpdates() {
 
           <div className={styles.formActions}>
             <button type="submit" className={styles.primaryBtn} disabled={saving}>
-              {saving ? 'Saving…' : editingId ? 'Save changes' : 'Publish update'}
+              {saving
+                ? 'Saving…'
+                : editingId
+                  ? 'Save changes'
+                  : form.publishedAt && new Date(form.publishedAt) > new Date()
+                    ? 'Schedule update'
+                    : 'Publish update'}
             </button>
             <button type="button" className={styles.ghostBtn} onClick={closeForm}>
               Cancel
@@ -313,7 +354,14 @@ export default function HqUpdates() {
               <tbody>
                 {updates.map((u) => (
                   <tr key={u.id}>
-                    <td className={styles.nowrap}>{new Date(u.publishedAt).toLocaleDateString()}</td>
+                    <td className={styles.nowrap}>
+                      {new Date(u.publishedAt).toLocaleDateString()}
+                      {isScheduled(u) && (
+                        <div className={styles.excerpt}>
+                          {new Date(u.publishedAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                        </div>
+                      )}
+                    </td>
                     <td>
                       <div className={styles.title}>{u.title}</div>
                       {u.excerpt && <div className={styles.excerpt}>{u.excerpt}</div>}
@@ -322,8 +370,16 @@ export default function HqUpdates() {
                       {u.markets?.length ? u.markets.map(marketName).join(', ') : 'All countries'}
                     </td>
                     <td>
-                      <span className={u.published ? styles.badgePublished : styles.badgeDraft}>
-                        {u.published ? 'Published' : 'Draft'}
+                      <span
+                        className={
+                          isScheduled(u)
+                            ? styles.badgeScheduled
+                            : u.published
+                              ? styles.badgePublished
+                              : styles.badgeDraft
+                        }
+                      >
+                        {isScheduled(u) ? 'Scheduled' : u.published ? 'Published' : 'Draft'}
                       </span>
                     </td>
                     <td className={styles.actions}>

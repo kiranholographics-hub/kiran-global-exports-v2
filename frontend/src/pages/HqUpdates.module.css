@@ -210,6 +210,7 @@
 }
 
 .badgePublished,
+.badgeScheduled,
 .badgeDraft {
   display: inline-block;
   font-size: 0.7rem;
@@ -223,6 +224,11 @@
 .badgePublished {
   color: #2f6b3a;
   background: rgba(47, 107, 58, 0.08);
+}
+
+.badgeScheduled {
+  color: #7a5200;
+  background: #fdf1d6;
 }
 
 .badgeDraft {

@@ -34,11 +34,36 @@ async function uniqueSlug(base, excludeId) {
 // updates the post's own instagramPostId once (if) it succeeds.
 function shareToInstagramIfNeeded(update) {
   if (!update.published || !update.coverImage || update.instagramPostId || !isInstagramConfigured()) return;
+  // A post dated for later waits: shareDueInstagramPosts() picks it up once
+  // its time comes, so it never reaches Instagram before the site.
+  if (new Date(update.publishedAt) > new Date()) {
+    if (!update.instagramPending) Update.findByIdAndUpdate(update._id, { instagramPending: true }).catch(() => {});
+    return;
+  }
   const caption = update.excerpt ? `${update.title}\n\n${update.excerpt}` : update.title;
   publishToInstagram({ imageUrl: update.coverImage, caption })
-    .then((postId) => Update.findByIdAndUpdate(update._id, { instagramPostId: postId }))
+    .then((postId) => Update.findByIdAndUpdate(update._id, { instagramPostId: postId, instagramPending: false }))
     .catch((err) => console.error('[updates] Instagram share failed:', err.message));
 }
+
+// Run on a timer (server.js). Shares scheduled posts whose time has come.
+// Each one is claimed first, so two overlapping runs cannot post it twice.
+export async function shareDueInstagramPosts() {
+  if (!isInstagramConfigured()) return;
+  const due = await Update.find({ published: true, instagramPending: true, publishedAt: { $lte: new Date() } });
+  for (const post of due) {
+    const claimed = await Update.findOneAndUpdate(
+      { _id: post._id, instagramPending: true },
+      { instagramPending: false },
+      { new: true }
+    );
+    if (claimed) shareToInstagramIfNeeded(claimed);
+  }
+}
+
+// Posts dated in the future are scheduled: hidden from every public route
+// until their time comes, but visible to the admin.
+const live = () => ({ published: true, publishedAt: { $lte: new Date() } });
 
 // Accepts only market slugs of the form the Market model uses, drops
 // duplicates, and keeps the list a sane size. An empty result means "all
@@ -63,13 +88,13 @@ router.get('/for-market/:marketSlug', allowAnyOrigin, async (req, res) => {
   try {
     const slug = String(req.params.marketSlug || '').toLowerCase();
     const limit = Math.min(Number(req.query.limit) || 3, 12);
-    const specific = await Update.find({ published: true, markets: slug })
+    const specific = await Update.find({ ...live(), markets: slug })
       .sort({ publishedAt: -1 })
       .limit(limit);
     let updates = specific;
     if (specific.length < limit) {
       const general = await Update.find({
-        published: true,
+        ...live(),
         $or: [{ markets: { $exists: false } }, { markets: { $size: 0 } }],
       })
         .sort({ publishedAt: -1 })
@@ -86,7 +111,7 @@ router.get('/for-market/:marketSlug', allowAnyOrigin, async (req, res) => {
 router.get('/', async (req, res) => {
   try {
     const limit = Math.min(Number(req.query.limit) || 50, 100);
-    const updates = await Update.find({ published: true })
+    const updates = await Update.find(live())
       .sort({ publishedAt: -1 })
       .limit(limit);
     res.json(updates.map((u) => u.toJSON()));
@@ -98,7 +123,7 @@ router.get('/', async (req, res) => {
 
 router.get('/:slug', async (req, res) => {
   try {
-    const update = await Update.findOne({ slug: req.params.slug, published: true });
+    const update = await Update.findOne({ slug: req.params.slug, ...live() });
     if (!update) return res.status(404).json({ error: 'Update not found.' });
     res.json(update.toJSON());
   } catch (err) {
