@@ -541,6 +541,17 @@ jobs:
             failed=1
           fi
 
+          # No token means 401 from the version that has the change-password
+          # route; an older API answers 404 because the route does not exist.
+          pw_code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 30 -X POST \
+            https://api.kiranglobal-exports.com/api/auth/change-password)
+          if [ "$pw_code" = "401" ]; then
+            echo "  ok       the API has the change-password route"
+          else
+            echo "  BAD      /api/auth/change-password answered HTTP $pw_code (expected 401 without a login)"
+            failed=1
+          fi
+
           echo "── Informational ──"
           echo "  api $(curl -s -o /dev/null -w '%{http_code}' --max-time 30 \
             https://api.kiranglobal-exports.com/api/health)  /api/health"
