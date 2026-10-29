@@ -66,6 +66,9 @@ export const TOP_LEVEL_ROUTES = [
   '/export',
   '/contact',
   '/updates',
+  // A free calculator, src/pages/TowelCalculator.jsx. It was in the sitemap
+  // and the prerender list but not here, so the deploy never shipped it.
+  '/tools/towel-container-calculator',
   '/privacy-policy',
   '/terms-and-conditions',
 ];

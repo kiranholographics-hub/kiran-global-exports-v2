@@ -41,7 +41,7 @@ import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { siteConfig } from '../src/data/config.js';
 import { SEO_LANDING_ROUTES } from '../src/data/seoLandingPages.js';
-import { TOWEL_CATEGORY_ROUTES, TOWEL_PRODUCT_ROUTES } from '../src/data/deployRoutes.js';
+import { TOWEL_CATEGORY_ROUTES, TOWEL_PRODUCT_ROUTES, DEPLOY_ROUTES } from '../src/data/deployRoutes.js';
 import { linenProducts } from '../src/data/linenCatalog.js';
 import {
   DEFAULT_LOCALE,
@@ -262,6 +262,20 @@ async function main() {
     fetchUpdateRoutes(),
   ]);
   const routes = [...STATIC_ROUTES, ...marketRoutes, ...updateRoutes];
+
+  // A page in the sitemap that the deploy does not render and ship is a link
+  // to a 404. Every static route here must be in DEPLOY_ROUTES, apart from
+  // the home page and the standalone /oshibori page, which the workflow
+  // copies in on their own.
+  const shipped = new Set(DEPLOY_ROUTES);
+  const unshipped = STATIC_ROUTES.map((r) => r.path).filter(
+    (route) => route && route !== '/oshibori' && !shipped.has(route)
+  );
+  if (unshipped.length) {
+    throw new Error(
+      `in the sitemap but not in DEPLOY_ROUTES (src/data/deployRoutes.js), so the deploy would never ship them: ${unshipped.join(', ')}`
+    );
+  }
 
   // .htaccess 301-redirects every prerendered route to its trailing-slash
   // form to keep one canonical URL per page (see the matching note in
