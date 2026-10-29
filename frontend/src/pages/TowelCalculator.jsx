@@ -38,6 +38,10 @@ const FAQS = [
     a: 'GSM is grams per square metre of cloth. Multiply the towel’s area in square metres by its GSM: a 70 × 140 cm towel is 0.98 square metres, so at 500 GSM it is 490 g. A finished towel differs a little because of the borders, hems and weight tolerance, so treat the figure as an estimate and confirm it against the specification sheet.',
   },
   {
+    q: 'How do I turn a weight in pounds per dozen into GSM?',
+    a: 'Divide the dozen weight by 12 for one towel, convert it to grams (1 lb is 453.6 g), then divide by the towel’s area in square metres. As an example, a 22 × 44 inch towel sold at 5.75 lb per dozen weighs 5.75 ÷ 12 = 0.479 lb, about 217 g. Its area is 0.559 × 1.118 m = 0.625 square metres, so it is about 348 GSM. Real weights vary a little with borders and tolerance, so use the figure as a guide and confirm it against the specification.',
+  },
+  {
     q: 'Are the container sizes exact?',
     a: 'They are typical internal dimensions. Containers differ by a few centimetres between builders, and doors, pallets or loading gaps take up some space, which is why there is an unusable space box. Treat the result as the upper end of what a real load reaches and confirm it with your freight forwarder.',
   },
@@ -174,6 +178,13 @@ export default function TowelCalculator() {
                       <div>
                         <dt>One towel</dt>
                         <dd>about {fmt(result.gramsPerTowel)} g</dd>
+                      </div>
+                      <div>
+                        <dt>One dozen</dt>
+                        <dd>
+                          about {fmt(result.dozenLb, 2)} lb
+                          <span className={styles.sub}>{fmt(result.dozenKg, 2)} kg</span>
+                        </dd>
                       </div>
                       <div>
                         <dt>One full carton</dt>

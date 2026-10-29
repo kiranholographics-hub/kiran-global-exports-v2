@@ -14,15 +14,17 @@ import styles from './UpdateDetail.module.css';
 /**
  * Renders an update's body.
  *
- * Blank-line-separated paragraphs, as before — plus two things a buyer
- * guide needs and a company announcement never did: a block starting
- * "## " becomes a subheading, and a block whose lines all start "- "
- * becomes a bulleted list. Anything else is still a paragraph, so every
- * update written before this renders exactly as it did.
+ * Blank-line-separated paragraphs, as before — plus what a buyer guide
+ * needs and a company announcement never did: a block starting "## " becomes
+ * a subheading, a block whose lines all start "- " becomes a bulleted list,
+ * a block of "|" rows with a "---" second row becomes a table, and
+ * **double asterisks** inside a line become bold. Anything else is still a
+ * paragraph, so every update written before this renders exactly as it did.
  *
- * Deliberately not a Markdown parser. These are two rules that earn their
- * place; a dependency that handles inline formatting, tables and raw HTML
- * would also hand whoever writes an update the ability to inject it.
+ * Deliberately not a Markdown parser. These are four rules that earn their
+ * place; a dependency that handles links, images and raw HTML would also
+ * hand whoever writes an update the ability to inject it. The text is
+ * always rendered as text, never as markup.
  */
 // The page's own interface text. A translated guide takes its language's
 // version from src/data/guideTranslations; every other article keeps this.
@@ -35,6 +37,19 @@ const EN_UI = {
   related: 'Related sourcing guides',
   back: '← Back to Updates',
 };
+
+// **bold** becomes <strong>; every other character stays plain text.
+function inline(text) {
+  return text.split(/(\*\*[^*]+\*\*)/g).map((part, k) =>
+    part.length > 4 && part.startsWith('**') && part.endsWith('**')
+      ? <strong key={k}>{part.slice(2, -2)}</strong>
+      : part
+  );
+}
+
+const isTableRow = (line) => line.length > 2 && line.startsWith('|') && line.endsWith('|');
+const isTableRule = (line) => /^\|(\s*:?-{3,}:?\s*\|)+$/.test(line);
+const tableCells = (line) => line.slice(1, -1).split('|').map((cell) => cell.trim());
 
 function renderBody(body) {
   return body
@@ -50,12 +65,36 @@ function renderBody(body) {
         return (
           <ul key={i}>
             {lines.map((line, j) => (
-              <li key={j}>{line.slice(2).trim()}</li>
+              <li key={j}>{inline(line.slice(2).trim())}</li>
             ))}
           </ul>
         );
       }
-      return <p key={i}>{block}</p>;
+      if (lines.length >= 3 && lines.every(isTableRow) && isTableRule(lines[1])) {
+        return (
+          <div key={i} className={styles.tableWrap}>
+            <table>
+              <thead>
+                <tr>
+                  {tableCells(lines[0]).map((cell, j) => (
+                    <th key={j} scope="col">{inline(cell)}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {lines.slice(2).map((line, j) => (
+                  <tr key={j}>
+                    {tableCells(line).map((cell, k) => (
+                      <td key={k}>{inline(cell)}</td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        );
+      }
+      return <p key={i}>{inline(block)}</p>;
     });
 }
 

@@ -518,6 +518,28 @@ jobs:
             echo "  ok       $bundle points at the real API"
           fi
 
+          echo "── Article bodies show tables and bold, not raw markers ──"
+          has /updates/export-documents-for-a-towel-shipment-from-india/ \
+            "export documents guide has a real table" "<table"
+          lacks /updates/export-documents-for-a-towel-shipment-from-india/ \
+            "export documents guide shows no raw table rules" "|---|"
+          lacks /updates/payment-terms-importing-towels-from-india/ \
+            "payment terms guide shows no raw table rules" "|---|"
+          lacks /updates/payment-terms-importing-towels-from-india/ \
+            "payment terms guide shows no raw bold markers" "**Paid before shipment"
+          lacks /updates/towel-minimum-order-quantity-explained/ \
+            "MOQ guide shows no raw bold markers" "**Colour."
+          lacks /updates/receiving-a-container-of-towels-what-to-check-on-arrival/ \
+            "arrival inspection guide shows no raw bold markers" "**Damage or loss in transit"
+
+          echo "── Verifying a towel exporter guide ──"
+          has /updates/verify-a-towel-exporter-in-india-before-you-pay/ \
+            "the exporter verification guide is rendered" "Does the company exist, under one name?"
+          has /updates/verify-a-towel-exporter-in-india-before-you-pay/ \
+            "the exporter verification guide links to the India sourcing page" "/solutions/cotton-towel-manufacturer-india"
+          lacks /updates/verify-a-towel-exporter-in-india-before-you-pay/ \
+            "the exporter verification guide shows no raw markers" "|---|"
+
           echo "── The towel container calculator ──"
           has /tools/towel-container-calculator/ \
             "calculator page is rendered" "Towel container loading and weight calculator."
@@ -533,6 +555,8 @@ jobs:
             "container loading guide links to the calculator" "/tools/towel-container-calculator"
           has /sitemap.xml \
             "sitemap lists the calculator" "/tools/towel-container-calculator/"
+          has /tools/towel-container-calculator/ \
+            "calculator answers the pounds-per-dozen question" "pounds per dozen"
 
           echo "── The API serves posts per country page ──"
           has /usa/ "USA market page shows its latest updates" "News for buyers in"

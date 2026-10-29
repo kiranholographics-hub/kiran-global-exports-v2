@@ -13,6 +13,10 @@ export const CONTAINERS = [
 
 const positive = (n) => Number.isFinite(n) && n > 0;
 
+// Exactly 0.45359237 kg by definition. US suppliers quote towel weight in
+// pounds per dozen, so the page shows it.
+export const KG_PER_LB = 0.45359237;
+
 /** Weight of one towel in grams: area in square metres times GSM. */
 export function towelWeightGrams(lengthCm, widthCm, gsm) {
   if (![lengthCm, widthCm, gsm].every(positive)) return null;
@@ -88,5 +92,14 @@ export function calculate(input) {
     };
   });
 
-  return { gramsPerTowel, cartonKg, cartonVol, cartonsNeeded, containers };
+  const dozenKg = (12 * gramsPerTowel) / 1000;
+  return {
+    gramsPerTowel,
+    dozenKg,
+    dozenLb: dozenKg / KG_PER_LB,
+    cartonKg,
+    cartonVol,
+    cartonsNeeded,
+    containers,
+  };
 }
