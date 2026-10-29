@@ -518,6 +518,22 @@ jobs:
             echo "  ok       $bundle points at the real API"
           fi
 
+          echo "── The towel container calculator ──"
+          has /tools/towel-container-calculator/ \
+            "calculator page is rendered" "Towel container loading and weight calculator."
+          has /tools/towel-container-calculator/ \
+            "calculator page shows its working" "Length × width (in metres) × GSM"
+          has /tools/towel-container-calculator/ \
+            "calculator page has FAQ markup" "FAQPage"
+          has /tools/towel-container-calculator/ \
+            "calculator page shows a result table" "40ft high-cube"
+          has /export/ \
+            "/export links to the calculator" "/tools/towel-container-calculator"
+          has /updates/container-loading-for-towels/ \
+            "container loading guide links to the calculator" "/tools/towel-container-calculator"
+          has /sitemap.xml \
+            "sitemap lists the calculator" "/tools/towel-container-calculator/"
+
           echo "── The API serves posts per country page ──"
           has /usa/ "USA market page shows its latest updates" "News for buyers in"
           has /usa/ "USA market page links the posts" 'href="/updates/'

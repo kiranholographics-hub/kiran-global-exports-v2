@@ -169,6 +169,21 @@ export default function ExportPage() {
             </ul>
           </ScrollReveal>
 
+          <ScrollReveal delay={0.2}>
+            <h3 className={styles.guideGroupHeading}>Free tools</h3>
+            <ul className={styles.guideGrid}>
+              <li>
+                <Link to="/tools/towel-container-calculator" className={styles.guideCard}>
+                  <span className={styles.guideLabel}>Towel container loading and weight calculator</span>
+                  <span className={styles.guideBlurb}>
+                    How many cartons fit in a 20ft, 40ft or 40ft high-cube container, and what a towel
+                    and a full load weigh.
+                  </span>
+                </Link>
+              </li>
+            </ul>
+          </ScrollReveal>
+
         </div>
       </section>
 

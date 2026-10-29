@@ -74,6 +74,7 @@ const STATIC_ROUTES = [
   '/export',
   '/contact',
   '/updates',
+  '/tools/towel-container-calculator',
   '/privacy-policy',
   '/terms-and-conditions',
   // Search-led landing pages under /export/* and /solutions/*. Unlike the

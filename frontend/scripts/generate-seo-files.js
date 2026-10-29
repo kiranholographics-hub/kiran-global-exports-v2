@@ -76,6 +76,8 @@ const STATIC_ROUTES = [
   { path: '/about', priority: '0.8' },
   { path: '/custom', priority: '0.7' },
   { path: '/export', priority: '0.7' },
+  // A free calculator for importers (src/pages/TowelCalculator.jsx).
+  { path: '/tools/towel-container-calculator', priority: '0.7' },
   { path: '/contact', priority: '0.9' },
   // Standalone static microsite page (not a React route) — see
   // frontend/public/oshibori/index.html and the matching copy step in

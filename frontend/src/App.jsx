@@ -45,6 +45,7 @@ const HqPages = lazy(() => import('@/pages/HqPages'));
 const HqTestimonials = lazy(() => import('@/pages/HqTestimonials'));
 const HqTeam = lazy(() => import('@/pages/HqTeam'));
 const HqPassword = lazy(() => import('@/pages/HqPassword'));
+const TowelCalculator = lazy(() => import('@/pages/TowelCalculator'));
 const HqCertifications = lazy(() => import('@/pages/HqCertifications'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
@@ -194,6 +195,7 @@ export default function App() {
               </Route>
 
               <Route path="/export" element={<Export />} />
+              <Route path="/tools/towel-container-calculator" element={<TowelCalculator />} />
               <Route path="/export/:slug" element={<SeoLandingPage section="export" />} />
               <Route path="/solutions/:slug" element={<SeoLandingPage section="solutions" />} />
               <Route path="/custom" element={<Custom />} />
