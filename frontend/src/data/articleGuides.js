@@ -288,6 +288,27 @@ export function getLandingPagesForArticle(articleSlug) {
     .filter(Boolean);
 }
 
+// Free tools that go with an article, shown beside its related sourcing
+// guides. Kept apart from ARTICLE_GUIDES, which maps articles to landing
+// pages, so the tool page is not mistaken for one.
+const ARTICLE_TOOLS = {
+  'container-loading-for-towels': ['towel-container-calculator'],
+  'hotel-towel-gsm-guide': ['towel-container-calculator'],
+  'towel-minimum-order-quantity-explained': ['towel-container-calculator'],
+  'what-to-send-a-towel-manufacturer-when-you-ask-for-a-quote': ['towel-container-calculator'],
+};
+
+const TOOLS = {
+  'towel-container-calculator': {
+    href: '/tools/towel-container-calculator',
+    label: 'Free tool: towel container loading and weight calculator',
+  },
+};
+
+export function getToolsForArticle(articleSlug) {
+  return (ARTICLE_TOOLS[articleSlug] || []).map((key) => TOOLS[key]);
+}
+
 export function getArticlesForLandingPage(section, slug) {
   const key = `${section}/${slug}`;
   return ARTICLE_GUIDES

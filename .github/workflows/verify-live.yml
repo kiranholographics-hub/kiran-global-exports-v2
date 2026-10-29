@@ -518,6 +518,22 @@ jobs:
             echo "  ok       $bundle points at the real API"
           fi
 
+          echo "── The towel container calculator ──"
+          has /tools/towel-container-calculator/ \
+            "calculator page is rendered" "Towel container loading and weight calculator."
+          has /tools/towel-container-calculator/ \
+            "calculator page shows its working" "Length × width (in metres) × GSM"
+          has /tools/towel-container-calculator/ \
+            "calculator page has FAQ markup" "FAQPage"
+          has /tools/towel-container-calculator/ \
+            "calculator page shows a result table" "40ft high-cube"
+          has /export/ \
+            "/export links to the calculator" "/tools/towel-container-calculator"
+          has /updates/container-loading-for-towels/ \
+            "container loading guide links to the calculator" "/tools/towel-container-calculator"
+          has /sitemap.xml \
+            "sitemap lists the calculator" "/tools/towel-container-calculator/"
+
           echo "── The API serves posts per country page ──"
           has /usa/ "USA market page shows its latest updates" "News for buyers in"
           has /usa/ "USA market page links the posts" 'href="/updates/'
@@ -538,6 +554,17 @@ jobs:
             fi
           else
             echo "  BAD      /api/updates/for-market/usa  — HTTP $api_code, body: $(head -c 120 "$api_out")"
+            failed=1
+          fi
+
+          # No token means 401 from the version that has the change-password
+          # route; an older API answers 404 because the route does not exist.
+          pw_code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 30 -X POST \
+            https://api.kiranglobal-exports.com/api/auth/change-password)
+          if [ "$pw_code" = "401" ]; then
+            echo "  ok       the API has the change-password route"
+          else
+            echo "  BAD      /api/auth/change-password answered HTTP $pw_code (expected 401 without a login)"
             failed=1
           fi
 

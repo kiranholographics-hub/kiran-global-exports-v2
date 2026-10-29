@@ -1,0 +1,236 @@
+.toolSection {
+  background: var(--bg-paper);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-lg);
+  align-items: start;
+}
+
+@media (min-width: 62rem) {
+  .layout {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  }
+}
+
+.panel,
+.results {
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-sand);
+  padding: clamp(1.25rem, 3vw, 2.25rem);
+}
+
+.panelTitle {
+  font-family: var(--font-serif);
+  font-size: var(--fs-h4, 1.15rem);
+  font-weight: 500;
+  color: var(--color-charcoal);
+  margin: 0 0 var(--space-sm);
+}
+
+.panel .panelTitle:not(:first-child) {
+  margin-top: var(--space-md);
+}
+
+.grid3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-sm);
+}
+
+.grid2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-sm);
+  margin-top: var(--space-sm);
+}
+
+@media (max-width: 34rem) {
+  .grid3,
+  .grid2 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.field label {
+  display: block;
+  font-size: var(--fs-small);
+  letter-spacing: 0.04em;
+  color: var(--color-charcoal);
+  margin-bottom: 0.3rem;
+}
+
+.unit {
+  color: var(--text-muted);
+}
+
+.field input {
+  width: 100%;
+  font: inherit;
+  font-size: 1rem;
+  color: var(--color-charcoal);
+  background: #fff;
+  border: 1px solid var(--border-subtle);
+  padding: 0.6rem 0.75rem;
+  min-height: 2.75rem;
+}
+
+.field input:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 1px;
+}
+
+.fieldHint {
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  line-height: 1.4;
+  margin-top: 0.3rem;
+}
+
+.note {
+  color: var(--text-muted);
+  font-size: var(--fs-small);
+  line-height: 1.55;
+  margin-top: var(--space-md);
+}
+
+.error {
+  padding: 0.85rem 1.1rem;
+  background: rgba(163, 64, 44, 0.07);
+  border-left: 3px solid #a3402c;
+  color: #8b3220;
+  font-size: var(--fs-small);
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr));
+  gap: var(--space-sm);
+  margin: 0 0 var(--space-md);
+}
+
+.facts div {
+  background: #fff;
+  border: 1px solid var(--border-subtle);
+  padding: 0.75rem 0.9rem;
+}
+
+.facts dt {
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.facts dd {
+  margin: 0.25rem 0 0;
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  color: var(--color-charcoal);
+}
+
+.tableWrap {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--fs-small);
+  min-width: 30rem;
+}
+
+.table th,
+.table td {
+  text-align: left;
+  padding: 0.7rem 0.6rem;
+  border-bottom: 1px solid var(--border-subtle);
+  vertical-align: top;
+}
+
+.table thead th {
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.table tbody th {
+  font-weight: 600;
+  color: var(--color-charcoal);
+}
+
+.sub {
+  display: block;
+  font-weight: 400;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+}
+
+.methodSection {
+  background: var(--bg-sand);
+}
+
+.method {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: var(--space-lg);
+  margin-top: var(--space-lg);
+}
+
+.method h3 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  color: var(--color-charcoal);
+  margin-bottom: var(--space-xs);
+}
+
+.method p {
+  color: var(--text-muted);
+  font-weight: 300;
+  line-height: var(--lh-body);
+}
+
+.faqSection {
+  background: var(--bg-paper);
+}
+
+.faqList {
+  display: grid;
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+  max-width: 62ch;
+}
+
+.faqItem h3 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  color: var(--color-charcoal);
+  margin-bottom: var(--space-2xs);
+}
+
+.faqItem p {
+  color: var(--text-muted);
+  font-weight: 300;
+  line-height: var(--lh-body);
+}
+
+.guidesSection {
+  background: var(--bg-sand);
+}
+
+.guideList {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-md) 0 0;
+  display: grid;
+  gap: var(--space-xs);
+}
+
+.guideList a {
+  color: var(--color-charcoal);
+  border-bottom: 1px solid var(--color-accent);
+  padding-bottom: 0.15rem;
+}

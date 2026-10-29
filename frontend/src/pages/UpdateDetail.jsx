@@ -5,7 +5,7 @@ import Link from '@/components/Link/Link';
 import SEO from '@/components/SEO/SEO';
 import NotFoundContent from '@/components/NotFoundContent/NotFoundContent';
 import { fetchUpdateBySlug } from '@/lib/updates';
-import { getLandingPagesForArticle } from '@/data/articleGuides';
+import { getLandingPagesForArticle, getToolsForArticle } from '@/data/articleGuides';
 import { GUIDE_TRANSLATIONS } from '@/data/guideTranslations';
 import { LANDING_TRANSLATIONS } from '@/data/landingTranslations';
 import { siteConfig } from '@/data/config';
@@ -82,6 +82,8 @@ export default function UpdateDetail() {
     const translated = landing?.[g.href.replace(/^\//, '')];
     return translated ? [{ href: g.href, label: translated.seoTitle }] : [];
   });
+  // The calculator is English only, so a translated guide does not list it.
+  if (!copy) guides.push(...getToolsForArticle(slug));
 
   useEffect(() => {
     setFetched(undefined);
