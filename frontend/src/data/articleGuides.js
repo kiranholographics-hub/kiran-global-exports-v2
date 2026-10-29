@@ -265,6 +265,17 @@ const ARTICLE_GUIDES = [
     ],
   },
   {
+    slug: 'verify-a-towel-exporter-in-india-before-you-pay',
+    title: "How to verify a towel exporter in India before you pay — a buyer's checklist",
+    pages: [
+      'solutions/cotton-towel-manufacturer-india',
+      'solutions/hotel-towels-supplier-what-to-check',
+      'solutions/private-label-towel-manufacturer',
+      'export/usa-cotton-towel-supplier',
+      'export/uk-cotton-towel-supplier',
+    ],
+  },
+  {
     slug: 'hotel-towel-replacement-cycles',
     title: 'Hotel towel replacement cycles — how often towels are rebought, and why it matters when you specify',
     pages: [

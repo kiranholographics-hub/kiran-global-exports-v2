@@ -170,3 +170,41 @@
   height: 1px;
   background: var(--accent);
 }
+
+/* Tables and bold inside an update body (see renderBody). */
+.body strong {
+  font-weight: 600;
+  color: var(--color-charcoal);
+}
+
+.tableWrap {
+  overflow-x: auto;
+  margin: var(--space-md) 0;
+}
+
+.body table {
+  width: 100%;
+  min-width: 28rem;
+  border-collapse: collapse;
+  font-size: var(--fs-small);
+}
+
+.body th,
+.body td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.65rem 0.7rem;
+  border-bottom: 1px solid var(--border-subtle);
+  line-height: 1.5;
+}
+
+.body th {
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.body td {
+  color: var(--text-primary);
+}
