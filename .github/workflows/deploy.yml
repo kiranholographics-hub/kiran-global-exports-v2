@@ -326,7 +326,7 @@ jobs:
           // The IndexNow key (<32 hex characters>.txt, see
           // scripts/indexnow.mjs) has to be at the site root too.
           const keyFile = fs.readdirSync(distDir).find(f => /^[0-9a-f]{32}\.txt$/.test(f));
-          ['sitemap.xml', 'robots.txt', keyFile].forEach(name => {
+          ['sitemap.xml', 'robots.txt', 'llms.txt', keyFile].forEach(name => {
             const src = path.join(distDir, name);
             if (!fs.existsSync(src)) {
               console.error('ERROR: dist/' + name + ' missing!');

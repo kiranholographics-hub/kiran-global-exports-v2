@@ -34,6 +34,7 @@ const EN_UI = {
   loading: 'Loading…',
   loadError: 'Could not load this update right now.',
   publishedBy: 'Published by',
+  inShort: 'In short',
   related: 'Related sourcing guides',
   back: '← Back to Updates',
 };
@@ -178,6 +179,16 @@ export default function UpdateDetail() {
                 {ui.publishedBy} <strong>{siteConfig.contact.person}</strong>,{' '}
                 {siteConfig.contact.personTitle}, {siteConfig.brandName}
               </p>
+
+              {/* The answer first, in a block of its own: the excerpt, which
+                  every guide already carries. A reader gets the point at
+                  once, and so does anything that summarises the page. Only
+                  where the page has this label in its language. */}
+              {ui.inShort && update.excerpt && (
+                <p className={styles.summary}>
+                  <strong>{ui.inShort}.</strong> {update.excerpt}
+                </p>
+              )}
 
               {update.coverImage && (
                 <div className={styles.cover}>

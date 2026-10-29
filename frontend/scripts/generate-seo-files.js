@@ -40,7 +40,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { siteConfig } from '../src/data/config.js';
-import { SEO_LANDING_ROUTES } from '../src/data/seoLandingPages.js';
+import { SEO_LANDING_ROUTES, getLandingPageGroups } from '../src/data/seoLandingPages.js';
 import { TOWEL_CATEGORY_ROUTES, TOWEL_PRODUCT_ROUTES, DEPLOY_ROUTES } from '../src/data/deployRoutes.js';
 import { linenProducts } from '../src/data/linenCatalog.js';
 import {
@@ -60,6 +60,11 @@ import { GUIDE_TRANSLATIONS } from '../src/data/guideTranslations/index.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const outPath = path.join(__dirname, '../public/sitemap.xml');
+const llmsPath = path.join(__dirname, '../public/llms.txt');
+
+// The published guides, kept from the sitemap fetch so llms.txt can name and
+// summarise them without asking the API twice.
+let publishedUpdates = [];
 
 // Derived the same way the deploy workflow derives what it renders, so a
 // product added to the catalogue is listed here and prerendered without
@@ -135,6 +140,7 @@ async function fetchJson(apiPath) {
 async function fetchUpdateRoutes() {
   try {
     const updates = await fetchJson('/api/updates');
+    publishedUpdates = updates;
     if (!updates.length) return [];
     // lastmod is only ever a date the article really changed on: the
     // record's own updatedAt (falling back to publishedAt). Google ignores
@@ -255,6 +261,52 @@ function checkHtaccessLocales() {
   }
 }
 
+// llms.txt: a plain-text map of the site for AI assistants and the tools
+// that feed them (llmstxt.org). It is built from the same data as the pages
+// and the sitemap, so it cannot drift from them, and it says nothing the
+// pages do not already say. No AI provider has confirmed that it reads this
+// file; it costs nothing to publish and makes the site's structure explicit.
+function buildLlmsTxt() {
+  const site = siteConfig.siteUrl;
+  const link = (href) => `${site}${href.endsWith('/') ? href : `${href}/`}`;
+  const groups = getLandingPageGroups();
+  const oneLine = (text) => String(text || '').replace(/\s+/g, ' ').trim();
+  const item = (title, href, note) => `- [${title}](${link(href)})${note ? `: ${oneLine(note)}` : ''}`;
+
+  const lines = [
+    `# ${siteConfig.brandName}`,
+    '',
+    '> International exporter and supplier of premium towels and linen from India, serving hospitality, retail and private-label buyers worldwide.',
+    '',
+    `Based in Jaipur, Rajasthan, India. Email ${siteConfig.contact.email}. Buyers send the product, size, GSM and quantity they need, and the export team replies with an FOB quotation.`,
+    '',
+    '## Start here',
+    item('Contact the export team', '/contact', 'Send a specification and quantity for an FOB quotation.'),
+    item('Towels', '/towels', 'The towel catalogue.'),
+    item('Linen', '/linen', 'The linen catalogue.'),
+    item('Export capability', '/export', 'Sourcing guides by destination and by requirement, and the free tools.'),
+    '',
+    '## Free tools',
+    item(
+      'Towel container loading and weight calculator',
+      '/tools/towel-container-calculator',
+      'Cartons per 20ft, 40ft and 40ft high-cube container from the carton size; towel weight from size and GSM, including pounds per dozen.'
+    ),
+    '',
+    '## Sourcing guides by destination',
+    ...groups.export.map((p) => item(p.label, p.href, p.blurb)),
+    '',
+    '## Sourcing guides by requirement',
+    ...groups.solutions.map((p) => item(p.label, p.href, p.blurb)),
+  ];
+
+  if (publishedUpdates.length) {
+    lines.push('', '## Buyer guides');
+    publishedUpdates.forEach((u) => lines.push(item(u.title, `/updates/${u.slug}`, u.excerpt)));
+  }
+  return `${lines.join('\n')}\n`;
+}
+
 async function main() {
   checkHtaccessLocales();
   const [marketRoutes, updateRoutes] = await Promise.all([
@@ -297,6 +349,9 @@ async function main() {
 
   writeFileSync(outPath, xml, 'utf-8');
   console.log(`[generate-seo-files] wrote ${entries.length} indexable URLs to public/sitemap.xml`);
+
+  writeFileSync(llmsPath, buildLlmsTxt(), 'utf-8');
+  console.log('[generate-seo-files] wrote public/llms.txt');
 }
 
 main();
