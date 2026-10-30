@@ -45,6 +45,8 @@ note in SEO-ROUTINE.md on doorway pages).
   how to raise a problem
 - Hotel towel replacement cycles — how often towels are rebought, and why
   it matters when you specify
+- How to verify a towel exporter in India before you pay — IEC, GST,
+  certificates, who makes the towels, where the money goes
 
 Note: "what makes a good hotel pool towel" was drafted as an article,
 then retired and rebuilt as a landing page instead
@@ -54,12 +56,11 @@ site duplicating its own content on the same topic.
 
 ## Drafted, not yet published
 
-- How to verify a towel exporter in India before you pay — IEC, GST,
-  certificates, who makes the towels, where the money goes
-  (25-verify-a-towel-exporter-in-india-before-you-pay.md, drafted
-  2026-10-29 from keyword research: nothing on the site covered vetting a
-  supplier). Claims are limited to what the official portals publish; it
-  states nothing about KGE beyond offering the IEC code on request.
+- HS code for towels — what the code covers and how to confirm it before you
+  ship (26-hs-code-for-towels-what-the-code-covers-and-how-to-confirm-it.md,
+  drafted 2026-10-30, Friday routine). Says nothing about duty rates. Checked
+  against CBP and HS structure results; the US article's 6302.60 statement
+  agrees with it.
 
 ## Queued
 
