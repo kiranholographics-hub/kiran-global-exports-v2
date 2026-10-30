@@ -208,3 +208,20 @@
 .body td {
   color: var(--text-primary);
 }
+
+/* The "In short" summary under the byline (see UpdateDetail). */
+.summary {
+  margin: 0 0 var(--space-md);
+  max-width: 62ch;
+  padding: var(--space-sm) var(--space-md);
+  background: var(--bg-sand);
+  border-left: 3px solid var(--color-accent);
+  font-size: 1rem;
+  line-height: var(--lh-body);
+  color: var(--text-primary);
+}
+
+.summary strong {
+  color: var(--color-charcoal);
+  font-weight: 600;
+}

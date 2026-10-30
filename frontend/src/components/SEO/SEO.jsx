@@ -303,7 +303,10 @@ export default function SEO({
       },
       hasMap: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(siteConfig.contact.address)}`,
       areaServed: 'Worldwide',
-      sameAs: siteConfig.socials?.map((s) => s.href) ?? [],
+      // The company's own profiles, once they are filled in config.js. The
+      // field is `social`; this used to read a `socials` that does not
+      // exist, so it was always empty.
+      sameAs: Object.values(siteConfig.social || {}).filter(Boolean),
     });
 
     /* ── JSON-LD: WebSite ────────────────────── */

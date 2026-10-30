@@ -265,6 +265,17 @@ const ARTICLE_GUIDES = [
     ],
   },
   {
+    slug: 'hs-code-for-towels-what-the-code-covers-and-how-to-confirm-it',
+    title: 'HS code for towels — what the code covers and how to confirm it before you ship',
+    pages: [
+      'solutions/cotton-towel-manufacturer-india',
+      'export/usa-cotton-towel-supplier',
+      'export/uk-cotton-towel-supplier',
+      'export/germany-cotton-towel-supplier',
+      'export/netherlands-cotton-towel-supplier',
+    ],
+  },
+  {
     slug: 'verify-a-towel-exporter-in-india-before-you-pay',
     title: "How to verify a towel exporter in India before you pay — a buyer's checklist",
     pages: [

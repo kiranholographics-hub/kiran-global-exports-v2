@@ -5,6 +5,7 @@
 /dist
 /dist_add_only
 public/sitemap.xml
+public/llms.txt
 
 # testing
 /coverage

@@ -532,6 +532,28 @@ jobs:
           lacks /updates/receiving-a-container-of-towels-what-to-check-on-arrival/ \
             "arrival inspection guide shows no raw bold markers" "**Damage or loss in transit"
 
+          echo "── HS code guide ──"
+          has /updates/hs-code-for-towels-what-the-code-covers-and-how-to-confirm-it/ \
+            "the HS code guide is rendered" "What the six digits fix and what they leave open"
+          has /updates/hs-code-for-towels-what-the-code-covers-and-how-to-confirm-it/ \
+            "the HS code guide has a real table" "<table"
+          has /updates/hs-code-for-towels-what-the-code-covers-and-how-to-confirm-it/ \
+            "the HS code guide links to the India sourcing page" "/solutions/cotton-towel-manufacturer-india"
+          lacks /updates/hs-code-for-towels-what-the-code-covers-and-how-to-confirm-it/ \
+            "the HS code guide shows no raw markers" "|---|"
+          has /llms.txt \
+            "llms.txt lists the HS code guide" "hs-code-for-towels-what-the-code-covers-and-how-to-confirm-it"
+
+          echo "── GEO: what AI assistants can read ──"
+          has /llms.txt \
+            "llms.txt is served" "# Kiran Global Exports"
+          has /llms.txt \
+            "llms.txt names the calculator" "towel-container-calculator"
+          has /llms.txt \
+            "llms.txt lists the buyer guides" "verify-a-towel-exporter-in-india-before-you-pay"
+          has /updates/container-loading-for-towels/ \
+            "guides open with an In short summary" "In short"
+
           echo "── Verifying a towel exporter guide ──"
           has /updates/verify-a-towel-exporter-in-india-before-you-pay/ \
             "the exporter verification guide is rendered" "Does the company exist, under one name?"
