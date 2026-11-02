@@ -611,6 +611,26 @@ jobs:
           has /tools/towel-container-calculator/ \
             "calculator answers the pounds-per-dozen question" "pounds per dozen"
 
+          echo "── The towel quotation comparison tool ──"
+          has /tools/towel-quotation-comparison/ \
+            "comparison tool page is rendered" "Towel quotation comparison tool."
+          has /tools/towel-quotation-comparison/ \
+            "comparison tool shows its working" "A price per dozen is divided by 12"
+          has /tools/towel-quotation-comparison/ \
+            "comparison tool has FAQ markup" "FAQPage"
+          has /tools/towel-quotation-comparison/ \
+            "comparison tool shows a result table" "Order total, CIF basis"
+          has /tools/towel-quotation-comparison/ \
+            "comparison tool links to the quotation guide" "/updates/compare-towel-quotations-like-for-like"
+          has /export/ \
+            "/export links to the comparison tool" "/tools/towel-quotation-comparison"
+          has /updates/compare-towel-quotations-like-for-like/ \
+            "the quotation guide links to the comparison tool" "/tools/towel-quotation-comparison"
+          has /sitemap.xml \
+            "sitemap lists the comparison tool" "/tools/towel-quotation-comparison/"
+          has /llms.txt \
+            "llms.txt names the comparison tool" "/tools/towel-quotation-comparison"
+
           echo "── The API serves posts per country page ──"
           has /usa/ "USA market page shows its latest updates" "News for buyers in"
           has /usa/ "USA market page links the posts" 'href="/updates/'
