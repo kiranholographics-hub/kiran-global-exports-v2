@@ -36,7 +36,7 @@ function toDate(value) {
 }
 
 const [updates, markets, sitemap] = await Promise.all([
-  get(`${API}/api/updates`).then((r) => r.json()),
+  get(`${API}/api/updates?limit=500`).then((r) => r.json()),
   get(`${API}/api/markets/public`).then((r) => r.json()),
   get(`${SITE}/sitemap.xml?cachebust=${Date.now()}`).then((r) => r.text()),
 ]);

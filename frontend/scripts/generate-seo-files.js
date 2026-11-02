@@ -139,7 +139,7 @@ async function fetchJson(apiPath) {
 // published and sit there with nothing telling Google it exists.
 async function fetchUpdateRoutes() {
   try {
-    const updates = await fetchJson('/api/updates');
+    const updates = await fetchJson('/api/updates?limit=500');
     publishedUpdates = updates;
     if (!updates.length) return [];
     // lastmod is only ever a date the article really changed on: the

@@ -110,7 +110,7 @@ router.get('/for-market/:marketSlug', allowAnyOrigin, async (req, res) => {
 
 router.get('/', async (req, res) => {
   try {
-    const limit = Math.min(Number(req.query.limit) || 50, 100);
+    const limit = Math.min(Number(req.query.limit) || 50, 500);
     const updates = await Update.find(live())
       .sort({ publishedAt: -1 })
       .limit(limit);

@@ -11,7 +11,7 @@ export default function Updates() {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    fetchUpdates()
+    fetchUpdates(500)
       .then(setUpdates)
       .catch(() => setError('Could not load updates right now. Please try again shortly.'));
   }, []);
