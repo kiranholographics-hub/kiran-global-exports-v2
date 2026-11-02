@@ -49,6 +49,9 @@ note in SEO-ROUTINE.md on doorway pages).
   certificates, who makes the towels, where the money goes
 - HS code for towels — what the code covers and how to confirm it before you
   ship
+- How to compare two towel quotations like for like — weight, price basis and
+  landed cost (published and live 2026-11-02; figures are hypothetical and
+  labelled, no KGE prices or lead times)
 
 Note: "what makes a good hotel pool towel" was drafted as an article,
 then retired and rebuilt as a landing page instead
@@ -58,11 +61,7 @@ site duplicating its own content on the same topic.
 
 ## Drafted, not yet published
 
-- How to compare two towel quotations like for like — weight, price basis and
-  landed cost (27-compare-towel-quotations-like-for-like.md, drafted
-  2026-11-02, Monday routine). All figures hypothetical and labelled; arithmetic
-  checked. No prices or lead times for KGE. Replaces nothing: complements the
-  quote-brief (#1), FOB (#4) and spec-sheet (#18) guides.
+None at the moment.
 
 ## Queued
 
