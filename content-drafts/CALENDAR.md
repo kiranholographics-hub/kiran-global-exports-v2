@@ -47,6 +47,11 @@ note in SEO-ROUTINE.md on doorway pages).
   it matters when you specify
 - How to verify a towel exporter in India before you pay — IEC, GST,
   certificates, who makes the towels, where the money goes
+- HS code for towels — what the code covers and how to confirm it before you
+  ship
+- How to compare two towel quotations like for like — weight, price basis and
+  landed cost (published and live 2026-11-02; figures are hypothetical and
+  labelled, no KGE prices or lead times)
 
 Note: "what makes a good hotel pool towel" was drafted as an article,
 then retired and rebuilt as a landing page instead
@@ -56,11 +61,7 @@ site duplicating its own content on the same topic.
 
 ## Drafted, not yet published
 
-- HS code for towels — what the code covers and how to confirm it before you
-  ship (26-hs-code-for-towels-what-the-code-covers-and-how-to-confirm-it.md,
-  drafted 2026-10-30, Friday routine). Says nothing about duty rates. Checked
-  against CBP and HS structure results; the US article's 6302.60 statement
-  agrees with it.
+None at the moment.
 
 ## Queued
 

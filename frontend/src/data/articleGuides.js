@@ -265,6 +265,17 @@ const ARTICLE_GUIDES = [
     ],
   },
   {
+    slug: 'compare-towel-quotations-like-for-like',
+    title: 'How to compare two towel quotations like for like — weight, price basis and landed cost',
+    pages: [
+      'solutions/cotton-towel-manufacturer-india',
+      'solutions/bulk-hotel-towels',
+      'solutions/hotel-towels-supplier-what-to-check',
+      'solutions/private-label-towel-manufacturer',
+      'export/usa-cotton-towel-supplier',
+    ],
+  },
+  {
     slug: 'hs-code-for-towels-what-the-code-covers-and-how-to-confirm-it',
     title: 'HS code for towels — what the code covers and how to confirm it before you ship',
     pages: [
@@ -317,6 +328,7 @@ const ARTICLE_TOOLS = {
   'container-loading-for-towels': ['towel-container-calculator'],
   'hotel-towel-gsm-guide': ['towel-container-calculator'],
   'towel-minimum-order-quantity-explained': ['towel-container-calculator'],
+  'compare-towel-quotations-like-for-like': ['towel-container-calculator'],
   'what-to-send-a-towel-manufacturer-when-you-ask-for-a-quote': ['towel-container-calculator'],
 };
 

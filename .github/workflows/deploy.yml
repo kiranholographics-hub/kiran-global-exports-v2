@@ -103,7 +103,7 @@ jobs:
           // so only the API knows which exist. Without rendering them, an
           // article is in the sitemap and serves a crawler an empty shell.
           async function updateRoutes() {
-            const updates = await apiJson('/api/updates');
+            const updates = await apiJson('/api/updates?limit=500');
             if (!updates.length) return [];
             return ['/updates', ...updates.map(u => '/updates/' + u.slug)];
           }

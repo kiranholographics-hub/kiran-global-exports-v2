@@ -532,6 +532,37 @@ jobs:
           lacks /updates/receiving-a-container-of-towels-what-to-check-on-arrival/ \
             "arrival inspection guide shows no raw bold markers" "**Damage or loss in transit"
 
+          echo "── Comparing quotations guide ──"
+          has /updates/compare-towel-quotations-like-for-like/ \
+            "the quotation comparison guide is rendered" "Put the price on one unit"
+          has /updates/compare-towel-quotations-like-for-like/ \
+            "the quotation comparison guide has a real table" "<table"
+          has /updates/compare-towel-quotations-like-for-like/ \
+            "the quotation comparison guide links to the India sourcing page" "/solutions/cotton-towel-manufacturer-india"
+          has /updates/compare-towel-quotations-like-for-like/ \
+            "the quotation comparison guide links to the calculator" "/tools/towel-container-calculator"
+          lacks /updates/compare-towel-quotations-like-for-like/ \
+            "the quotation comparison guide shows no raw markers" "|---|"
+          has /llms.txt \
+            "llms.txt lists the quotation comparison guide" "compare-towel-quotations-like-for-like"
+
+          echo "── Oldest posts still served (the 50-post limit must not drop them) ──"
+          has /updates/bath-mats-supplier-for-dubai-and-the-uae/ \
+            "oldest post bath-mats-supplier-for-dubai-and-the-uae serves its own page" \
+            'rel="canonical" href="https://www.kiranglobal-exports.com/updates/bath-mats-supplier-for-dubai-and-the-uae/"'
+          has /updates/beach-towel-supplier-for-north-america-us-canada-and-mexico/ \
+            "oldest post beach-towel-supplier-for-north-america-u serves its own page" \
+            'rel="canonical" href="https://www.kiranglobal-exports.com/updates/beach-towel-supplier-for-north-america-us-canada-and-mexico/"'
+          has /updates/linen-kiran-global-exports/ \
+            "oldest post linen-kiran-global-exports serves its own page" \
+            'rel="canonical" href="https://www.kiranglobal-exports.com/updates/linen-kiran-global-exports/"'
+          has /updates/pool-towel-supplier-for-south-america-season-duty-and-language/ \
+            "oldest post pool-towel-supplier-for-south-america-se serves its own page" \
+            'rel="canonical" href="https://www.kiranglobal-exports.com/updates/pool-towel-supplier-for-south-america-season-duty-and-language/"'
+          has /updates/zero-twist-towels-supplier-to-the-usa-specification-guide/ \
+            "oldest post zero-twist-towels-supplier-to-the-usa-sp serves its own page" \
+            'rel="canonical" href="https://www.kiranglobal-exports.com/updates/zero-twist-towels-supplier-to-the-usa-specification-guide/"'
+
           echo "── HS code guide ──"
           has /updates/hs-code-for-towels-what-the-code-covers-and-how-to-confirm-it/ \
             "the HS code guide is rendered" "What the six digits fix and what they leave open"
