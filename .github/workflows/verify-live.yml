@@ -593,6 +593,20 @@ jobs:
           lacks /updates/verify-a-towel-exporter-in-india-before-you-pay/ \
             "the exporter verification guide shows no raw markers" "|---|"
 
+          echo "── Towel test report guide ──"
+          has /updates/how-to-read-a-towel-test-report/ \
+            "the test report guide is rendered" "Which tests to ask for on a terry towel"
+          has /updates/how-to-read-a-towel-test-report/ \
+            "the test report guide has a real table" "<table"
+          has /updates/how-to-read-a-towel-test-report/ \
+            "the test report guide shows its worked example" "Worked example: reading a shrinkage result"
+          has /updates/how-to-read-a-towel-test-report/ \
+            "the test report guide links to the India sourcing page" "/solutions/cotton-towel-manufacturer-india"
+          lacks /updates/how-to-read-a-towel-test-report/ \
+            "the test report guide shows no raw markers" "|---|"
+          has /llms.txt \
+            "llms.txt lists the test report guide" "how-to-read-a-towel-test-report"
+
           echo "── The towel container calculator ──"
           has /tools/towel-container-calculator/ \
             "calculator page is rendered" "Towel container loading and weight calculator."

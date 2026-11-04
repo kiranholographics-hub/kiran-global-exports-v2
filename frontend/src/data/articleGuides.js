@@ -276,6 +276,17 @@ const ARTICLE_GUIDES = [
     ],
   },
   {
+    slug: 'how-to-read-a-towel-test-report',
+    title: 'How to read a towel test report — which tests to ask for and what the report must show',
+    pages: [
+      'solutions/cotton-towel-manufacturer-india',
+      'solutions/hotel-towels-supplier-what-to-check',
+      'solutions/bulk-hotel-towels',
+      'solutions/hotel-towel-manufacturer',
+      'export/germany-cotton-towel-supplier',
+    ],
+  },
+  {
     slug: 'hs-code-for-towels-what-the-code-covers-and-how-to-confirm-it',
     title: 'HS code for towels — what the code covers and how to confirm it before you ship',
     pages: [
