@@ -52,6 +52,10 @@ note in SEO-ROUTINE.md on doorway pages).
 - How to compare two towel quotations like for like — weight, price basis and
   landed cost (published and live 2026-11-02; figures are hypothetical and
   labelled, no KGE prices or lead times)
+- How to read a towel test report — which tests to ask for and what the report
+  must show (published and live 2026-11-04; standards named were checked against
+  catalogue listings; no limits quoted, no KGE results claimed; worked figures
+  hypothetical and labelled)
 
 Note: "what makes a good hotel pool towel" was drafted as an article,
 then retired and rebuilt as a landing page instead
@@ -61,12 +65,7 @@ site duplicating its own content on the same topic.
 
 ## Drafted, not yet published
 
-- How to read a towel test report — which tests to ask for and what the report
-  must show (28-how-to-read-a-towel-test-report.md, drafted 2026-11-04,
-  Wednesday routine). Standards named were checked against catalogue listings
-  (ISO 5077, ISO 6330, ISO 105-C06/X12/B02, EN 14697, ISO/IEC 17025, NABL). No
-  limits quoted, no KGE results claimed; worked figures hypothetical and labelled.
-  Complements the spec sheet (#18) and pre-shipment sample (#9) guides.
+None at the moment.
 
 ## Queued
 
