@@ -11,6 +11,28 @@ import { getCategoryBySlug } from '@/data/categories';
 import { mailtoLink, inquiryEmailBody, waLink } from '@/data/config';
 import styles from './ProductDetail.module.css';
 
+/**
+ * Many catalogue short descriptions are one line of 55–90 characters,
+ * too thin for a search snippet. When one is, the line that fits best is
+ * added to it: only what the whole site already says about every order
+ * (made to the buyer's specification, sample approved first), nothing
+ * about this product that is not in its own data.
+ */
+const META_MIN = 110;
+const META_MAX = 155;
+const META_ENDINGS = [
+  'Made in India to your specification, with a sample approved before bulk production. Ask the export team for a quote.',
+  'Made in India to your specification, with a sample approved before bulk production.',
+  'Made to your specification, sample approved before bulk production.',
+  'Sample first, made to your specification.',
+];
+function productMetaDescription(short = '') {
+  const base = short.trim();
+  if (base.length >= META_MIN) return base;
+  const ending = META_ENDINGS.find((e) => base.length + 1 + e.length <= META_MAX);
+  return ending ? `${base} ${ending}` : base;
+}
+
 /* ═══════════════════════════════════════════════ */
 export default function ProductDetail({
   categorySlug,
@@ -96,7 +118,7 @@ export default function ProductDetail({
     <>
       <SEO
         title={`${product.name} — Premium ${productType}`}
-        description={product.shortDescription}
+        description={productMetaDescription(product.shortDescription)}
         image={product.images?.[0]}
         type="product"
         // SEO.jsx has carried Product markup all along and nothing was
