@@ -56,6 +56,9 @@ note in SEO-ROUTINE.md on doorway pages).
   must show (published and live 2026-11-04; standards named were checked against
   catalogue listings; no limits quoted, no KGE results claimed; worked figures
   hypothetical and labelled)
+- Pre-shipment inspection for a towel order — what an AQL inspection checks and
+  how to read the result (published and live 2026-11-06; worked sampling example
+  matches the arrival guide; no KGE claims)
 
 Note: "what makes a good hotel pool towel" was drafted as an article,
 then retired and rebuilt as a landing page instead
@@ -65,14 +68,7 @@ site duplicating its own content on the same topic.
 
 ## Drafted, not yet published
 
-- Pre-shipment inspection for a towel order — what an AQL inspection checks and
-  how to read the result (29-pre-shipment-inspection-for-a-towel-order.md,
-  drafted 2026-11-06, Friday routine). Sampling figures (lot 12,000, level II,
-  sample 315, AQL 2.5 accept 14 / AQL 4.0 accept 21) are the standard's normal
-  single-sampling values and are consistent with the arrival guide (#23); the
-  text tells the reader to confirm the plan with the inspection company. No
-  KGE claims. Sits between the pre-shipment sample guide (#9) and the arrival
-  guide (#23).
+None at the moment.
 
 ## Queued
 
