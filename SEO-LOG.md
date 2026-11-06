@@ -3,6 +3,27 @@
 One entry per session: what changed, and what is still pending. Newest
 first. The routine itself is in SEO-ROUTINE.md.
 
+## 2026-11-06 (content: three new buyer guides)
+
+### Done
+- Drafted three guides in `content-drafts/` (not published):
+  - #28 `how-to-choose-hotel-bathrobes` (about 1,200 words): collar,
+    terry/velour/waffle table, weight, size after washing, finishing,
+    quote brief. Supports `/solutions/bathrobe-manufacturer`.
+  - #29 `combed-carded-ringspun-cotton-towel-yarn` (about 1,000 words):
+    carded vs combed, ring-spun vs open-end, ply, twist, count, how to
+    write yarn into a spec.
+  - #30 `where-towels-and-linen-are-made-in-india` (about 900 words):
+    Solapur, Karur, Panipat, western Tamil Nadu, integrated mills, and the
+    questions to ask a supplier. Names our partners (V P Mundada, Cotonex).
+- Titles 51–59 characters, excerpts 143–154. Weight ranges are general
+  industry ranges, labelled; no KGE specs, prices or lead times.
+- `articleGuides.js`: each guide linked to four landing pages, both ways.
+
+### Order matters
+- Run "Publish articles" before the next deploy, or the landing pages
+  link to /updates pages that do not exist yet.
+
 ## 2026-11-05 (content SEO pass)
 
 ### Live audit (sitemap, 248 URLs)

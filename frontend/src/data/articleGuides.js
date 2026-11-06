@@ -307,6 +307,36 @@ const ARTICLE_GUIDES = [
       'export/uae-cotton-towel-supplier',
     ],
   },
+  {
+    slug: 'how-to-choose-hotel-bathrobes',
+    title: 'How to choose hotel bathrobes: collar, fabric, weight, size',
+    pages: [
+      'solutions/bathrobe-manufacturer',
+      'solutions/hotel-towel-manufacturer',
+      'solutions/private-label-towel-manufacturer',
+      'export/uae-cotton-towel-supplier',
+    ],
+  },
+  {
+    slug: 'combed-carded-ringspun-cotton-towel-yarn',
+    title: 'Combed, carded or ringspun: what towel yarn changes',
+    pages: [
+      'solutions/cotton-towel-manufacturer-india',
+      'solutions/zero-twist-towel-manufacturer',
+      'solutions/hotel-towel-manufacturer',
+      'solutions/private-label-towel-manufacturer',
+    ],
+  },
+  {
+    slug: 'where-towels-and-linen-are-made-in-india',
+    title: 'Where towels are made in India: Solapur, Karur, Panipat',
+    pages: [
+      'solutions/cotton-towel-manufacturer-india',
+      'solutions/towel-exporter-jaipur',
+      'solutions/organic-cotton-linen-manufacturer',
+      'solutions/bathrobe-manufacturer',
+    ],
+  },
 ];
 
 export function getLandingPagesForArticle(articleSlug) {
