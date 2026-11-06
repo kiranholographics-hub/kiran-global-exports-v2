@@ -607,6 +607,20 @@ jobs:
           has /llms.txt \
             "llms.txt lists the test report guide" "how-to-read-a-towel-test-report"
 
+          echo "── Pre-shipment inspection guide ──"
+          has /updates/pre-shipment-inspection-for-a-towel-order/ \
+            "the inspection guide is rendered" "How AQL sampling works"
+          has /updates/pre-shipment-inspection-for-a-towel-order/ \
+            "the inspection guide has a real table" "<table"
+          has /updates/pre-shipment-inspection-for-a-towel-order/ \
+            "the inspection guide shows its worked example" "sample of 315 pieces"
+          has /updates/pre-shipment-inspection-for-a-towel-order/ \
+            "the inspection guide links to the India sourcing page" "/solutions/cotton-towel-manufacturer-india"
+          lacks /updates/pre-shipment-inspection-for-a-towel-order/ \
+            "the inspection guide shows no raw markers" "|---|"
+          has /llms.txt \
+            "llms.txt lists the inspection guide" "pre-shipment-inspection-for-a-towel-order"
+
           echo "── The towel container calculator ──"
           has /tools/towel-container-calculator/ \
             "calculator page is rendered" "Towel container loading and weight calculator."

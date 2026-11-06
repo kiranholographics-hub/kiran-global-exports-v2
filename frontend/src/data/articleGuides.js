@@ -276,6 +276,17 @@ const ARTICLE_GUIDES = [
     ],
   },
   {
+    slug: 'pre-shipment-inspection-for-a-towel-order',
+    title: 'Pre-shipment inspection for a towel order — what an AQL inspection checks and how to read the result',
+    pages: [
+      'solutions/cotton-towel-manufacturer-india',
+      'solutions/bulk-hotel-towels',
+      'solutions/hotel-towels-supplier-what-to-check',
+      'solutions/private-label-towel-manufacturer',
+      'export/usa-cotton-towel-supplier',
+    ],
+  },
+  {
     slug: 'how-to-read-a-towel-test-report',
     title: 'How to read a towel test report — which tests to ask for and what the report must show',
     pages: [
