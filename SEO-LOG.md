@@ -3,6 +3,24 @@
 One entry per session: what changed, and what is still pending. Newest
 first. The routine itself is in SEO-ROUTINE.md.
 
+## 2026-11-07 (off-site: link kit)
+
+### Done
+- `offsite-drafts/link-kit.md` (+ PDF for Riya): exact name/address/phone,
+  three company descriptions, product list, 16 places to list in order
+  (Google Business Profile, LinkedIn, Bing Places, IndiaMART, TradeIndia,
+  ExportersIndia, Justdial, Europages, Kompass, Go4WorldBusiness, TradeKey,
+  Apple Business Connect, FIEO, both partner mills, TEXPROCIL), eight
+  Google posts with links, LinkedIn and Instagram text, link-request emails
+  to V P Mundada and Cotonex, the Search Console indexing list, a tracker.
+- Only confirmed facts: partner certifications named as the partner's;
+  GRS, STANDARD 100 and MADE IN GREEN left out.
+
+### Pending
+- Riya: start Week 1 of the kit, fill in the tracker.
+- When LinkedIn/Instagram exist: add them to `social` in config.js
+  (feeds sameAs).
+
 ## 2026-11-06 (content: three new buyer guides)
 
 ### Done
