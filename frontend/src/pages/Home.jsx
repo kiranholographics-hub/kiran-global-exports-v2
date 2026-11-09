@@ -22,6 +22,9 @@ export default function Home() {
       <SEO
         title={t('home.seo.title')}
         description={t('home.seo.description')}
+        // The home page is the one a brand search lands on, so it keeps
+        // the brand even though the full title runs past 60 characters.
+        alwaysBrand
       />
 
       {/* ── 1. Cinematic Hero ───────────────────── */}

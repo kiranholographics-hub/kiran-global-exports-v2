@@ -122,6 +122,22 @@ function isRealWeight(value) {
   return isRealSpec(value) && /\d/.test(String(value));
 }
 
+/**
+ * Google shows about 60 characters of a title. The " | Kiran Global
+ * Exports" suffix is 23 of them, so on a long title it pushed the words
+ * that say what the page is about (the country, the product) out of the
+ * visible part. The brand is added only when the whole title still fits;
+ * a long title keeps its own words and drops the suffix. A title that
+ * already names the brand in its own words is left as it is.
+ */
+const TITLE_MAX = 60;
+function withBrand(title, always = false) {
+  const suffix = ` | ${siteConfig.brandName}`;
+  const base = title.endsWith(suffix) ? title.slice(0, -suffix.length) : title;
+  if (base.includes(siteConfig.brandName)) return base;
+  return always || `${base}${suffix}`.length <= TITLE_MAX ? `${base}${suffix}` : base;
+}
+
 /** Truncate description to recommended length */
 function truncate(str, max = 155) {
   if (!str || str.length <= max) return str;
@@ -157,6 +173,7 @@ function truncate(str, max = 155) {
  *                array the page already renders; a question Google finds
  *                only in the schema and not on the page is a structured-
  *                data violation, not a shortcut.
+ *  alwaysBrand — keep the brand suffix even on a title over 60 characters
  *  breadcrumbs — optional [{ label, href? }] in the same shape PageIntro
  *                takes, for BreadcrumbList schema. The last crumb is the
  *                current page and needs no href.
@@ -171,6 +188,7 @@ export default function SEO({
   article,
   faqs,
   breadcrumbs,
+  alwaysBrand = false,
 }) {
   const location = useLocation();
   const { i18n } = useTranslation();
@@ -184,9 +202,7 @@ export default function SEO({
   useEffect(() => {
     /* ── Core values ─────────────────────────── */
     const fullTitle    = title
-      ? (title.includes(siteConfig.brandName)
-        ? title
-        : `${title} | ${siteConfig.brandName}`)
+      ? withBrand(title, alwaysBrand)
       : `${siteConfig.brandName} — Premium Towels & Linen`;
 
     const metaDesc     = truncate(description);
@@ -452,7 +468,7 @@ export default function SEO({
       removeJsonLd('article');
     }
 
-  }, [title, description, image, noindex, type, product, article, faqs, breadcrumbs, location.pathname, i18n.language]);
+  }, [title, description, image, noindex, type, product, article, faqs, breadcrumbs, location.pathname, i18n.language, alwaysBrand]);
 
   return null;
 }

@@ -68,7 +68,16 @@ site duplicating its own content on the same topic.
 
 ## Drafted, not yet published
 
-None at the moment.
+- How to choose hotel bathrobes: collar, fabric, weight, size (#28;
+  supports solutions/bathrobe-manufacturer)
+- Combed, carded or ringspun: what towel yarn changes (#29)
+- Where towels are made in India: Solapur, Karur, Panipat (#30; the
+  sourcing-geography query, kept distinct from the India manufacturer
+  landing page)
+
+Publish these before the next deploy: articleGuides.js already lists them,
+so the landing pages' "Further reading" links to them as soon as the site
+is deployed.
 
 ## Queued
 
