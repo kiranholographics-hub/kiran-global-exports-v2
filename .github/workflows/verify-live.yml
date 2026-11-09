@@ -593,6 +593,30 @@ jobs:
           lacks /updates/verify-a-towel-exporter-in-india-before-you-pay/ \
             "the exporter verification guide shows no raw markers" "|---|"
 
+          echo "── Bathrobe, yarn and where-made guides ──"
+          has /updates/how-to-choose-hotel-bathrobes/ \
+            "the bathrobe guide is rendered" "Collar: shawl, kimono or hooded"
+          has /updates/how-to-choose-hotel-bathrobes/ \
+            "the bathrobe guide has a real table" "<table"
+          lacks /updates/how-to-choose-hotel-bathrobes/ \
+            "the bathrobe guide shows no raw markers" "|---|"
+          has /updates/combed-carded-ringspun-cotton-towel-yarn/ \
+            "the towel yarn guide is rendered" "Carded or combed: how the fibre is cleaned"
+          has /updates/combed-carded-ringspun-cotton-towel-yarn/ \
+            "the towel yarn guide has a real table" "<table"
+          lacks /updates/combed-carded-ringspun-cotton-towel-yarn/ \
+            "the towel yarn guide shows no raw markers" "|---|"
+          has /updates/where-towels-and-linen-are-made-in-india/ \
+            "the where-made guide is rendered" "Solapur, Maharashtra: terry towels"
+          has /solutions/bathrobe-manufacturer/ \
+            "the bathrobe page links to the bathrobe guide" "/updates/how-to-choose-hotel-bathrobes"
+          has /llms.txt \
+            "llms.txt lists the bathrobe guide" "how-to-choose-hotel-bathrobes"
+          has /llms.txt \
+            "llms.txt lists the yarn guide" "combed-carded-ringspun-cotton-towel-yarn"
+          has /llms.txt \
+            "llms.txt lists the where-made guide" "where-towels-and-linen-are-made-in-india"
+
           echo "── Towel test report guide ──"
           has /updates/how-to-read-a-towel-test-report/ \
             "the test report guide is rendered" "Which tests to ask for on a terry towel"

@@ -41,7 +41,7 @@ Some of India's largest towel producers are integrated companies, with spinning,
 - **Matched programmes:** if towels, robes and bath mats come from different centres, the white may not match and reorders drift. Ask where each item in your range will be made.
 - **Who makes it:** many Indian exporters source from one or more mills rather than weaving everything under their own roof. That is not a problem in itself; what matters is that the supplier tells you which mill makes your goods, in which city. We name ours at the end of this guide.
 - **Certificates:** a certificate belongs to a named site. A GOTS or OEKO-TEX certificate held by a mill in one city does not cover goods made in another. Check that the certificate names the factory that makes your order.
-- **Port and logistics:** Solapur's towels usually ship through the Mumbai ports, Karur's through Chennai or Tuticorin, Panipat's usually through the western ports, in Gujarat or at Mumbai. The port affects the FOB point on your quotation.
+- **Port and logistics:** the port depends on where the goods are made and packed, and it sets the FOB point on your quotation. Ask which port the quotation names.
 
 ## Questions to ask any Indian supplier
 
