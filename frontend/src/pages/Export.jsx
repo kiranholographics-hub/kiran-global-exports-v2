@@ -181,6 +181,15 @@ export default function ExportPage() {
                   </span>
                 </Link>
               </li>
+              <li>
+                <Link to="/tools/towel-quotation-comparison" className={styles.guideCard}>
+                  <span className={styles.guideLabel}>Towel quotation comparison tool</span>
+                  <span className={styles.guideBlurb}>
+                    Put two quotations on one basis: piece weight, price per piece or per kilogram, and
+                    FOB against CIF.
+                  </span>
+                </Link>
+              </li>
             </ul>
           </ScrollReveal>
 

@@ -276,6 +276,28 @@ const ARTICLE_GUIDES = [
     ],
   },
   {
+    slug: 'pre-shipment-inspection-for-a-towel-order',
+    title: 'Pre-shipment inspection for a towel order — what an AQL inspection checks and how to read the result',
+    pages: [
+      'solutions/cotton-towel-manufacturer-india',
+      'solutions/bulk-hotel-towels',
+      'solutions/hotel-towels-supplier-what-to-check',
+      'solutions/private-label-towel-manufacturer',
+      'export/usa-cotton-towel-supplier',
+    ],
+  },
+  {
+    slug: 'how-to-read-a-towel-test-report',
+    title: 'How to read a towel test report — which tests to ask for and what the report must show',
+    pages: [
+      'solutions/cotton-towel-manufacturer-india',
+      'solutions/hotel-towels-supplier-what-to-check',
+      'solutions/bulk-hotel-towels',
+      'solutions/hotel-towel-manufacturer',
+      'export/germany-cotton-towel-supplier',
+    ],
+  },
+  {
     slug: 'hs-code-for-towels-what-the-code-covers-and-how-to-confirm-it',
     title: 'HS code for towels — what the code covers and how to confirm it before you ship',
     pages: [
@@ -358,7 +380,8 @@ const ARTICLE_TOOLS = {
   'container-loading-for-towels': ['towel-container-calculator'],
   'hotel-towel-gsm-guide': ['towel-container-calculator'],
   'towel-minimum-order-quantity-explained': ['towel-container-calculator'],
-  'compare-towel-quotations-like-for-like': ['towel-container-calculator'],
+  'compare-towel-quotations-like-for-like': ['towel-quotation-comparison', 'towel-container-calculator'],
+  'what-fob-actually-means-when-buying-towels-from-india': ['towel-quotation-comparison'],
   'what-to-send-a-towel-manufacturer-when-you-ask-for-a-quote': ['towel-container-calculator'],
 };
 
@@ -366,6 +389,10 @@ const TOOLS = {
   'towel-container-calculator': {
     href: '/tools/towel-container-calculator',
     label: 'Free tool: towel container loading and weight calculator',
+  },
+  'towel-quotation-comparison': {
+    href: '/tools/towel-quotation-comparison',
+    label: 'Free tool: towel quotation comparison',
   },
 };
 

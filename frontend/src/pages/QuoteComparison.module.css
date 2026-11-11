@@ -1,0 +1,70 @@
+/* Layout and form pieces that /tools/towel-quotation-comparison adds to the
+   styles it shares with the container calculator (TowelCalculator.module.css). */
+
+.inputs {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-md);
+}
+
+@media (min-width: 62rem) {
+  .inputs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .shared {
+    grid-column: 1 / -1;
+  }
+}
+
+.resultsBlock {
+  margin-top: var(--space-md);
+}
+
+.subTitle {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-charcoal);
+  margin: var(--space-md) 0 var(--space-sm);
+}
+
+.select select {
+  width: 100%;
+  font: inherit;
+  font-size: 1rem;
+  color: var(--color-charcoal);
+  background: #fff;
+  border: 1px solid var(--border-subtle);
+  padding: 0.6rem 0.75rem;
+  min-height: 2.75rem;
+}
+
+.select select:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 1px;
+}
+
+.verdict {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  line-height: 1.4;
+  color: var(--color-charcoal);
+  margin: 0 0 var(--space-xs, 0.5rem);
+}
+
+.sub {
+  color: var(--text-muted);
+  font-size: var(--fs-small);
+  margin: 0 0 var(--space-sm);
+}
+
+.warn {
+  padding: 0.85rem 1.1rem;
+  margin: 0 0 var(--space-sm);
+  background: rgba(176, 130, 40, 0.09);
+  border-left: 3px solid #b08228;
+  color: var(--color-charcoal);
+  font-size: var(--fs-small);
+  line-height: 1.5;
+}

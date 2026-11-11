@@ -84,6 +84,8 @@ const STATIC_ROUTES = [
   { path: '/export', priority: '0.7' },
   // A free calculator for importers (src/pages/TowelCalculator.jsx).
   { path: '/tools/towel-container-calculator', priority: '0.7' },
+  // A free quotation comparison tool (src/pages/QuoteComparison.jsx).
+  { path: '/tools/towel-quotation-comparison', priority: '0.7' },
   { path: '/contact', priority: '0.9' },
   // Standalone static microsite page (not a React route) — see
   // frontend/public/oshibori/index.html and the matching copy step in
@@ -296,6 +298,11 @@ function buildLlmsTxt() {
       'Towel container loading and weight calculator',
       '/tools/towel-container-calculator',
       'Cartons per 20ft, 40ft and 40ft high-cube container from the carton size; towel weight from size and GSM, including pounds per dozen.'
+    ),
+    item(
+      'Towel quotation comparison tool',
+      '/tools/towel-quotation-comparison',
+      'Puts two towel quotations on one basis: weight of one towel, price per piece whether quoted per piece, dozen or kilogram, and FOB against CIF.'
     ),
     '',
     '## Sourcing guides by destination',

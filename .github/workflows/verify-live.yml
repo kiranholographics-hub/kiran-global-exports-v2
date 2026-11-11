@@ -602,6 +602,58 @@ jobs:
           lacks /updates/verify-a-towel-exporter-in-india-before-you-pay/ \
             "the exporter verification guide shows no raw markers" "|---|"
 
+          echo "── Bathrobe, yarn and where-made guides ──"
+          has /updates/how-to-choose-hotel-bathrobes/ \
+            "the bathrobe guide is rendered" "Collar: shawl, kimono or hooded"
+          has /updates/how-to-choose-hotel-bathrobes/ \
+            "the bathrobe guide has a real table" "<table"
+          lacks /updates/how-to-choose-hotel-bathrobes/ \
+            "the bathrobe guide shows no raw markers" "|---|"
+          has /updates/combed-carded-ringspun-cotton-towel-yarn/ \
+            "the towel yarn guide is rendered" "Carded or combed: how the fibre is cleaned"
+          has /updates/combed-carded-ringspun-cotton-towel-yarn/ \
+            "the towel yarn guide has a real table" "<table"
+          lacks /updates/combed-carded-ringspun-cotton-towel-yarn/ \
+            "the towel yarn guide shows no raw markers" "|---|"
+          has /updates/where-towels-and-linen-are-made-in-india/ \
+            "the where-made guide is rendered" "Solapur, Maharashtra: terry towels"
+          has /solutions/bathrobe-manufacturer/ \
+            "the bathrobe page links to the bathrobe guide" "/updates/how-to-choose-hotel-bathrobes"
+          has /llms.txt \
+            "llms.txt lists the bathrobe guide" "how-to-choose-hotel-bathrobes"
+          has /llms.txt \
+            "llms.txt lists the yarn guide" "combed-carded-ringspun-cotton-towel-yarn"
+          has /llms.txt \
+            "llms.txt lists the where-made guide" "where-towels-and-linen-are-made-in-india"
+
+          echo "── Towel test report guide ──"
+          has /updates/how-to-read-a-towel-test-report/ \
+            "the test report guide is rendered" "Which tests to ask for on a terry towel"
+          has /updates/how-to-read-a-towel-test-report/ \
+            "the test report guide has a real table" "<table"
+          has /updates/how-to-read-a-towel-test-report/ \
+            "the test report guide shows its worked example" "Worked example: reading a shrinkage result"
+          has /updates/how-to-read-a-towel-test-report/ \
+            "the test report guide links to the India sourcing page" "/solutions/cotton-towel-manufacturer-india"
+          lacks /updates/how-to-read-a-towel-test-report/ \
+            "the test report guide shows no raw markers" "|---|"
+          has /llms.txt \
+            "llms.txt lists the test report guide" "how-to-read-a-towel-test-report"
+
+          echo "── Pre-shipment inspection guide ──"
+          has /updates/pre-shipment-inspection-for-a-towel-order/ \
+            "the inspection guide is rendered" "How AQL sampling works"
+          has /updates/pre-shipment-inspection-for-a-towel-order/ \
+            "the inspection guide has a real table" "<table"
+          has /updates/pre-shipment-inspection-for-a-towel-order/ \
+            "the inspection guide shows its worked example" "sample of 315 pieces"
+          has /updates/pre-shipment-inspection-for-a-towel-order/ \
+            "the inspection guide links to the India sourcing page" "/solutions/cotton-towel-manufacturer-india"
+          lacks /updates/pre-shipment-inspection-for-a-towel-order/ \
+            "the inspection guide shows no raw markers" "|---|"
+          has /llms.txt \
+            "llms.txt lists the inspection guide" "pre-shipment-inspection-for-a-towel-order"
+
           echo "── The towel container calculator ──"
           has /tools/towel-container-calculator/ \
             "calculator page is rendered" "Towel container loading and weight calculator."
@@ -619,6 +671,26 @@ jobs:
             "sitemap lists the calculator" "/tools/towel-container-calculator/"
           has /tools/towel-container-calculator/ \
             "calculator answers the pounds-per-dozen question" "pounds per dozen"
+
+          echo "── The towel quotation comparison tool ──"
+          has /tools/towel-quotation-comparison/ \
+            "comparison tool page is rendered" "Towel quotation comparison tool."
+          has /tools/towel-quotation-comparison/ \
+            "comparison tool shows its working" "A price per dozen is divided by 12"
+          has /tools/towel-quotation-comparison/ \
+            "comparison tool has FAQ markup" "FAQPage"
+          has /tools/towel-quotation-comparison/ \
+            "comparison tool shows a result table" "Order total, CIF basis"
+          has /tools/towel-quotation-comparison/ \
+            "comparison tool links to the quotation guide" "/updates/compare-towel-quotations-like-for-like"
+          has /export/ \
+            "/export links to the comparison tool" "/tools/towel-quotation-comparison"
+          has /updates/compare-towel-quotations-like-for-like/ \
+            "the quotation guide links to the comparison tool" "/tools/towel-quotation-comparison"
+          has /sitemap.xml \
+            "sitemap lists the comparison tool" "/tools/towel-quotation-comparison/"
+          has /llms.txt \
+            "llms.txt names the comparison tool" "/tools/towel-quotation-comparison"
 
           echo "── The API serves posts per country page ──"
           has /usa/ "USA market page shows its latest updates" "News for buyers in"
