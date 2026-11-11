@@ -22,8 +22,15 @@ first. The routine itself is in SEO-ROUTINE.md.
   a normal guide keeps its own canonical.
 - verify-live: two canonical checks and one sitemap check for this.
 
+### Live (same day)
+- Merged claude/practical-curie-ebctgk into main (the branch the site had
+  been deployed from: test report and inspection guides, quotation tool).
+- Publish articles: 3 new (bathrobes, yarn, where made). Deploy run 111
+  succeeded; Verify the live site run 84 green. Checked by hand: new
+  titles, 5 guides live, duplicate posts' canonical = landing page,
+  sitemap 233 URLs without the duplicates.
+
 ### Pending
-- Merge, publish articles, deploy (in that order).
 - /hq: still delete the three "-2" copies; new /hq posts must not repeat a
   landing page's topic (add them to consolidatedUpdates.js if they do).
 
