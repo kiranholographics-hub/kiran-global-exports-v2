@@ -173,6 +173,8 @@ function truncate(str, max = 155) {
  *                array the page already renders; a question Google finds
  *                only in the schema and not on the page is a structured-
  *                data violation, not a shortcut.
+ *  canonicalPath — another page's path to name as canonical, for a page
+ *                that duplicates it (see data/consolidatedUpdates.js)
  *  alwaysBrand — keep the brand suffix even on a title over 60 characters
  *  breadcrumbs — optional [{ label, href? }] in the same shape PageIntro
  *                takes, for BreadcrumbList schema. The last crumb is the
@@ -189,6 +191,7 @@ export default function SEO({
   faqs,
   breadcrumbs,
   alwaysBrand = false,
+  canonicalPath,
 }) {
   const location = useLocation();
   const { i18n } = useTranslation();
@@ -221,9 +224,11 @@ export default function SEO({
     // competing with it.
     const locales = pageLocales(location.pathname);
     const translated = locales.length > 1 && locales.includes(htmlLang);
-    const canonicalUrl = translated
-      ? localizedPageUrl(siteConfig.siteUrl, location.pathname, htmlLang)
-      : `${siteConfig.siteUrl}${pathWithSlash}`;
+    const canonicalUrl = canonicalPath
+      ? `${siteConfig.siteUrl}${canonicalPath.replace(/\/+$/, '')}/`
+      : translated
+        ? localizedPageUrl(siteConfig.siteUrl, location.pathname, htmlLang)
+        : `${siteConfig.siteUrl}${pathWithSlash}`;
     const absoluteImg  = resolveImage(image);
 
     /* ── Title ───────────────────────────────── */
@@ -468,7 +473,7 @@ export default function SEO({
       removeJsonLd('article');
     }
 
-  }, [title, description, image, noindex, type, product, article, faqs, breadcrumbs, location.pathname, i18n.language, alwaysBrand]);
+  }, [title, description, image, noindex, type, product, article, faqs, breadcrumbs, location.pathname, i18n.language, alwaysBrand, canonicalPath]);
 
   return null;
 }

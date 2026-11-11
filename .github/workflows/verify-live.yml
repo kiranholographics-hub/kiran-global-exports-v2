@@ -546,6 +546,15 @@ jobs:
           has /llms.txt \
             "llms.txt lists the quotation comparison guide" "compare-towel-quotations-like-for-like"
 
+          echo "── Duplicate posts point at their landing page (consolidatedUpdates.js) ──"
+          has /updates/bath-towel-exports-to-the-usa-cotton-bath-towels-for-importers-and-hotels/ \
+            "USA duplicate post names the USA export page as canonical" \
+            'rel="canonical" href="https://www.kiranglobal-exports.com/export/usa-cotton-towel-supplier/"'
+          has /updates/zero-twist-towel-manufacturer-in-india/ \
+            "zero twist duplicate post names the zero twist page as canonical" \
+            'rel="canonical" href="https://www.kiranglobal-exports.com/solutions/zero-twist-towel-manufacturer/"'
+          lacks /sitemap.xml "sitemap leaves out the USA duplicate post" "bath-towel-exports-to-the-usa"
+
           echo "── Oldest posts still served (the 50-post limit must not drop them) ──"
           has /updates/bath-mats-supplier-for-dubai-and-the-uae/ \
             "oldest post bath-mats-supplier-for-dubai-and-the-uae serves its own page" \

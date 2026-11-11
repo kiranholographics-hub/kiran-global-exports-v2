@@ -6,6 +6,7 @@ import SEO from '@/components/SEO/SEO';
 import NotFoundContent from '@/components/NotFoundContent/NotFoundContent';
 import { fetchUpdateBySlug } from '@/lib/updates';
 import { getLandingPagesForArticle, getToolsForArticle } from '@/data/articleGuides';
+import { consolidatedTarget } from '@/data/consolidatedUpdates';
 import { GUIDE_TRANSLATIONS } from '@/data/guideTranslations';
 import { LANDING_TRANSLATIONS } from '@/data/landingTranslations';
 import { siteConfig } from '@/data/config';
@@ -147,6 +148,7 @@ export default function UpdateDetail() {
           image={update.coverImage}
           type="article"
           article={{ datePublished: update.publishedAt, dateModified: update.updatedAt }}
+          canonicalPath={consolidatedTarget(update.slug) || undefined}
         />
       )}
 
@@ -184,6 +186,19 @@ export default function UpdateDetail() {
                   every guide already carries. A reader gets the point at
                   once, and so does anything that summarises the page. Only
                   where the page has this label in its language. */}
+              {/* A short post that repeats a landing page's topic sends the
+                  reader, and Google, to that page: see
+                  data/consolidatedUpdates.js. */}
+              {consolidatedTarget(update.slug) && (
+                <p className={styles.summary}>
+                  <strong>Full details:</strong>{' '}
+                  <Link to={consolidatedTarget(update.slug)}>
+                    read our complete page on this topic
+                  </Link>
+                  , with FAQs and how to request a quote.
+                </p>
+              )}
+
               {ui.inShort && update.excerpt && (
                 <p className={styles.summary}>
                   <strong>{ui.inShort}.</strong> {update.excerpt}

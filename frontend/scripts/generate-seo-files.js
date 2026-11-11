@@ -40,6 +40,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { siteConfig } from '../src/data/config.js';
+import { CONSOLIDATED_UPDATES } from '../src/data/consolidatedUpdates.js';
 import { SEO_LANDING_ROUTES, getLandingPageGroups } from '../src/data/seoLandingPages.js';
 import { TOWEL_CATEGORY_ROUTES, TOWEL_PRODUCT_ROUTES, DEPLOY_ROUTES } from '../src/data/deployRoutes.js';
 import { linenProducts } from '../src/data/linenCatalog.js';
@@ -139,7 +140,11 @@ async function fetchJson(apiPath) {
 // published and sit there with nothing telling Google it exists.
 async function fetchUpdateRoutes() {
   try {
-    const updates = await fetchJson('/api/updates?limit=500');
+    // A post that repeats a landing page's topic names that page as its
+    // canonical (src/data/consolidatedUpdates.js), so it is left out here:
+    // a sitemap lists only the canonical URLs.
+    const updates = (await fetchJson('/api/updates?limit=500'))
+      .filter((u) => !CONSOLIDATED_UPDATES[u.slug]);
     publishedUpdates = updates;
     if (!updates.length) return [];
     // lastmod is only ever a date the article really changed on: the

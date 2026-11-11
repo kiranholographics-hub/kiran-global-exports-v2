@@ -3,6 +3,30 @@
 One entry per session: what changed, and what is still pending. Newest
 first. The routine itself is in SEO-ROUTINE.md.
 
+## 2026-11-11 (why nothing ranks: two causes)
+
+### Found
+- Nothing since 2026-11-05 is live. /about still has the old title and the
+  three new guides are not in the database. Publish + deploy never ran.
+- Keyword cannibalisation: 23 short /hq posts (about 500 words each, three
+  of them exact "-2" copies) target the same search as a landing page.
+  For "towel supplier USA" alone there were four pages. Google splits the
+  signals and ranks none of them well.
+
+### Done
+- `frontend/src/data/consolidatedUpdates.js`: the 23 posts, each mapped
+  to its landing page. Those posts now name the landing page as
+  canonical, open with a "Full details" link to it, and are left out of
+  the sitemap and llms.txt (sitemap 249 -> 228 URLs locally). Checked in
+  a browser against the live API: duplicate post canonical = landing page;
+  a normal guide keeps its own canonical.
+- verify-live: two canonical checks and one sitemap check for this.
+
+### Pending
+- Merge, publish articles, deploy (in that order).
+- /hq: still delete the three "-2" copies; new /hq posts must not repeat a
+  landing page's topic (add them to consolidatedUpdates.js if they do).
+
 ## 2026-11-07 (off-site: link kit)
 
 ### Done
