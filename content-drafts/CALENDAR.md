@@ -59,6 +59,16 @@ note in SEO-ROUTINE.md on doorway pages).
 - Pre-shipment inspection for a towel order — what an AQL inspection checks and
   how to read the result (#32, file renumbered from 29; published and live 2026-11-06; worked sampling example
   matches the arrival guide; no KGE claims)
+- How to choose hotel bathrobes: collar, fabric, weight, size (#28; published
+  2026-11-11 by the other SEO session; supports solutions/bathrobe-manufacturer)
+- Combed, carded or ringspun: what towel yarn changes (#29; published
+  2026-11-11 by the other SEO session)
+- Where towels are made in India: Solapur, Karur, Panipat (#30; published
+  2026-11-11 by the other SEO session)
+- Choosing an Incoterm for a towel container — FOB, FCA, CFR, CIF and DAP
+  compared (#33; published and live 2026-11-13; Incoterms 2020 points checked
+  against forwarder and bank guides; says only that our quotations are FOB, as
+  the site does; no prices)
 
 Note: "what makes a good hotel pool towel" was drafted as an article,
 then retired and rebuilt as a landing page instead
@@ -68,16 +78,7 @@ site duplicating its own content on the same topic.
 
 ## Drafted, not yet published
 
-- How to choose hotel bathrobes: collar, fabric, weight, size (#28;
-  supports solutions/bathrobe-manufacturer)
-- Combed, carded or ringspun: what towel yarn changes (#29)
-- Where towels are made in India: Solapur, Karur, Panipat (#30; the
-  sourcing-geography query, kept distinct from the India manufacturer
-  landing page)
-
-Publish these before the next deploy: articleGuides.js already lists them,
-so the landing pages' "Further reading" links to them as soon as the site
-is deployed.
+None at the moment.
 
 ## Queued
 

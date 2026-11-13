@@ -626,6 +626,20 @@ jobs:
           has /llms.txt \
             "llms.txt lists the where-made guide" "where-towels-and-linen-are-made-in-india"
 
+          echo "── Incoterm guide ──"
+          has /updates/choosing-an-incoterm-for-a-towel-container/ \
+            "the Incoterm guide is rendered" "Where cost and risk pass, term by term"
+          has /updates/choosing-an-incoterm-for-a-towel-container/ \
+            "the Incoterm guide has a real table" "<table"
+          has /updates/choosing-an-incoterm-for-a-towel-container/ \
+            "the Incoterm guide shows its worked scenario" "A worked scenario: the container is lost at sea"
+          has /updates/choosing-an-incoterm-for-a-towel-container/ \
+            "the Incoterm guide links to the India sourcing page" "/solutions/cotton-towel-manufacturer-india"
+          lacks /updates/choosing-an-incoterm-for-a-towel-container/ \
+            "the Incoterm guide shows no raw markers" "|---|"
+          has /llms.txt \
+            "llms.txt lists the Incoterm guide" "choosing-an-incoterm-for-a-towel-container"
+
           echo "── Towel test report guide ──"
           has /updates/how-to-read-a-towel-test-report/ \
             "the test report guide is rendered" "Which tests to ask for on a terry towel"
