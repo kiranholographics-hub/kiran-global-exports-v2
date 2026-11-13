@@ -68,16 +68,13 @@ site duplicating its own content on the same topic.
 
 ## Drafted, not yet published
 
-- How to choose hotel bathrobes: collar, fabric, weight, size (#28;
-  supports solutions/bathrobe-manufacturer)
-- Combed, carded or ringspun: what towel yarn changes (#29)
-- Where towels are made in India: Solapur, Karur, Panipat (#30; the
-  sourcing-geography query, kept distinct from the India manufacturer
-  landing page)
-
-Publish these before the next deploy: articleGuides.js already lists them,
-so the landing pages' "Further reading" links to them as soon as the site
-is deployed.
+- Choosing an Incoterm for a towel container — FOB, FCA, CFR, CIF and DAP
+  compared (33-choosing-an-incoterm-for-a-towel-container.md, drafted
+  2026-11-13, Friday routine). Facts checked against forwarder/bank guides to
+  Incoterms 2020 (risk points, CIF minimum cover Institute Cargo Clauses (C),
+  FCA/CPT/CIP for containers, on-board bill of lading under FCA). Says our
+  quotations are FOB, as the site does; no prices, no other KGE claims.
+  Complements the FOB guide (#4) and the quotation comparison guide (#27).
 
 ## Queued
 

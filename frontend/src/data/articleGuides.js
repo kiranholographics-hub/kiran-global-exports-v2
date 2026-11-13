@@ -287,6 +287,17 @@ const ARTICLE_GUIDES = [
     ],
   },
   {
+    slug: 'choosing-an-incoterm-for-a-towel-container',
+    title: 'Choosing an Incoterm for a towel container — FOB, FCA, CFR, CIF and DAP compared',
+    pages: [
+      'solutions/cotton-towel-manufacturer-india',
+      'solutions/bulk-hotel-towels',
+      'solutions/private-label-towel-manufacturer',
+      'export/usa-cotton-towel-supplier',
+      'export/uae-cotton-towel-supplier',
+    ],
+  },
+  {
     slug: 'how-to-read-a-towel-test-report',
     title: 'How to read a towel test report — which tests to ask for and what the report must show',
     pages: [
