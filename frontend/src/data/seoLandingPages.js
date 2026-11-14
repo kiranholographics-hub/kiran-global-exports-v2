@@ -349,8 +349,8 @@ const PAGES = {
         a: 'We coordinate FOB shipment to Haifa and Ashdod, Israel\'s two main container ports; your freight forwarder handles routing and the onward leg from origin.',
       },
       {
-        q: 'Can you match a towel we already buy from another supplier?',
-        a: 'Yes — send a photograph or a physical reference and we will develop a matching specification (GSM, construction, border, colour) and quote against it before you commit to anything.',
+        q: 'Can labels and packaging be printed in Hebrew?',
+        a: 'Yes. Send the Hebrew label text and your packaging artwork and we print them on the woven labels and packaging, laid out right to left as supplied. You approve a proof, and the labelled sample, before bulk production.',
       },
       MOQ_FAQ,
       MATCH_FAQ,
@@ -1644,6 +1644,31 @@ export function getLandingPageForMarket(marketSlug) {
 // other nine the moment it is added above — a page nothing links to is
 // one Google finds late and treats as peripheral, which is most of why
 // these sat in "Discovered - currently not indexed".
+// Which country pages are neighbours. Every page used to list every
+// other landing page (37 links, about 300 words), the same block on all
+// 28 country pages, which made them read as 75% identical to Google. A
+// buyer in Norway is helped by the Nordic and European pages, not by Peru;
+// the full list stays one click away on /export.
+const REGIONS = {
+  'north-america': ['usa', 'canada', 'mexico'],
+  'latin-america': ['south-america', 'brazil', 'mexico', 'chile', 'colombia', 'peru'],
+  europe: ['uk', 'germany', 'netherlands', 'france', 'spain', 'italy', 'poland'],
+  nordics: ['sweden', 'norway', 'denmark', 'germany', 'netherlands', 'uk'],
+  'middle-east': ['uae', 'saudi-arabia', 'qatar', 'oman', 'israel'],
+  'asia-pacific': ['australia', 'new-zealand', 'japan', 'south-korea'],
+  africa: ['south-africa', 'uae', 'uk'],
+};
+const countryOf = (slug) => slug.replace(/-cotton-towel-supplier$/, '');
+const MAX_COUNTRY_NEIGHBOURS = 6;
+// The pages every country page should still point to: what the buyer
+// usually wants next after "can they supply my country".
+const CORE_SOLUTIONS = [
+  'solutions/cotton-towel-manufacturer-india',
+  'solutions/hotel-towel-manufacturer',
+  'solutions/private-label-towel-manufacturer',
+];
+const MAX_SOLUTION_NEIGHBOURS = 10;
+
 export function getRelatedLandingPages(section, slug, locale = 'en') {
   const current = `${section}/${slug}`;
   // A translated page links to the other pages in its own language — a
@@ -1655,13 +1680,29 @@ export function getRelatedLandingPages(section, slug, locale = 'en') {
       .filter(([key]) => key !== current)
       .map(([key, copy]) => ({ href: `/${key}`, label: copy.seoTitle }));
   }
-  return Object.entries(PAGES)
-    .filter(([key]) => key !== current)
-    // Same section first: a country page's closest neighbours are the
-    // other country pages, not the two solutions pages.
-    .sort(([a], [b]) => {
-      const rank = (k) => (k.startsWith(`${section}/`) ? 0 : 1);
-      return rank(a) - rank(b);
-    })
-    .map(([key, page]) => ({ href: `/${key}`, label: page.seoTitle }));
+  const toLink = (key) => PAGES[key] && { href: `/${key}`, label: PAGES[key].seoTitle };
+  let keys;
+  if (section === 'export') {
+    const country = countryOf(slug);
+    const neighbours = [];
+    Object.values(REGIONS)
+      .filter((members) => members.includes(country))
+      .forEach((members) => members.forEach((c) => {
+        if (c !== country && !neighbours.includes(c)) neighbours.push(c);
+      }));
+    keys = [
+      ...neighbours
+        .map((c) => `export/${c}-cotton-towel-supplier`)
+        .filter((k) => PAGES[k])
+        .slice(0, MAX_COUNTRY_NEIGHBOURS),
+      ...CORE_SOLUTIONS,
+    ];
+  } else {
+    // A solutions page links to the other solutions pages; the country
+    // pages are reached through /export.
+    keys = Object.keys(PAGES)
+      .filter((k) => k.startsWith('solutions/') && k !== current)
+      .slice(0, MAX_SOLUTION_NEIGHBOURS);
+  }
+  return keys.map(toLink).filter(Boolean);
 }

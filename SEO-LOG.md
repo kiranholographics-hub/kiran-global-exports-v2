@@ -3,6 +3,33 @@
 One entry per session: what changed, and what is still pending. Newest
 first. The routine itself is in SEO-ROUTINE.md.
 
+## 2026-11-14 (unique content: country pages)
+
+### Measured (live, 160 English pages, 5-word overlap)
+- The 28 /export country pages were on average 71% identical to each
+  other. Shared on every page: a list of all 37 other landing pages
+  (about 300 words), the five "How we supply" points, three shared FAQs.
+  Israel also repeated the "match a towel" FAQ twice.
+- Linen product pages overlap 60–74% (short catalogue text from the API);
+  solutions pages up to 65%. Not changed today.
+
+### Done (code; live after the next deploy)
+- `getRelatedLandingPages`: a country page now links to up to six
+  countries in its own region plus the three core solutions pages,
+  instead of all 37. A solutions page links to the other solutions
+  pages. Every landing page still has an inbound link; /export lists all.
+- Israel: duplicate FAQ removed; one new FAQ (Hebrew labels and
+  packaging), a service fact only.
+- Local render of 10 country pages: average overlap 71% -> 61%; Israel
+  page 921 -> about 690 words, nearly all of the cut being the link list.
+
+### Next
+- The remaining overlap is the shared "How we supply" block and FAQs.
+  The fix is more country-specific copy per page (one page a day), with
+  checked facts; translated pages need their translation changed too.
+- "How we supply" still names OEKO-TEX STANDARD 100, MADE IN GREEN, GRS
+  and BSCI, which the owner has not confirmed (OWNER_INPUTS.md).
+
 ## 2026-11-11 (why nothing ranks: two causes)
 
 ### Found
