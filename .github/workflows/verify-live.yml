@@ -626,6 +626,20 @@ jobs:
           has /llms.txt \
             "llms.txt lists the where-made guide" "where-towels-and-linen-are-made-in-india"
 
+          echo "── Cotton origin names guide ──"
+          has /updates/cotton-origin-names-on-a-towel-quote/ \
+            "the cotton origin guide is rendered" "What staple length is, and why it matters"
+          has /updates/cotton-origin-names-on-a-towel-quote/ \
+            "the cotton origin guide has a real table" "<table"
+          has /updates/cotton-origin-names-on-a-towel-quote/ \
+            "the cotton origin guide covers evidence" "What counts as evidence"
+          has /updates/cotton-origin-names-on-a-towel-quote/ \
+            "the cotton origin guide links to the India sourcing page" "/solutions/cotton-towel-manufacturer-india"
+          lacks /updates/cotton-origin-names-on-a-towel-quote/ \
+            "the cotton origin guide shows no raw markers" "|---|"
+          has /llms.txt \
+            "llms.txt lists the cotton origin guide" "cotton-origin-names-on-a-towel-quote"
+
           echo "── Incoterm guide ──"
           has /updates/choosing-an-incoterm-for-a-towel-container/ \
             "the Incoterm guide is rendered" "Where cost and risk pass, term by term"

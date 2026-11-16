@@ -69,6 +69,10 @@ note in SEO-ROUTINE.md on doorway pages).
   compared (#33; published and live 2026-11-13; Incoterms 2020 points checked
   against forwarder and bank guides; says only that our quotations are FOB, as
   the site does; no prices)
+- Egyptian, Pima, Supima or Indian cotton towels — what the cotton name on a
+  quote tells you (#34; published and live 2026-11-16; Egyptian Cotton
+  trademark and licensing facts checked; staple-length thresholds shown as
+  varying by scheme; no claim about the cotton in any KGE towel, no prices)
 
 Note: "what makes a good hotel pool towel" was drafted as an article,
 then retired and rebuilt as a landing page instead
