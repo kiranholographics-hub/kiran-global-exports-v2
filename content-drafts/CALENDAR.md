@@ -78,7 +78,14 @@ site duplicating its own content on the same topic.
 
 ## Drafted, not yet published
 
-None at the moment.
+- Egyptian, Pima, Supima or Indian cotton towels — what the cotton name on a
+  quote tells you (34-cotton-origin-names-on-a-towel-quote.md, drafted
+  2026-11-16, Monday routine). Egyptian Cotton trademark and licensing facts
+  checked (owned by the Egyptian ministry and the Alexandria Cotton Exporters'
+  Association, licensed through the Cotton Egypt Association, 100 per cent
+  Egyptian cotton only); staple-length thresholds shown as varying by scheme
+  (ELS roughly 33-35 mm or more). No claim about the cotton in any KGE towel,
+  no prices. Complements the yarn guide (#29) and the test report guide (#31).
 
 ## Queued
 

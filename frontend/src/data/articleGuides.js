@@ -287,6 +287,17 @@ const ARTICLE_GUIDES = [
     ],
   },
   {
+    slug: 'cotton-origin-names-on-a-towel-quote',
+    title: 'Egyptian, Pima, Supima or Indian cotton towels — what the cotton name on a quote tells you',
+    pages: [
+      'solutions/cotton-towel-manufacturer-india',
+      'solutions/hotel-towel-manufacturer',
+      'solutions/hotel-towels-supplier-what-to-check',
+      'solutions/private-label-towel-manufacturer',
+      'export/usa-cotton-towel-supplier',
+    ],
+  },
+  {
     slug: 'choosing-an-incoterm-for-a-towel-container',
     title: 'Choosing an Incoterm for a towel container — FOB, FCA, CFR, CIF and DAP compared',
     pages: [
