@@ -82,7 +82,13 @@ site duplicating its own content on the same topic.
 
 ## Drafted, not yet published
 
-None at the moment.
+- Putting a logo on towels — woven, embroidered or heat-transfer, and how to
+  choose (35-logo-on-towels-woven-embroidered-or-heat-transfer.md, drafted
+  2026-11-18, Wednesday routine). The three methods and their trade-offs are
+  the ones the catalogue's Custom Logo Towel entry and the pool towel page
+  already state; embroidery topping is general practice (several sources). The
+  set-up-versus-per-piece example uses hypothetical, labelled figures
+  (break-even 2,000 pieces). No KGE prices, minimums or lead times.
 
 ## Queued
 

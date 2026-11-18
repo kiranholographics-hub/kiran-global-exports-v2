@@ -626,6 +626,20 @@ jobs:
           has /llms.txt \
             "llms.txt lists the where-made guide" "where-towels-and-linen-are-made-in-india"
 
+          echo "── Logo on towels guide ──"
+          has /updates/logo-on-towels-woven-embroidered-or-heat-transfer/ \
+            "the logo guide is rendered" "How set-up cost spreads over the run"
+          has /updates/logo-on-towels-woven-embroidered-or-heat-transfer/ \
+            "the logo guide has a real table" "<table"
+          has /updates/logo-on-towels-woven-embroidered-or-heat-transfer/ \
+            "the logo guide shows its worked arithmetic" "Below that quantity the second is cheaper"
+          has /updates/logo-on-towels-woven-embroidered-or-heat-transfer/ \
+            "the logo guide links to the private label page" "/solutions/private-label-towel-manufacturer"
+          lacks /updates/logo-on-towels-woven-embroidered-or-heat-transfer/ \
+            "the logo guide shows no raw markers" "|---|"
+          has /llms.txt \
+            "llms.txt lists the logo guide" "logo-on-towels-woven-embroidered-or-heat-transfer"
+
           echo "── Cotton origin names guide ──"
           has /updates/cotton-origin-names-on-a-towel-quote/ \
             "the cotton origin guide is rendered" "What staple length is, and why it matters"

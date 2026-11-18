@@ -287,6 +287,17 @@ const ARTICLE_GUIDES = [
     ],
   },
   {
+    slug: 'logo-on-towels-woven-embroidered-or-heat-transfer',
+    title: 'Putting a logo on towels — woven, embroidered or heat-transfer, and how to choose',
+    pages: [
+      'solutions/private-label-towel-manufacturer',
+      'solutions/hotel-towel-manufacturer',
+      'solutions/bulk-hotel-towels',
+      'solutions/hotel-pool-towels',
+      'solutions/dobby-border-towel-manufacturer',
+    ],
+  },
+  {
     slug: 'cotton-origin-names-on-a-towel-quote',
     title: 'Egyptian, Pima, Supima or Indian cotton towels — what the cotton name on a quote tells you',
     pages: [
