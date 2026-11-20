@@ -77,6 +77,13 @@ note in SEO-ROUTINE.md on doorway pages).
   choose (#35; published and live 2026-11-18; the methods and trade-offs match
   the catalogue's Custom Logo Towel entry; set-up-versus-per-piece example uses
   hypothetical labelled figures; no KGE prices, minimums or lead times)
+- Towel defects explained — slubs, missing pile, oil marks and shade variation,
+  and how to classify them (#36; published and live 2026-11-20, Friday routine). Defect terms checked against fabric-defect
+  glossaries and ASTM D3990 terminology (slub, float, broken pick, crocking,
+  shade variation, missing pile); the guide says plainly that sources disagree
+  on severity and gives labelled example rules only. No acceptance limits, no
+  KGE claims. Complements the inspection (#32), spec sheet (#18) and test
+  report (#31) guides.
 
 Note: "what makes a good hotel pool towel" was drafted as an article,
 then retired and rebuilt as a landing page instead
@@ -86,14 +93,7 @@ site duplicating its own content on the same topic.
 
 ## Drafted, not yet published
 
-- Towel defects explained — slubs, missing pile, oil marks and shade variation,
-  and how to classify them (36-towel-defects-explained-and-how-to-classify-them.md,
-  drafted 2026-11-20, Friday routine). Defect terms checked against fabric-defect
-  glossaries and ASTM D3990 terminology (slub, float, broken pick, crocking,
-  shade variation, missing pile); the guide says plainly that sources disagree
-  on severity and gives labelled example rules only. No acceptance limits, no
-  KGE claims. Complements the inspection (#32), spec sheet (#18) and test
-  report (#31) guides.
+None at the moment.
 
 ## Queued
 
