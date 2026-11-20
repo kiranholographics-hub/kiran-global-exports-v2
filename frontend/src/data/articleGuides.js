@@ -287,6 +287,17 @@ const ARTICLE_GUIDES = [
     ],
   },
   {
+    slug: 'towel-defects-explained-and-how-to-classify-them',
+    title: 'Towel defects explained — slubs, missing pile, oil marks and shade variation, and how to classify them',
+    pages: [
+      'solutions/hotel-towels-supplier-what-to-check',
+      'solutions/bulk-hotel-towels',
+      'solutions/cotton-towel-manufacturer-india',
+      'solutions/private-label-towel-manufacturer',
+      'export/uk-cotton-towel-supplier',
+    ],
+  },
+  {
     slug: 'logo-on-towels-woven-embroidered-or-heat-transfer',
     title: 'Putting a logo on towels — woven, embroidered or heat-transfer, and how to choose',
     pages: [

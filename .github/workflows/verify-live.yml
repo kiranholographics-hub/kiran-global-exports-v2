@@ -626,6 +626,20 @@ jobs:
           has /llms.txt \
             "llms.txt lists the where-made guide" "where-towels-and-linen-are-made-in-india"
 
+          echo "── Towel defects guide ──"
+          has /updates/towel-defects-explained-and-how-to-classify-them/ \
+            "the defects guide is rendered" "The defects, in plain words"
+          has /updates/towel-defects-explained-and-how-to-classify-them/ \
+            "the defects guide has a real table" "<table"
+          has /updates/towel-defects-explained-and-how-to-classify-them/ \
+            "the defects guide shows its example defect list" "Writing your own list: an example"
+          has /updates/towel-defects-explained-and-how-to-classify-them/ \
+            "the defects guide links to the hotel towel checklist page" "/solutions/hotel-towels-supplier-what-to-check"
+          lacks /updates/towel-defects-explained-and-how-to-classify-them/ \
+            "the defects guide shows no raw markers" "|---|"
+          has /llms.txt \
+            "llms.txt lists the defects guide" "towel-defects-explained-and-how-to-classify-them"
+
           echo "── Logo on towels guide ──"
           has /updates/logo-on-towels-woven-embroidered-or-heat-transfer/ \
             "the logo guide is rendered" "How set-up cost spreads over the run"
