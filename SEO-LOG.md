@@ -3,6 +3,26 @@
 One entry per session: what changed, and what is still pending. Newest
 first. The routine itself is in SEO-ROUTINE.md.
 
+## 2026-11-22 (backlinks, batch 2)
+
+### Found
+- Web search for "Kiran Global Exports" and "kiranglobal-exports.com"
+  returns nothing about us: the brand has no presence search engines can
+  find yet. Profiles (Google Business Profile, LinkedIn, Bing, B2B
+  directories) come before guest posts.
+- Partner websites from directories: mundadatowels.com (V P Mundada),
+  cotonex.com (Cotonex). Not opened; to be checked before emailing.
+
+### Done
+- `offsite-drafts/backlinks-batch-2.md` (+ PDF): profiles to make first
+  (adds Pinterest and YouTube), partner sites, four free journalist-quote
+  platforms with Raj sir's profile text and an example answer, five
+  guest-post sites, two original guest articles (how a terry towel is
+  made; five mistakes buyers make ordering hotel towels from overseas),
+  pitch email, author bio, tracker.
+- The articles share no 8-word run with any content-drafts guide; they
+  must not be published on our own site.
+
 ## 2026-11-14 (unique content: country pages)
 
 ### Measured (live, 160 English pages, 5-word overlap)
