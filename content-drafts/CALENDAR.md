@@ -93,7 +93,16 @@ site duplicating its own content on the same topic.
 
 ## Drafted, not yet published
 
-None at the moment.
+- Why new towels don't absorb well, and how to specify and test absorbency
+  (37-why-new-towels-dont-absorb-and-how-to-specify-absorbency.md, drafted
+  2026-11-23, Monday routine). Causes (natural wax, softening finish, residue,
+  laundry softener and detergent) and the two test methods (AATCC TM79 drop
+  test, ASTM D4772 water flow for terry) checked against standard listings and
+  finishing sources; the guide says sources disagree on the first wash and
+  that finish-maker material is not test evidence. The drop-test example is
+  labelled hypothetical. No pass mark, no claim about any KGE finish.
+  Complements the test report (#31), spec sheet (#18) and constructions
+  guides.
 
 ## Queued
 

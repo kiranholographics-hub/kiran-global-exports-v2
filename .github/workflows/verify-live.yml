@@ -626,6 +626,20 @@ jobs:
           has /llms.txt \
             "llms.txt lists the where-made guide" "where-towels-and-linen-are-made-in-india"
 
+          echo "── Absorbency guide ──"
+          has /updates/why-new-towels-dont-absorb-and-how-to-specify-absorbency/ \
+            "the absorbency guide is rendered" "How absorbency is tested"
+          has /updates/why-new-towels-dont-absorb-and-how-to-specify-absorbency/ \
+            "the absorbency guide has a real table" "<table"
+          has /updates/why-new-towels-dont-absorb-and-how-to-specify-absorbency/ \
+            "the absorbency guide shows its worked example" "Worked example: why the wash matters"
+          has /updates/why-new-towels-dont-absorb-and-how-to-specify-absorbency/ \
+            "the absorbency guide links to the hotel towel checklist page" "/solutions/hotel-towels-supplier-what-to-check"
+          lacks /updates/why-new-towels-dont-absorb-and-how-to-specify-absorbency/ \
+            "the absorbency guide shows no raw markers" "|---|"
+          has /llms.txt \
+            "llms.txt lists the absorbency guide" "why-new-towels-dont-absorb-and-how-to-specify-absorbency"
+
           echo "── Towel defects guide ──"
           has /updates/towel-defects-explained-and-how-to-classify-them/ \
             "the defects guide is rendered" "The defects, in plain words"

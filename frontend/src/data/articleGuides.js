@@ -298,6 +298,17 @@ const ARTICLE_GUIDES = [
     ],
   },
   {
+    slug: 'why-new-towels-dont-absorb-and-how-to-specify-absorbency',
+    title: "Why new towels don't absorb well — and how to specify and test towel absorbency",
+    pages: [
+      'solutions/hotel-towels-supplier-what-to-check',
+      'solutions/bulk-hotel-towels',
+      'solutions/zero-twist-towel-manufacturer',
+      'solutions/hotel-towel-manufacturer',
+      'solutions/cotton-towel-manufacturer-india',
+    ],
+  },
+  {
     slug: 'logo-on-towels-woven-embroidered-or-heat-transfer',
     title: 'Putting a logo on towels — woven, embroidered or heat-transfer, and how to choose',
     pages: [
