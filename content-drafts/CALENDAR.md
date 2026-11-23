@@ -84,6 +84,15 @@ note in SEO-ROUTINE.md on doorway pages).
   on severity and gives labelled example rules only. No acceptance limits, no
   KGE claims. Complements the inspection (#32), spec sheet (#18) and test
   report (#31) guides.
+- Why new towels don't absorb well, and how to specify and test absorbency
+  (#37; published and live 2026-11-23, Monday routine). Causes (natural wax, softening finish, residue,
+  laundry softener and detergent) and the two test methods (AATCC TM79 drop
+  test, ASTM D4772 water flow for terry) checked against standard listings and
+  finishing sources; the guide says sources disagree on the first wash and
+  that finish-maker material is not test evidence. The drop-test example is
+  labelled hypothetical. No pass mark, no claim about any KGE finish.
+  Complements the test report (#31), spec sheet (#18) and constructions
+  guides.
 
 Note: "what makes a good hotel pool towel" was drafted as an article,
 then retired and rebuilt as a landing page instead
@@ -93,16 +102,7 @@ site duplicating its own content on the same topic.
 
 ## Drafted, not yet published
 
-- Why new towels don't absorb well, and how to specify and test absorbency
-  (37-why-new-towels-dont-absorb-and-how-to-specify-absorbency.md, drafted
-  2026-11-23, Monday routine). Causes (natural wax, softening finish, residue,
-  laundry softener and detergent) and the two test methods (AATCC TM79 drop
-  test, ASTM D4772 water flow for terry) checked against standard listings and
-  finishing sources; the guide says sources disagree on the first wash and
-  that finish-maker material is not test evidence. The drop-test example is
-  labelled hypothetical. No pass mark, no claim about any KGE finish.
-  Complements the test report (#31), spec sheet (#18) and constructions
-  guides.
+None at the moment.
 
 ## Queued
 
