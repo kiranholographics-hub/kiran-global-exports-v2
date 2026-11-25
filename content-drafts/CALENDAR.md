@@ -93,6 +93,15 @@ note in SEO-ROUTINE.md on doorway pages).
   labelled hypothetical. No pass mark, no claim about any KGE finish.
   Complements the test report (#31), spec sheet (#18) and constructions
   guides.
+- Terry towel pile explained: loops, pick count and pile height
+  (#38; published and live 2026-11-25, Wednesday routine). Loop formation (two warps, loose-pick
+  distance, 3-pick as the common pattern) and the tendencies of pile height,
+  loop density and cut or uncut loops come from technical descriptions and
+  retailer guides, and the guide says so. The GSM example (ground and pile
+  split) is labelled hypothetical. No pile heights, pick counts or
+  pile-to-ground ratio are stated (no reliable source found), and nothing is
+  claimed about the pile of any KGE towel. Complements the constructions,
+  yarn, GSM and defects guides.
 
 Note: "what makes a good hotel pool towel" was drafted as an article,
 then retired and rebuilt as a landing page instead
@@ -102,16 +111,7 @@ site duplicating its own content on the same topic.
 
 ## Drafted, not yet published
 
-- Terry towel pile explained: loops, pick count and pile height
-  (38-terry-towel-pile-loops-pick-count-and-pile-height.md, drafted
-  2026-11-25, Wednesday routine). Loop formation (two warps, loose-pick
-  distance, 3-pick as the common pattern) and the tendencies of pile height,
-  loop density and cut or uncut loops come from technical descriptions and
-  retailer guides, and the guide says so. The GSM example (ground and pile
-  split) is labelled hypothetical. No pile heights, pick counts or
-  pile-to-ground ratio are stated (no reliable source found), and nothing is
-  claimed about the pile of any KGE towel. Complements the constructions,
-  yarn, GSM and defects guides.
+None at the moment.
 
 ## Queued
 
