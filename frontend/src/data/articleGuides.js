@@ -309,6 +309,17 @@ const ARTICLE_GUIDES = [
     ],
   },
   {
+    slug: 'terry-towel-pile-loops-pick-count-and-pile-height',
+    title: 'Terry towel pile explained — loops, pick count and pile height, and what they change',
+    pages: [
+      'solutions/hotel-towels-supplier-what-to-check',
+      'solutions/bulk-hotel-towels',
+      'solutions/zero-twist-towel-manufacturer',
+      'solutions/hotel-towel-manufacturer',
+      'solutions/cotton-towel-manufacturer-india',
+    ],
+  },
+  {
     slug: 'logo-on-towels-woven-embroidered-or-heat-transfer',
     title: 'Putting a logo on towels — woven, embroidered or heat-transfer, and how to choose',
     pages: [

@@ -626,6 +626,20 @@ jobs:
           has /llms.txt \
             "llms.txt lists the where-made guide" "where-towels-and-linen-are-made-in-india"
 
+          echo "── Terry pile guide ──"
+          has /updates/terry-towel-pile-loops-pick-count-and-pile-height/ \
+            "the pile guide is rendered" "How the loops are made"
+          has /updates/terry-towel-pile-loops-pick-count-and-pile-height/ \
+            "the pile guide has a real table" "<table"
+          has /updates/terry-towel-pile-loops-pick-count-and-pile-height/ \
+            "the pile guide shows its worked example" "Why GSM alone does not tell you the pile"
+          has /updates/terry-towel-pile-loops-pick-count-and-pile-height/ \
+            "the pile guide links to the hotel towel checklist page" "/solutions/hotel-towels-supplier-what-to-check"
+          lacks /updates/terry-towel-pile-loops-pick-count-and-pile-height/ \
+            "the pile guide shows no raw markers" "|---|"
+          has /llms.txt \
+            "llms.txt lists the pile guide" "terry-towel-pile-loops-pick-count-and-pile-height"
+
           echo "── Absorbency guide ──"
           has /updates/why-new-towels-dont-absorb-and-how-to-specify-absorbency/ \
             "the absorbency guide is rendered" "How absorbency is tested"
