@@ -626,6 +626,20 @@ jobs:
           has /llms.txt \
             "llms.txt lists the where-made guide" "where-towels-and-linen-are-made-in-india"
 
+          echo "── Dyeing methods guide ──"
+          has /updates/yarn-dyed-or-piece-dyed-towels-what-the-dyeing-method-changes/ \
+            "the dyeing guide is rendered" "When the colour goes on"
+          has /updates/yarn-dyed-or-piece-dyed-towels-what-the-dyeing-method-changes/ \
+            "the dyeing guide has a real table" "<table"
+          has /updates/yarn-dyed-or-piece-dyed-towels-what-the-dyeing-method-changes/ \
+            "the dyeing guide shows its worked example" "A worked example: counting the colours"
+          has /updates/yarn-dyed-or-piece-dyed-towels-what-the-dyeing-method-changes/ \
+            "the dyeing guide links to the hotel towel checklist page" "/solutions/hotel-towels-supplier-what-to-check"
+          lacks /updates/yarn-dyed-or-piece-dyed-towels-what-the-dyeing-method-changes/ \
+            "the dyeing guide shows no raw markers" "|---|"
+          has /llms.txt \
+            "llms.txt lists the dyeing guide" "yarn-dyed-or-piece-dyed-towels-what-the-dyeing-method-changes"
+
           echo "── Terry pile guide ──"
           has /updates/terry-towel-pile-loops-pick-count-and-pile-height/ \
             "the pile guide is rendered" "How the loops are made"

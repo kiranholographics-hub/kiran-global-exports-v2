@@ -111,7 +111,17 @@ site duplicating its own content on the same topic.
 
 ## Drafted, not yet published
 
-None at the moment.
+- Yarn-dyed or piece-dyed towels: what the dyeing method changes for stripes,
+  borders and solid colours
+  (39-yarn-dyed-or-piece-dyed-towels-what-the-dyeing-method-changes.md, drafted
+  2026-11-27, Friday routine). Definitions and the stripe/jacquard point come
+  from trade and vendor pages, and the guide says so; reactive dyes bonding to
+  cotton is a standard point, while the reactive-versus-pigment fastness
+  comparison is stated as mixed (one study on printed cotton). The only claim
+  about KGE is the catalogue's own: plain-dyed towels are piece-dyed with
+  reactive dyes, Pantone matching available. The colour-counting example is
+  labelled hypothetical. No prices, no dye recipes. Complements the lab dip,
+  test report, constructions and reorder guides.
 
 ## Queued
 

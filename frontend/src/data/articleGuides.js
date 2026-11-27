@@ -320,6 +320,17 @@ const ARTICLE_GUIDES = [
     ],
   },
   {
+    slug: 'yarn-dyed-or-piece-dyed-towels-what-the-dyeing-method-changes',
+    title: 'Yarn-dyed or piece-dyed towels — what the dyeing method changes for stripes, borders and solid colours',
+    pages: [
+      'solutions/hotel-towels-supplier-what-to-check',
+      'solutions/private-label-towel-manufacturer',
+      'solutions/dobby-border-towel-manufacturer',
+      'solutions/hotel-pool-towels',
+      'solutions/cotton-towel-manufacturer-india',
+    ],
+  },
+  {
     slug: 'logo-on-towels-woven-embroidered-or-heat-transfer',
     title: 'Putting a logo on towels — woven, embroidered or heat-transfer, and how to choose',
     pages: [
